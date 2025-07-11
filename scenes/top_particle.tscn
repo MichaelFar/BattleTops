@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://danlbv3qunohf"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8a17o"]
+emission_shape = 1
+emission_sphere_radius = 0.2
+gravity = Vector3(0, 9.8, 0)
+linear_accel_min = 4.0
+linear_accel_max = 16.0
+scale_max = 1.2
+turbulence_enabled = true
+turbulence_noise_speed_random = 0.64
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5ya1"]
+transparency = 1
+albedo_color = Color(1, 0.913725, 0.117647, 0.513726)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8a17o"]
+material = SubResource("StandardMaterial3D_i5ya1")
+size = Vector3(0.05, 0.05, 0.05)
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+amount = 16
+lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_8a17o")
+draw_pass_1 = SubResource("BoxMesh_8a17o")
