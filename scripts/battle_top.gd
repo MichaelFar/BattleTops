@@ -137,6 +137,7 @@ func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, lo
 		#headCollision.disabled = true
 		
 func kill_top():
+	
 	print("Top died")
 	isDead = true
 	physicsMaterial = PhysicsMaterial.new()
@@ -147,13 +148,12 @@ func kill_top():
 	sturdiness = 0.0
 	spinForce = 0.0
 	physics_material_override = physicsMaterial
+	
 	var timer = get_tree().create_timer(15.0)
 	
 	timer.timeout.connect(queue_free)
 
-
 func check_colliding_then_apply_spin_force():
-	print("Checking hits")
 	
 	for i in get_colliding_bodies():
 		
@@ -182,7 +182,6 @@ func hit_battle_top(battle_top : BattleTop):
 	#tween.finished.connect(kill_top)
 	
 	staminaTween = tween
-
 
 func upgrade_stats(addStamina : float, addSturdiness : float, addSpinForce : float):
 	
