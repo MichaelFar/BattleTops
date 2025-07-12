@@ -12,6 +12,8 @@ class_name BattleTop
 
 @export var particle : GPUParticles3D
 
+@export var hitCheckTimer : Timer
+
 enum TopType {NPC, PLAYER}
 
 var stamina : float = 20
@@ -26,7 +28,6 @@ var spinForce : float = 100
 
 var maxSpinForce : float = 150
 
-
 var topMeshMaterial : StandardMaterial3D 
 
 var color : Color
@@ -39,6 +40,8 @@ var infiniteStaminaMode : bool = false
 
 var minumumLinearVelocity : float = 2.0
 
+var insideArena : bool = false
+
 var staminaTween : Tween :
 	
 	set(value):
@@ -50,8 +53,14 @@ var staminaTween : Tween :
 			staminaTween.kill()
 			
 	get():
+		
 		return staminaTween
+		
 func _ready():
+	
+	hitCheckTimer.start()
+	
+	hitCheckTimer.timeout.connect(check_colliding_then_apply_spin_force)
 	
 	initialize_values()
 
@@ -81,7 +90,7 @@ func initialize_values():
 		
 		mass = rand_obj.randf_range(1.0, 3.0)
 		
-		minumumLinearVelocity = randf_range(0.0, minumumLinearVelocity)
+		minumumLinearVelocity = randf_range(1.0, minumumLinearVelocity)
 		
 		stamina = maxStamina
 		#physicsMaterial.bounce = rand_obj.randf_range(0.0, .75)
@@ -91,7 +100,7 @@ func initialize_values():
 		
 		tween.tween_property(self, "stamina", 0.0, maxStamina)
 		
-		tween.finished.connect(kill_top)
+		#tween.finished.connect(kill_top)
 		
 		staminaTween = tween
 		
@@ -100,6 +109,7 @@ func initialize_values():
 		topMeshMaterial.albedo_color = color
 		
 	topHeadMesh.material_override = topMeshMaterial
+	
 func _physics_process(delta: float) -> void:
 	
 	if(!isDead):
@@ -110,33 +120,15 @@ func _physics_process(delta: float) -> void:
 	
 	particle.emitting = linear_velocity.length() > 3
 	
-	if(linear_velocity.length() < minumumLinearVelocity && !isDead && linear_velocity.y < 0.1):
+	if(linear_velocity.length() < minumumLinearVelocity && !isDead && insideArena):
 		
 		linear_velocity = linear_velocity.normalized() * minumumLinearVelocity
 		
 func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
+	
 	if(body is BattleTop && !isDead):
 		
-		spinForce = ((int(stamina) ^ 2) / maxStamina) * maxSpinForce
-		
-		sturdiness = (stamina / maxStamina) * maxSturdiness
-		
-		body.apply_central_force(global_position.direction_to(body.global_position) * clampf(spinForce - body.sturdiness, 0.0, spinForce + body.sturdiness))
-		
-		stamina += body.spinForce + spinForce
-		
-		if(body.isDead):
-		
-			stamina = maxStamina
-		
-		var tween = get_tree().create_tween()
-	
-		tween.tween_property(self, "stamina", 0.0, maxStamina * (stamina / maxStamina))
-
-		tween.finished.connect(kill_top)
-		
-		staminaTween = tween
-		
+		hit_battle_top(body)
 		
 	elif(body is BattleTop):
 		
@@ -145,7 +137,7 @@ func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, lo
 		#headCollision.disabled = true
 		
 func kill_top():
-	
+	print("Top died")
 	isDead = true
 	physicsMaterial = PhysicsMaterial.new()
 	physicsMaterial.friction = 0.0
@@ -158,6 +150,39 @@ func kill_top():
 	var timer = get_tree().create_timer(15.0)
 	
 	timer.timeout.connect(queue_free)
+
+
+func check_colliding_then_apply_spin_force():
+	print("Checking hits")
+	
+	for i in get_colliding_bodies():
+		
+		if(i is BattleTop):
+			
+			hit_battle_top(i)
+		
+func hit_battle_top(battle_top : BattleTop):
+	
+	spinForce = clampf(((int(stamina) ^ 2) / maxStamina) * maxSpinForce, maxSpinForce / 1.5, 100)
+		
+	sturdiness = (stamina / maxStamina) * maxSturdiness
+	
+	battle_top.apply_central_force(global_position.direction_to(battle_top.global_position) * clampf(spinForce - battle_top.sturdiness, 0.0, 100))
+	
+	stamina += battle_top.spinForce + spinForce
+	
+	if(battle_top.isDead):
+	
+		stamina = maxStamina
+	
+	var tween = get_tree().create_tween()
+
+	tween.tween_property(self, "stamina", 0.0, maxStamina * (stamina / maxStamina))
+
+	#tween.finished.connect(kill_top)
+	
+	staminaTween = tween
+
 
 func upgrade_stats(addStamina : float, addSturdiness : float, addSpinForce : float):
 	

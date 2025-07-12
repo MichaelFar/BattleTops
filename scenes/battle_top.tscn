@@ -22,7 +22,7 @@ resource_local_to_scene = true
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ufdw3"]
 
-[node name="BattleTop" type="RigidBody3D" node_paths=PackedStringArray("topHead", "topHeadMesh", "headCollision", "particle")]
+[node name="BattleTop" type="RigidBody3D" node_paths=PackedStringArray("topHead", "topHeadMesh", "headCollision", "particle", "hitCheckTimer")]
 physics_material_override = SubResource("PhysicsMaterial_ufdw3")
 contact_monitor = true
 max_contacts_reported = 4
@@ -32,6 +32,7 @@ topHeadMesh = NodePath("TopHead/TopHeadMesh")
 physicsMaterial = SubResource("PhysicsMaterial_ul6p0")
 headCollision = NodePath("CollisionShape3D")
 particle = NodePath("TopHead/GPUParticles3D")
+hitCheckTimer = NodePath("HitCheckTimer")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
@@ -59,5 +60,8 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0914399)
 
 [node name="StaminaTimer" type="Timer" parent="."]
+
+[node name="HitCheckTimer" type="Timer" parent="."]
+wait_time = 0.5
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
