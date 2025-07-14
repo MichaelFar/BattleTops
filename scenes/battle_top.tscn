@@ -10,7 +10,6 @@ friction = 0.0
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ul6p0"]
 resource_local_to_scene = true
 friction = 0.0
-bounce = 0.58
 
 [sub_resource type="SphereMesh" id="SphereMesh_ufdw3"]
 
@@ -62,6 +61,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0914399)
 [node name="StaminaTimer" type="Timer" parent="."]
 
 [node name="HitCheckTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.3
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

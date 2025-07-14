@@ -1,0 +1,375 @@
+[gd_scene load_steps=8 format=3 uid="uid://d1pug181d3iuo"]
+
+[ext_resource type="Script" uid="uid://dtcbfjrulbrnb" path="res://scripts/upgrade_ui.gd" id="1_6ij7f"]
+[ext_resource type="Script" uid="uid://bl6n6826dgkx7" path="res://addons/richtext2/text_effects/anims/rte_redact.gd" id="1_gbnav"]
+[ext_resource type="Script" uid="uid://mkih5spu6eqp" path="res://addons/richtext2/rich_text_animation.gd" id="3_onvvk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ewqot"]
+font_size = 64
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_onvvk"]
+resource_name = "redact"
+script = ExtResource("1_gbnav")
+metadata/rt = 23556083812021
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_gbnav"]
+resource_name = "redact"
+script = ExtResource("1_gbnav")
+metadata/rt = 30576895724623
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_6ij7f"]
+resource_name = "redact"
+script = ExtResource("1_gbnav")
+metadata/rt = 30740993674423
+
+[node name="Control" type="Control" node_paths=PackedStringArray("staminaLabel", "sturdinessLabel", "spinForceLabel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6ij7f")
+staminaLabel = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2/StaminaValue")
+sturdinessLabel = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SturdinessValue")
+spinForceLabel = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2/SpinForceValue")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.5
+offset_top = -221.5
+offset_right = 254.5
+offset_bottom = 221.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="StaminaLabel" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Stamina  "
+label_settings = SubResource("LabelSettings_ewqot")
+
+[node name="SturdinessLabel" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sturdiness "
+label_settings = SubResource("LabelSettings_ewqot")
+
+[node name="spinForce" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Spin Force "
+label_settings = SubResource("LabelSettings_ewqot")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="StaminaValue" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+clip_contents = false
+custom_minimum_size = Vector2(128, 88)
+layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 64
+theme_override_font_sizes/italics_font_size = 64
+theme_override_font_sizes/mono_font_size = 64
+theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/bold_font_size = 64
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+custom_effects = [SubResource("RichTextEffect_onvvk")]
+script = ExtResource("3_onvvk")
+animation = "redact"
+_hold = true
+progress = 1.0
+visible_character = 4
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 25, 69), Transform2D(1, 0, 0, 1, 62, 69), Transform2D(1, 0, 0, 1, 93, 69)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(33, 50), Vector2(28, 50), Vector2(25, 50)])
+_alpha = Array[float]([1.0, 1.0, 1.0, 1.0])
+_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0])
+_forced_finish_delay = -0.047867
+animation = "redact"
+default_wait_time = 1.0
+play_on_bbcode = true
+play_speed = 30.0
+fade_out = false
+fade_in_speed = 10.0
+fade_out_speed = 120.0
+ctc_offset = Vector2(1, -0.5)
+ctc_on_finished = false
+ctc_on_wait = false
+shortcut_expression = true
+shortcut_bookmark = true
+signal_quotes = true
+signal_stars = true
+bbcode = "test"
+effects = 2
+alignment = 0
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 64
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+fit_width = true
+fit_width_padding = 10
+metadata/_custom_type_script = "uid://mkih5spu6eqp"
+metadata/rand = Array[int]([2800208240, 2057223724, 3097015752, 2954115180])
+metadata/mouse_position = Vector2(1631.66, -97.9069)
+metadata/frame = 406189
+
+[node name="SturdinessValue" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+clip_contents = false
+custom_minimum_size = Vector2(128, 88)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/bold_italics_font_size = 64
+theme_override_font_sizes/italics_font_size = 64
+theme_override_font_sizes/mono_font_size = 64
+theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/bold_font_size = 64
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+custom_effects = [SubResource("RichTextEffect_gbnav")]
+script = ExtResource("3_onvvk")
+animation = "redact"
+_hold = true
+progress = 1.0
+visible_character = 4
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 25, 69), Transform2D(1, 0, 0, 1, 62, 69), Transform2D(1, 0, 0, 1, 93, 69)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(33, 50), Vector2(28, 50), Vector2(25, 50)])
+_alpha = Array[float]([1.0, 1.0, 1.0, 1.0])
+_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0])
+_forced_finish_delay = -0.047867
+animation = "redact"
+default_wait_time = 1.0
+play_on_bbcode = true
+play_speed = 30.0
+fade_out = false
+fade_in_speed = 10.0
+fade_out_speed = 120.0
+ctc_offset = Vector2(1, -0.5)
+ctc_on_finished = false
+ctc_on_wait = false
+shortcut_expression = true
+shortcut_bookmark = true
+signal_quotes = true
+signal_stars = true
+bbcode = "test"
+effects = 2
+alignment = 3
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 64
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+fit_width = true
+fit_width_padding = 10
+metadata/_custom_type_script = "uid://mkih5spu6eqp"
+metadata/rand = Array[int]([2800208240, 2057223724, 3097015752, 2954115180])
+metadata/mouse_position = Vector2(1631.66, -97.9069)
+metadata/frame = 406189
+
+[node name="SpinForceValue" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+clip_contents = false
+custom_minimum_size = Vector2(128, 88)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/bold_italics_font_size = 64
+theme_override_font_sizes/italics_font_size = 64
+theme_override_font_sizes/mono_font_size = 64
+theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/bold_font_size = 64
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+custom_effects = [SubResource("RichTextEffect_6ij7f")]
+script = ExtResource("3_onvvk")
+animation = "redact"
+_hold = true
+progress = 1.0
+visible_character = 4
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 25, 69), Transform2D(1, 0, 0, 1, 62, 69), Transform2D(1, 0, 0, 1, 93, 69)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(33, 50), Vector2(28, 50), Vector2(25, 50)])
+_alpha = Array[float]([1.0, 1.0, 1.0, 1.0])
+_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0])
+_forced_finish_delay = -0.047867
+animation = "redact"
+default_wait_time = 1.0
+play_on_bbcode = true
+play_speed = 30.0
+fade_out = false
+fade_in_speed = 10.0
+fade_out_speed = 120.0
+ctc_offset = Vector2(1, -0.5)
+ctc_on_finished = false
+ctc_on_wait = false
+shortcut_expression = true
+shortcut_bookmark = true
+signal_quotes = true
+signal_stars = true
+bbcode = "test"
+effects = 2
+alignment = 3
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 64
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+fit_width = true
+fit_width_padding = 10
+metadata/_custom_type_script = "uid://mkih5spu6eqp"
+metadata/rand = Array[int]([2800208240, 2057223724, 3097015752, 2954115180])
+metadata/mouse_position = Vector2(1631.66, -97.9069)
+metadata/frame = 406189
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="UpgradeStamina" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 32
+text = "Upgrade Stamina"
+
+[node name="UpgradeSturdiness" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 32
+text = "Upgrade Sturdiness"
+
+[node name="UpgradeSpinForce" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 32
+text = "Upgrade Spin Force"
+
+[connection signal="button_up" from="HBoxContainer/VBoxContainer/VBoxContainer3/UpgradeStamina" to="." method="_on_upgrade_stamina_button_up"]
+[connection signal="button_up" from="HBoxContainer/VBoxContainer/VBoxContainer3/UpgradeSturdiness" to="." method="_on_upgrade_sturdiness_button_up"]
+[connection signal="button_up" from="HBoxContainer/VBoxContainer/VBoxContainer3/UpgradeSpinForce" to="." method="_on_upgrade_spin_force_button_up"]

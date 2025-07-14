@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=4 uid="uid://bo0tlkahcq0h1"]
+[gd_scene load_steps=20 format=4 uid="uid://bo0tlkahcq0h1"]
 
 [ext_resource type="Script" uid="uid://bgpx0fo1suclw" path="res://scripts/arena.gd" id="1_uwlbn"]
 [ext_resource type="PackedScene" uid="uid://d1k0hl6r0jkh0" path="res://scenes/battle_top.tscn" id="2_ojxb6"]
+[ext_resource type="PackedScene" uid="uid://j8m5jtfetlre" path="res://scenes/prompt_ui.tscn" id="3_ojxb6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnskq"]
 resource_name = "initialShadingGroup"
@@ -77,21 +78,25 @@ data = PackedVector3Array(-0.0675, 0.03, 1, 0.0675, 0.03, 1, -0.0675, -0.03, 1, 
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_uwlbn"]
 height = 1.75
-radius = 0.802734
+radius = 0.626465
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uwlbn"]
 size = Vector3(200.253, 1, 180.82)
 
-[node name="SmallArena" type="Node3D" node_paths=PackedStringArray("orientPoint", "spawnMarkerArray", "spawnTimer")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ojxb6"]
+size = Vector3(16.6166, 1, 16.5143)
+
+[node name="SmallArena" type="Node3D" node_paths=PackedStringArray("orientPoint", "spawnMarkerArray", "spawnTimer", "popupUI")]
 script = ExtResource("1_uwlbn")
 orientPoint = NodePath("TopOrientPoint")
 spawnMarkerArray = [NodePath("MeshInstance3D4/MeshInstance3D2/SpawnPoint2"), NodePath("MeshInstance3D5/MeshInstance3D2/SpawnPoint2")]
 spawnTimer = NodePath("SpawnTimer")
 battleTopScene = ExtResource("2_ojxb6")
 numRounds = 1
+popupUI = NodePath("PromptUI")
 
 [node name="BattleBowl" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -0.619279, 0)
+transform = Transform3D(0.602395, 0, 0, 0, 0.575896, 0, 0, 0, 0.438901, 0, -0.545717, 0)
 mesh = SubResource("ArrayMesh_4y73j")
 surface_material_override/0 = SubResource("StandardMaterial3D_uwlbn")
 
@@ -108,7 +113,8 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0985455, -0.0381694, -0.994401, -0.699049, 0.713845, 0.0418757, 0.70825, 0.699261, -0.0970287, -2.277, 0.895, 0.055)
+transform = Transform3D(-0.00531967, 0.0533681, -0.998562, -0.699049, 0.713845, 0.0418757, 0.715053, 0.698265, 0.0335096, -2.277, 0.895, 0.055)
+visible = false
 mesh = SubResource("BoxMesh_ojxb6")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="MeshInstance3D4"]
@@ -130,6 +136,7 @@ transform = Transform3D(0.743288, 0.552849, -0.376671, -0.668307, 0.638741, -0.3
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0120673, -0.0459088, 0.998873, -0.695454, 0.717377, 0.0413733, -0.718468, -0.69517, -0.0232706, 2.273, 0.89515, -0.173048)
+visible = false
 mesh = SubResource("BoxMesh_ojxb6")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="MeshInstance3D5"]
@@ -161,6 +168,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22403, 0)
 transform = Transform3D(1, 0, 0, 0, 0.813953, 0.58093, 0, -0.58093, 0.813953, -0.00660191, 1.39191, 1.28464)
 
 [node name="InnerArenaVolume" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.427859, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InnerArenaVolume"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
@@ -172,6 +180,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.53592, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KillPlane"]
 shape = SubResource("BoxShape3D_uwlbn")
 
+[node name="PromptUI" parent="." node_paths=PackedStringArray("activeArena") instance=ExtResource("3_ojxb6")]
+visible = false
+activeArena = NodePath("..")
+
+[node name="DeathPlane" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathPlane"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0983276, 0, -0.325165)
+shape = SubResource("BoxShape3D_ojxb6")
+
 [connection signal="body_entered" from="InnerArenaVolume" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="InnerArenaVolume" to="." method="_on_area_3d_body_exited"]
 [connection signal="body_shape_entered" from="KillPlane" to="." method="_on_kill_plane_body_shape_entered"]
+[connection signal="said_no" from="PromptUI" to="." method="restart_round_with_random"]

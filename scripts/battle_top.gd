@@ -42,6 +42,26 @@ var minumumLinearVelocity : float = 2.0
 
 var insideArena : bool = false
 
+var hasBeenHit : bool = false # Forgiveness
+
+var shouldBeRandom : bool = true
+
+var currentGameMode : GlobalStats.GameMode : 
+	
+	set(value):
+		
+		currentGameMode = value
+		
+		match value:
+			
+			GlobalStats.GameMode.SCREENSAVER:
+				
+				shouldBeRandom = true
+	
+	get():
+	
+		return currentGameMode
+
 var staminaTween : Tween :
 	
 	set(value):
@@ -62,6 +82,8 @@ func _ready():
 	
 	hitCheckTimer.timeout.connect(check_colliding_then_apply_spin_force)
 	
+	currentGameMode = GlobalStats.currentGameMode
+	
 	initialize_values()
 
 func initialize_values():
@@ -74,7 +96,7 @@ func initialize_values():
 	
 	infiniteStaminaMode = GlobalStats.infiniteStaminaMode
 	
-	if(GlobalStats.currentGameMode == GlobalStats.GameMode.SCREENSAVER):
+	if(shouldBeRandom):
 		
 		var rand_obj = RandomNumberGenerator.new()
 		
@@ -94,7 +116,6 @@ func initialize_values():
 		
 		stamina = maxStamina
 		#physicsMaterial.bounce = rand_obj.randf_range(0.0, .75)
-		
 		
 		var tween = get_tree().create_tween()
 		
@@ -118,7 +139,7 @@ func _physics_process(delta: float) -> void:
 		
 	topHead.global_position = global_position
 	
-	particle.emitting = linear_velocity.length() > 3
+	particle.emitting = linear_velocity.length() > 2.5
 	
 	if(linear_velocity.length() < minumumLinearVelocity && !isDead && insideArena):
 		
@@ -163,9 +184,24 @@ func check_colliding_then_apply_spin_force():
 		
 func hit_battle_top(battle_top : BattleTop):
 	
-	spinForce = clampf(((int(stamina) ^ 2) / maxStamina) * maxSpinForce, maxSpinForce / 1.5, 100)
-		
+	print("Hitting top")
+	
+	spinForce = clampf((stamina / maxStamina) * maxSpinForce, maxSpinForce * 1.5, 1000)
+	print("Spin force is " + str(spinForce))
 	sturdiness = (stamina / maxStamina) * maxSturdiness
+	
+	#physicsMaterial.absorbent = !hasBeenHit
+	#
+	#physics_material_override = physicsMaterial
+	#
+	if(!hasBeenHit):
+		
+		hasBeenHit = true
+		
+	else:
+		physicsMaterial.absorbent = false
+	
+		physics_material_override = physicsMaterial
 	
 	battle_top.apply_central_force(global_position.direction_to(battle_top.global_position) * clampf(spinForce - battle_top.sturdiness, 0.0, 100))
 	
@@ -176,15 +212,15 @@ func hit_battle_top(battle_top : BattleTop):
 		stamina = maxStamina
 	
 	var tween = get_tree().create_tween()
-
+	
 	tween.tween_property(self, "stamina", 0.0, maxStamina * (stamina / maxStamina))
 
 	#tween.finished.connect(kill_top)
-	
+	print(stamina)
 	staminaTween = tween
 
 func upgrade_stats(addStamina : float, addSturdiness : float, addSpinForce : float):
 	
-	GlobalStats.playerStats[stamina] += addStamina
-	GlobalStats.playerStats[sturdiness] += addSturdiness
-	GlobalStats.playerStats[spinForce] += addSpinForce
+	GlobalStats.playerStats["stamina"] += addStamina
+	GlobalStats.playerStats["sturdiness"] += addSturdiness
+	GlobalStats.playerStats["spinForce"] += addSpinForce
