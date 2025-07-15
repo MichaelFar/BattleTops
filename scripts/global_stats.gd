@@ -38,6 +38,12 @@ var infiniteStaminaMode : bool = false
 
 var goldAmount : int = 200
 
+var staminaCost : int = 50
+
+var sturdinessCost : int = 50
+
+var spinForceCost : int = 50
+
 var playerStats : Dictionary = {
 	"stamina" : 20.0,
 	"sturdiness" : 40.0,

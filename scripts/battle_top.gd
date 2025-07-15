@@ -16,7 +16,11 @@ class_name BattleTop
 
 enum TopType {NPC, PLAYER}
 
-var stamina : float = 20
+var stamina : float = 20 :
+	set(value):
+		stamina = value
+		if(stamina <= maxStamina / 3.0):
+			has_low_stamina.emit()
 
 var maxStamina : float = 40
 
@@ -44,7 +48,7 @@ var insideArena : bool = false
 
 var hasBeenHit : bool = false # Forgiveness
 
-var shouldBeRandom : bool = true
+var shouldBeRandom : bool = false
 
 var currentGameMode : GlobalStats.GameMode : 
 	
@@ -76,6 +80,14 @@ var staminaTween : Tween :
 		
 		return staminaTween
 		
+
+var isPlayer : bool = true
+
+
+signal has_hit_top
+signal has_sparked
+signal has_low_stamina
+
 func _ready():
 	
 	hitCheckTimer.start()
@@ -96,6 +108,14 @@ func initialize_values():
 	
 	infiniteStaminaMode = GlobalStats.infiniteStaminaMode
 	
+	if(isPlayer):
+		
+		maxStamina = GlobalStats.playerStats["stamina"]
+		stamina = maxStamina
+		sturdiness = GlobalStats.playerStats["sturdiness"]
+		spinForce = GlobalStats.playerStats["spinForce"]
+		maxSpinForce = spinForce
+	
 	if(shouldBeRandom):
 		
 		var rand_obj = RandomNumberGenerator.new()
@@ -112,23 +132,26 @@ func initialize_values():
 		
 		mass = rand_obj.randf_range(1.0, 3.0)
 		
-		minumumLinearVelocity = randf_range(1.0, minumumLinearVelocity)
-		
 		stamina = maxStamina
 		#physicsMaterial.bounce = rand_obj.randf_range(0.0, .75)
+	
+	minumumLinearVelocity = randf_range(1.0, minumumLinearVelocity)
 		
-		var tween = get_tree().create_tween()
+	var tween = get_tree().create_tween()
+	
+	tween.tween_property(self, "stamina", 0.0, maxStamina)
+	
+	#tween.finished.connect(kill_top)
+	
+	staminaTween = tween
 		
-		tween.tween_property(self, "stamina", 0.0, maxStamina)
+	
+	
+	
+	color = Color(sturdiness / 130,spinForce / 200,stamina / 60)
 		
-		#tween.finished.connect(kill_top)
-		
-		staminaTween = tween
-		
-		color = Color(sturdiness / 130,spinForce / 200,stamina / 60)
-		
-		topMeshMaterial.albedo_color = color
-		
+	topMeshMaterial.albedo_color = color
+	
 	topHeadMesh.material_override = topMeshMaterial
 	
 func _physics_process(delta: float) -> void:
@@ -202,6 +225,8 @@ func hit_battle_top(battle_top : BattleTop):
 		physicsMaterial.absorbent = false
 	
 		physics_material_override = physicsMaterial
+	
+	has_hit_top.emit()
 	
 	battle_top.apply_central_force(global_position.direction_to(battle_top.global_position) * clampf(spinForce - battle_top.sturdiness, 0.0, 100))
 	
