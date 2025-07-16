@@ -1,22 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvqat4t6weo8b"]
+[gd_scene load_steps=7 format=3 uid="uid://taq5glodwni3"]
 
-[ext_resource type="Script" uid="uid://c7eg87712vl1x" path="res://scripts/prompt_ui.gd" id="1_usd60"]
-[ext_resource type="Script" uid="uid://whtuvsbwrh6h" path="res://addons/richtext2/text_effects/effects/rte_sin.gd" id="2_c4gaa"]
-[ext_resource type="Script" uid="uid://db0s3rfk26712" path="res://addons/richtext2/richer_text_label.gd" id="2_m6516"]
-[ext_resource type="Script" uid="uid://dsqu2erlwyv54" path="res://addons/richtext2/text_effects/effects/rte_heart.gd" id="3_aeowc"]
+[ext_resource type="Script" uid="uid://c7eg87712vl1x" path="res://scripts/prompt_ui.gd" id="1_s06gy"]
+[ext_resource type="Script" uid="uid://177a4xqf2mm4" path="res://addons/richtext2/text_effects/effects/rte_wack.gd" id="2_f2yvc"]
+[ext_resource type="Script" uid="uid://db0s3rfk26712" path="res://addons/richtext2/richer_text_label.gd" id="4_68ijf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6516"]
 bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_c4gaa"]
-resource_name = "sin"
-script = ExtResource("2_c4gaa")
-metadata/rt = 22716619008740
-
-[sub_resource type="RichTextEffect" id="RichTextEffect_aeowc"]
-resource_name = "heart"
-script = ExtResource("3_aeowc")
-metadata/rt = 22716619008740
+[sub_resource type="RichTextEffect" id="RichTextEffect_s06gy"]
+resource_name = "wack"
+script = ExtResource("2_f2yvc")
+metadata/rt = 17922361763240
 
 [sub_resource type="FontFile" id="FontFile_lpym6"]
 subpixel_positioning = 0
@@ -38,14 +32,14 @@ cache/0/64/0/underline_position = 0.0
 cache/0/64/0/underline_thickness = 0.0
 cache/0/64/0/scale = 1.0
 
-[node name="round_end_ui" type="Control"]
+[node name="OopsUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_usd60")
+script = ExtResource("1_s06gy")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -83,9 +77,9 @@ theme_override_font_sizes/normal_font_size = 64
 theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_c4gaa"), SubResource("RichTextEffect_aeowc")]
-script = ExtResource("2_m6516")
-bbcode = "[sin][heart]Round Won!"
+custom_effects = [SubResource("RichTextEffect_s06gy")]
+script = ExtResource("4_68ijf")
+bbcode = "[wack]Oops..."
 effects = 2
 alignment = 1
 color = Color(1, 1, 1, 1)
@@ -134,6 +128,7 @@ override_fitContent = true
 fit_width = false
 fit_width_padding = 10
 metadata/_custom_type_script = "uid://db0s3rfk26712"
+metadata/rand = Array[int]([2431052285, 2349716476, 978464, 1372150156, 165224506, 3067221228, 2674850899])
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -142,6 +137,6 @@ layout_mode = 2
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_lpym6")
 theme_override_font_sizes/font_size = 64
-text = "Upgrades"
+text = "Restart"
 
 [connection signal="button_up" from="VBoxContainer/Button" to="." method="_on_button_button_up"]

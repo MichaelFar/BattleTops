@@ -20,6 +20,10 @@ class_name ArenaLevelManager
 
 @export var nextRoundUI : Control
 
+@export var oopsUI : Control
+
+@export var camera : Camera3D
+
 var topChildren : Array[BattleTop]
 
 var hasChosenTop : bool = false
@@ -36,7 +40,7 @@ func _ready() -> void:
 	
 	spawnTimer.timeout.connect(spawn_battle_top)
 	
-	
+	#camera.set_is_shaking(1.0)
 
 func next_round():
 	
@@ -59,6 +63,8 @@ func spawn_battle_top():
 			top_object.orientPoint = orientPoint
 			topChildren.append(top_object)
 			print("spawned top")
+			
+			top_object.has_hit_top.connect(camera.set_is_shaking.bind(0.02))
 			
 			if(i == 0 
 			&& GlobalStats.currentGameMode == GlobalStats.GameMode.CAREER
@@ -147,7 +153,7 @@ func _on_kill_plane_body_shape_entered(body_rid: RID, body: Node3D, body_shape_i
 				
 				popupUI.set_hidden(true)
 				
-				restart_round_with_random()
+				oopsUI.set_hidden(false)
 			
 			if(body == playerTop):
 				
@@ -157,9 +163,11 @@ func _on_kill_plane_body_shape_entered(body_rid: RID, body: Node3D, body_shape_i
 				
 				playerTop = null
 		
-			if(topChildren[0] == playerTop && topChildren.size() == 1):
+			if(topChildren.size() == 1):
 				
-				nextRoundUI.set_hidden(false)
+				if(topChildren[0] == playerTop ):
+				
+					nextRoundUI.set_hidden(false)
 				
 		body.kill_top()
 		
@@ -186,6 +194,10 @@ func _on_prompt_ui_restart_round_said_yes() -> void:
 	hasChosenTop = false
 	restartUI.set_hidden(true)
 	GlobalStats.goldAmount = GlobalStats.defaultGoldAmount
+	GlobalStats.staminaCost = 50
+	GlobalStats.sturdinessCost = 50
+	GlobalStats.spinForceCost = 50
+	upgradeUI.set_costs_to_default()
 	restart_round_with_random()
 
 func update_player_top_stats():
@@ -196,3 +208,7 @@ func _on_round_end_ui_said_yes() -> void:
 	
 	upgradeUI.set_hidden(false)
 	nextRoundUI.set_hidden(true)
+
+
+func _on_oops_ui_said_yes() -> void:
+	_on_prompt_ui_restart_round_said_yes()

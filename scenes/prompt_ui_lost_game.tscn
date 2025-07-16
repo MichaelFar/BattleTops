@@ -12,17 +12,17 @@ bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 [sub_resource type="RichTextEffect" id="RichTextEffect_unyuq"]
 resource_name = "sin"
 script = ExtResource("2_unyuq")
-metadata/rt = 65066019930160
+metadata/rt = 22697392320144
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_hqumn"]
 resource_name = "sway"
 script = ExtResource("3_hqumn")
-metadata/rt = 65066019930160
+metadata/rt = 22697392320144
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_k7nnj"]
 resource_name = "beat"
 script = ExtResource("4_k7nnj")
-metadata/rt = 65066019930160
+metadata/rt = 22697392320144
 
 [sub_resource type="FontFile" id="FontFile_lpym6"]
 subpixel_positioning = 0
@@ -78,13 +78,17 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="RichTextLabel" parent="VBoxContainer"]
+clip_contents = false
 custom_minimum_size = Vector2(0, 176)
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
 theme_override_font_sizes/bold_italics_font_size = 64
 theme_override_font_sizes/italics_font_size = 64
 theme_override_font_sizes/mono_font_size = 64
 theme_override_font_sizes/normal_font_size = 64
 theme_override_font_sizes/bold_font_size = 64
+bbcode_enabled = true
+fit_content = true
 custom_effects = [SubResource("RichTextEffect_unyuq"), SubResource("RichTextEffect_hqumn"), SubResource("RichTextEffect_k7nnj")]
 script = ExtResource("2_j478p")
 bbcode = "[sin][shake][sway][beat]You've Lost, Restart?"

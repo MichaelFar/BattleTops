@@ -140,3 +140,7 @@ func _on_next_round_button_button_up() -> void:
 	set_hidden(true)
 	next_round_button_pressed.emit()
 	
+func set_costs_to_default():
+	staminaCost = GlobalStats.staminaCost
+	sturdinessCost = GlobalStats.sturdinessCost
+	spinForceCost = GlobalStats.spinForceCost
