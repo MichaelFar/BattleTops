@@ -48,7 +48,9 @@ var insideArena : bool = false
 
 var hasBeenHit : bool = false # Forgiveness
 
-var shouldBeRandom : bool = false
+var shouldBeRandom : bool = true
+
+var moneyReward : float = 0.0
 
 var currentGameMode : GlobalStats.GameMode : 
 	
@@ -134,7 +136,7 @@ func initialize_values():
 		
 		stamina = maxStamina
 		#physicsMaterial.bounce = rand_obj.randf_range(0.0, .75)
-	
+		print("Generated random stats")
 	minumumLinearVelocity = randf_range(1.0, minumumLinearVelocity)
 		
 	var tween = get_tree().create_tween()
@@ -144,9 +146,6 @@ func initialize_values():
 	#tween.finished.connect(kill_top)
 	
 	staminaTween = tween
-		
-	
-	
 	
 	color = Color(sturdiness / 130,spinForce / 200,stamina / 60)
 		
@@ -236,16 +235,24 @@ func hit_battle_top(battle_top : BattleTop):
 	
 		stamina = maxStamina
 	
+	staminaTween = create_stamina_tween()
+	
+func create_stamina_tween():
 	var tween = get_tree().create_tween()
 	
 	tween.tween_property(self, "stamina", 0.0, maxStamina * (stamina / maxStamina))
 
 	#tween.finished.connect(kill_top)
 	print(stamina)
-	staminaTween = tween
-
+	return tween
 func upgrade_stats(addStamina : float, addSturdiness : float, addSpinForce : float):
 	
 	GlobalStats.playerStats["stamina"] += addStamina
 	GlobalStats.playerStats["sturdiness"] += addSturdiness
 	GlobalStats.playerStats["spinForce"] += addSpinForce
+
+func update_stats():
+	
+	maxStamina = GlobalStats.playerStats["stamina"] 
+	maxSturdiness = GlobalStats.playerStats["sturdiness"]
+	maxSpinForce = GlobalStats.playerStats["spinForce"]

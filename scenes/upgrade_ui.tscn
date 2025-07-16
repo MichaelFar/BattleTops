@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d1pug181d3iuo"]
+[gd_scene load_steps=26 format=3 uid="uid://d1pug181d3iuo"]
 
 [ext_resource type="Script" uid="uid://dtcbfjrulbrnb" path="res://scripts/upgrade_ui.gd" id="1_6ij7f"]
 [ext_resource type="Script" uid="uid://bl6n6826dgkx7" path="res://addons/richtext2/text_effects/anims/rte_redact.gd" id="1_gbnav"]
@@ -9,85 +9,84 @@
 [ext_resource type="Script" uid="uid://cpy0q7oftipjl" path="res://addons/richtext2/text_effects/effects/rte_sway.gd" id="7_soydq"]
 [ext_resource type="Script" uid="uid://c1fb7eyvni4ky" path="res://addons/richtext2/text_effects/effects/rte_jit2.gd" id="8_2wj67"]
 [ext_resource type="Script" uid="uid://oiu4p0qjddwa" path="res://addons/richtext2/text_effects/anims/rte_growin.gd" id="9_soydq"]
-[ext_resource type="Script" uid="uid://bhitxkp4k2mtn" path="res://addons/richtext2/text_effects/anims/rte_fallin.gd" id="10_2wj67"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_soydq"]
 bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_soydq"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_g3bku"]
 resource_name = "fader"
 script = ExtResource("2_6ij7f")
-metadata/rt = 25354601340042
+metadata/rt = 55238698577488
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_2wj67"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_soydq"]
 resource_name = "heart"
 script = ExtResource("3_fq5lg")
-metadata/rt = 25354601340042
+metadata/rt = 55238698577488
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_2wj67"]
+resource_name = "redact"
+script = ExtResource("1_gbnav")
+metadata/rt = 55257690387890
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ratfy"]
-resource_name = "redact"
-script = ExtResource("1_gbnav")
-metadata/rt = 25373593153575
-
-[sub_resource type="RichTextEffect" id="RichTextEffect_may18"]
 resource_name = "sin"
 script = ExtResource("6_g3bku")
-metadata/rt = 25373593153575
+metadata/rt = 55257690387890
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_may18"]
+resource_name = "redact"
+script = ExtResource("1_gbnav")
+metadata/rt = 55276682195844
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_4pgft"]
-resource_name = "redact"
-script = ExtResource("1_gbnav")
-metadata/rt = 25392584960097
-
-[sub_resource type="RichTextEffect" id="RichTextEffect_oec1f"]
 resource_name = "sway"
 script = ExtResource("7_soydq")
-metadata/rt = 25392584960097
+metadata/rt = 55276682195844
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_srdp0"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_oec1f"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 25411576741100
+metadata/rt = 55295674001531
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_w5ndc"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_srdp0"]
 resource_name = "jit2"
 script = ExtResource("8_2wj67")
-metadata/rt = 25411576741100
+metadata/rt = 55295674001531
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_w5ndc"]
+resource_name = "growin"
+script = ExtResource("9_soydq")
+metadata/rt = 55314699363397
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_oq6v8"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 25430602131604
+metadata/rt = 55333691179167
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_mh5b7"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 25449593939398
+metadata/rt = 55352682980494
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_7j37j"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 25468585748522
+metadata/rt = 55371674796421
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_8axjk"]
-resource_name = "growin"
-script = ExtResource("9_soydq")
-metadata/rt = 25487577557505
+resource_name = "redact"
+script = ExtResource("1_gbnav")
+metadata/rt = 55391069258210
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_c74tn"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 25506988795301
+metadata/rt = 55410061066631
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_milu8"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 25525980603063
-
-[sub_resource type="RichTextEffect" id="RichTextEffect_18trd"]
-resource_name = "fallin"
-script = ExtResource("10_2wj67")
-metadata/rt = 25544972415000
+metadata/rt = 55429069652193
 
 [node name="Control" type="Control" node_paths=PackedStringArray("staminaLabel", "sturdinessLabel", "spinForceLabel", "staminaCostLabel", "sturdinessCostLabel", "spinForceCostLabel", "moneyAmountValueLabel")]
 layout_mode = 3
@@ -104,9 +103,9 @@ staminaCostLabel = NodePath("HBoxContainer/VBoxContainer/HBoxContainer2/VBoxCont
 sturdinessCostLabel = NodePath("HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer4/SturdinessCost")
 spinForceCostLabel = NodePath("HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer4/SpinForceCost")
 moneyAmountValueLabel = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2/MoneyAmountValue")
-staminaUpgradeAmount = 100.0
-sturdinessUpgradeAmount = 10.0
-spinForceUpgradeAmount = 200.0
+staminaUpgradeAmount = 15.0
+sturdinessUpgradeAmount = 30.0
+spinForceUpgradeAmount = 40.0
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -125,10 +124,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -254.5
-offset_top = -221.5
-offset_right = 254.5
-offset_bottom = 221.5
+offset_left = -505.5
+offset_top = -288.5
+offset_right = 505.5
+offset_bottom = 288.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -156,7 +155,7 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_soydq"), SubResource("RichTextEffect_2wj67")]
+custom_effects = [SubResource("RichTextEffect_g3bku"), SubResource("RichTextEffect_soydq")]
 script = ExtResource("3_onvvk")
 _hold = true
 progress = 1.0
@@ -245,7 +244,7 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_ratfy"), SubResource("RichTextEffect_may18")]
+custom_effects = [SubResource("RichTextEffect_2wj67"), SubResource("RichTextEffect_ratfy")]
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
@@ -336,7 +335,7 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_4pgft"), SubResource("RichTextEffect_oec1f")]
+custom_effects = [SubResource("RichTextEffect_may18"), SubResource("RichTextEffect_4pgft")]
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
@@ -427,7 +426,7 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_srdp0"), SubResource("RichTextEffect_w5ndc")]
+custom_effects = [SubResource("RichTextEffect_oec1f"), SubResource("RichTextEffect_srdp0")]
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
@@ -521,7 +520,7 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_oq6v8")]
+custom_effects = [SubResource("RichTextEffect_w5ndc")]
 script = ExtResource("3_onvvk")
 animation = "growin"
 _hold = true
@@ -612,7 +611,7 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_mh5b7")]
+custom_effects = [SubResource("RichTextEffect_oq6v8")]
 script = ExtResource("3_onvvk")
 animation = "growin"
 _hold = true
@@ -703,7 +702,7 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_7j37j")]
+custom_effects = [SubResource("RichTextEffect_mh5b7")]
 script = ExtResource("3_onvvk")
 animation = "growin"
 _hold = true
@@ -794,14 +793,14 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_8axjk")]
+custom_effects = [SubResource("RichTextEffect_7j37j")]
 script = ExtResource("3_onvvk")
 animation = "growin"
 _hold = true
 progress = 1.0
 visible_character = 4
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 25, 69), Transform2D(1, 0, 0, 1, 62, 69), Transform2D(1, 0, 0, 1, 93, 69)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(33, 50), Vector2(28, 50), Vector2(25, 50)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0])
 _forced_finish_delay = -0.047867
@@ -932,7 +931,7 @@ theme_override_font_sizes/bold_font_size = 48
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_c74tn")]
+custom_effects = [SubResource("RichTextEffect_8axjk")]
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
@@ -1023,7 +1022,7 @@ theme_override_font_sizes/bold_font_size = 48
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_milu8")]
+custom_effects = [SubResource("RichTextEffect_c74tn")]
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
@@ -1050,7 +1049,7 @@ signal_quotes = true
 signal_stars = true
 bbcode = "Cost: "
 effects = 2
-alignment = 3
+alignment = 0
 color = Color(1, 1, 1, 1)
 emoji_scale = 1.0
 font = ""
@@ -1114,9 +1113,9 @@ theme_override_font_sizes/bold_font_size = 48
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_18trd")]
+custom_effects = [SubResource("RichTextEffect_milu8")]
 script = ExtResource("3_onvvk")
-animation = "fallin"
+animation = "redact"
 _hold = true
 progress = 1.0
 visible_character = 6
@@ -1125,7 +1124,7 @@ _char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _forced_finish_delay = -0.047867
-animation = "fallin"
+animation = "redact"
 default_wait_time = 1.0
 play_on_bbcode = true
 play_speed = 30.0
@@ -1141,7 +1140,7 @@ signal_quotes = true
 signal_stars = true
 bbcode = "Cost: "
 effects = 2
-alignment = 3
+alignment = 0
 color = Color(1, 1, 1, 1)
 emoji_scale = 1.0
 font = ""
@@ -1189,8 +1188,8 @@ fit_width = true
 fit_width_padding = 10
 metadata/_custom_type_script = "uid://mkih5spu6eqp"
 metadata/rand = Array[int]([2800208240, 2057223724, 3097015752, 2954115180])
-metadata/mouse_position = Vector2(1330.74, -354.439)
-metadata/frame = 245769
+metadata/mouse_position = Vector2(1631.66, -97.9069)
+metadata/frame = 406189
 
 [connection signal="button_up" from="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer4/NextRoundButton" to="." method="_on_next_round_button_button_up"]
 [connection signal="button_up" from="HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/UpgradeStamina" to="." method="_on_upgrade_stamina_button_up"]

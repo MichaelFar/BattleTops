@@ -46,74 +46,97 @@ class_name StatLabelController
 @export var sturdinessUpgradeAmount : float
 @export var spinForceUpgradeAmount : float
 
-var staminaCost : int :
+var staminaCost : int = 50:
 	
 	set(value):
 		
 		staminaCost = value
-		staminaCostLabel.bbcode = "Cost: " +str(staminaCost)
 		GlobalStats.staminaCost = value
+		staminaCostLabel.bbcode = "Cost: " + str(value)
+		
 
-var sturdinessCost : int:
+var sturdinessCost : int = 50:
 	
 	set(value):
 		
 		sturdinessCost = value
-		sturdinessCostLabel.bbcode ="Cost: " + str(sturdinessCost)
 		GlobalStats.sturdinessCost = value
+		sturdinessCostLabel.bbcode ="Cost: " + str(value)
+		
 
-var spinForceCost : int:
+var spinForceCost : int = 50:
 	
 	set(value):
 		
 		spinForceCost = value
-		spinForceCostLabel.bbcode = "Cost: " +str(spinForceCost)
 		GlobalStats.spinForceCost = value
+		spinForceCostLabel.bbcode = "Cost: " + str(value)
+		
 
 var moneyAmount : int = 0 : 
 	
 	set(value):
 		
 		moneyAmount = value
+		GlobalStats.goldAmount = value
 		moneyAmountValueLabel.bbcode = str(moneyAmount)
-		GlobalStats.goldAmount = value		
 		
-		
-
 signal next_round_button_pressed
 
 func _ready():
 	
 	update_stats()
-	
+	staminaCost = 50
+	sturdinessCost = 50
+	spinForceCost = 50
 	moneyAmount = GlobalStats.goldAmount
 	
 func set_hidden(new_value : bool):
+	
 	update_stats()
 	visible = !new_value
 
 func _on_upgrade_stamina_button_up() -> void:
-	pass # Replace with function body.
-
+	
+	if(moneyAmount > spinForceCost):
+		
+		moneyAmount -= staminaCost
+		staminaCost += staminaCost / 8
+		GlobalStats.playerStats["stamina"] += staminaUpgradeAmount
+		staminaLabelText = str(GlobalStats.playerStats["stamina"]) 
 
 func _on_upgrade_sturdiness_button_up() -> void:
-	pass # Replace with function body.
-
-
+	
+	if(moneyAmount > spinForceCost):
+		
+		moneyAmount -= sturdinessCost
+		sturdinessCost += sturdinessCost / 8
+		GlobalStats.playerStats["sturdiness"] += sturdinessUpgradeAmount
+		sturdinessLabelText = str(GlobalStats.playerStats["sturdiness"])
+	
+	
 func _on_upgrade_spin_force_button_up() -> void:
-	pass # Replace with function body.
+	
+	if(moneyAmount > spinForceCost):
+		
+		moneyAmount -= spinForceCost
+		spinForceCost += spinForceCost / 8
+		GlobalStats.playerStats["spinForce"] += spinForceUpgradeAmount
+		spinForceLabelText = str(GlobalStats.playerStats["spinForce"]) 
 
 func update_stats():
+	
 	staminaLabelText = str(GlobalStats.playerStats["stamina"]) 
 	sturdinessLabelText = str(GlobalStats.playerStats["sturdiness"])
 	spinForceLabelText = str(GlobalStats.playerStats["spinForce"]) 
 	
-	staminaCost = GlobalStats.staminaCost
-	sturdinessCost = GlobalStats.sturdinessCost
-	spinForceCost = GlobalStats.spinForceCost
+	#staminaCost = GlobalStats.staminaCost
+	#sturdinessCost = GlobalStats.sturdinessCost
+	#spinForceCost = GlobalStats.spinForceCost
 
 
 func _on_next_round_button_button_up() -> void:
+	
 	set_hidden(true)
 	next_round_button_pressed.emit()
 	

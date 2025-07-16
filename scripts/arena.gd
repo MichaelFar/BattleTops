@@ -18,9 +18,13 @@ class_name ArenaLevelManager
 
 @export var restartUI : Control
 
+@export var nextRoundUI : Control
+
 var topChildren : Array[BattleTop]
 
 var hasChosenTop : bool = false
+
+var playerTop : BattleTop
 
 func _ready() -> void:
 	
@@ -31,26 +35,54 @@ func _ready() -> void:
 	popupUI.set_hidden(true)
 	
 	spawnTimer.timeout.connect(spawn_battle_top)
-	upgradeUI.next_round_button_pressed.connect(spawn_battle_top)
+	
+	
+
+func next_round():
+	
+	spawn_battle_top()
+	playerTop.stamina = playerTop.maxStamina
+	playerTop.create_stamina_tween()
 
 func spawn_battle_top():
 	
 	print("spawning battle top")
 	
-	for i in spawnMarkerArray.size():
+	if(playerTop == null):
+		for i in spawnMarkerArray.size():
+			
+			var top_object : BattleTop = battleTopScene.instantiate()
+			var rand_obj := RandomNumberGenerator.new()
+			
+			add_child(top_object)
+			top_object.global_position = spawnMarkerArray[i].global_position
+			top_object.orientPoint = orientPoint
+			topChildren.append(top_object)
+			print("spawned top")
+			
+			if(i == 0 
+			&& GlobalStats.currentGameMode == GlobalStats.GameMode.CAREER
+			&& playerTop == null):
+				
+				top_object.isPlayer = true
+				
+			top_object.shouldBeRandom = !top_object.isPlayer
+			#top_object.global_position = spawnMarkerArray[rand_obj.randi_range(0, spawnMarkerArray.size() - 1)].global_position
+	else:
 		
-		var top_object : BattleTop = battleTopScene.instantiate()
-		var rand_obj := RandomNumberGenerator.new()
+		for i in GlobalStats.numEnemyTops:
+			
+			var top_object : BattleTop = battleTopScene.instantiate()
+			var rand_obj := RandomNumberGenerator.new()
+			
+			add_child(top_object)
+			top_object.global_position = spawnMarkerArray[i].global_position
+			top_object.orientPoint = orientPoint
+			topChildren.append(top_object)
+			print("spawned top")
 		
-		add_child(top_object)
-		top_object.global_position = spawnMarkerArray[i].global_position
-		top_object.orientPoint = orientPoint
-		topChildren.append(top_object)
-		
-		top_object.isPlayer = i == 0 && GlobalStats.currentGameMode == GlobalStats.GameMode.CAREER && hasChosenTop
-		top_object.shouldBeRandom = !top_object.isPlayer
-		#top_object.global_position = spawnMarkerArray[rand_obj.randi_range(0, spawnMarkerArray.size() - 1)].global_position
-	
+				
+			top_object.shouldBeRandom = !top_object.isPlayer
 	numRounds -= 1
 	
 	if(numRounds != 0 && spawnTimer.is_stopped() && GlobalStats.currentGameMode == GlobalStats.GameMode.SCREENSAVER):
@@ -78,8 +110,6 @@ func restart_round_with_random():
 			i.queue_free()
 	
 	topChildren = []
-	
-	numRounds = 1
 	
 	spawnTimer.stop()
 	
@@ -114,13 +144,23 @@ func _on_kill_plane_body_shape_entered(body_rid: RID, body: Node3D, body_shape_i
 				popupUI.set_hidden(false)
 			
 			if(topChildren.size() == 0):
+				
 				popupUI.set_hidden(true)
 				
 				restart_round_with_random()
 			
-			if(body.isPlayer):
+			if(body == playerTop):
+				
+				print("Player has died")
 				
 				restartUI.set_hidden(false)
+				
+				playerTop = null
+		
+			if(topChildren[0] == playerTop && topChildren.size() == 1):
+				
+				nextRoundUI.set_hidden(false)
+				
 		body.kill_top()
 		
 func _on_prompt_ui_said_yes() -> void:
@@ -133,10 +173,26 @@ func _on_prompt_ui_said_yes() -> void:
 	
 	var chosenTop : BattleTop = topChildren[0]
 	
+	playerTop = chosenTop
+	
 	GlobalStats.playerStats["stamina"] = chosenTop.maxStamina
 	GlobalStats.playerStats["sturdiness"] = chosenTop.maxSturdiness
 	GlobalStats.playerStats["spinForce"] = chosenTop.maxSpinForce
 	
 	timer.timeout.connect(upgradeUI.set_hidden.bind(false))
 	
+func _on_prompt_ui_restart_round_said_yes() -> void:
 	
+	hasChosenTop = false
+	restartUI.set_hidden(true)
+	GlobalStats.goldAmount = GlobalStats.defaultGoldAmount
+	restart_round_with_random()
+
+func update_player_top_stats():
+	
+	playerTop.update_stats()
+
+func _on_round_end_ui_said_yes() -> void:
+	
+	upgradeUI.set_hidden(false)
+	nextRoundUI.set_hidden(true)

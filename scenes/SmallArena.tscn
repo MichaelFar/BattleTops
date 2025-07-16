@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://bo0tlkahcq0h1"]
+[gd_scene load_steps=25 format=4 uid="uid://bo0tlkahcq0h1"]
 
 [ext_resource type="Script" uid="uid://bgpx0fo1suclw" path="res://scripts/arena.gd" id="1_uwlbn"]
 [ext_resource type="PackedScene" uid="uid://d1k0hl6r0jkh0" path="res://scenes/battle_top.tscn" id="2_ojxb6"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://j8m5jtfetlre" path="res://scenes/prompt_ui.tscn" id="3_ojxb6"]
 [ext_resource type="PackedScene" uid="uid://d1pug181d3iuo" path="res://scenes/upgrade_ui.tscn" id="6_48bq8"]
 [ext_resource type="PackedScene" uid="uid://dhgnj5ocj82ee" path="res://scenes/prompt_ui_lost_game.tscn" id="7_v7pxh"]
+[ext_resource type="PackedScene" uid="uid://dvqat4t6weo8b" path="res://scenes/round_end_ui.tscn" id="8_c3lje"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnskq"]
 resource_name = "initialShadingGroup"
@@ -94,7 +95,7 @@ size = Vector3(200.253, 1, 180.82)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ojxb6"]
 size = Vector3(16.6166, 1, 16.5143)
 
-[node name="SmallArena" type="Node3D" node_paths=PackedStringArray("orientPoint", "spawnMarkerArray", "spawnTimer", "popupUI", "upgradeUI", "restartUI")]
+[node name="SmallArena" type="Node3D" node_paths=PackedStringArray("orientPoint", "spawnMarkerArray", "spawnTimer", "popupUI", "upgradeUI", "restartUI", "nextRoundUI")]
 script = ExtResource("1_uwlbn")
 orientPoint = NodePath("TopOrientPoint")
 spawnMarkerArray = [NodePath("MeshInstance3D4/MeshInstance3D2/SpawnPoint2"), NodePath("MeshInstance3D5/MeshInstance3D2/SpawnPoint2")]
@@ -104,6 +105,7 @@ numRounds = 1
 popupUI = NodePath("PromptUIChooseTop")
 upgradeUI = NodePath("Control")
 restartUI = NodePath("PromptUIRestartRound")
+nextRoundUI = NodePath("round_end_ui")
 
 [node name="BattleBowl" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.602395, 0, 0, 0, 0.575896, 0, 0, 0, 0.438901, 0, -0.545717, 0)
@@ -205,8 +207,15 @@ visible = false
 [node name="PromptUIRestartRound" parent="." instance=ExtResource("7_v7pxh")]
 visible = false
 
+[node name="round_end_ui" parent="." instance=ExtResource("8_c3lje")]
+visible = false
+
 [connection signal="body_entered" from="InnerArenaVolume" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="InnerArenaVolume" to="." method="_on_area_3d_body_exited"]
 [connection signal="body_shape_entered" from="KillPlane" to="." method="_on_kill_plane_body_shape_entered"]
 [connection signal="said_no" from="PromptUIChooseTop" to="." method="restart_round_with_random"]
 [connection signal="said_yes" from="PromptUIChooseTop" to="." method="_on_prompt_ui_said_yes"]
+[connection signal="next_round_button_pressed" from="Control" to="." method="spawn_battle_top"]
+[connection signal="next_round_button_pressed" from="Control" to="." method="update_player_top_stats"]
+[connection signal="said_yes" from="PromptUIRestartRound" to="." method="_on_prompt_ui_restart_round_said_yes"]
+[connection signal="said_yes" from="round_end_ui" to="." method="_on_round_end_ui_said_yes"]

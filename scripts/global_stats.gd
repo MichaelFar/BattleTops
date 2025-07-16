@@ -8,6 +8,10 @@ enum GameMode {SCREENSAVER, CAREER}
 
 enum GameStage {SCREENSAVER, CHOOSINGTOP, UPGRADESCREEN, MAINROUND}
 
+enum GameDifficulty {EARLY, MID, LATE}
+
+var defaultGoldAmount := 200
+
 var currentGameStage : GameStage = GameStage.SCREENSAVER
 
 var currentGameMode : GameMode = GameMode.SCREENSAVER :
@@ -44,6 +48,8 @@ var sturdinessCost : int = 50
 
 var spinForceCost : int = 50
 
+var numEnemyTops := 1
+
 var playerStats : Dictionary = {
 	"stamina" : 20.0,
 	"sturdiness" : 40.0,
@@ -55,3 +61,6 @@ func set_player_stats(new_stamina : float, new_sturdiness : float, new_spin_forc
 	playerStats["stamina"] = new_stamina
 	playerStats["sturdiness"] = new_sturdiness
 	playerStats["spinForce"] = new_spin_force
+
+func update_enemy_tops_and_advance_difficulty():
+	pass

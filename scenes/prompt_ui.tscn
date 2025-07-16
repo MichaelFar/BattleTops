@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://j8m5jtfetlre"]
+[gd_scene load_steps=5 format=3 uid="uid://j8m5jtfetlre"]
 
 [ext_resource type="Script" uid="uid://c7eg87712vl1x" path="res://scripts/prompt_ui.gd" id="1_hw2eb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hw2eb"]
+bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 
 [sub_resource type="LabelSettings" id="LabelSettings_lpym6"]
 font_size = 64
@@ -27,24 +30,24 @@ cache/0/64/0/scale = 1.0
 
 [node name="PromptUI" type="Control"]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hw2eb")
 
-[node name="BoxContainer" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_hw2eb")
 
-[node name="Label" type="Label" parent="BoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -52,42 +55,33 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -265.0
-offset_top = -56.5
+offset_top = -93.5
 offset_right = 265.0
-offset_bottom = 56.5
+offset_bottom = 93.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
 text = "Choose This Top?"
 label_settings = SubResource("LabelSettings_lpym6")
 
-[node name="Button" type="Button" parent="BoxContainer"]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = -241.0
-offset_top = 68.0
-offset_right = -188.0
-offset_bottom = 120.0
-grow_vertical = 2
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
 size_flags_horizontal = 8
 theme_override_fonts/font = SubResource("FontFile_lpym6")
 theme_override_font_sizes/font_size = 64
 text = " Yes "
 
-[node name="Button2" type="Button" parent="BoxContainer"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = 109.0
-offset_top = 43.0
-offset_right = 202.0
-offset_bottom = 138.0
-grow_horizontal = 0
-size_flags_horizontal = 8
+[node name="Button2" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
 theme_override_fonts/font = SubResource("FontFile_lpym6")
 theme_override_font_sizes/font_size = 64
-text = "  No  "
+text = " No "
 
-[connection signal="button_up" from="BoxContainer/Button" to="." method="_on_button_button_up"]
-[connection signal="button_up" from="BoxContainer/Button2" to="." method="_on_button_2_button_up"]
+[connection signal="button_up" from="Panel/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="Panel/VBoxContainer/HBoxContainer/Button2" to="." method="_on_button_2_button_up"]
