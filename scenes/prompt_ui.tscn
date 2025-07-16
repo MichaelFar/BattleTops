@@ -1,12 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://j8m5jtfetlre"]
+[gd_scene load_steps=11 format=3 uid="uid://j8m5jtfetlre"]
 
 [ext_resource type="Script" uid="uid://c7eg87712vl1x" path="res://scripts/prompt_ui.gd" id="1_hw2eb"]
+[ext_resource type="Script" uid="uid://c8g7nwoita0i5" path="res://addons/richtext2/text_effects/anims/rte_fader.gd" id="2_y7yk3"]
+[ext_resource type="Script" uid="uid://ck60j1q1q4ua7" path="res://addons/richtext2/text_effects/effects/rte_sparkle.gd" id="3_vprhq"]
+[ext_resource type="Script" uid="uid://cxd3te3lxnq7k" path="res://addons/richtext2/text_effects/effects/rte_curspull.gd" id="4_yhnrb"]
+[ext_resource type="Script" uid="uid://mkih5spu6eqp" path="res://addons/richtext2/rich_text_animation.gd" id="5_nbjdm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hw2eb"]
 bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 
-[sub_resource type="LabelSettings" id="LabelSettings_lpym6"]
-font_size = 64
+[sub_resource type="RichTextEffect" id="RichTextEffect_y7yk3"]
+resource_name = "fader"
+script = ExtResource("2_y7yk3")
+metadata/rt = 64837212284673
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_vprhq"]
+resource_name = "sparkle"
+script = ExtResource("3_vprhq")
+metadata/rt = 64837212284673
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_yhnrb"]
+resource_name = "curspull"
+script = ExtResource("4_yhnrb")
+metadata/rt = 64837212284673
 
 [sub_resource type="FontFile" id="FontFile_lpym6"]
 subpixel_positioning = 0
@@ -61,24 +77,101 @@ offset_bottom = 93.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+[node name="Label" type="RichTextLabel" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 88)
 layout_mode = 2
-text = "Choose This Top?"
-label_settings = SubResource("LabelSettings_lpym6")
+theme_override_font_sizes/bold_italics_font_size = 64
+theme_override_font_sizes/italics_font_size = 64
+theme_override_font_sizes/mono_font_size = 64
+theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/bold_font_size = 64
+custom_effects = [SubResource("RichTextEffect_y7yk3"), SubResource("RichTextEffect_vprhq"), SubResource("RichTextEffect_yhnrb")]
+script = ExtResource("5_nbjdm")
+progress = 1.0
+visible_character = 16
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 39.6603, 65.231), Transform2D(1, 0, 0, 1, 79.39, 65.3383), Transform2D(1, 0, 0, 1, 118.149, 65.4538), Transform2D(1, 0, 0, 1, 156.932, 65.5761), Transform2D(1, 0, 0, 1, 188.77, 65.679), Transform2D(1, 0, 0, 1, 224.606, 65.7957), Transform2D(1, 0, 0, 1, 241.534, 65.8506), Transform2D(1, 0, 0, 1, 277.394, 65.9655), Transform2D(1, 0, 0, 1, 317.256, 66.09), Transform2D(1, 0, 0, 1, 335.199, 66.1446), Transform2D(1, 0, 0, 1, 366.108, 66.2363), Transform2D(1, 0, 0, 1, 383.062, 66.2852), Transform2D(1, 0, 0, 1, 418.973, 66.3855), Transform2D(1, 0, 0, 1, 457.886, 66.4891), Transform2D(1, 0, 0, 1, 497.808, 66.5896)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(33, 50), Vector2(35, 50), Vector2(35, 50), Vector2(28, 50), Vector2(33, 50), Vector2(0, 50), Vector2(38, 50), Vector2(33, 50), Vector2(12, 50), Vector2(28, 50), Vector2(0, 50), Vector2(38, 50), Vector2(35, 50), Vector2(34, 50), Vector2(30, 50)])
+_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_forced_finish_delay = -0.039044
+default_wait_time = 1.0
+play_on_bbcode = true
+play_speed = 30.0
+fade_out = false
+fade_in_speed = 10.0
+fade_out_speed = 120.0
+ctc_offset = Vector2(1, -0.5)
+ctc_on_finished = false
+ctc_on_wait = false
+shortcut_expression = true
+shortcut_bookmark = true
+signal_quotes = true
+signal_stars = true
+bbcode = "[sparkle][curspull]Choose This Top?"
+effects = 2
+alignment = 1
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 64
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+fit_width = false
+fit_width_padding = 10
+metadata/_custom_type_script = "uid://mkih5spu6eqp"
+metadata/mouse_position = Vector2(-127.766, -405.79)
+metadata/frame = 1274527
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
 
 [node name="Button" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 3
 theme_override_fonts/font = SubResource("FontFile_lpym6")
 theme_override_font_sizes/font_size = 64
 text = " Yes "
 
 [node name="Button2" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 3
 theme_override_fonts/font = SubResource("FontFile_lpym6")
 theme_override_font_sizes/font_size = 64
 text = " No "

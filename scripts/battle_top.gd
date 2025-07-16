@@ -132,7 +132,7 @@ func initialize_values():
 		
 		maxStamina = rand_obj.randf_range(30, 60)
 		
-		mass = rand_obj.randf_range(1.0, 3.0)
+		mass = 2
 		
 		stamina = maxStamina
 		#physicsMaterial.bounce = rand_obj.randf_range(0.0, .75)

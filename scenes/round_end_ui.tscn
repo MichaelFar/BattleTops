@@ -11,12 +11,12 @@ bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 [sub_resource type="RichTextEffect" id="RichTextEffect_c4gaa"]
 resource_name = "sin"
 script = ExtResource("2_c4gaa")
-metadata/rt = 55448363439265
+metadata/rt = 65085229874783
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_aeowc"]
 resource_name = "heart"
 script = ExtResource("3_aeowc")
-metadata/rt = 55448363439265
+metadata/rt = 65085229874783
 
 [sub_resource type="FontFile" id="FontFile_lpym6"]
 subpixel_positioning = 0

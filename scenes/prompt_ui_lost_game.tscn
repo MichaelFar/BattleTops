@@ -1,9 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhgnj5ocj82ee"]
+[gd_scene load_steps=11 format=3 uid="uid://dhgnj5ocj82ee"]
 
 [ext_resource type="Script" uid="uid://c7eg87712vl1x" path="res://scripts/prompt_ui.gd" id="1_ghhiq"]
+[ext_resource type="Script" uid="uid://db0s3rfk26712" path="res://addons/richtext2/richer_text_label.gd" id="2_j478p"]
+[ext_resource type="Script" uid="uid://whtuvsbwrh6h" path="res://addons/richtext2/text_effects/effects/rte_sin.gd" id="2_unyuq"]
+[ext_resource type="Script" uid="uid://cpy0q7oftipjl" path="res://addons/richtext2/text_effects/effects/rte_sway.gd" id="3_hqumn"]
+[ext_resource type="Script" uid="uid://c76sj48evxbd5" path="res://addons/richtext2/text_effects/effects/rte_beat.gd" id="4_k7nnj"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_lpym6"]
-font_size = 64
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghhiq"]
+bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_unyuq"]
+resource_name = "sin"
+script = ExtResource("2_unyuq")
+metadata/rt = 65066019930160
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_hqumn"]
+resource_name = "sway"
+script = ExtResource("3_hqumn")
+metadata/rt = 65066019930160
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_k7nnj"]
+resource_name = "beat"
+script = ExtResource("4_k7nnj")
+metadata/rt = 65066019930160
 
 [sub_resource type="FontFile" id="FontFile_lpym6"]
 subpixel_positioning = 0
@@ -27,67 +46,114 @@ cache/0/64/0/scale = 1.0
 
 [node name="PromptUI" type="Control"]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ghhiq")
 
-[node name="BoxContainer" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ghhiq")
 
-[node name="Label" type="Label" parent="BoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -265.0
-offset_top = -56.5
-offset_right = 265.0
-offset_bottom = 56.5
+offset_left = -310.5
+offset_top = -143.0
+offset_right = 310.5
+offset_bottom = 143.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "You've lost, Restart?"
-label_settings = SubResource("LabelSettings_lpym6")
 
-[node name="Button" type="Button" parent="BoxContainer"]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = -241.0
-offset_top = 68.0
-offset_right = -188.0
-offset_bottom = 120.0
-grow_vertical = 2
-size_flags_horizontal = 8
+[node name="Label" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 176)
+layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 64
+theme_override_font_sizes/italics_font_size = 64
+theme_override_font_sizes/mono_font_size = 64
+theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/bold_font_size = 64
+custom_effects = [SubResource("RichTextEffect_unyuq"), SubResource("RichTextEffect_hqumn"), SubResource("RichTextEffect_k7nnj")]
+script = ExtResource("2_j478p")
+bbcode = "[sin][shake][sway][beat]You've Lost, Restart?"
+effects = 2
+alignment = 1
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 64
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+fit_width = false
+fit_width_padding = 10
+metadata/_custom_type_script = "uid://db0s3rfk26712"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_fonts/font = SubResource("FontFile_lpym6")
 theme_override_font_sizes/font_size = 64
 text = " Yes "
 
-[node name="Button2" type="Button" parent="BoxContainer"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = 109.0
-offset_top = 43.0
-offset_right = 202.0
-offset_bottom = 138.0
-grow_horizontal = 0
-size_flags_horizontal = 8
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_fonts/font = SubResource("FontFile_lpym6")
 theme_override_font_sizes/font_size = 64
 text = "  No  "
 
-[connection signal="button_up" from="BoxContainer/Button" to="." method="_on_button_button_up"]
-[connection signal="button_up" from="BoxContainer/Button2" to="." method="_on_button_2_button_up"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/Button2" to="." method="_on_button_2_button_up"]

@@ -129,7 +129,7 @@ func update_stats():
 	staminaLabelText = str(GlobalStats.playerStats["stamina"]) 
 	sturdinessLabelText = str(GlobalStats.playerStats["sturdiness"])
 	spinForceLabelText = str(GlobalStats.playerStats["spinForce"]) 
-	
+	moneyAmount = GlobalStats.goldAmount
 	#staminaCost = GlobalStats.staminaCost
 	#sturdinessCost = GlobalStats.sturdinessCost
 	#spinForceCost = GlobalStats.spinForceCost
