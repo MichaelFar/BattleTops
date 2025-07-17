@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://db0s3rfk26712" path="res://addons/richtext2/richer_text_label.gd" id="2_j478p"]
 [ext_resource type="Script" uid="uid://whtuvsbwrh6h" path="res://addons/richtext2/text_effects/effects/rte_sin.gd" id="2_unyuq"]
 [ext_resource type="Script" uid="uid://cpy0q7oftipjl" path="res://addons/richtext2/text_effects/effects/rte_sway.gd" id="3_hqumn"]
-[ext_resource type="Script" uid="uid://c76sj48evxbd5" path="res://addons/richtext2/text_effects/effects/rte_beat.gd" id="4_k7nnj"]
+[ext_resource type="Script" uid="uid://177a4xqf2mm4" path="res://addons/richtext2/text_effects/effects/rte_wack.gd" id="4_unyuq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghhiq"]
 bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
@@ -12,17 +12,17 @@ bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 [sub_resource type="RichTextEffect" id="RichTextEffect_unyuq"]
 resource_name = "sin"
 script = ExtResource("2_unyuq")
-metadata/rt = 22697392320144
+metadata/rt = 28424546632747
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_hqumn"]
 resource_name = "sway"
 script = ExtResource("3_hqumn")
-metadata/rt = 22697392320144
+metadata/rt = 28424546632747
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_k7nnj"]
-resource_name = "beat"
-script = ExtResource("4_k7nnj")
-metadata/rt = 22697392320144
+resource_name = "wack"
+script = ExtResource("4_unyuq")
+metadata/rt = 28424546632747
 
 [sub_resource type="FontFile" id="FontFile_lpym6"]
 subpixel_positioning = 0
@@ -91,7 +91,7 @@ bbcode_enabled = true
 fit_content = true
 custom_effects = [SubResource("RichTextEffect_unyuq"), SubResource("RichTextEffect_hqumn"), SubResource("RichTextEffect_k7nnj")]
 script = ExtResource("2_j478p")
-bbcode = "[sin][shake][sway][beat]You've Lost, Restart?"
+bbcode = "[sin][shake][sway][wack]You've Lost, Restart?"
 effects = 2
 alignment = 1
 color = Color(1, 1, 1, 1)
@@ -140,6 +140,7 @@ override_fitContent = true
 fit_width = false
 fit_width_padding = 10
 metadata/_custom_type_script = "uid://db0s3rfk26712"
+metadata/rand = Array[int]([3549159399, 223548397, 1246426188, 2337974780, 3440081145, 3723879419, 1255605843, 3517613619, 2898848450, 1193131815, 1865643029, 1013198538, 3346926282, 3946643836, 1817691071, 2024523789, 2973144774, 1274790221, 475992974, 1115910817, 3162562443])
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2

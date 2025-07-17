@@ -86,7 +86,9 @@ var staminaTween : Tween :
 var isPlayer : bool = true
 
 
+
 signal has_hit_top
+signal first_hit_occured
 signal has_sparked
 signal has_low_stamina
 
@@ -99,7 +101,9 @@ func _ready():
 	currentGameMode = GlobalStats.currentGameMode
 	
 	initialize_values()
-
+	
+	
+	
 func initialize_values():
 	
 	physicsMaterial.friction = 0.0
@@ -154,6 +158,8 @@ func initialize_values():
 	topHeadMesh.material_override = topMeshMaterial
 	
 func _physics_process(delta: float) -> void:
+	
+	
 	
 	if(!isDead):
 		
@@ -218,6 +224,8 @@ func hit_battle_top(battle_top : BattleTop):
 	#
 	if(!hasBeenHit):
 		
+		first_hit_occured.emit()
+		
 		hasBeenHit = true
 		
 	else:
@@ -246,6 +254,8 @@ func create_stamina_tween():
 	print(stamina)
 	return tween
 func upgrade_stats(addStamina : float, addSturdiness : float, addSpinForce : float):
+	
+	hasBeenHit = false
 	
 	GlobalStats.playerStats["stamina"] += addStamina
 	GlobalStats.playerStats["sturdiness"] += addSturdiness

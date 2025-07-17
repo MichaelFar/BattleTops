@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://bo0tlkahcq0h1"]
+[gd_scene load_steps=28 format=4 uid="uid://bo0tlkahcq0h1"]
 
 [ext_resource type="Script" uid="uid://bgpx0fo1suclw" path="res://scripts/arena.gd" id="1_uwlbn"]
 [ext_resource type="PackedScene" uid="uid://d1k0hl6r0jkh0" path="res://scenes/battle_top.tscn" id="2_ojxb6"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dhgnj5ocj82ee" path="res://scenes/prompt_ui_lost_game.tscn" id="7_v7pxh"]
 [ext_resource type="PackedScene" uid="uid://dvqat4t6weo8b" path="res://scenes/round_end_ui.tscn" id="8_c3lje"]
 [ext_resource type="PackedScene" uid="uid://taq5glodwni3" path="res://scenes/OopsUI.tscn" id="10_f34ng"]
+[ext_resource type="PackedScene" uid="uid://dl6e2w84ab2xt" path="res://scenes/timer_ui.tscn" id="11_u623t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnskq"]
 resource_name = "initialShadingGroup"
@@ -97,7 +98,7 @@ size = Vector3(200.253, 1, 180.82)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ojxb6"]
 size = Vector3(16.6166, 1, 16.5143)
 
-[node name="SmallArena" type="Node3D" node_paths=PackedStringArray("orientPoint", "spawnMarkerArray", "spawnTimer", "popupUI", "upgradeUI", "restartUI", "nextRoundUI", "oopsUI", "camera")]
+[node name="SmallArena" type="Node3D" node_paths=PackedStringArray("orientPoint", "spawnMarkerArray", "spawnTimer", "popupUI", "upgradeUI", "restartUI", "nextRoundUI", "oopsUI", "camera", "gameTimerUI")]
 script = ExtResource("1_uwlbn")
 orientPoint = NodePath("TopOrientPoint")
 spawnMarkerArray = [NodePath("MeshInstance3D4/MeshInstance3D2/SpawnPoint2"), NodePath("MeshInstance3D5/MeshInstance3D2/SpawnPoint2")]
@@ -110,6 +111,7 @@ restartUI = NodePath("PromptUIRestartRound")
 nextRoundUI = NodePath("round_end_ui")
 oopsUI = NodePath("OopsUI")
 camera = NodePath("Camera3D")
+gameTimerUI = NodePath("TimerUI")
 
 [node name="BattleBowl" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.602395, 0, 0, 0, 0.575896, 0, 0, 0, 0.438901, 0, -0.545717, 0)
@@ -206,8 +208,15 @@ activeArena = NodePath("..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0983276, 0, -0.325165)
 shape = SubResource("BoxShape3D_ojxb6")
 
+[node name="TimerUI" parent="." instance=ExtResource("11_u623t")]
+visible = false
+mouse_filter = 2
+
 [node name="Control" parent="." instance=ExtResource("6_48bq8")]
 visible = false
+staminaLabelText = "20.0"
+sturdinessLabelText = "40.0"
+spinForceLabelText = "100.0"
 
 [node name="PromptUIRestartRound" parent="." instance=ExtResource("7_v7pxh")]
 visible = false

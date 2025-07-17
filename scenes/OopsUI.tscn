@@ -7,10 +7,10 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6516"]
 bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_s06gy"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_f2yvc"]
 resource_name = "wack"
 script = ExtResource("2_f2yvc")
-metadata/rt = 17922361763240
+metadata/rt = 28577051559289
 
 [sub_resource type="FontFile" id="FontFile_lpym6"]
 subpixel_positioning = 0
@@ -77,7 +77,7 @@ theme_override_font_sizes/normal_font_size = 64
 theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_s06gy")]
+custom_effects = [SubResource("RichTextEffect_f2yvc")]
 script = ExtResource("4_68ijf")
 bbcode = "[wack]Oops..."
 effects = 2

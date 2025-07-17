@@ -95,6 +95,7 @@ func set_hidden(new_value : bool):
 	
 	update_stats()
 	visible = !new_value
+	
 
 func _on_upgrade_stamina_button_up() -> void:
 	

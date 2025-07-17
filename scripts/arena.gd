@@ -12,23 +12,36 @@ class_name ArenaLevelManager
 
 @export var numRounds : int = -1
 
-@export var popupUI : Control
+@export var popupUI : BasicUIController
 
 @export var upgradeUI : Control
 
-@export var restartUI : Control
+@export var restartUI : BasicUIController
 
-@export var nextRoundUI : Control
+@export var nextRoundUI : BasicUIController
 
 @export var oopsUI : Control
 
 @export var camera : Camera3D
 
+@export var gameTimerUI : Control
+
 var topChildren : Array[BattleTop]
 
 var hasChosenTop : bool = false
 
-var playerTop : BattleTop
+var playerTop : BattleTop :
+	set(value):
+		playerTop = value
+		print("Set player top to " + str(value))
+		if(playerTop != null):
+			playerTop.first_hit_occured.connect(gameTimerUI.start_timer)
+
+var timeSinceLastHit : float = 0.0
+
+var shouldBeCounting : bool = true
+
+var originalTimeScale : float
 
 func _ready() -> void:
 	
@@ -38,8 +51,22 @@ func _ready() -> void:
 	
 	popupUI.set_hidden(true)
 	
+	popupUI.popped_up.connect(gameTimerUI.pause_timer)
+	
+	restartUI.popped_up.connect(gameTimerUI.pause_timer)
+	
+	nextRoundUI.popped_up.connect(gameTimerUI.pause_timer)
+	
+	popupUI.popped_up.connect(set_should_be_counting.bind(false))
+	
+	restartUI.popped_up.connect(set_should_be_counting.bind(false))
+	
+	nextRoundUI.popped_up.connect(set_should_be_counting.bind(false))
+	
+	
 	spawnTimer.timeout.connect(spawn_battle_top)
 	
+	originalTimeScale = Engine.time_scale
 	#camera.set_is_shaking(1.0)
 
 func next_round():
@@ -65,7 +92,8 @@ func spawn_battle_top():
 			print("spawned top")
 			
 			top_object.has_hit_top.connect(camera.set_is_shaking.bind(0.02))
-			
+			#top_object.first_hit_occured.connect(gameTimerUI.start_timer)
+			top_object.has_hit_top.connect(restart_idle_timer)
 			if(i == 0 
 			&& GlobalStats.currentGameMode == GlobalStats.GameMode.CAREER
 			&& playerTop == null):
@@ -75,7 +103,7 @@ func spawn_battle_top():
 			top_object.shouldBeRandom = !top_object.isPlayer
 			#top_object.global_position = spawnMarkerArray[rand_obj.randi_range(0, spawnMarkerArray.size() - 1)].global_position
 	else:
-		
+		shouldBeCounting = true
 		for i in GlobalStats.numEnemyTops:
 			
 			var top_object : BattleTop = battleTopScene.instantiate()
@@ -86,7 +114,10 @@ func spawn_battle_top():
 			top_object.orientPoint = orientPoint
 			topChildren.append(top_object)
 			print("spawned top")
-		
+			top_object.has_hit_top.connect(restart_idle_timer)
+			
+			
+				#playerTop.first_hit_occured.connect(gameTimerUI.set_visible.bind(true))
 				
 			top_object.shouldBeRandom = !top_object.isPlayer
 	numRounds -= 1
@@ -96,6 +127,13 @@ func spawn_battle_top():
 		spawnTimer.start()
 
 func _physics_process(delta: float) -> void:
+	
+	timeSinceLastHit += delta
+	
+	if(timeSinceLastHit > 20.0 && shouldBeCounting):
+		
+		shouldBeCounting = false
+		Engine.time_scale *= 2
 	
 	if(Input.is_action_just_released("ui_accept")):
 		
@@ -187,12 +225,17 @@ func _on_prompt_ui_said_yes() -> void:
 	GlobalStats.playerStats["sturdiness"] = chosenTop.maxSturdiness
 	GlobalStats.playerStats["spinForce"] = chosenTop.maxSpinForce
 	
+	shouldBeCounting = false
+	
 	timer.timeout.connect(upgradeUI.set_hidden.bind(false))
 	
 func _on_prompt_ui_restart_round_said_yes() -> void:
 	
 	hasChosenTop = false
 	restartUI.set_hidden(true)
+	oopsUI.set_hidden(true)
+	nextRoundUI.set_hidden(true)
+	upgradeUI.set_hidden(true)
 	GlobalStats.goldAmount = GlobalStats.defaultGoldAmount
 	GlobalStats.staminaCost = 50
 	GlobalStats.sturdinessCost = 50
@@ -201,7 +244,7 @@ func _on_prompt_ui_restart_round_said_yes() -> void:
 	restart_round_with_random()
 
 func update_player_top_stats():
-	
+	set_should_be_counting(false)
 	playerTop.update_stats()
 
 func _on_round_end_ui_said_yes() -> void:
@@ -212,3 +255,15 @@ func _on_round_end_ui_said_yes() -> void:
 
 func _on_oops_ui_said_yes() -> void:
 	_on_prompt_ui_restart_round_said_yes()
+
+func restart_idle_timer() -> void:
+	
+	shouldBeCounting = true
+	timeSinceLastHit = 0.0
+	Engine.time_scale = originalTimeScale
+
+func set_should_be_counting(new_value : bool):
+	
+	shouldBeCounting = new_value
+	if(!shouldBeCounting):
+		timeSinceLastHit = 0.0
