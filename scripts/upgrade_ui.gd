@@ -11,6 +11,7 @@ class_name StatLabelController
 	set(value):
 		
 		staminaLabelText = value
+		
 		staminaLabel.bbcode = staminaLabelText
 		
 	get():
@@ -21,6 +22,7 @@ class_name StatLabelController
 	set(value):
 		
 		sturdinessLabelText = value
+		
 		sturdinessLabel.bbcode = sturdinessLabelText
 		
 	get():
@@ -31,6 +33,7 @@ class_name StatLabelController
 	set(value):
 		
 		spinForceLabelText = value
+		
 		spinForceLabel.bbcode = spinForceLabelText
 		
 	get():
@@ -83,6 +86,8 @@ var moneyAmount : int = 0 :
 		
 signal next_round_button_pressed
 
+signal popped_up
+
 func _ready():
 	
 	update_stats()
@@ -95,6 +100,8 @@ func set_hidden(new_value : bool):
 	
 	update_stats()
 	visible = !new_value
+	if(!new_value):
+		popped_up.emit()
 	
 
 func _on_upgrade_stamina_button_up() -> void:

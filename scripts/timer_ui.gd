@@ -1,12 +1,10 @@
 extends Control
 
-@export var gameTimer : Timer
-
 @export var bbcString : String
 
 @export var timerLabel : RicherTextLabel
 
-var timerVal : int :
+var timerVal : float :
 	
 	set(value):
 		
@@ -14,22 +12,27 @@ var timerVal : int :
 		
 		timerLabel.bbcode = bbcString + str(value)
 		
+var timerTicking : bool = false
+
+func _physics_process(delta: float) -> void:
+	
+	if(timerTicking):
+		timerVal += delta
+
+func set_hidden(new_value : bool):
+	
+	visible = !new_value
 
 func start_timer():
 	
-	gameTimer.start()
-	
+	timerTicking = true
+	print("Started timer")
 	visible = true
 	
-func _physics_process(delta: float) -> void:
-	
-	timerVal =   clampf(gameTimer.time_left, 0.0, gameTimer.wait_time)
-
 func restart_timer():
 	
-	gameTimer.stop()
-	gameTimer.start()
+	timerVal = 0.0
 	
 func pause_timer():
 	
-	gameTimer.stop()
+	timerTicking = false

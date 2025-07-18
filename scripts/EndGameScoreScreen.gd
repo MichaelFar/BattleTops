@@ -6,36 +6,77 @@ extends BasicUIController
 
 @export var bbcodeString : String
 
-var timeBonus : int :
+var timeBonus : float :
 	set(value):
 		timeBonus = value
-		timeBonusLabel.bbcode = bbcodeString + str(value)
+		timeBonusLabel.bbcode = "\n" + bbcodeString + str(value)
 
-var opDifBonus : int :
+var opDifBonus : float :
 	set(value):
 		opDifBonus = value
-		opDifBonusLabel.bbcode = bbcodeString + str(value)
+		opDifBonusLabel.bbcode = "\n" + bbcodeString + str(value)
 
-var totalScore : int :
+var totalScore : float :
 	set(value):
-		timeBonus = value
-		timeBonusLabel.bbcode = bbcodeString + str(value)
+		totalScore = value
+		totalScoreLabel.bbcode = bbcodeString + str(value)
 
-func animate_score():
+var receivedTime : float
+
+var receivedStatDictionaryArray : Array[Dictionary] :
+	set(value):
+		receivedStatDictionaryArray = value
+		print("Dictionary array set to " + str(value))
+
+signal calculated_score
+
+func _ready():
 	
-	var timer_delta : float = 0.1
+	popped_up.connect(calculate_score)
+
+func animate_score(finalTimeBonus : float, finalOpDifBonus : float, finalTotalScore : float):
+	
+	var timer_delta : float = 0.4
 	
 	var timeBonusTimer = get_tree().create_timer(timer_delta)
 	
 	await timeBonusTimer.timeout
 	
+	timeBonus = finalTimeBonus
+	
 	var opDifBonusTimer = get_tree().create_timer(timer_delta)
 	
 	await opDifBonusTimer.timeout
 	
+	opDifBonus = finalOpDifBonus
+	
 	var totalScoreTimer = get_tree().create_timer(timer_delta)
 	
 	await totalScoreTimer.timeout
-
+	
+	totalScore = finalTotalScore
+	
 func calculate_score():
-	pass
+	
+	var time_bonus : float = 0.0
+	
+	if(receivedTime < 5.0):
+		time_bonus += 70.0
+	elif(receivedTime < 15.0):
+		time_bonus += 40
+	elif(receivedTime < 25.0):
+		time_bonus += 20
+	
+	var op_dif_bonus : float = 0.0
+	
+	print("Received dictionary array is " + str(receivedStatDictionaryArray))
+	
+	for i in receivedStatDictionaryArray:
+		print(i)
+		op_dif_bonus += i["stamina"] + i["sturdiness"] + i["spinForce"]
+	
+	op_dif_bonus = op_dif_bonus / 3.0
+	
+	GlobalStats.goldAmount += (time_bonus + op_dif_bonus)
+		
+	animate_score(time_bonus, op_dif_bonus, time_bonus + op_dif_bonus)

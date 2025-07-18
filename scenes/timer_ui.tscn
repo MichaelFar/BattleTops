@@ -7,9 +7,9 @@
 [sub_resource type="RichTextEffect" id="RichTextEffect_q6nsa"]
 resource_name = "heart"
 script = ExtResource("2_q6nsa")
-metadata/rt = 28195890044424
+metadata/rt = 82788715967677
 
-[node name="TimerUI" type="Control" node_paths=PackedStringArray("gameTimer", "timerLabel")]
+[node name="TimerUI" type="Control" node_paths=PackedStringArray("timerLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,12 +17,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dseqt")
-gameTimer = NodePath("Timer")
 bbcString = "[heart]"
 timerLabel = NodePath("RicherTextLabel")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
 
 [node name="RicherTextLabel" type="RichTextLabel" parent="."]
 clip_contents = false

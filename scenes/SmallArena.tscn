@@ -98,7 +98,7 @@ size = Vector3(200.253, 1, 180.82)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ojxb6"]
 size = Vector3(16.6166, 1, 16.5143)
 
-[node name="SmallArena" type="Node3D" node_paths=PackedStringArray("orientPoint", "spawnMarkerArray", "spawnTimer", "popupUI", "upgradeUI", "restartUI", "nextRoundUI", "oopsUI", "camera", "gameTimerUI")]
+[node name="SmallArena" type="Node3D" node_paths=PackedStringArray("orientPoint", "spawnMarkerArray", "spawnTimer", "popupUI", "upgradeUI", "restartUI", "nextRoundUI", "oopsUI", "camera", "gameTimerUI", "popUpUIArray")]
 script = ExtResource("1_uwlbn")
 orientPoint = NodePath("TopOrientPoint")
 spawnMarkerArray = [NodePath("MeshInstance3D4/MeshInstance3D2/SpawnPoint2"), NodePath("MeshInstance3D5/MeshInstance3D2/SpawnPoint2")]
@@ -112,6 +112,7 @@ nextRoundUI = NodePath("round_end_ui")
 oopsUI = NodePath("OopsUI")
 camera = NodePath("Camera3D")
 gameTimerUI = NodePath("TimerUI")
+popUpUIArray = [NodePath("PromptUIChooseTop"), NodePath("Control"), NodePath("PromptUIRestartRound"), NodePath("round_end_ui")]
 
 [node name="BattleBowl" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.602395, 0, 0, 0, 0.575896, 0, 0, 0, 0.438901, 0, -0.545717, 0)

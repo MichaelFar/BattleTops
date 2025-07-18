@@ -26,22 +26,33 @@ class_name ArenaLevelManager
 
 @export var gameTimerUI : Control
 
+@export var popUpUIArray : Array[Control]
+
 var topChildren : Array[BattleTop]
 
 var hasChosenTop : bool = false
 
 var playerTop : BattleTop :
+	
 	set(value):
+		
 		playerTop = value
+		
 		print("Set player top to " + str(value))
+		
 		if(playerTop != null):
+			
 			playerTop.first_hit_occured.connect(gameTimerUI.start_timer)
+			playerTop.first_hit_occured.connect(gameTimerUI.restart_timer)
+			
 
 var timeSinceLastHit : float = 0.0
 
 var shouldBeCounting : bool = true
 
 var originalTimeScale : float
+
+var opponentStatDictionaryArray : Array[Dictionary]
 
 func _ready() -> void:
 	
@@ -51,18 +62,7 @@ func _ready() -> void:
 	
 	popupUI.set_hidden(true)
 	
-	popupUI.popped_up.connect(gameTimerUI.pause_timer)
-	
-	restartUI.popped_up.connect(gameTimerUI.pause_timer)
-	
-	nextRoundUI.popped_up.connect(gameTimerUI.pause_timer)
-	
-	popupUI.popped_up.connect(set_should_be_counting.bind(false))
-	
-	restartUI.popped_up.connect(set_should_be_counting.bind(false))
-	
-	nextRoundUI.popped_up.connect(set_should_be_counting.bind(false))
-	
+	connect_ui_hidden_signals()
 	
 	spawnTimer.timeout.connect(spawn_battle_top)
 	
@@ -80,6 +80,7 @@ func spawn_battle_top():
 	print("spawning battle top")
 	
 	if(playerTop == null):
+		
 		for i in spawnMarkerArray.size():
 			
 			var top_object : BattleTop = battleTopScene.instantiate()
@@ -103,7 +104,9 @@ func spawn_battle_top():
 			top_object.shouldBeRandom = !top_object.isPlayer
 			#top_object.global_position = spawnMarkerArray[rand_obj.randi_range(0, spawnMarkerArray.size() - 1)].global_position
 	else:
+		
 		shouldBeCounting = true
+		
 		for i in GlobalStats.numEnemyTops:
 			
 			var top_object : BattleTop = battleTopScene.instantiate()
@@ -116,9 +119,6 @@ func spawn_battle_top():
 			print("spawned top")
 			top_object.has_hit_top.connect(restart_idle_timer)
 			
-			
-				#playerTop.first_hit_occured.connect(gameTimerUI.set_visible.bind(true))
-				
 			top_object.shouldBeRandom = !top_object.isPlayer
 	numRounds -= 1
 	
@@ -193,6 +193,27 @@ func _on_kill_plane_body_shape_entered(body_rid: RID, body: Node3D, body_shape_i
 				
 				oopsUI.set_hidden(false)
 			
+			
+		
+			if(body != playerTop && playerTop != null):
+				
+				print("Defeated top stats are " + str(body.topStats))
+				
+				opponentStatDictionaryArray.append(body.topStats)
+				nextRoundUI.receivedStatDictionaryArray = opponentStatDictionaryArray
+				
+			if(topChildren.size() == 1):
+				
+				if(topChildren[0] == playerTop ):
+				
+					nextRoundUI.receivedTime = gameTimerUI.timerVal
+					#print("Sent dictionary is " + str(opponentStatDictionaryArray))
+					
+					nextRoundUI.set_hidden(false)
+					opponentStatDictionaryArray = []
+				else:
+					print("Defeated player stats: " + str(GlobalStats.playerStats))
+					print("Top stats that defeated the player: " + str(topChildren[0].topStats))
 			if(body == playerTop):
 				
 				print("Player has died")
@@ -200,13 +221,7 @@ func _on_kill_plane_body_shape_entered(body_rid: RID, body: Node3D, body_shape_i
 				restartUI.set_hidden(false)
 				
 				playerTop = null
-		
-			if(topChildren.size() == 1):
-				
-				if(topChildren[0] == playerTop ):
-				
-					nextRoundUI.set_hidden(false)
-				
+			
 		body.kill_top()
 		
 func _on_prompt_ui_said_yes() -> void:
@@ -236,6 +251,8 @@ func _on_prompt_ui_restart_round_said_yes() -> void:
 	oopsUI.set_hidden(true)
 	nextRoundUI.set_hidden(true)
 	upgradeUI.set_hidden(true)
+	gameTimerUI.set_hidden(true)
+	
 	GlobalStats.goldAmount = GlobalStats.defaultGoldAmount
 	GlobalStats.staminaCost = 50
 	GlobalStats.sturdinessCost = 50
@@ -251,6 +268,7 @@ func _on_round_end_ui_said_yes() -> void:
 	
 	upgradeUI.set_hidden(false)
 	nextRoundUI.set_hidden(true)
+	#opponentStatDictionaryArray = []
 
 
 func _on_oops_ui_said_yes() -> void:
@@ -267,3 +285,16 @@ func set_should_be_counting(new_value : bool):
 	shouldBeCounting = new_value
 	if(!shouldBeCounting):
 		timeSinceLastHit = 0.0
+
+func connect_ui_hidden_signals():
+	
+	upgradeUI.popped_up.connect(gameTimerUI.set_hidden.bind(true))
+	
+	for i in popUpUIArray:
+		
+		i.popped_up.connect(gameTimerUI.pause_timer)
+		
+		oopsUI.popped_up.connect(i.set_hidden.bind(true))
+		
+		i.popped_up.connect(set_should_be_counting.bind(false))
+		

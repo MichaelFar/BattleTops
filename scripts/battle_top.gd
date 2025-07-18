@@ -22,15 +22,27 @@ var stamina : float = 20 :
 		if(stamina <= maxStamina / 3.0):
 			has_low_stamina.emit()
 
-var maxStamina : float = 40
+var maxStamina : float = 40 :
+	set(value):
+		maxStamina = value
+		if(isPlayer):
+			print("Set stamina is now " + str(maxStamina))
 
-var sturdiness : float = 40
+var sturdiness : float = 40 
 
-var maxSturdiness : float = 80
+var maxSturdiness : float = 80 :
+	set(value):
+		maxSturdiness = value
+		if(isPlayer):
+			print("Set sturdiness is now " + str(maxSturdiness))
 
 var spinForce : float = 100
 
-var maxSpinForce : float = 150
+var maxSpinForce : float = 150 :
+	set(value):
+		maxSpinForce = value
+		if(isPlayer):
+			print("Set spin force is now " + str(maxSpinForce))
 
 var topMeshMaterial : StandardMaterial3D 
 
@@ -42,7 +54,7 @@ var isDead : bool = false
 
 var infiniteStaminaMode : bool = false
 
-var minumumLinearVelocity : float = 2.0
+var minumumLinearVelocity : float = 1.8
 
 var insideArena : bool = false
 
@@ -85,6 +97,12 @@ var staminaTween : Tween :
 
 var isPlayer : bool = true
 
+
+var topStats : Dictionary = { #Only checked when score is considered as an opponent
+	"stamina" : 20.0,
+	"sturdiness" : 40.0,
+	"spinForce" : 100.0
+}
 
 
 signal has_hit_top
@@ -138,10 +156,14 @@ func initialize_values():
 		
 		mass = 2
 		
+		topStats["stamina"] = maxStamina
+		topStats["sturdiness"] = maxSturdiness
+		topStats["spinForce"] = maxSpinForce
+		
 		stamina = maxStamina
 		#physicsMaterial.bounce = rand_obj.randf_range(0.0, .75)
 		print("Generated random stats")
-	minumumLinearVelocity = randf_range(1.0, minumumLinearVelocity)
+	minumumLinearVelocity = randf_range(1.6, minumumLinearVelocity)
 		
 	var tween = get_tree().create_tween()
 	
@@ -214,10 +236,13 @@ func hit_battle_top(battle_top : BattleTop):
 	
 	print("Hitting top")
 	
-	spinForce = clampf((stamina / maxStamina) * maxSpinForce, maxSpinForce * 1.5, 1000)
+	spinForce = clampf((stamina / maxStamina) * maxSpinForce, 0.0, 1000)
 	print("Spin force is " + str(spinForce))
+	
+	print("Stamina coefficient before calculating sturdiness is " + str(stamina / maxStamina))
 	sturdiness = (stamina / maxStamina) * maxSturdiness
 	
+	print("Sturdiness during hit is " + str(sturdiness))
 	#physicsMaterial.absorbent = !hasBeenHit
 	#
 	#physics_material_override = physicsMaterial
@@ -235,9 +260,9 @@ func hit_battle_top(battle_top : BattleTop):
 	
 	has_hit_top.emit()
 	
-	battle_top.apply_central_force(global_position.direction_to(battle_top.global_position) * clampf(spinForce - battle_top.sturdiness, 0.0, 100))
-	
-	stamina += battle_top.spinForce + spinForce
+	battle_top.apply_central_force(global_position.direction_to(battle_top.global_position) * clampf(spinForce - (battle_top.sturdiness / battle_top.maxSturdiness), 0.0, 1000))
+	print("Force applied to top is " + str(global_position.direction_to(battle_top.global_position) * clampf(spinForce - (battle_top.sturdiness / battle_top.maxSturdiness), 0.0, 1000)))
+	stamina += clampf(battle_top.spinForce + spinForce, 0.0, maxStamina)
 	
 	if(battle_top.isDead):
 	
@@ -262,6 +287,8 @@ func upgrade_stats(addStamina : float, addSturdiness : float, addSpinForce : flo
 	GlobalStats.playerStats["spinForce"] += addSpinForce
 
 func update_stats():
+	
+	hasBeenHit = false
 	
 	maxStamina = GlobalStats.playerStats["stamina"] 
 	maxSturdiness = GlobalStats.playerStats["sturdiness"]
