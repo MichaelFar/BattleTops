@@ -16,77 +16,77 @@ bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 [sub_resource type="RichTextEffect" id="RichTextEffect_g3bku"]
 resource_name = "fader"
 script = ExtResource("2_6ij7f")
-metadata/rt = 82808177538253
+metadata/rt = 115820067961835
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_soydq"]
 resource_name = "heart"
 script = ExtResource("3_fq5lg")
-metadata/rt = 82808177538253
+metadata/rt = 115820067961835
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_2wj67"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 82827454560659
+metadata/rt = 115839328194928
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ratfy"]
 resource_name = "sin"
 script = ExtResource("6_g3bku")
-metadata/rt = 82827454560659
+metadata/rt = 115839328194928
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_may18"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 82846714797660
+metadata/rt = 115858588415611
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_4pgft"]
 resource_name = "sway"
 script = ExtResource("7_soydq")
-metadata/rt = 82846714797660
+metadata/rt = 115858588415611
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_oec1f"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 82865975047563
+metadata/rt = 115877848667621
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_srdp0"]
 resource_name = "jit2"
 script = ExtResource("8_2wj67")
-metadata/rt = 82865975047563
+metadata/rt = 115877848667621
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_w5ndc"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 82885268845270
+metadata/rt = 115897142428596
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_oq6v8"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 82904529090913
+metadata/rt = 115916402681406
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_mh5b7"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 82923789304112
+metadata/rt = 115935679725486
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_7j37j"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 82943049576571
+metadata/rt = 115954939930734
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_8axjk"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 82962712445403
+metadata/rt = 115974602865398
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_c74tn"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 82981972718503
+metadata/rt = 115993863107487
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_milu8"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 83001232958215
+metadata/rt = 116013123387018
 
 [node name="Control" type="Control" node_paths=PackedStringArray("staminaLabel", "sturdinessLabel", "spinForceLabel", "staminaCostLabel", "sturdinessCostLabel", "spinForceCostLabel", "moneyAmountValueLabel")]
 layout_mode = 3
@@ -104,7 +104,7 @@ sturdinessCostLabel = NodePath("HBoxContainer/VBoxContainer/HBoxContainer2/VBoxC
 spinForceCostLabel = NodePath("HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer4/SpinForceCost")
 moneyAmountValueLabel = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2/MoneyAmountValue")
 staminaUpgradeAmount = 15.0
-sturdinessUpgradeAmount = 10.0
+sturdinessUpgradeAmount = 30.0
 spinForceUpgradeAmount = 40.0
 
 [node name="Panel" type="Panel" parent="."]
@@ -1101,8 +1101,8 @@ animation = "redact"
 _hold = true
 progress = 1.0
 visible_character = 8
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 30, 52), Transform2D(1, 0, 0, 1, 60, 52), Transform2D(1, 0, 0, 1, 83, 52), Transform2D(1, 0, 0, 1, 102, 52), Transform2D(1, 0, 0, 1, 115, 52), Transform2D(1, 0, 0, 1, 127, 52), Transform2D(1, 0, 0, 1, 154, 52)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(27, 37), Vector2(22, 37), Vector2(20, 37), Vector2(10, 37), Vector2(0, 37), Vector2(25, 37), Vector2(26, 37)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _forced_finish_delay = -0.047867

@@ -54,7 +54,7 @@ var isDead : bool = false
 
 var infiniteStaminaMode : bool = false
 
-var minumumLinearVelocity : float = 1.8
+var minimumLinearVelocity : float = 1.3
 
 var insideArena : bool = false
 
@@ -104,6 +104,7 @@ var topStats : Dictionary = { #Only checked when score is considered as an oppon
 	"spinForce" : 100.0
 }
 
+var staminaIsGoingDown : bool = false
 
 signal has_hit_top
 signal first_hit_occured
@@ -120,7 +121,7 @@ func _ready():
 	
 	initialize_values()
 	
-	
+	first_hit_occured.connect(set_stamina_is_going_down.bind(true))
 	
 func initialize_values():
 	
@@ -163,15 +164,15 @@ func initialize_values():
 		stamina = maxStamina
 		#physicsMaterial.bounce = rand_obj.randf_range(0.0, .75)
 		print("Generated random stats")
-	minumumLinearVelocity = randf_range(1.6, minumumLinearVelocity)
+	minimumLinearVelocity = randf_range(1.2, minimumLinearVelocity)
 		
-	var tween = get_tree().create_tween()
-	
-	tween.tween_property(self, "stamina", 0.0, maxStamina)
-	
-	#tween.finished.connect(kill_top)
-	
-	staminaTween = tween
+	#var tween = get_tree().create_tween()
+	#
+	#tween.tween_property(self, "stamina", 0.0, maxStamina)
+	#
+	##tween.finished.connect(kill_top)
+	#
+	#staminaTween = tween
 	
 	color = Color(sturdiness / 130,spinForce / 200,stamina / 60)
 		
@@ -181,8 +182,9 @@ func initialize_values():
 	
 func _physics_process(delta: float) -> void:
 	
-	
-	
+	if(staminaIsGoingDown):
+		stamina -= delta
+		stamina = clampf(stamina, 0.0, maxStamina)
 	if(!isDead):
 		
 		topHead.look_at(orientPoint.global_position)
@@ -191,9 +193,9 @@ func _physics_process(delta: float) -> void:
 	
 	particle.emitting = linear_velocity.length() > 2.5
 	
-	if(linear_velocity.length() < minumumLinearVelocity && !isDead && insideArena):
+	if(linear_velocity.length() < minimumLinearVelocity && !isDead && insideArena):
 		
-		linear_velocity = linear_velocity.normalized() * minumumLinearVelocity
+		linear_velocity = linear_velocity.normalized() * minimumLinearVelocity
 		
 func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
 	
@@ -235,8 +237,8 @@ func check_colliding_then_apply_spin_force():
 func hit_battle_top(battle_top : BattleTop):
 	
 	print("Hitting top")
-	
-	spinForce = clampf((stamina / maxStamina) * maxSpinForce, 0.0, 1000)
+	print("Stamina coefficient before calculating spinforce is " + str(stamina / maxStamina))
+	spinForce = clampf((stamina / maxStamina) * maxSpinForce, maxSpinForce / 5.0, 1000)
 	print("Spin force is " + str(spinForce))
 	
 	print("Stamina coefficient before calculating sturdiness is " + str(stamina / maxStamina))
@@ -260,17 +262,22 @@ func hit_battle_top(battle_top : BattleTop):
 	
 	has_hit_top.emit()
 	
-	battle_top.apply_central_force(global_position.direction_to(battle_top.global_position) * clampf(spinForce - (battle_top.sturdiness / battle_top.maxSturdiness), 0.0, 1000))
-	print("Force applied to top is " + str(global_position.direction_to(battle_top.global_position) * clampf(spinForce - (battle_top.sturdiness / battle_top.maxSturdiness), 0.0, 1000)))
-	stamina += clampf(battle_top.spinForce + spinForce, 0.0, maxStamina)
+	
+	
+	battle_top.apply_central_force(global_position.direction_to(battle_top.global_position) * clampf(spinForce - battle_top.sturdiness, 0.0, 1000))
+	print("Force applied to top is " + str(global_position.direction_to(battle_top.global_position) * clampf(spinForce -battle_top.sturdiness , 0.0, 1000)))
+	stamina += battle_top.spinForce + spinForce
+	
+	stamina = clampf(stamina, 0.0, maxStamina)
 	
 	if(battle_top.isDead):
 	
 		stamina = maxStamina
 	
-	staminaTween = create_stamina_tween()
+	#staminaTween = create_stamina_tween()
 	
 func create_stamina_tween():
+	staminaTween.kill()
 	var tween = get_tree().create_tween()
 	
 	tween.tween_property(self, "stamina", 0.0, maxStamina * (stamina / maxStamina))
@@ -293,3 +300,10 @@ func update_stats():
 	maxStamina = GlobalStats.playerStats["stamina"] 
 	maxSturdiness = GlobalStats.playerStats["sturdiness"]
 	maxSpinForce = GlobalStats.playerStats["spinForce"]
+	stamina = maxStamina
+	
+func set_stamina_is_going_down(new_value : bool):
+	
+	staminaIsGoingDown = new_value
+	if(!new_value):
+		stamina = maxStamina

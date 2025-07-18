@@ -28,6 +28,10 @@ class_name ArenaLevelManager
 
 @export var popUpUIArray : Array[Control]
 
+@export var rampColliderArray : Array[CollisionShape3D]
+
+@export var safetyBarrierCollider : CollisionShape3D
+
 var topChildren : Array[BattleTop]
 
 var hasChosenTop : bool = false
@@ -54,6 +58,8 @@ var originalTimeScale : float
 
 var opponentStatDictionaryArray : Array[Dictionary]
 
+
+
 func _ready() -> void:
 	
 	GlobalStats.currentGameStage = GlobalStats.GameStage.CHOOSINGTOP
@@ -72,8 +78,11 @@ func _ready() -> void:
 func next_round():
 	
 	spawn_battle_top()
-	playerTop.stamina = playerTop.maxStamina
-	playerTop.create_stamina_tween()
+	update_player_top_stats()
+	playerTop.set_stamina_is_going_down(true)
+	#playerTop.stamina = playerTop.maxStamina
+	print("Player Stamina after next round is " + str(playerTop.stamina))
+	#playerTop.create_stamina_tween()
 
 func spawn_battle_top():
 	
@@ -134,6 +143,8 @@ func _physics_process(delta: float) -> void:
 		
 		shouldBeCounting = false
 		Engine.time_scale *= 2
+		for i in topChildren:
+			i.apply_central_force(i.global_position.direction_to(orientPoint.global_position))
 	
 	if(Input.is_action_just_released("ui_accept")):
 		
@@ -208,8 +219,9 @@ func _on_kill_plane_body_shape_entered(body_rid: RID, body: Node3D, body_shape_i
 				
 					nextRoundUI.receivedTime = gameTimerUI.timerVal
 					#print("Sent dictionary is " + str(opponentStatDictionaryArray))
-					
+					safetyBarrierCollider.disabled = false
 					nextRoundUI.set_hidden(false)
+					playerTop.set_stamina_is_going_down(false)
 					opponentStatDictionaryArray = []
 				else:
 					print("Defeated player stats: " + str(GlobalStats.playerStats))
@@ -246,6 +258,8 @@ func _on_prompt_ui_said_yes() -> void:
 	
 func _on_prompt_ui_restart_round_said_yes() -> void:
 	
+	safetyBarrierCollider.disabled = true
+	
 	hasChosenTop = false
 	restartUI.set_hidden(true)
 	oopsUI.set_hidden(true)
@@ -268,6 +282,7 @@ func _on_round_end_ui_said_yes() -> void:
 	
 	upgradeUI.set_hidden(false)
 	nextRoundUI.set_hidden(true)
+	safetyBarrierCollider.disabled = true
 	#opponentStatDictionaryArray = []
 
 
@@ -298,3 +313,10 @@ func connect_ui_hidden_signals():
 		
 		i.popped_up.connect(set_should_be_counting.bind(false))
 		
+
+func set_spawn_ramp_collision_disabled(new_value : bool):
+	
+	for i in rampColliderArray:
+		
+		i.disabled = new_value
+	

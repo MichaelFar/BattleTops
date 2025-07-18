@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://bo0tlkahcq0h1"]
+[gd_scene load_steps=27 format=4 uid="uid://bo0tlkahcq0h1"]
 
 [ext_resource type="Script" uid="uid://bgpx0fo1suclw" path="res://scripts/arena.gd" id="1_uwlbn"]
 [ext_resource type="PackedScene" uid="uid://d1k0hl6r0jkh0" path="res://scenes/battle_top.tscn" id="2_ojxb6"]
@@ -95,10 +95,7 @@ radius = 0.626465
 [sub_resource type="BoxShape3D" id="BoxShape3D_uwlbn"]
 size = Vector3(200.253, 1, 180.82)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ojxb6"]
-size = Vector3(16.6166, 1, 16.5143)
-
-[node name="SmallArena" type="Node3D" node_paths=PackedStringArray("orientPoint", "spawnMarkerArray", "spawnTimer", "popupUI", "upgradeUI", "restartUI", "nextRoundUI", "oopsUI", "camera", "gameTimerUI", "popUpUIArray")]
+[node name="SmallArena" type="Node3D" node_paths=PackedStringArray("orientPoint", "spawnMarkerArray", "spawnTimer", "popupUI", "upgradeUI", "restartUI", "nextRoundUI", "oopsUI", "camera", "gameTimerUI", "popUpUIArray", "rampColliderArray", "safetyBarrierCollider")]
 script = ExtResource("1_uwlbn")
 orientPoint = NodePath("TopOrientPoint")
 spawnMarkerArray = [NodePath("MeshInstance3D4/MeshInstance3D2/SpawnPoint2"), NodePath("MeshInstance3D5/MeshInstance3D2/SpawnPoint2")]
@@ -113,6 +110,8 @@ oopsUI = NodePath("OopsUI")
 camera = NodePath("Camera3D")
 gameTimerUI = NodePath("TimerUI")
 popUpUIArray = [NodePath("PromptUIChooseTop"), NodePath("Control"), NodePath("PromptUIRestartRound"), NodePath("round_end_ui")]
+rampColliderArray = [NodePath("MeshInstance3D4/StaticBody3D2/CollisionShape3D"), NodePath("MeshInstance3D4/StaticBody3D2/CollisionShape3D2"), NodePath("MeshInstance3D5/StaticBody3D2/CollisionShape3D"), NodePath("MeshInstance3D5/StaticBody3D2/CollisionShape3D2")]
+safetyBarrierCollider = NodePath("WinScreenSafetyBarrier/CollisionShape3D")
 
 [node name="BattleBowl" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.602395, 0, 0, 0, 0.575896, 0, 0, 0, 0.438901, 0, -0.545717, 0)
@@ -203,12 +202,6 @@ shape = SubResource("BoxShape3D_uwlbn")
 visible = false
 activeArena = NodePath("..")
 
-[node name="DeathPlane" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathPlane"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0983276, 0, -0.325165)
-shape = SubResource("BoxShape3D_ojxb6")
-
 [node name="TimerUI" parent="." instance=ExtResource("11_u623t")]
 visible = false
 mouse_filter = 2
@@ -228,13 +221,19 @@ visible = false
 [node name="OopsUI" parent="." instance=ExtResource("10_f34ng")]
 visible = false
 
+[node name="WinScreenSafetyBarrier" type="StaticBody3D" parent="."]
+transform = Transform3D(-1, -1.50996e-07, 0, 1.50996e-07, -1, 0, 0, 0, 1, 0, 2.41841, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WinScreenSafetyBarrier"]
+shape = SubResource("ConcavePolygonShape3D_ojxb6")
+disabled = true
+
 [connection signal="body_entered" from="InnerArenaVolume" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="InnerArenaVolume" to="." method="_on_area_3d_body_exited"]
 [connection signal="body_shape_entered" from="KillPlane" to="." method="_on_kill_plane_body_shape_entered"]
 [connection signal="said_no" from="PromptUIChooseTop" to="." method="restart_round_with_random"]
 [connection signal="said_yes" from="PromptUIChooseTop" to="." method="_on_prompt_ui_said_yes"]
-[connection signal="next_round_button_pressed" from="Control" to="." method="spawn_battle_top"]
-[connection signal="next_round_button_pressed" from="Control" to="." method="update_player_top_stats"]
+[connection signal="next_round_button_pressed" from="Control" to="." method="next_round"]
 [connection signal="said_yes" from="PromptUIRestartRound" to="." method="_on_prompt_ui_restart_round_said_yes"]
 [connection signal="said_yes" from="round_end_ui" to="." method="_on_round_end_ui_said_yes"]
 [connection signal="said_yes" from="OopsUI" to="." method="_on_oops_ui_said_yes"]
