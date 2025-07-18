@@ -1,5 +1,3 @@
-@tool
-
 extends Node
 
 class_name Global
@@ -50,12 +48,25 @@ var sturdinessCost : int = 50
 
 var spinForceCost : int = 50
 
+var staminaUpgradeAmount : float = 15
+var sturdinessUpgradeAmount : float = 20
+var spinForceUpgradeAmount : float = 25
+
+
 var numEnemyTops := 1
+
+var roundNum : int = 0
 
 var playerStats : Dictionary = {
 	"stamina" : 20.0,
 	"sturdiness" : 40.0,
 	"spinForce" : 100.0
+}
+
+var opponentTopRangeDict : Dictionary = { #Increases when round num increases
+	"stamina" : Vector2(1,1),
+	"sturdiness" : Vector2(1,1),
+	"spinForce" : Vector2(1,1)
 }
 
 func set_player_stats(new_stamina : float, new_sturdiness : float, new_spin_force : float):
@@ -65,4 +76,24 @@ func set_player_stats(new_stamina : float, new_sturdiness : float, new_spin_forc
 	playerStats["spinForce"] = new_spin_force
 
 func update_enemy_tops_and_advance_difficulty():
-	pass
+	
+	roundNum += 1
+	
+	match roundNum:
+		
+		1:
+			opponentTopRangeDict["stamina"] = Vector2(1, 20)
+			opponentTopRangeDict["sturdiness"] = Vector2(20, 50)
+			opponentTopRangeDict["spinForce"] = Vector2(30, 60)
+		3:
+			opponentTopRangeDict["stamina"] = Vector2(10, 40)
+			opponentTopRangeDict["sturdiness"] = Vector2(50, 90)
+			opponentTopRangeDict["spinForce"] = Vector2(70, 110)
+		5:
+			opponentTopRangeDict["stamina"] = Vector2(30, 60)
+			opponentTopRangeDict["sturdiness"] = Vector2(70, 130)
+			opponentTopRangeDict["spinForce"] = Vector2(100, 150)
+		7:
+			opponentTopRangeDict["stamina"] = Vector2(60, 90)
+			opponentTopRangeDict["sturdiness"] = Vector2(100, 150)
+			opponentTopRangeDict["spinForce"] = Vector2(130, 180)

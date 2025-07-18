@@ -14,6 +14,8 @@ class_name BattleTop
 
 @export var hitCheckTimer : Timer
 
+@export var hitParticleScene : PackedScene
+
 enum TopType {NPC, PLAYER}
 
 var stamina : float = 20 :
@@ -133,27 +135,22 @@ func initialize_values():
 	
 	infiniteStaminaMode = GlobalStats.infiniteStaminaMode
 	
-	if(isPlayer):
-		
-		maxStamina = GlobalStats.playerStats["stamina"]
-		stamina = maxStamina
-		sturdiness = GlobalStats.playerStats["sturdiness"]
-		spinForce = GlobalStats.playerStats["spinForce"]
-		maxSpinForce = spinForce
 	
 	if(shouldBeRandom):
 		
 		var rand_obj = RandomNumberGenerator.new()
 		
-		spinForce = rand_obj.randf_range(100, 200)
+		maxStamina = rand_obj.randf_range(30 + GlobalStats.opponentTopRangeDict["stamina"].x, 60+ GlobalStats.opponentTopRangeDict["sturdiness"].y)
 		
-		maxSpinForce = spinForce
+		stamina = maxStamina
 		
-		sturdiness = rand_obj.randf_range(50, 130)
+		sturdiness = rand_obj.randf_range(50 + GlobalStats.opponentTopRangeDict["sturdiness"].x, 130 + GlobalStats.opponentTopRangeDict["sturdiness"].y)
 		
 		maxSturdiness = sturdiness
 		
-		maxStamina = rand_obj.randf_range(30, 60)
+		spinForce = rand_obj.randf_range(100 + GlobalStats.opponentTopRangeDict["spinForce"].x, 200 + GlobalStats.opponentTopRangeDict["spinForce"].x)
+		
+		maxSpinForce = spinForce
 		
 		mass = 2
 		
@@ -161,18 +158,11 @@ func initialize_values():
 		topStats["sturdiness"] = maxSturdiness
 		topStats["spinForce"] = maxSpinForce
 		
-		stamina = maxStamina
+		
 		#physicsMaterial.bounce = rand_obj.randf_range(0.0, .75)
 		print("Generated random stats")
-	minimumLinearVelocity = randf_range(1.2, minimumLinearVelocity)
 		
-	#var tween = get_tree().create_tween()
-	#
-	#tween.tween_property(self, "stamina", 0.0, maxStamina)
-	#
-	##tween.finished.connect(kill_top)
-	#
-	#staminaTween = tween
+	minimumLinearVelocity = randf_range(1.2, minimumLinearVelocity)
 	
 	color = Color(sturdiness / 130,spinForce / 200,stamina / 60)
 		
@@ -238,7 +228,7 @@ func hit_battle_top(battle_top : BattleTop):
 	
 	print("Hitting top")
 	print("Stamina coefficient before calculating spinforce is " + str(stamina / maxStamina))
-	spinForce = clampf((stamina / maxStamina) * maxSpinForce, maxSpinForce / 5.0, 1000)
+	spinForce = clampf((stamina / maxStamina) * maxSpinForce, maxSpinForce / 3.0, 1000)
 	print("Spin force is " + str(spinForce))
 	
 	print("Stamina coefficient before calculating sturdiness is " + str(stamina / maxStamina))
@@ -249,6 +239,9 @@ func hit_battle_top(battle_top : BattleTop):
 	#
 	#physics_material_override = physicsMaterial
 	#
+	
+	spawn_hit_particle(battle_top.global_position)
+	
 	if(!hasBeenHit):
 		
 		first_hit_occured.emit()
@@ -275,16 +268,7 @@ func hit_battle_top(battle_top : BattleTop):
 		stamina = maxStamina
 	
 	#staminaTween = create_stamina_tween()
-	
-func create_stamina_tween():
-	staminaTween.kill()
-	var tween = get_tree().create_tween()
-	
-	tween.tween_property(self, "stamina", 0.0, maxStamina * (stamina / maxStamina))
 
-	#tween.finished.connect(kill_top)
-	print(stamina)
-	return tween
 func upgrade_stats(addStamina : float, addSturdiness : float, addSpinForce : float):
 	
 	hasBeenHit = false
@@ -307,3 +291,15 @@ func set_stamina_is_going_down(new_value : bool):
 	staminaIsGoingDown = new_value
 	if(!new_value):
 		stamina = maxStamina
+
+func spawn_hit_particle(opponent_position : Vector3):
+	
+	var particle_instance : GPUParticles3D = hitParticleScene.instantiate()
+	
+	var spawn_position : Vector3 = Vector3((global_position.x + opponent_position.x) / 2,(global_position.y + opponent_position.y) / 2,(global_position.z + opponent_position.z) / 2)
+	
+	add_child(particle_instance)
+	
+	particle_instance.one_shot = true
+	
+	particle_instance.global_position = spawn_position

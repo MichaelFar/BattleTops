@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvsltihkmox2p"]
+
+[ext_resource type="Script" uid="uid://de3ov5lmhjlci" path="res://scripts/hit_particle.gd" id="1_rk8c0"]
+
+[sub_resource type="Gradient" id="Gradient_rk8c0"]
+offsets = PackedFloat32Array(0.0709877, 0.138889, 1)
+colors = PackedColorArray(1, 0.894118, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_si4ve"]
+gradient = SubResource("Gradient_rk8c0")
+
+[sub_resource type="Curve" id="Curve_l506i"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.391534, 0.871345), -4.31052, 0.0, 0, 0, Vector2(0.436508, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_plx70"]
+curve = SubResource("Curve_l506i")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_si4ve"]
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+direction = Vector3(0, 0, 1)
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 9.8, 0)
+tangential_accel_min = 15.84
+tangential_accel_max = 15.84
+color_ramp = SubResource("GradientTexture1D_si4ve")
+emission_curve = SubResource("CurveTexture_plx70")
+turbulence_enabled = true
+turbulence_noise_strength = 18.39
+turbulence_noise_speed_random = 4.0
+turbulence_influence_min = 0.0
+turbulence_influence_max = 0.0
+turbulence_initial_displacement_min = 1.49012e-06
+turbulence_initial_displacement_max = 1.49012e-06
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mbt80"]
+transparency = 1
+vertex_color_use_as_albedo = true
+emission = Color(0.658824, 0.690196, 0, 1)
+emission_energy_multiplier = 5.88
+billboard_mode = 1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_l506i"]
+material = SubResource("StandardMaterial3D_mbt80")
+size = Vector2(0.025, 0.025)
+orientation = 2
+
+[node name="HitParticle" type="GPUParticles3D"]
+amount = 32
+lifetime = 0.2
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_si4ve")
+draw_pass_1 = SubResource("PlaneMesh_l506i")
+script = ExtResource("1_rk8c0")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

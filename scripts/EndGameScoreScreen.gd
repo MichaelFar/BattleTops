@@ -4,7 +4,16 @@ extends BasicUIController
 @export var opDifBonusLabel : RicherTextLabel
 @export var totalScoreLabel : RicherTextLabel
 
+@export var roundHeaderLabel : RicherTextLabel
+
+
+
 @export var bbcodeString : String
+
+var roundHeaderString : String :
+	set(value):
+		roundHeaderString = value
+		roundHeaderLabel.bbcode = "\n" + bbcodeString + value
 
 var timeBonus : float :
 	set(value):
@@ -78,5 +87,9 @@ func calculate_score():
 	op_dif_bonus = op_dif_bonus / 3.0
 	
 	GlobalStats.goldAmount += (time_bonus + op_dif_bonus)
-		
+	
 	animate_score(time_bonus, op_dif_bonus, time_bonus + op_dif_bonus)
+
+func update_header_text():
+	
+	roundHeaderString = str("Round " + str(GlobalStats.roundNum) + " Won!")

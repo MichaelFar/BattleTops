@@ -77,6 +77,7 @@ func _ready() -> void:
 
 func next_round():
 	
+	GlobalStats.update_enemy_tops_and_advance_difficulty()
 	spawn_battle_top()
 	update_player_top_stats()
 	playerTop.set_stamina_is_going_down(true)
@@ -144,7 +145,7 @@ func _physics_process(delta: float) -> void:
 		shouldBeCounting = false
 		Engine.time_scale *= 2
 		for i in topChildren:
-			i.apply_central_force(i.global_position.direction_to(orientPoint.global_position))
+			i.apply_central_impulse(i.global_position.direction_to(orientPoint.global_position) * 6)
 	
 	if(Input.is_action_just_released("ui_accept")):
 		
@@ -266,6 +267,8 @@ func _on_prompt_ui_restart_round_said_yes() -> void:
 	nextRoundUI.set_hidden(true)
 	upgradeUI.set_hidden(true)
 	gameTimerUI.set_hidden(true)
+	
+	GlobalStats.roundNum = 0
 	
 	GlobalStats.goldAmount = GlobalStats.defaultGoldAmount
 	GlobalStats.staminaCost = 50

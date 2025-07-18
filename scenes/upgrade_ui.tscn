@@ -16,77 +16,77 @@ bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 [sub_resource type="RichTextEffect" id="RichTextEffect_g3bku"]
 resource_name = "fader"
 script = ExtResource("2_6ij7f")
-metadata/rt = 115820067961835
+metadata/rt = 81489421257047
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_soydq"]
 resource_name = "heart"
 script = ExtResource("3_fq5lg")
-metadata/rt = 115820067961835
+metadata/rt = 81489421257047
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_2wj67"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 115839328194928
+metadata/rt = 81508681465183
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ratfy"]
 resource_name = "sin"
 script = ExtResource("6_g3bku")
-metadata/rt = 115839328194928
+metadata/rt = 81508681465183
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_may18"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 115858588415611
+metadata/rt = 81527941741723
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_4pgft"]
 resource_name = "sway"
 script = ExtResource("7_soydq")
-metadata/rt = 115858588415611
+metadata/rt = 81527941741723
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_oec1f"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 115877848667621
+metadata/rt = 81547218758235
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_srdp0"]
 resource_name = "jit2"
 script = ExtResource("8_2wj67")
-metadata/rt = 115877848667621
+metadata/rt = 81547218758235
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_w5ndc"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 115897142428596
+metadata/rt = 81566512557707
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_oq6v8"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 115916402681406
+metadata/rt = 81585772803340
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_mh5b7"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 115935679725486
+metadata/rt = 81605033016958
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_7j37j"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 115954939930734
+metadata/rt = 81624293290969
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_8axjk"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 115974602865398
+metadata/rt = 81643956186420
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_c74tn"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 115993863107487
+metadata/rt = 81663216435874
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_milu8"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 116013123387018
+metadata/rt = 81682476674511
 
 [node name="Control" type="Control" node_paths=PackedStringArray("staminaLabel", "sturdinessLabel", "spinForceLabel", "staminaCostLabel", "sturdinessCostLabel", "spinForceCostLabel", "moneyAmountValueLabel")]
 layout_mode = 3
@@ -103,9 +103,6 @@ staminaCostLabel = NodePath("HBoxContainer/VBoxContainer/HBoxContainer2/VBoxCont
 sturdinessCostLabel = NodePath("HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer4/SturdinessCost")
 spinForceCostLabel = NodePath("HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer4/SpinForceCost")
 moneyAmountValueLabel = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2/MoneyAmountValue")
-staminaUpgradeAmount = 15.0
-sturdinessUpgradeAmount = 30.0
-spinForceUpgradeAmount = 40.0
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1

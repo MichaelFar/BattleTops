@@ -12,17 +12,17 @@ bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 [sub_resource type="RichTextEffect" id="RichTextEffect_unyuq"]
 resource_name = "sin"
 script = ExtResource("2_unyuq")
-metadata/rt = 116032484229936
+metadata/rt = 81701837554400
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_hqumn"]
 resource_name = "sway"
 script = ExtResource("3_hqumn")
-metadata/rt = 116032484229936
+metadata/rt = 81701837554400
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_k7nnj"]
 resource_name = "wack"
 script = ExtResource("4_unyuq")
-metadata/rt = 116032484229936
+metadata/rt = 81701837554400
 
 [sub_resource type="FontFile" id="FontFile_lpym6"]
 subpixel_positioning = 0

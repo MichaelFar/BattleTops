@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1k0hl6r0jkh0"]
+[gd_scene load_steps=10 format=3 uid="uid://d1k0hl6r0jkh0"]
 
 [ext_resource type="Script" uid="uid://bjho3cl6tlaet" path="res://scripts/battle_top.gd" id="1_ufdw3"]
+[ext_resource type="PackedScene" uid="uid://dvsltihkmox2p" path="res://scenes/hit_particle.tscn" id="2_qrxi8"]
 [ext_resource type="PackedScene" uid="uid://danlbv3qunohf" path="res://scenes/top_particle.tscn" id="2_xsedg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ufdw3"]
@@ -32,6 +33,7 @@ physicsMaterial = SubResource("PhysicsMaterial_ul6p0")
 headCollision = NodePath("CollisionShape3D")
 particle = NodePath("TopHead/GPUParticles3D")
 hitCheckTimer = NodePath("HitCheckTimer")
+hitParticleScene = ExtResource("2_qrxi8")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)

@@ -13,87 +13,87 @@ bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 [sub_resource type="RichTextEffect" id="RichTextEffect_bs3yo"]
 resource_name = "sin"
 script = ExtResource("2_c4gaa")
-metadata/rt = 116052012972986
+metadata/rt = 81721366266873
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ccfeg"]
 resource_name = "heart"
 script = ExtResource("3_aeowc")
-metadata/rt = 116052012972986
+metadata/rt = 81721366266873
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_j8dm1"]
 resource_name = "sin"
 script = ExtResource("2_c4gaa")
-metadata/rt = 116071306737353
+metadata/rt = 81740660030713
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_obqxs"]
 resource_name = "heart"
 script = ExtResource("3_aeowc")
-metadata/rt = 116071306737353
+metadata/rt = 81740660030713
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_1dpxe"]
 resource_name = "redact"
 script = ExtResource("5_bs3yo")
-metadata/rt = 116090566981298
+metadata/rt = 81759937087908
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_g8s8r"]
 resource_name = "sin"
 script = ExtResource("2_c4gaa")
-metadata/rt = 116090566981298
+metadata/rt = 81759937087908
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_3ogjg"]
 resource_name = "heart"
 script = ExtResource("3_aeowc")
-metadata/rt = 116090566981298
+metadata/rt = 81759937087908
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_4iai4"]
 resource_name = "sin"
 script = ExtResource("2_c4gaa")
-metadata/rt = 116109860780546
+metadata/rt = 81779230881553
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_aq1j0"]
 resource_name = "heart"
 script = ExtResource("3_aeowc")
-metadata/rt = 116109860780546
+metadata/rt = 81779230881553
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ldusx"]
 resource_name = "redact"
 script = ExtResource("5_bs3yo")
-metadata/rt = 116129137770785
+metadata/rt = 81798491123025
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ou08c"]
 resource_name = "sin"
 script = ExtResource("2_c4gaa")
-metadata/rt = 116129137770785
+metadata/rt = 81798491123025
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_7sesj"]
 resource_name = "heart"
 script = ExtResource("3_aeowc")
-metadata/rt = 116129137770785
+metadata/rt = 81798491123025
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_gauht"]
 resource_name = "sin"
 script = ExtResource("2_c4gaa")
-metadata/rt = 116148431596418
+metadata/rt = 81817784923036
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_q2bjp"]
 resource_name = "heart"
 script = ExtResource("3_aeowc")
-metadata/rt = 116148431596418
+metadata/rt = 81817784923036
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_pldmj"]
 resource_name = "redact"
 script = ExtResource("5_bs3yo")
-metadata/rt = 116167691876857
+metadata/rt = 81837045171010
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_u5lmw"]
 resource_name = "sin"
 script = ExtResource("2_c4gaa")
-metadata/rt = 116167691876857
+metadata/rt = 81837045171010
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ymvsh"]
 resource_name = "heart"
 script = ExtResource("3_aeowc")
-metadata/rt = 116167691876857
+metadata/rt = 81837045171010
 
 [sub_resource type="FontFile" id="FontFile_lpym6"]
 subpixel_positioning = 0
@@ -120,7 +120,7 @@ cache/0/48/0/underline_position = 0.0
 cache/0/48/0/underline_thickness = 0.0
 cache/0/48/0/scale = 1.0
 
-[node name="round_end_ui" type="Control" node_paths=PackedStringArray("timeBonusLabel", "opDifBonusLabel", "totalScoreLabel")]
+[node name="round_end_ui" type="Control" node_paths=PackedStringArray("timeBonusLabel", "opDifBonusLabel", "totalScoreLabel", "roundHeaderLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -131,6 +131,7 @@ script = ExtResource("1_c4gaa")
 timeBonusLabel = NodePath("AspectRatioContainer/VBoxContainer/HBoxContainer2/timeBonusNumLabel")
 opDifBonusLabel = NodePath("AspectRatioContainer/VBoxContainer/HBoxContainer3/opDifNumLabel")
 totalScoreLabel = NodePath("AspectRatioContainer/VBoxContainer/HBoxContainer4/totalNumLabel")
+roundHeaderLabel = NodePath("AspectRatioContainer/VBoxContainer/Label")
 bbcodeString = "[sin][heart]"
 
 [node name="Panel" type="Panel" parent="."]

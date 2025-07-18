@@ -45,9 +45,9 @@ class_name StatLabelController
 
 @export var moneyAmountValueLabel : RicherTextLabel
 
-@export var staminaUpgradeAmount : float
-@export var sturdinessUpgradeAmount : float
-@export var spinForceUpgradeAmount : float
+var staminaUpgradeAmount : float
+var sturdinessUpgradeAmount : float
+var spinForceUpgradeAmount : float
 
 var staminaCost : int = 50:
 	
@@ -95,6 +95,10 @@ func _ready():
 	sturdinessCost = 50
 	spinForceCost = 50
 	moneyAmount = GlobalStats.goldAmount
+	
+	staminaUpgradeAmount = GlobalStats.staminaUpgradeAmount
+	sturdinessUpgradeAmount = GlobalStats.sturdinessUpgradeAmount
+	spinForceUpgradeAmount = GlobalStats.spinForceUpgradeAmount
 	
 func set_hidden(new_value : bool):
 	
