@@ -111,6 +111,7 @@ func _physics_process(delta: float) -> void:
 func next_round():
 	
 	GlobalStats.update_enemy_tops_and_advance_difficulty()
+	set_spawn_ramp_collision_disabled(false)
 	spawn_battle_top()
 	update_player_top_stats()
 	playerTop.set_stamina_is_going_down(true)
@@ -138,6 +139,8 @@ func spawn_battle_top():
 			top_object.has_hit_top.connect(camera.set_is_shaking.bind(0.02))
 			#top_object.first_hit_occured.connect(gameTimerUI.start_timer)
 			top_object.has_hit_top.connect(restart_idle_timer)
+			top_object.first_hit_occured.connect(set_spawn_ramp_collision_disabled.bind(true))
+			
 			if(i == 0 
 			&& GlobalStats.currentGameMode == GlobalStats.GameMode.CAREER
 			&& playerTop == null):
@@ -159,6 +162,7 @@ func spawn_battle_top():
 			top_object.global_position = spawnMarkerArray[i].global_position
 			top_object.orientPoint = orientPoint
 			topChildren.append(top_object)
+			top_object.first_hit_occured.connect(set_spawn_ramp_collision_disabled.bind(true))
 			print("spawned top")
 			top_object.has_hit_top.connect(restart_idle_timer)
 			
@@ -273,6 +277,8 @@ func _on_prompt_ui_said_yes() -> void:
 func _on_prompt_ui_restart_round_said_yes() -> void:
 	
 	safetyBarrierCollider.disabled = true
+	
+	set_spawn_ramp_collision_disabled(false)
 	
 	hasChosenTop = false
 	restartUI.set_hidden(true)

@@ -58,7 +58,7 @@ var isDead : bool = false
 
 var infiniteStaminaMode : bool = false
 
-var minimumLinearVelocity : float = 1.3
+var minimumLinearVelocity : float = 1.5
 
 var insideArena : bool = false
 
@@ -150,11 +150,11 @@ func initialize_values():
 		
 		stamina = maxStamina
 		
-		sturdiness = rand_obj.randf_range(50 + GlobalStats.opponentTopRangeDict["sturdiness"].x, 130 + GlobalStats.opponentTopRangeDict["sturdiness"].y)
+		sturdiness = rand_obj.randf_range(90 + GlobalStats.opponentTopRangeDict["sturdiness"].x, 130 + GlobalStats.opponentTopRangeDict["sturdiness"].y)
 		
 		maxSturdiness = sturdiness
 		
-		spinForce = rand_obj.randf_range(100 + GlobalStats.opponentTopRangeDict["spinForce"].x, 200 + GlobalStats.opponentTopRangeDict["spinForce"].x)
+		spinForce = rand_obj.randf_range(150 + GlobalStats.opponentTopRangeDict["spinForce"].x, 200 + GlobalStats.opponentTopRangeDict["spinForce"].x)
 		
 		maxSpinForce = spinForce
 		
@@ -168,7 +168,7 @@ func initialize_values():
 		#physicsMaterial.bounce = rand_obj.randf_range(0.0, .75)
 		print("Generated random stats")
 		
-	minimumLinearVelocity = randf_range(1.2, minimumLinearVelocity)
+	minimumLinearVelocity = randf_range(minimumLinearVelocity, minimumLinearVelocity)
 	
 	color = Color(sturdiness / 130,spinForce / 200,stamina / 60)
 		

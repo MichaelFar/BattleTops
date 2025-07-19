@@ -110,7 +110,7 @@ func set_hidden(new_value : bool):
 
 func _on_upgrade_stamina_button_up() -> void:
 	
-	if(moneyAmount > staminaCost):
+	if(moneyAmount >= staminaCost):
 		
 		moneyAmount -= staminaCost
 		staminaCost += staminaCost / 8
@@ -119,7 +119,7 @@ func _on_upgrade_stamina_button_up() -> void:
 
 func _on_upgrade_sturdiness_button_up() -> void:
 	
-	if(moneyAmount > sturdinessCost):
+	if(moneyAmount >= sturdinessCost):
 		
 		moneyAmount -= sturdinessCost
 		sturdinessCost += sturdinessCost / 8
@@ -129,7 +129,7 @@ func _on_upgrade_sturdiness_button_up() -> void:
 	
 func _on_upgrade_spin_force_button_up() -> void:
 	
-	if(moneyAmount > spinForceCost):
+	if(moneyAmount >= spinForceCost):
 		
 		moneyAmount -= spinForceCost
 		spinForceCost += spinForceCost / 8

@@ -65,7 +65,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0914399)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.158)
 visible = false
 billboard = 1
+modulate = Color(1, 1, 1, 0.0862745)
+outline_modulate = Color(0, 0, 0, 0.192157)
 text = "You"
+font_size = 16
 
 [node name="StaminaTimer" type="Timer" parent="."]
 
