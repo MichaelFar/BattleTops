@@ -16,6 +16,8 @@ class_name BattleTop
 
 @export var hitParticleScene : PackedScene
 
+@export var nameTag : Label3D
+
 enum TopType {NPC, PLAYER}
 
 var stamina : float = 20 :
@@ -107,6 +109,10 @@ var topStats : Dictionary = { #Only checked when score is considered as an oppon
 }
 
 var staminaIsGoingDown : bool = false
+
+var numTopsDefeated : int = 0
+
+var lastHitTop : BattleTop
 
 signal has_hit_top
 signal first_hit_occured
@@ -212,6 +218,9 @@ func kill_top():
 	spinForce = 0.0
 	physics_material_override = physicsMaterial
 	
+	if(lastHitTop != null):
+		lastHitTop.numTopsDefeated += 1
+	
 	var timer = get_tree().create_timer(15.0)
 	
 	timer.timeout.connect(queue_free)
@@ -241,7 +250,7 @@ func hit_battle_top(battle_top : BattleTop):
 	#
 	
 	spawn_hit_particle(battle_top.global_position)
-	
+	lastHitTop = battle_top
 	if(!hasBeenHit):
 		
 		first_hit_occured.emit()
@@ -257,7 +266,7 @@ func hit_battle_top(battle_top : BattleTop):
 	
 	
 	
-	battle_top.apply_central_force(global_position.direction_to(battle_top.global_position) * clampf(spinForce - battle_top.sturdiness, 0.0, 1000))
+	battle_top.apply_central_force(global_position.direction_to(battle_top.global_position) * clampf(spinForce - (battle_top.sturdiness / 2.0), 0.0, 1000))
 	print("Force applied to top is " + str(global_position.direction_to(battle_top.global_position) * clampf(spinForce -battle_top.sturdiness , 0.0, 1000)))
 	stamina += battle_top.spinForce + spinForce
 	
@@ -267,20 +276,12 @@ func hit_battle_top(battle_top : BattleTop):
 	
 		stamina = maxStamina
 	
-	#staminaTween = create_stamina_tween()
-
-func upgrade_stats(addStamina : float, addSturdiness : float, addSpinForce : float):
 	
-	hasBeenHit = false
-	
-	GlobalStats.playerStats["stamina"] += addStamina
-	GlobalStats.playerStats["sturdiness"] += addSturdiness
-	GlobalStats.playerStats["spinForce"] += addSpinForce
 
 func update_stats():
 	
 	hasBeenHit = false
-	
+	nameTag.visible = true
 	maxStamina = GlobalStats.playerStats["stamina"] 
 	maxSturdiness = GlobalStats.playerStats["sturdiness"]
 	maxSpinForce = GlobalStats.playerStats["spinForce"]

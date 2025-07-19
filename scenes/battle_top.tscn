@@ -22,7 +22,7 @@ resource_local_to_scene = true
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ufdw3"]
 
-[node name="BattleTop" type="RigidBody3D" node_paths=PackedStringArray("topHead", "topHeadMesh", "headCollision", "particle", "hitCheckTimer")]
+[node name="BattleTop" type="RigidBody3D" node_paths=PackedStringArray("topHead", "topHeadMesh", "headCollision", "particle", "hitCheckTimer", "nameTag")]
 physics_material_override = SubResource("PhysicsMaterial_ufdw3")
 contact_monitor = true
 max_contacts_reported = 4
@@ -34,6 +34,7 @@ headCollision = NodePath("CollisionShape3D")
 particle = NodePath("TopHead/GPUParticles3D")
 hitCheckTimer = NodePath("HitCheckTimer")
 hitParticleScene = ExtResource("2_qrxi8")
+nameTag = NodePath("TopHead/NameTag")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
@@ -59,6 +60,12 @@ skeleton = NodePath("../..")
 
 [node name="GPUParticles3D" parent="TopHead" instance=ExtResource("2_xsedg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0914399)
+
+[node name="NameTag" type="Label3D" parent="TopHead"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.158)
+visible = false
+billboard = 1
+text = "You"
 
 [node name="StaminaTimer" type="Timer" parent="."]
 

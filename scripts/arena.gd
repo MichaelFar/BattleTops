@@ -44,6 +44,8 @@ var playerTop : BattleTop :
 		
 		print("Set player top to " + str(value))
 		
+		restartUI.playerTop = playerTop
+		
 		if(playerTop != null):
 			
 			playerTop.first_hit_occured.connect(gameTimerUI.start_timer)
@@ -52,8 +54,12 @@ var playerTop : BattleTop :
 
 var timeSinceLastHit : float = 0.0
 
-var shouldBeCounting : bool = true
-
+var shouldBeCounting : bool = true :
+	set(value):
+		shouldBeCounting = value
+		 
+			
+	
 var originalTimeScale : float
 
 var opponentStatDictionaryArray : Array[Dictionary]
@@ -74,6 +80,33 @@ func _ready() -> void:
 	
 	originalTimeScale = Engine.time_scale
 	#camera.set_is_shaking(1.0)
+
+func _physics_process(delta: float) -> void:
+	
+	timeSinceLastHit += delta
+	
+	if(timeSinceLastHit > 20.0 && shouldBeCounting):
+		
+		shouldBeCounting = false
+		Engine.time_scale *= 2
+		for i in topChildren:
+			i.apply_central_impulse(-i.global_position.direction_to(Vector3.ZERO) * 10)
+	
+	if(timeSinceLastHit > 20.0):
+		safetyBarrierCollider.disabled = false
+	else:
+		safetyBarrierCollider.disabled = true
+		
+	if(Input.is_action_just_released("ui_accept")):
+		
+		numRounds  = -1
+		
+		spawn_battle_top()
+		
+	if(Input.is_action_just_released("debug_restart")):
+		
+		restart_round_with_random()
+		
 
 func next_round():
 	
@@ -136,27 +169,7 @@ func spawn_battle_top():
 		
 		spawnTimer.start()
 
-func _physics_process(delta: float) -> void:
-	
-	timeSinceLastHit += delta
-	
-	if(timeSinceLastHit > 20.0 && shouldBeCounting):
-		
-		shouldBeCounting = false
-		Engine.time_scale *= 2
-		for i in topChildren:
-			i.apply_central_impulse(i.global_position.direction_to(orientPoint.global_position) * 6)
-	
-	if(Input.is_action_just_released("ui_accept")):
-		
-		numRounds  = -1
-		
-		spawn_battle_top()
-		
-	if(Input.is_action_just_released("debug_restart")):
-		
-		restart_round_with_random()
-		
+
 func restart_round_with_random():
 	
 	for i in topChildren:
@@ -232,7 +245,7 @@ func _on_kill_plane_body_shape_entered(body_rid: RID, body: Node3D, body_shape_i
 				print("Player has died")
 				
 				restartUI.set_hidden(false)
-				
+				restartUI.get_player_top_information(playerTop)
 				playerTop = null
 			
 		body.kill_top()

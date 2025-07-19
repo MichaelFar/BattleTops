@@ -12,17 +12,17 @@ bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 [sub_resource type="RichTextEffect" id="RichTextEffect_y7yk3"]
 resource_name = "fader"
 script = ExtResource("2_y7yk3")
-metadata/rt = 81450531668859
+metadata/rt = 122970064371575
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_vprhq"]
 resource_name = "sparkle"
 script = ExtResource("3_vprhq")
-metadata/rt = 81450531668859
+metadata/rt = 122970064371575
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_yhnrb"]
 resource_name = "curspull"
 script = ExtResource("4_yhnrb")
-metadata/rt = 81450531668859
+metadata/rt = 122970064371575
 
 [sub_resource type="FontFile" id="FontFile_lpym6"]
 subpixel_positioning = 0
@@ -93,8 +93,8 @@ custom_effects = [SubResource("RichTextEffect_y7yk3"), SubResource("RichTextEffe
 script = ExtResource("5_nbjdm")
 progress = 1.0
 visible_character = 16
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 41.9358, 65.111), Transform2D(1, 0, 0, 1, 81.7221, 65.0657), Transform2D(1, 0, 0, 1, 120.507, 65.0323), Transform2D(1, 0, 0, 1, 159.288, 65.0104), Transform2D(1, 0, 0, 1, 191.106, 65.0014), Transform2D(1, 0, 0, 1, 226.901, 65.0012), Transform2D(1, 0, 0, 1, 243.804, 65.0048), Transform2D(1, 0, 0, 1, 279.6, 65.02), Transform2D(1, 0, 0, 1, 319.377, 65.0487), Transform2D(1, 0, 0, 1, 337.279, 65.0655), Transform2D(1, 0, 0, 1, 368.113, 65.0996), Transform2D(1, 0, 0, 1, 385.023, 65.121), Transform2D(1, 0, 0, 1, 420.84, 65.172), Transform2D(1, 0, 0, 1, 459.649, 65.235), Transform2D(1, 0, 0, 1, 499.464, 65.3066)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(33, 50), Vector2(35, 50), Vector2(35, 50), Vector2(28, 50), Vector2(33, 50), Vector2(0, 50), Vector2(38, 50), Vector2(33, 50), Vector2(12, 50), Vector2(28, 50), Vector2(0, 50), Vector2(38, 50), Vector2(35, 50), Vector2(34, 50), Vector2(30, 50)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _forced_finish_delay = -0.039044
@@ -160,8 +160,8 @@ override_fitContent = true
 fit_width = false
 fit_width_padding = 10
 metadata/_custom_type_script = "uid://mkih5spu6eqp"
-metadata/mouse_position = Vector2(1179, -577.5)
-metadata/frame = 313292
+metadata/mouse_position = Vector2(209.606, -631.693)
+metadata/frame = 1275894
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2

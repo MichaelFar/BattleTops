@@ -40,7 +40,14 @@ var maxSpinForce : float = 150
 
 var infiniteStaminaMode : bool = false
 
-var goldAmount : int = 200
+var goldAmount : int = 200 :
+	
+	set(value):
+		
+		goldAmount = value
+		
+
+var totalGoldEarned : int = 0
 
 var staminaCost : int = 50
 
@@ -55,7 +62,13 @@ var spinForceUpgradeAmount : float = 25
 
 var numEnemyTops := 1
 
-var roundNum : int = 0
+var roundNum : int = 0 : 
+	set(value):
+		if(value == 0):
+			opponentTopRangeDict["stamina"] = Vector2.ZERO
+			opponentTopRangeDict["sturdiness"] = Vector2.ZERO
+			opponentTopRangeDict["spinForce"] = Vector2.ZERO
+		roundNum = value
 
 var playerStats : Dictionary = {
 	"stamina" : 20.0,
@@ -80,6 +93,11 @@ func update_enemy_tops_and_advance_difficulty():
 	roundNum += 1
 	
 	match roundNum:
+		
+		0:
+			opponentTopRangeDict["stamina"] = Vector2.ZERO
+			opponentTopRangeDict["sturdiness"] = Vector2.ZERO
+			opponentTopRangeDict["spinForce"] = Vector2.ZERO
 		
 		1:
 			opponentTopRangeDict["stamina"] = Vector2(1, 20)

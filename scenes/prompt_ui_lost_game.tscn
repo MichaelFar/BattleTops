@@ -1,28 +1,91 @@
-[gd_scene load_steps=11 format=3 uid="uid://dhgnj5ocj82ee"]
+[gd_scene load_steps=26 format=3 uid="uid://dhgnj5ocj82ee"]
 
-[ext_resource type="Script" uid="uid://c7eg87712vl1x" path="res://scripts/prompt_ui.gd" id="1_ghhiq"]
+[ext_resource type="Script" uid="uid://boxwi4gp60j7m" path="res://scripts/lost_game_screen.gd" id="1_unyuq"]
 [ext_resource type="Script" uid="uid://db0s3rfk26712" path="res://addons/richtext2/richer_text_label.gd" id="2_j478p"]
 [ext_resource type="Script" uid="uid://whtuvsbwrh6h" path="res://addons/richtext2/text_effects/effects/rte_sin.gd" id="2_unyuq"]
 [ext_resource type="Script" uid="uid://cpy0q7oftipjl" path="res://addons/richtext2/text_effects/effects/rte_sway.gd" id="3_hqumn"]
 [ext_resource type="Script" uid="uid://177a4xqf2mm4" path="res://addons/richtext2/text_effects/effects/rte_wack.gd" id="4_unyuq"]
+[ext_resource type="Script" uid="uid://bl6n6826dgkx7" path="res://addons/richtext2/text_effects/anims/rte_redact.gd" id="6_3clwl"]
+[ext_resource type="Script" uid="uid://c1fb7eyvni4ky" path="res://addons/richtext2/text_effects/effects/rte_jit2.gd" id="7_j0kpn"]
+[ext_resource type="Script" uid="uid://mkih5spu6eqp" path="res://addons/richtext2/rich_text_animation.gd" id="8_j2mkm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghhiq"]
 bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_unyuq"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_3clwl"]
 resource_name = "sin"
 script = ExtResource("2_unyuq")
-metadata/rt = 81701837554400
+metadata/rt = 123221370330065
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_hqumn"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_j0kpn"]
 resource_name = "sway"
 script = ExtResource("3_hqumn")
-metadata/rt = 81701837554400
+metadata/rt = 123221370330065
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_k7nnj"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_j2mkm"]
 resource_name = "wack"
 script = ExtResource("4_unyuq")
-metadata/rt = 81701837554400
+metadata/rt = 123221370330065
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_ihhm8"]
+resource_name = "redact"
+script = ExtResource("6_3clwl")
+metadata/rt = 123240664117192
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_03s0s"]
+resource_name = "jit2"
+script = ExtResource("7_j0kpn")
+metadata/rt = 123240664117192
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_6y0t1"]
+resource_name = "redact"
+script = ExtResource("6_3clwl")
+metadata/rt = 123259924362703
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_66uqq"]
+resource_name = "jit2"
+script = ExtResource("7_j0kpn")
+metadata/rt = 123259924362703
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_fuuf8"]
+resource_name = "redact"
+script = ExtResource("6_3clwl")
+metadata/rt = 123279218171639
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_juwka"]
+resource_name = "jit2"
+script = ExtResource("7_j0kpn")
+metadata/rt = 123279218171639
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_ou1rx"]
+resource_name = "redact"
+script = ExtResource("6_3clwl")
+metadata/rt = 123298478403788
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_mcs3k"]
+resource_name = "jit2"
+script = ExtResource("7_j0kpn")
+metadata/rt = 123298478403788
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_4hal7"]
+resource_name = "redact"
+script = ExtResource("6_3clwl")
+metadata/rt = 123317772213267
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_b676x"]
+resource_name = "jit2"
+script = ExtResource("7_j0kpn")
+metadata/rt = 123317772213267
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_80i65"]
+resource_name = "redact"
+script = ExtResource("6_3clwl")
+metadata/rt = 123337032449983
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_byp5v"]
+resource_name = "jit2"
+script = ExtResource("7_j0kpn")
+metadata/rt = 123337032449983
 
 [sub_resource type="FontFile" id="FontFile_lpym6"]
 subpixel_positioning = 0
@@ -44,14 +107,17 @@ cache/0/64/0/underline_position = 0.0
 cache/0/64/0/underline_thickness = 0.0
 cache/0/64/0/scale = 1.0
 
-[node name="PromptUI" type="Control"]
+[node name="PromptUI" type="Control" node_paths=PackedStringArray("roundsWonNumLabel", "topsDefeatedNumLabel", "totalMoneyEarnedNumLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ghhiq")
+script = ExtResource("1_unyuq")
+roundsWonNumLabel = NodePath("VBoxContainer/HBoxContainer2/RoundsWonNumLabel")
+topsDefeatedNumLabel = NodePath("VBoxContainer/HBoxContainer3/TopsDefeatedNumLabel")
+totalMoneyEarnedNumLabel = NodePath("VBoxContainer/HBoxContainer4/TotalMoneyEarnedNumLabel")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -70,14 +136,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -310.5
-offset_top = -143.0
-offset_right = 310.5
-offset_bottom = 143.0
+offset_left = -342.5
+offset_top = -271.5
+offset_right = 342.5
+offset_bottom = 271.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="RichTextLabel" parent="VBoxContainer"]
+[node name="Label2" type="RichTextLabel" parent="VBoxContainer"]
 clip_contents = false
 custom_minimum_size = Vector2(0, 176)
 layout_mode = 2
@@ -89,9 +155,10 @@ theme_override_font_sizes/normal_font_size = 64
 theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_unyuq"), SubResource("RichTextEffect_hqumn"), SubResource("RichTextEffect_k7nnj")]
+custom_effects = [SubResource("RichTextEffect_3clwl"), SubResource("RichTextEffect_j0kpn"), SubResource("RichTextEffect_j2mkm")]
 script = ExtResource("2_j478p")
-bbcode = "[sin][shake][sway][wack]You've Lost, Restart?"
+bbcode = "[sin][shake][sway][wack]You've Lost,
+Restart?"
 effects = 2
 alignment = 1
 color = Color(1, 1, 1, 1)
@@ -141,6 +208,564 @@ fit_width = false
 fit_width_padding = 10
 metadata/_custom_type_script = "uid://db0s3rfk26712"
 metadata/rand = Array[int]([3549159399, 223548397, 1246426188, 2337974780, 3440081145, 3723879419, 1255605843, 3517613619, 2898848450, 1193131815, 1865643029, 1013198538, 3346926282, 3946643836, 1817691071, 2024523789, 2973144774, 1274790221, 475992974, 1115910817, 3162562443])
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="RoundsWonLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer2"]
+clip_contents = false
+custom_minimum_size = Vector2(204, 45)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+custom_effects = [SubResource("RichTextEffect_ihhm8"), SubResource("RichTextEffect_03s0s")]
+script = ExtResource("8_j2mkm")
+animation = "redact"
+_hold = true
+progress = 1.0
+visible_character = 10
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 25, 35), Transform2D(1, 0, 0, 1, 45, 35), Transform2D(1, 0, 0, 1, 65, 35), Transform2D(1, 0, 0, 1, 86, 35), Transform2D(1, 0, 0, 1, 106, 35), Transform2D(1, 0, 0, 1, 121, 35), Transform2D(1, 0, 0, 1, 129, 35), Transform2D(1, 0, 0, 1, 160, 35), Transform2D(1, 0, 0, 1, 179, 35)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(19, 25), Vector2(18, 25), Vector2(18, 25), Vector2(19, 25), Vector2(16, 25), Vector2(0, 25), Vector2(33, 25), Vector2(19, 25), Vector2(18, 25)])
+_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_forced_finish_delay = -0.047867
+animation = "redact"
+default_wait_time = 1.0
+play_on_bbcode = true
+play_speed = 30.0
+fade_out = false
+fade_in_speed = 10.0
+fade_out_speed = 120.0
+ctc_offset = Vector2(1, -0.5)
+ctc_on_finished = false
+ctc_on_wait = false
+shortcut_expression = true
+shortcut_bookmark = true
+signal_quotes = true
+signal_stars = true
+bbcode = "[jit2]Rounds Won"
+effects = 2
+alignment = 1
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 32
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+fit_width = true
+fit_width_padding = 10
+metadata/_custom_type_script = "uid://mkih5spu6eqp"
+metadata/rand = Array[int]([2800208240, 2057223724, 3097015752, 2954115180])
+metadata/mouse_position = Vector2(1631.66, -97.9069)
+metadata/frame = 406189
+
+[node name="RoundsWonNumLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer2"]
+clip_contents = false
+custom_minimum_size = Vector2(69, 45)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+custom_effects = [SubResource("RichTextEffect_6y0t1"), SubResource("RichTextEffect_66uqq")]
+script = ExtResource("8_j2mkm")
+animation = "redact"
+_hold = true
+progress = 1.0
+visible_character = 4
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 18, 35), Transform2D(1, 0, 0, 1, 36, 35), Transform2D(1, 0, 0, 1, 52, 35)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(18, 25), Vector2(16, 25), Vector2(14, 25)])
+_alpha = Array[float]([1.0, 1.0, 1.0, 1.0])
+_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0])
+_forced_finish_delay = -0.047867
+animation = "redact"
+default_wait_time = 1.0
+play_on_bbcode = true
+play_speed = 30.0
+fade_out = false
+fade_in_speed = 10.0
+fade_out_speed = 120.0
+ctc_offset = Vector2(1, -0.5)
+ctc_on_finished = false
+ctc_on_wait = false
+shortcut_expression = true
+shortcut_bookmark = true
+signal_quotes = true
+signal_stars = true
+bbcode = "[jit2]test"
+effects = 2
+alignment = 1
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 32
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+fit_width = true
+fit_width_padding = 10
+metadata/_custom_type_script = "uid://mkih5spu6eqp"
+metadata/rand = Array[int]([2800208240, 2057223724, 3097015752, 2954115180])
+metadata/mouse_position = Vector2(1631.66, -97.9069)
+metadata/frame = 406189
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TopsDefeatedLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer3"]
+clip_contents = false
+custom_minimum_size = Vector2(233, 45)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+custom_effects = [SubResource("RichTextEffect_fuuf8"), SubResource("RichTextEffect_juwka")]
+script = ExtResource("8_j2mkm")
+animation = "redact"
+_hold = true
+progress = 1.0
+visible_character = 13
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 23, 35), Transform2D(1, 0, 0, 1, 43, 35), Transform2D(1, 0, 0, 1, 63, 35), Transform2D(1, 0, 0, 1, 78, 35), Transform2D(1, 0, 0, 1, 86, 35), Transform2D(1, 0, 0, 1, 110, 35), Transform2D(1, 0, 0, 1, 128, 35), Transform2D(1, 0, 0, 1, 140, 35), Transform2D(1, 0, 0, 1, 158, 35), Transform2D(1, 0, 0, 1, 177, 35), Transform2D(1, 0, 0, 1, 189, 35), Transform2D(1, 0, 0, 1, 208, 35)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(19, 25), Vector2(19, 25), Vector2(16, 25), Vector2(0, 25), Vector2(21, 25), Vector2(18, 25), Vector2(16, 25), Vector2(18, 25), Vector2(18, 25), Vector2(14, 25), Vector2(18, 25), Vector2(19, 25)])
+_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_forced_finish_delay = -0.047867
+animation = "redact"
+default_wait_time = 1.0
+play_on_bbcode = true
+play_speed = 30.0
+fade_out = false
+fade_in_speed = 10.0
+fade_out_speed = 120.0
+ctc_offset = Vector2(1, -0.5)
+ctc_on_finished = false
+ctc_on_wait = false
+shortcut_expression = true
+shortcut_bookmark = true
+signal_quotes = true
+signal_stars = true
+bbcode = "[jit2]Tops Defeated"
+effects = 2
+alignment = 1
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 32
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+fit_width = true
+fit_width_padding = 10
+metadata/_custom_type_script = "uid://mkih5spu6eqp"
+metadata/rand = Array[int]([2800208240, 2057223724, 3097015752, 2954115180])
+metadata/mouse_position = Vector2(1631.66, -97.9069)
+metadata/frame = 406189
+
+[node name="TopsDefeatedNumLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer3"]
+clip_contents = false
+custom_minimum_size = Vector2(69, 45)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+custom_effects = [SubResource("RichTextEffect_ou1rx"), SubResource("RichTextEffect_mcs3k")]
+script = ExtResource("8_j2mkm")
+animation = "redact"
+_hold = true
+progress = 1.0
+visible_character = 4
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 18, 35), Transform2D(1, 0, 0, 1, 36, 35), Transform2D(1, 0, 0, 1, 52, 35)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(18, 25), Vector2(16, 25), Vector2(14, 25)])
+_alpha = Array[float]([1.0, 1.0, 1.0, 1.0])
+_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0])
+_forced_finish_delay = -0.047867
+animation = "redact"
+default_wait_time = 1.0
+play_on_bbcode = true
+play_speed = 30.0
+fade_out = false
+fade_in_speed = 10.0
+fade_out_speed = 120.0
+ctc_offset = Vector2(1, -0.5)
+ctc_on_finished = false
+ctc_on_wait = false
+shortcut_expression = true
+shortcut_bookmark = true
+signal_quotes = true
+signal_stars = true
+bbcode = "[jit2]test"
+effects = 2
+alignment = 1
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 32
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+fit_width = true
+fit_width_padding = 10
+metadata/_custom_type_script = "uid://mkih5spu6eqp"
+metadata/rand = Array[int]([2800208240, 2057223724, 3097015752, 2954115180])
+metadata/mouse_position = Vector2(1631.66, -97.9069)
+metadata/frame = 406189
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TotalMoneyEarnedLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer4"]
+clip_contents = false
+custom_minimum_size = Vector2(318, 45)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+custom_effects = [SubResource("RichTextEffect_4hal7"), SubResource("RichTextEffect_b676x")]
+script = ExtResource("8_j2mkm")
+animation = "redact"
+_hold = true
+progress = 1.0
+visible_character = 18
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 23, 35), Transform2D(1, 0, 0, 1, 43, 35), Transform2D(1, 0, 0, 1, 55, 35), Transform2D(1, 0, 0, 1, 74, 35), Transform2D(1, 0, 0, 1, 83, 35), Transform2D(1, 0, 0, 1, 91, 35), Transform2D(1, 0, 0, 1, 121, 35), Transform2D(1, 0, 0, 1, 140, 35), Transform2D(1, 0, 0, 1, 161, 35), Transform2D(1, 0, 0, 1, 179, 35), Transform2D(1, 0, 0, 1, 196, 35), Transform2D(1, 0, 0, 1, 204, 35), Transform2D(1, 0, 0, 1, 222, 35), Transform2D(1, 0, 0, 1, 241, 35), Transform2D(1, 0, 0, 1, 255, 35), Transform2D(1, 0, 0, 1, 275, 35), Transform2D(1, 0, 0, 1, 293, 35)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(19, 25), Vector2(14, 25), Vector2(18, 25), Vector2(7, 25), Vector2(0, 25), Vector2(26, 25), Vector2(19, 25), Vector2(18, 25), Vector2(18, 25), Vector2(20, 25), Vector2(0, 25), Vector2(15, 25), Vector2(18, 25), Vector2(14, 25), Vector2(18, 25), Vector2(18, 25), Vector2(19, 25)])
+_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_forced_finish_delay = -0.047867
+animation = "redact"
+default_wait_time = 1.0
+play_on_bbcode = true
+play_speed = 30.0
+fade_out = false
+fade_in_speed = 10.0
+fade_out_speed = 120.0
+ctc_offset = Vector2(1, -0.5)
+ctc_on_finished = false
+ctc_on_wait = false
+shortcut_expression = true
+shortcut_bookmark = true
+signal_quotes = true
+signal_stars = true
+bbcode = "[jit2]Total Money Earned"
+effects = 2
+alignment = 1
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 32
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+fit_width = true
+fit_width_padding = 10
+metadata/_custom_type_script = "uid://mkih5spu6eqp"
+metadata/rand = Array[int]([2800208240, 2057223724, 3097015752, 2954115180])
+metadata/mouse_position = Vector2(1631.66, -97.9069)
+metadata/frame = 406189
+
+[node name="TotalMoneyEarnedNumLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer4"]
+clip_contents = false
+custom_minimum_size = Vector2(69, 45)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+custom_effects = [SubResource("RichTextEffect_80i65"), SubResource("RichTextEffect_byp5v")]
+script = ExtResource("8_j2mkm")
+animation = "redact"
+_hold = true
+progress = 1.0
+visible_character = 4
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 18, 35), Transform2D(1, 0, 0, 1, 36, 35), Transform2D(1, 0, 0, 1, 52, 35)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(18, 25), Vector2(16, 25), Vector2(14, 25)])
+_alpha = Array[float]([1.0, 1.0, 1.0, 1.0])
+_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0])
+_forced_finish_delay = -0.047867
+animation = "redact"
+default_wait_time = 1.0
+play_on_bbcode = true
+play_speed = 30.0
+fade_out = false
+fade_in_speed = 10.0
+fade_out_speed = 120.0
+ctc_offset = Vector2(1, -0.5)
+ctc_on_finished = false
+ctc_on_wait = false
+shortcut_expression = true
+shortcut_bookmark = true
+signal_quotes = true
+signal_stars = true
+bbcode = "[jit2]test"
+effects = 2
+alignment = 1
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 32
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+fit_width = true
+fit_width_padding = 10
+metadata/_custom_type_script = "uid://mkih5spu6eqp"
+metadata/rand = Array[int]([2800208240, 2057223724, 3097015752, 2954115180])
+metadata/mouse_position = Vector2(1631.66, -97.9069)
+metadata/frame = 406189
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2

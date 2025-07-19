@@ -88,8 +88,14 @@ func calculate_score():
 	
 	GlobalStats.goldAmount += (time_bonus + op_dif_bonus)
 	
+	GlobalStats.totalGoldEarned += (time_bonus + op_dif_bonus)
+	
+	update_header_text()
+	
 	animate_score(time_bonus, op_dif_bonus, time_bonus + op_dif_bonus)
 
 func update_header_text():
 	
 	roundHeaderString = str("Round " + str(GlobalStats.roundNum) + " Won!")
+	
+	

@@ -103,13 +103,13 @@ spawnTimer = NodePath("SpawnTimer")
 battleTopScene = ExtResource("2_ojxb6")
 numRounds = 1
 popupUI = NodePath("PromptUIChooseTop")
-upgradeUI = NodePath("Control")
+upgradeUI = NodePath("UpgradeUI")
 restartUI = NodePath("PromptUIRestartRound")
-nextRoundUI = NodePath("round_end_ui")
+nextRoundUI = NodePath("score_screen_ui")
 oopsUI = NodePath("OopsUI")
 camera = NodePath("Camera3D")
 gameTimerUI = NodePath("TimerUI")
-popUpUIArray = [NodePath("PromptUIChooseTop"), NodePath("Control"), NodePath("PromptUIRestartRound"), NodePath("round_end_ui")]
+popUpUIArray = [NodePath("PromptUIChooseTop"), NodePath("UpgradeUI"), NodePath("PromptUIRestartRound"), NodePath("score_screen_ui")]
 rampColliderArray = [NodePath("MeshInstance3D4/StaticBody3D2/CollisionShape3D"), NodePath("MeshInstance3D4/StaticBody3D2/CollisionShape3D2"), NodePath("MeshInstance3D5/StaticBody3D2/CollisionShape3D"), NodePath("MeshInstance3D5/StaticBody3D2/CollisionShape3D2")]
 safetyBarrierCollider = NodePath("WinScreenSafetyBarrier/CollisionShape3D")
 
@@ -206,7 +206,7 @@ activeArena = NodePath("..")
 visible = false
 mouse_filter = 2
 
-[node name="Control" parent="." instance=ExtResource("6_48bq8")]
+[node name="UpgradeUI" parent="." instance=ExtResource("6_48bq8")]
 visible = false
 staminaLabelText = "20.0"
 sturdinessLabelText = "40.0"
@@ -215,7 +215,7 @@ spinForceLabelText = "100.0"
 [node name="PromptUIRestartRound" parent="." instance=ExtResource("7_v7pxh")]
 visible = false
 
-[node name="round_end_ui" parent="." instance=ExtResource("8_c3lje")]
+[node name="score_screen_ui" parent="." instance=ExtResource("8_c3lje")]
 visible = false
 
 [node name="OopsUI" parent="." instance=ExtResource("10_f34ng")]
@@ -233,7 +233,7 @@ disabled = true
 [connection signal="body_shape_entered" from="KillPlane" to="." method="_on_kill_plane_body_shape_entered"]
 [connection signal="said_no" from="PromptUIChooseTop" to="." method="restart_round_with_random"]
 [connection signal="said_yes" from="PromptUIChooseTop" to="." method="_on_prompt_ui_said_yes"]
-[connection signal="next_round_button_pressed" from="Control" to="." method="next_round"]
+[connection signal="next_round_button_pressed" from="UpgradeUI" to="." method="next_round"]
 [connection signal="said_yes" from="PromptUIRestartRound" to="." method="_on_prompt_ui_restart_round_said_yes"]
-[connection signal="said_yes" from="round_end_ui" to="." method="_on_round_end_ui_said_yes"]
+[connection signal="said_yes" from="score_screen_ui" to="." method="_on_round_end_ui_said_yes"]
 [connection signal="said_yes" from="OopsUI" to="." method="_on_oops_ui_said_yes"]
