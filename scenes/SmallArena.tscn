@@ -131,7 +131,7 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.00531967, 0.0533681, -0.998562, -0.699049, 0.713845, 0.0418757, 0.715053, 0.698265, 0.0335096, -2.277, 0.895, 0.055)
+transform = Transform3D(-0.146819, -0.0859689, -0.985422, -0.699049, 0.713845, 0.0418757, 0.699838, 0.695005, -0.164903, -2.04054, 0.895, 0.200095)
 visible = false
 mesh = SubResource("BoxMesh_ojxb6")
 
@@ -153,7 +153,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(0.743288, 0.552849, -0.376671, -0.668307, 0.638741, -0.381281, 0.0298043, 0.535133, 0.844241, 0.0415041, 0.0566934, 0.862415)
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0120673, -0.0459088, 0.998873, -0.695454, 0.717377, 0.0413733, -0.718468, -0.69517, -0.0232706, 2.273, 0.89515, -0.173048)
+transform = Transform3D(0.237429, 0.175068, 0.955499, -0.695454, 0.717377, 0.0413733, -0.67821, -0.674329, 0.292079, 1.9667, 0.907184, -0.127494)
 visible = false
 mesh = SubResource("BoxMesh_ojxb6")
 

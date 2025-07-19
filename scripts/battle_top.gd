@@ -146,7 +146,7 @@ func initialize_values():
 		
 		var rand_obj = RandomNumberGenerator.new()
 		
-		maxStamina = rand_obj.randf_range(30 + GlobalStats.opponentTopRangeDict["stamina"].x, 60+ GlobalStats.opponentTopRangeDict["sturdiness"].y)
+		maxStamina = rand_obj.randf_range(50 + GlobalStats.opponentTopRangeDict["stamina"].x, 60+ GlobalStats.opponentTopRangeDict["sturdiness"].y)
 		
 		stamina = maxStamina
 		

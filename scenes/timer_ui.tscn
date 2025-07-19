@@ -7,7 +7,7 @@
 [sub_resource type="RichTextEffect" id="RichTextEffect_q6nsa"]
 resource_name = "heart"
 script = ExtResource("2_q6nsa")
-metadata/rt = 3300648894409
+metadata/rt = 3299239608264
 
 [node name="TimerUI" type="Control" node_paths=PackedStringArray("timerLabel")]
 layout_mode = 3

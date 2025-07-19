@@ -220,7 +220,8 @@ func _on_kill_plane_body_shape_entered(body_rid: RID, body: Node3D, body_shape_i
 				
 				popupUI.set_hidden(true)
 				
-				oopsUI.set_hidden(false)
+				if(playerTop == null):
+					oopsUI.set_hidden(false)
 			
 			
 		
@@ -288,6 +289,8 @@ func _on_prompt_ui_restart_round_said_yes() -> void:
 	gameTimerUI.set_hidden(true)
 	
 	GlobalStats.roundNum = 0
+	
+	GlobalStats.totalGoldEarned = 0
 	
 	GlobalStats.goldAmount = GlobalStats.defaultGoldAmount
 	GlobalStats.staminaCost = 50

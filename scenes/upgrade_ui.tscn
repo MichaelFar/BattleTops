@@ -16,77 +16,77 @@ bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 [sub_resource type="RichTextEffect" id="RichTextEffect_g3bku"]
 resource_name = "fader"
 script = ExtResource("2_6ij7f")
-metadata/rt = 2787182198430
+metadata/rt = 2785789689501
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_soydq"]
 resource_name = "heart"
 script = ExtResource("3_fq5lg")
-metadata/rt = 2787182198430
+metadata/rt = 2785789689501
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_2wj67"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 2806442442404
+metadata/rt = 2805049933475
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ratfy"]
 resource_name = "sin"
 script = ExtResource("6_g3bku")
-metadata/rt = 2806442442404
+metadata/rt = 2805049933475
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_may18"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 2825702686381
+metadata/rt = 2824310177452
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_4pgft"]
 resource_name = "sway"
 script = ExtResource("7_soydq")
-metadata/rt = 2825702686381
+metadata/rt = 2824310177452
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_oec1f"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 2844962930358
+metadata/rt = 2843570421429
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_srdp0"]
 resource_name = "jit2"
 script = ExtResource("8_2wj67")
-metadata/rt = 2844962930358
+metadata/rt = 2843570421429
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_w5ndc"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 2864273505985
+metadata/rt = 2862864219840
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_oq6v8"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 2883533749962
+metadata/rt = 2882124463817
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_mh5b7"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 2902793993939
+metadata/rt = 2901384707794
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_7j37j"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 2922054237916
+metadata/rt = 2920644951771
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_8axjk"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 2941717135104
+metadata/rt = 2940307848959
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_c74tn"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 2960977379078
+metadata/rt = 2959568092933
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_milu8"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 2980237623055
+metadata/rt = 2978828336910
 
 [node name="Control" type="Control" node_paths=PackedStringArray("staminaLabel", "sturdinessLabel", "spinForceLabel", "staminaCostLabel", "sturdinessCostLabel", "spinForceCostLabel", "moneyAmountValueLabel")]
 layout_mode = 3
@@ -155,12 +155,10 @@ autowrap_mode = 0
 custom_effects = [SubResource("RichTextEffect_g3bku"), SubResource("RichTextEffect_soydq")]
 script = ExtResource("3_onvvk")
 _hold = true
-progress = 1.0
-visible_character = 5
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 59, 69), Transform2D(1, 0, 0, 1, 98, 69), Transform2D(1, 0, 0, 1, 139, 69), Transform2D(1, 0, 0, 1, 176, 69)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(35, 50), Vector2(33, 50), Vector2(33, 50), Vector2(37, 50)])
-_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0])
-_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
+_alpha = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0])
+_alpha_goal = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0])
 _forced_finish_delay = -0.047867
 default_wait_time = 1.0
 play_on_bbcode = true
@@ -245,12 +243,10 @@ custom_effects = [SubResource("RichTextEffect_2wj67"), SubResource("RichTextEffe
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
-progress = 1.0
-visible_character = 7
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 35, 69), Transform2D(1, 0, 0, 1, 60, 69), Transform2D(1, 0, 0, 1, 97, 69), Transform2D(1, 0, 0, 1, 159, 69), Transform2D(1, 0, 0, 1, 177, 69), Transform2D(1, 0, 0, 1, 217, 69)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(25, 50), Vector2(33, 50), Vector2(54, 50), Vector2(12, 50), Vector2(33, 50), Vector2(33, 50)])
-_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
-_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
+_alpha = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+_alpha_goal = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _forced_finish_delay = -0.047867
 animation = "redact"
 default_wait_time = 1.0
@@ -336,12 +332,10 @@ custom_effects = [SubResource("RichTextEffect_may18"), SubResource("RichTextEffe
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
-progress = 1.0
-visible_character = 10
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, -0.0488694, 0.998805, 34.719, 68.9931), Transform2D(1, 0, -0.0488694, 0.998805, 59.719, 68.9931), Transform2D(1, 0, -0.0488694, 0.998805, 100.719, 68.9931), Transform2D(1, 0, -0.0488694, 0.998805, 128.719, 68.9931), Transform2D(1, 0, -0.0488694, 0.998805, 167.719, 68.9931), Transform2D(1, 0, -0.0488694, 0.998805, 185.719, 68.9931), Transform2D(1, 0, -0.0488694, 0.998805, 226.719, 68.9931), Transform2D(1, 0, -0.0488694, 0.998805, 263.719, 68.9931), Transform2D(1, 0, -0.0488694, 0.998805, 294.719, 68.9931)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(25, 50), Vector2(34, 50), Vector2(24, 50), Vector2(34, 50), Vector2(12, 50), Vector2(33, 50), Vector2(33, 50), Vector2(28, 50), Vector2(28, 50)])
-_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
-_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
+_alpha = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+_alpha_goal = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _forced_finish_delay = -0.047867
 animation = "redact"
 default_wait_time = 1.0
@@ -427,12 +421,10 @@ custom_effects = [SubResource("RichTextEffect_oec1f"), SubResource("RichTextEffe
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
-progress = 1.0
-visible_character = 12
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 40, 69), Transform2D(1, 0, 0, 1, 80, 69), Transform2D(1, 0, 0, 1, 98, 69), Transform2D(1, 0, 0, 1, 139, 69), Transform2D(1, 0, 0, 1, 156, 69), Transform2D(1, 0, 0, 1, 190, 69), Transform2D(1, 0, 0, 1, 229, 69), Transform2D(1, 0, 0, 1, 256, 69), Transform2D(1, 0, 0, 1, 288, 69), Transform2D(1, 0, 0, 1, 325, 69), Transform2D(1, 0, 0, 1, 342, 69)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(34, 50), Vector2(12, 50), Vector2(33, 50), Vector2(0, 50), Vector2(28, 50), Vector2(35, 50), Vector2(24, 50), Vector2(29, 50), Vector2(33, 50), Vector2(0, 50), Vector2(0, 50)])
-_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
-_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
+_alpha = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+_alpha_goal = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _forced_finish_delay = -0.047867
 animation = "redact"
 default_wait_time = 1.0
@@ -521,12 +513,10 @@ custom_effects = [SubResource("RichTextEffect_w5ndc")]
 script = ExtResource("3_onvvk")
 animation = "growin"
 _hold = true
-progress = 1.0
-visible_character = 3
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 37, 69), Transform2D(1, 0, 0, 1, 73, 69)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(34, 50), Vector2(34, 50)])
-_alpha = Array[float]([1.0, 1.0, 1.0])
-_alpha_goal = Array[float]([1.0, 1.0, 1.0])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
+_alpha = Array[float]([0.0, 0.0, 0.0])
+_alpha_goal = Array[float]([0.0, 0.0, 0.0])
 _forced_finish_delay = -0.047867
 animation = "growin"
 default_wait_time = 1.0
@@ -914,12 +904,10 @@ custom_effects = [SubResource("RichTextEffect_8axjk")]
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
-progress = 1.0
-visible_character = 8
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 30, 52), Transform2D(1, 0, 0, 1, 60, 52), Transform2D(1, 0, 0, 1, 83, 52), Transform2D(1, 0, 0, 1, 102, 52), Transform2D(1, 0, 0, 1, 115, 52), Transform2D(1, 0, 0, 1, 127, 52), Transform2D(1, 0, 0, 1, 154, 52)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(27, 37), Vector2(22, 37), Vector2(20, 37), Vector2(10, 37), Vector2(0, 37), Vector2(25, 37), Vector2(26, 37)])
-_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
-_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
+_alpha = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+_alpha_goal = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _forced_finish_delay = -0.047867
 animation = "redact"
 default_wait_time = 1.0
@@ -1005,12 +993,10 @@ custom_effects = [SubResource("RichTextEffect_c74tn")]
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
-progress = 1.0
-visible_character = 8
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 30, 52), Transform2D(1, 0, 0, 1, 60, 52), Transform2D(1, 0, 0, 1, 83, 52), Transform2D(1, 0, 0, 1, 102, 52), Transform2D(1, 0, 0, 1, 115, 52), Transform2D(1, 0, 0, 1, 127, 52), Transform2D(1, 0, 0, 1, 154, 52)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(27, 37), Vector2(22, 37), Vector2(20, 37), Vector2(10, 37), Vector2(0, 37), Vector2(25, 37), Vector2(26, 37)])
-_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
-_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
+_alpha = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+_alpha_goal = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _forced_finish_delay = -0.047867
 animation = "redact"
 default_wait_time = 1.0
@@ -1096,12 +1082,10 @@ custom_effects = [SubResource("RichTextEffect_milu8")]
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
-progress = 1.0
-visible_character = 8
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 30, 52), Transform2D(1, 0, 0, 1, 60, 52), Transform2D(1, 0, 0, 1, 83, 52), Transform2D(1, 0, 0, 1, 102, 52), Transform2D(1, 0, 0, 1, 115, 52), Transform2D(1, 0, 0, 1, 127, 52), Transform2D(1, 0, 0, 1, 154, 52)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(27, 37), Vector2(22, 37), Vector2(20, 37), Vector2(10, 37), Vector2(0, 37), Vector2(25, 37), Vector2(26, 37)])
-_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
-_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
+_alpha = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+_alpha_goal = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _forced_finish_delay = -0.047867
 animation = "redact"
 default_wait_time = 1.0

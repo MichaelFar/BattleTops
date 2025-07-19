@@ -15,77 +15,77 @@ bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 [sub_resource type="RichTextEffect" id="RichTextEffect_3clwl"]
 resource_name = "sin"
 script = ExtResource("2_unyuq")
-metadata/rt = 3002551320274
+metadata/rt = 3001158811345
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_j0kpn"]
 resource_name = "sway"
 script = ExtResource("3_hqumn")
-metadata/rt = 3002551320274
+metadata/rt = 3001158811345
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_j2mkm"]
 resource_name = "wack"
 script = ExtResource("4_unyuq")
-metadata/rt = 3002551320274
+metadata/rt = 3001158811345
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ihhm8"]
 resource_name = "redact"
 script = ExtResource("6_3clwl")
-metadata/rt = 3021845118757
+metadata/rt = 3020452609828
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_03s0s"]
 resource_name = "jit2"
 script = ExtResource("7_j0kpn")
-metadata/rt = 3021845118757
+metadata/rt = 3020452609828
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_6y0t1"]
 resource_name = "redact"
 script = ExtResource("6_3clwl")
-metadata/rt = 3041105362734
+metadata/rt = 3039712853805
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_66uqq"]
 resource_name = "jit2"
 script = ExtResource("7_j0kpn")
-metadata/rt = 3041105362734
+metadata/rt = 3039712853805
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_fuuf8"]
 resource_name = "redact"
 script = ExtResource("6_3clwl")
-metadata/rt = 3060415938361
+metadata/rt = 3059006652216
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_juwka"]
 resource_name = "jit2"
 script = ExtResource("7_j0kpn")
-metadata/rt = 3060415938361
+metadata/rt = 3059006652216
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ou1rx"]
 resource_name = "redact"
 script = ExtResource("6_3clwl")
-metadata/rt = 3079676182338
+metadata/rt = 3078266896193
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_mcs3k"]
 resource_name = "jit2"
 script = ExtResource("7_j0kpn")
-metadata/rt = 3079676182338
+metadata/rt = 3078266896193
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_4hal7"]
 resource_name = "redact"
 script = ExtResource("6_3clwl")
-metadata/rt = 3098969980749
+metadata/rt = 3097560694604
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_b676x"]
 resource_name = "jit2"
 script = ExtResource("7_j0kpn")
-metadata/rt = 3098969980749
+metadata/rt = 3097560694604
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_80i65"]
 resource_name = "redact"
 script = ExtResource("6_3clwl")
-metadata/rt = 3118230224726
+metadata/rt = 3116820938581
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_byp5v"]
 resource_name = "jit2"
 script = ExtResource("7_j0kpn")
-metadata/rt = 3118230224726
+metadata/rt = 3116820938581
 
 [sub_resource type="FontFile" id="FontFile_lpym6"]
 subpixel_positioning = 0
