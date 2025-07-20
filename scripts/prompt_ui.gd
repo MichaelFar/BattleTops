@@ -20,3 +20,11 @@ func set_hidden(new_value : bool):
 	
 	if(!new_value):
 		popped_up.emit()
+
+
+func _on_said_no() -> void:
+	set_hidden(true)
+
+
+func _on_button_2_button_down() -> void:
+	said_no.emit()

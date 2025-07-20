@@ -12,17 +12,17 @@ bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 [sub_resource type="RichTextEffect" id="RichTextEffect_y7yk3"]
 resource_name = "fader"
 script = ExtResource("2_y7yk3")
-metadata/rt = 2763291442581
+metadata/rt = 2763492769212
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_vprhq"]
 resource_name = "sparkle"
 script = ExtResource("3_vprhq")
-metadata/rt = 2763291442581
+metadata/rt = 2763492769212
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_yhnrb"]
 resource_name = "curspull"
 script = ExtResource("4_yhnrb")
-metadata/rt = 2763291442581
+metadata/rt = 2763492769212
 
 [sub_resource type="FontFile" id="FontFile_lpym6"]
 subpixel_positioning = 0
@@ -158,8 +158,8 @@ override_fitContent = true
 fit_width = false
 fit_width_padding = 10
 metadata/_custom_type_script = "uid://mkih5spu6eqp"
-metadata/mouse_position = Vector2(209.606, -631.693)
-metadata/frame = 1275894
+metadata/mouse_position = Vector2(-878.577, -431.125)
+metadata/frame = 592017
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
@@ -178,5 +178,6 @@ theme_override_fonts/font = SubResource("FontFile_lpym6")
 theme_override_font_sizes/font_size = 64
 text = " No "
 
+[connection signal="said_no" from="." to="." method="_on_said_no"]
 [connection signal="button_up" from="Panel/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_button_up"]
-[connection signal="button_up" from="Panel/VBoxContainer/HBoxContainer/Button2" to="." method="_on_button_2_button_up"]
+[connection signal="button_down" from="Panel/VBoxContainer/HBoxContainer/Button2" to="." method="_on_button_2_button_down"]

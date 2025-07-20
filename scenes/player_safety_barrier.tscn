@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4n0i32qlhr0r"]
+
+[ext_resource type="Script" uid="uid://bioo4i4i4i3m8" path="res://scripts/player_safety_barrier.gd" id="1_qd5lx"]
+
+[node name="PlayerSafetyBarrier" type="StaticBody3D"]
+collision_layer = 2
+script = ExtResource("1_qd5lx")
+player_collision_mask = 3

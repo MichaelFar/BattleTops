@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://bo0tlkahcq0h1"]
+[gd_scene load_steps=29 format=4 uid="uid://bo0tlkahcq0h1"]
 
 [ext_resource type="Script" uid="uid://bgpx0fo1suclw" path="res://scripts/arena.gd" id="1_uwlbn"]
 [ext_resource type="PackedScene" uid="uid://d1k0hl6r0jkh0" path="res://scenes/battle_top.tscn" id="2_ojxb6"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dvqat4t6weo8b" path="res://scenes/round_end_ui.tscn" id="8_c3lje"]
 [ext_resource type="PackedScene" uid="uid://taq5glodwni3" path="res://scenes/OopsUI.tscn" id="10_f34ng"]
 [ext_resource type="PackedScene" uid="uid://dl6e2w84ab2xt" path="res://scenes/timer_ui.tscn" id="11_u623t"]
+[ext_resource type="PackedScene" uid="uid://d4n0i32qlhr0r" path="res://scenes/player_safety_barrier.tscn" id="12_g0gnx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qnskq"]
 resource_name = "initialShadingGroup"
@@ -95,7 +96,10 @@ radius = 0.626465
 [sub_resource type="BoxShape3D" id="BoxShape3D_uwlbn"]
 size = Vector3(200.253, 1, 180.82)
 
-[node name="SmallArena" type="Node3D" node_paths=PackedStringArray("orientPoint", "spawnMarkerArray", "spawnTimer", "popupUI", "upgradeUI", "restartUI", "nextRoundUI", "oopsUI", "camera", "gameTimerUI", "popUpUIArray", "rampColliderArray", "safetyBarrierCollider")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_g8q41"]
+size = Vector3(2.35699, 1.78894, 1)
+
+[node name="SmallArena" type="Node3D" node_paths=PackedStringArray("orientPoint", "spawnMarkerArray", "spawnTimer", "popupUI", "upgradeUI", "restartUI", "nextRoundUI", "oopsUI", "camera", "gameTimerUI", "popUpUIArray", "rampColliderArray", "safetyBarrierCollider", "playerSafetyBarrier")]
 script = ExtResource("1_uwlbn")
 orientPoint = NodePath("TopOrientPoint")
 spawnMarkerArray = [NodePath("MeshInstance3D4/MeshInstance3D2/SpawnPoint2"), NodePath("MeshInstance3D5/MeshInstance3D2/SpawnPoint2")]
@@ -112,6 +116,7 @@ gameTimerUI = NodePath("TimerUI")
 popUpUIArray = [NodePath("PromptUIChooseTop"), NodePath("UpgradeUI"), NodePath("PromptUIRestartRound"), NodePath("score_screen_ui")]
 rampColliderArray = [NodePath("MeshInstance3D4/StaticBody3D2/CollisionShape3D"), NodePath("MeshInstance3D4/StaticBody3D2/CollisionShape3D2"), NodePath("MeshInstance3D5/StaticBody3D2/CollisionShape3D"), NodePath("MeshInstance3D5/StaticBody3D2/CollisionShape3D2")]
 safetyBarrierCollider = NodePath("WinScreenSafetyBarrier/CollisionShape3D")
+playerSafetyBarrier = NodePath("PlayerSafetyBarrier")
 
 [node name="BattleBowl" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.602395, 0, 0, 0, 0.575896, 0, 0, 0, 0.438901, 0, -0.545717, 0)
@@ -131,7 +136,7 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.146819, -0.0859689, -0.985422, -0.699049, 0.713845, 0.0418757, 0.699838, 0.695005, -0.164903, -2.04054, 0.895, 0.200095)
+transform = Transform3D(0.046993, 0.508921, -0.859531, -0.677302, 0.648699, 0.347061, 0.734203, 0.565851, 0.375178, -0.723714, 1.34536, 1.09243)
 visible = false
 mesh = SubResource("BoxMesh_ojxb6")
 
@@ -153,7 +158,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(0.743288, 0.552849, -0.376671, -0.668307, 0.638741, -0.381281, 0.0298043, 0.535133, 0.844241, 0.0415041, 0.0566934, 0.862415)
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.237429, 0.175068, 0.955499, -0.695454, 0.717377, 0.0413733, -0.67821, -0.674329, 0.292079, 1.9667, 0.907184, -0.127494)
+transform = Transform3D(0.438001, -0.0517887, 0.897481, -0.590071, 0.736611, 0.330482, -0.67821, -0.674329, 0.292079, 1.60525, 1.18066, -0.353431)
 visible = false
 mesh = SubResource("BoxMesh_ojxb6")
 
@@ -182,7 +187,7 @@ autostart = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22403, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.813953, 0.58093, 0, -0.58093, 0.813953, -0.00660191, 1.39191, 1.28464)
+transform = Transform3D(1, 0, 0, 0, 0.865702, 0.500559, 0, -0.500559, 0.865702, -0.00660191, 1.36584, 1.21275)
 script = ExtResource("5_n4wb1")
 
 [node name="InnerArenaVolume" type="Area3D" parent="."]
@@ -227,6 +232,24 @@ transform = Transform3D(-1, -1.50996e-07, 0, 1.50996e-07, -1, 0, 0, 0, 1, 0, 2.4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WinScreenSafetyBarrier"]
 shape = SubResource("ConcavePolygonShape3D_ojxb6")
 disabled = true
+
+[node name="PlayerSafetyBarrier" parent="." instance=ExtResource("12_g0gnx")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerSafetyBarrier"]
+transform = Transform3D(1, 0, 0, 0, 0.815683, -0.578498, 0, 0.578498, 0.815683, -0.0250549, 0.39447, 1.14834)
+shape = SubResource("BoxShape3D_g8q41")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="PlayerSafetyBarrier"]
+transform = Transform3D(1, 0, 0, 0, 0.912392, 0.409318, 0, -0.409318, 0.912392, -0.0167157, 0.392236, -1.30837)
+shape = SubResource("BoxShape3D_g8q41")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="PlayerSafetyBarrier"]
+transform = Transform3D(-4.16191e-08, -0.305679, -0.952135, -1.33616e-08, 0.952135, -0.305679, 1, 0, -4.37114e-08, -1.64761, 0.39447, -0.111842)
+shape = SubResource("BoxShape3D_g8q41")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="PlayerSafetyBarrier"]
+transform = Transform3D(-4.17283e-08, 0.297791, -0.954631, 1.30169e-08, 0.954631, 0.297791, 1, 0, -4.37114e-08, 1.6721, 0.39447, -0.111842)
+shape = SubResource("BoxShape3D_g8q41")
 
 [connection signal="body_entered" from="InnerArenaVolume" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="InnerArenaVolume" to="." method="_on_area_3d_body_exited"]

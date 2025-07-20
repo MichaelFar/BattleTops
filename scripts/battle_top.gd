@@ -18,6 +18,8 @@ class_name BattleTop
 
 @export var nameTag : Label3D
 
+var tempSturdiness := 999.0
+
 enum TopType {NPC, PLAYER}
 
 var stamina : float = 20 :
@@ -243,6 +245,9 @@ func hit_battle_top(battle_top : BattleTop):
 	print("Stamina coefficient before calculating sturdiness is " + str(stamina / maxStamina))
 	sturdiness = (stamina / maxStamina) * maxSturdiness
 	
+	#if(tempSturdiness > 0.0):
+		#sturdiness = tempSturdiness
+	
 	print("Sturdiness during hit is " + str(sturdiness))
 	#physicsMaterial.absorbent = !hasBeenHit
 	#
@@ -263,8 +268,6 @@ func hit_battle_top(battle_top : BattleTop):
 		physics_material_override = physicsMaterial
 	
 	has_hit_top.emit()
-	
-	
 	
 	battle_top.apply_central_force(global_position.direction_to(battle_top.global_position) * clampf(spinForce - (battle_top.sturdiness / 2.0), 0.0, 1000))
 	print("Force applied to top is " + str(global_position.direction_to(battle_top.global_position) * clampf(spinForce -battle_top.sturdiness , 0.0, 1000)))
@@ -304,3 +307,9 @@ func spawn_hit_particle(opponent_position : Vector3):
 	particle_instance.one_shot = true
 	
 	particle_instance.global_position = spawn_position
+
+func set_temp_sturdiness(new_value : float = 999.0):
+	
+	tempSturdiness = new_value
+	
+	sturdiness = tempSturdiness
