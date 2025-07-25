@@ -45,6 +45,8 @@ class_name StatLabelController
 
 @export var moneyAmountValueLabel : RicherTextLabel
 
+@export var upgradeCardParent : HBoxContainer
+
 var staminaUpgradeAmount : float
 var sturdinessUpgradeAmount : float
 var spinForceUpgradeAmount : float

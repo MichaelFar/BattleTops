@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://d1pug181d3iuo"]
+[gd_scene load_steps=26 format=3 uid="uid://d1pug181d3iuo"]
 
 [ext_resource type="Script" uid="uid://dtcbfjrulbrnb" path="res://scripts/upgrade_ui.gd" id="1_6ij7f"]
 [ext_resource type="Script" uid="uid://bl6n6826dgkx7" path="res://addons/richtext2/text_effects/anims/rte_redact.gd" id="1_gbnav"]
@@ -9,107 +9,86 @@
 [ext_resource type="Script" uid="uid://cpy0q7oftipjl" path="res://addons/richtext2/text_effects/effects/rte_sway.gd" id="7_soydq"]
 [ext_resource type="Script" uid="uid://c1fb7eyvni4ky" path="res://addons/richtext2/text_effects/effects/rte_jit2.gd" id="8_2wj67"]
 [ext_resource type="Script" uid="uid://oiu4p0qjddwa" path="res://addons/richtext2/text_effects/anims/rte_growin.gd" id="9_soydq"]
-[ext_resource type="Script" uid="uid://db0s3rfk26712" path="res://addons/richtext2/richer_text_label.gd" id="10_soydq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_soydq"]
 bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_soydq"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_g3bku"]
 resource_name = "fader"
 script = ExtResource("2_6ij7f")
-metadata/rt = 2843268431565
+metadata/rt = 18284246319600
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_2wj67"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_soydq"]
 resource_name = "heart"
 script = ExtResource("3_fq5lg")
-metadata/rt = 2843268431565
+metadata/rt = 18284246319600
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_2wj67"]
+resource_name = "redact"
+script = ExtResource("1_gbnav")
+metadata/rt = 18303640782061
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ratfy"]
-resource_name = "redact"
-script = ExtResource("1_gbnav")
-metadata/rt = 2862528675539
-
-[sub_resource type="RichTextEffect" id="RichTextEffect_may18"]
 resource_name = "sin"
 script = ExtResource("6_g3bku")
-metadata/rt = 2862528675539
+metadata/rt = 18303640782061
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_may18"]
+resource_name = "redact"
+script = ExtResource("1_gbnav")
+metadata/rt = 18323035243758
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_4pgft"]
-resource_name = "redact"
-script = ExtResource("1_gbnav")
-metadata/rt = 2881788919516
-
-[sub_resource type="RichTextEffect" id="RichTextEffect_oec1f"]
 resource_name = "sway"
 script = ExtResource("7_soydq")
-metadata/rt = 2881788919516
+metadata/rt = 18323035243758
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_srdp0"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_oec1f"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 2901049163493
+metadata/rt = 18342429703332
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_w5ndc"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_srdp0"]
 resource_name = "jit2"
 script = ExtResource("8_2wj67")
-metadata/rt = 2901049163493
+metadata/rt = 18342429703332
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_w5ndc"]
+resource_name = "growin"
+script = ExtResource("9_soydq")
+metadata/rt = 18361857718597
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_oq6v8"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 2920342961904
+metadata/rt = 18381268959619
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_mh5b7"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 2939603205881
+metadata/rt = 18400663421281
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_7j37j"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 2958863449858
+metadata/rt = 18420057849841
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_8axjk"]
-resource_name = "growin"
-script = ExtResource("9_soydq")
-metadata/rt = 2978123693835
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ratfy"]
-bg_color = Color(0.662745, 0.188235, 0.917647, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.8, 0.8, 0.8, 0)
-border_blend = true
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wj67"]
-bg_color = Color(0.4, 0.141176, 0.6, 0.611765)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
+resource_name = "redact"
+script = ExtResource("1_gbnav")
+metadata/rt = 18498155821392
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_c74tn"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 3055667986258
+metadata/rt = 18517550284020
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_milu8"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 3074928230232
+metadata/rt = 18536944746794
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_18trd"]
-resource_name = "redact"
-script = ExtResource("1_gbnav")
-metadata/rt = 3094188474209
-
-[node name="Control" type="Control" node_paths=PackedStringArray("staminaLabel", "sturdinessLabel", "spinForceLabel", "staminaCostLabel", "sturdinessCostLabel", "spinForceCostLabel", "moneyAmountValueLabel")]
+[node name="Control" type="Control" node_paths=PackedStringArray("staminaLabel", "sturdinessLabel", "spinForceLabel", "staminaCostLabel", "sturdinessCostLabel", "spinForceCostLabel", "moneyAmountValueLabel", "upgradeCardParent")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -124,6 +103,7 @@ staminaCostLabel = NodePath("HBoxContainer/VBoxContainer/HBoxContainer2/VBoxCont
 sturdinessCostLabel = NodePath("HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer4/SturdinessCost")
 spinForceCostLabel = NodePath("HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer4/SpinForceCost")
 moneyAmountValueLabel = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/StatAmountVbox/MoneyAmountValue")
+upgradeCardParent = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -155,7 +135,6 @@ alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-alignment = 2
 
 [node name="StatLabelVbox" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -173,7 +152,7 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_soydq"), SubResource("RichTextEffect_2wj67")]
+custom_effects = [SubResource("RichTextEffect_g3bku"), SubResource("RichTextEffect_soydq")]
 script = ExtResource("3_onvvk")
 _hold = true
 progress = 1.0
@@ -262,7 +241,7 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_ratfy"), SubResource("RichTextEffect_may18")]
+custom_effects = [SubResource("RichTextEffect_2wj67"), SubResource("RichTextEffect_ratfy")]
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
@@ -353,13 +332,13 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_4pgft"), SubResource("RichTextEffect_oec1f")]
+custom_effects = [SubResource("RichTextEffect_may18"), SubResource("RichTextEffect_4pgft")]
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
 progress = 1.0
 visible_character = 10
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, -0.0878408, 0.996135, 34.4949, 68.9778), Transform2D(1, 0, -0.0878408, 0.996135, 59.4949, 68.9778), Transform2D(1, 0, -0.0878408, 0.996135, 100.495, 68.9778), Transform2D(1, 0, -0.0878408, 0.996135, 128.495, 68.9778), Transform2D(1, 0, -0.0878408, 0.996135, 167.495, 68.9778), Transform2D(1, 0, -0.0878408, 0.996135, 185.495, 68.9778), Transform2D(1, 0, -0.0878408, 0.996135, 226.495, 68.9778), Transform2D(1, 0, -0.0878408, 0.996135, 263.495, 68.9778), Transform2D(1, 0, -0.0878408, 0.996135, 294.495, 68.9778)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0.186544, 0.982447, 36.0726, 68.8991), Transform2D(1, 0, 0.186544, 0.982447, 61.0726, 68.8991), Transform2D(1, 0, 0.186544, 0.982447, 102.073, 68.8991), Transform2D(1, 0, 0.186544, 0.982447, 130.073, 68.8991), Transform2D(1, 0, 0.186544, 0.982447, 169.073, 68.8991), Transform2D(1, 0, 0.186544, 0.982447, 187.073, 68.8991), Transform2D(1, 0, 0.186544, 0.982447, 228.073, 68.8991), Transform2D(1, 0, 0.186544, 0.982447, 265.073, 68.8991), Transform2D(1, 0, 0.186544, 0.982447, 296.073, 68.8991)])
 _char_size = Array[Vector2]([Vector2(0, 0), Vector2(25, 50), Vector2(34, 50), Vector2(24, 50), Vector2(34, 50), Vector2(12, 50), Vector2(33, 50), Vector2(33, 50), Vector2(28, 50), Vector2(28, 50)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
@@ -444,7 +423,7 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_srdp0"), SubResource("RichTextEffect_w5ndc")]
+custom_effects = [SubResource("RichTextEffect_oec1f"), SubResource("RichTextEffect_srdp0")]
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
@@ -538,7 +517,7 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_oq6v8")]
+custom_effects = [SubResource("RichTextEffect_w5ndc")]
 script = ExtResource("3_onvvk")
 animation = "growin"
 _hold = true
@@ -629,7 +608,7 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_mh5b7")]
+custom_effects = [SubResource("RichTextEffect_oq6v8")]
 script = ExtResource("3_onvvk")
 animation = "growin"
 _hold = true
@@ -714,7 +693,7 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_7j37j")]
+custom_effects = [SubResource("RichTextEffect_mh5b7")]
 script = ExtResource("3_onvvk")
 animation = "growin"
 _hold = true
@@ -799,7 +778,7 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_8axjk")]
+custom_effects = [SubResource("RichTextEffect_7j37j")]
 script = ExtResource("3_onvvk")
 animation = "growin"
 _hold = true
@@ -871,491 +850,13 @@ metadata/rand = Array[int]([2800208240, 2057223724, 3097015752, 2954115180])
 metadata/mouse_position = Vector2(1631.66, -97.9069)
 metadata/frame = 406189
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
-layout_mode = 2
-size_flags_vertical = 6
-
-[node name="UpgradeCardHbox" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+
+[node name="UpgradeCardHbox" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
 theme_override_constants/separation = 5
-
-[node name="UpgradeCard" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox"]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox/UpgradeCard"]
-layout_mode = 2
-
-[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox/UpgradeCard/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ratfy")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox/UpgradeCard/VBoxContainer/PanelContainer2"]
-layout_mode = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox/UpgradeCard/VBoxContainer/PanelContainer2/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_2wj67")
-
-[node name="RicherTextLabel2" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox/UpgradeCard/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer"]
-clip_contents = false
-custom_minimum_size = Vector2(25, 23)
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
-theme_override_font_sizes/bold_italics_font_size = 16
-theme_override_font_sizes/italics_font_size = 16
-theme_override_font_sizes/mono_font_size = 16
-theme_override_font_sizes/normal_font_size = 16
-theme_override_font_sizes/bold_font_size = 16
-bbcode_enabled = true
-fit_content = true
-autowrap_mode = 0
-script = ExtResource("10_soydq")
-bbcode = "test"
-effects = 2
-alignment = 1
-color = Color(1, 1, 1, 1)
-emoji_scale = 1.0
-font = ""
-font_auto_setup = true
-font_size = 16
-font_bold_weight = 1.5
-font_italics_slant = 0.25
-font_italics_weight = -0.25
-shadow_enabled = false
-shadow_offset = 0.08
-shadow_alpha = 0.25
-shadow_outline_size = 0.1
-outline_size = 0
-outline_mode = 1
-outline_adjust = 0.8
-outline_hue_adjust = 0.0125
-nicer_quotes_enabled = true
-nicer_quotes_format = "“%s”"
-markdown_enabled = true
-markdown_format_bold = "[b]%s[]"
-markdown_format_italics = "[i]%s[]"
-markdown_format_bold_italics = "[bi]%s[]"
-markdown_format_highlight = "[green;sin]%s[]"
-markdown_format_bold2 = "[b]*%s*[]"
-markdown_format_italics2 = "[i;gray]*%s*[]"
-markdown_format_bold_italics2 = "%s"
-context_enabled = true
-context_path = NodePath("/root/State")
-context_state = {}
-context_rich_objects = true
-context_rich_ints = true
-context_rich_array = true
-autostyle_numbers = true
-autostyle_numbers_tag = "[salmon]%s[]"
-autostyle_numbers_pad_decimals = true
-autostyle_numbers_decimals = 2
-autostyle_emojis = true
-effect_weight = 0.0
-meta_auto_https = true
-meta_cursor = 2
-override_bbcodeEnabled = true
-override_clipContents = false
-override_fitContent = true
-fit_width = false
-fit_width_padding = 10
-metadata/_custom_type_script = "uid://db0s3rfk26712"
-
-[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox/UpgradeCard/VBoxContainer/PanelContainer2/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_2wj67")
-
-[node name="RicherTextLabel3" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox/UpgradeCard/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer2"]
-clip_contents = false
-custom_minimum_size = Vector2(0, 51)
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
-theme_override_font_sizes/bold_italics_font_size = 12
-theme_override_font_sizes/italics_font_size = 12
-theme_override_font_sizes/mono_font_size = 12
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 12
-bbcode_enabled = true
-fit_content = true
-autowrap_mode = 0
-script = ExtResource("10_soydq")
-bbcode = "Does things and stuff. 
-And also things that. 
-Do stuff and things are all
-"
-effects = 2
-alignment = 1
-color = Color(1, 1, 1, 1)
-emoji_scale = 1.0
-font = ""
-font_auto_setup = true
-font_size = 12
-font_bold_weight = 1.5
-font_italics_slant = 0.25
-font_italics_weight = -0.25
-shadow_enabled = false
-shadow_offset = 0.08
-shadow_alpha = 0.25
-shadow_outline_size = 0.1
-outline_size = 0
-outline_mode = 1
-outline_adjust = 0.8
-outline_hue_adjust = 0.0125
-nicer_quotes_enabled = true
-nicer_quotes_format = "“%s”"
-markdown_enabled = true
-markdown_format_bold = "[b]%s[]"
-markdown_format_italics = "[i]%s[]"
-markdown_format_bold_italics = "[bi]%s[]"
-markdown_format_highlight = "[green;sin]%s[]"
-markdown_format_bold2 = "[b]*%s*[]"
-markdown_format_italics2 = "[i;gray]*%s*[]"
-markdown_format_bold_italics2 = "%s"
-context_enabled = true
-context_path = NodePath("/root/State")
-context_state = {}
-context_rich_objects = true
-context_rich_ints = true
-context_rich_array = true
-autostyle_numbers = true
-autostyle_numbers_tag = "[salmon]%s[]"
-autostyle_numbers_pad_decimals = true
-autostyle_numbers_decimals = 2
-autostyle_emojis = true
-effect_weight = 0.0
-meta_auto_https = true
-meta_cursor = 2
-override_bbcodeEnabled = true
-override_clipContents = false
-override_fitContent = true
-fit_width = false
-fit_width_padding = 10
-metadata/_custom_type_script = "uid://db0s3rfk26712"
-
-[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox/UpgradeCard/VBoxContainer/PanelContainer2/VBoxContainer"]
-layout_mode = 2
-text = "Get Upgrade"
-
-[node name="UpgradeCard2" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox"]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox/UpgradeCard2"]
-layout_mode = 2
-
-[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox/UpgradeCard2/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ratfy")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox/UpgradeCard2/VBoxContainer/PanelContainer2"]
-layout_mode = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox/UpgradeCard2/VBoxContainer/PanelContainer2/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_2wj67")
-
-[node name="RicherTextLabel2" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox/UpgradeCard2/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer"]
-clip_contents = false
-custom_minimum_size = Vector2(25, 23)
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
-theme_override_font_sizes/bold_italics_font_size = 16
-theme_override_font_sizes/italics_font_size = 16
-theme_override_font_sizes/mono_font_size = 16
-theme_override_font_sizes/normal_font_size = 16
-theme_override_font_sizes/bold_font_size = 16
-bbcode_enabled = true
-fit_content = true
-autowrap_mode = 0
-script = ExtResource("10_soydq")
-bbcode = "test"
-effects = 2
-alignment = 1
-color = Color(1, 1, 1, 1)
-emoji_scale = 1.0
-font = ""
-font_auto_setup = true
-font_size = 16
-font_bold_weight = 1.5
-font_italics_slant = 0.25
-font_italics_weight = -0.25
-shadow_enabled = false
-shadow_offset = 0.08
-shadow_alpha = 0.25
-shadow_outline_size = 0.1
-outline_size = 0
-outline_mode = 1
-outline_adjust = 0.8
-outline_hue_adjust = 0.0125
-nicer_quotes_enabled = true
-nicer_quotes_format = "“%s”"
-markdown_enabled = true
-markdown_format_bold = "[b]%s[]"
-markdown_format_italics = "[i]%s[]"
-markdown_format_bold_italics = "[bi]%s[]"
-markdown_format_highlight = "[green;sin]%s[]"
-markdown_format_bold2 = "[b]*%s*[]"
-markdown_format_italics2 = "[i;gray]*%s*[]"
-markdown_format_bold_italics2 = "%s"
-context_enabled = true
-context_path = NodePath("/root/State")
-context_state = {}
-context_rich_objects = true
-context_rich_ints = true
-context_rich_array = true
-autostyle_numbers = true
-autostyle_numbers_tag = "[salmon]%s[]"
-autostyle_numbers_pad_decimals = true
-autostyle_numbers_decimals = 2
-autostyle_emojis = true
-effect_weight = 0.0
-meta_auto_https = true
-meta_cursor = 2
-override_bbcodeEnabled = true
-override_clipContents = false
-override_fitContent = true
-fit_width = false
-fit_width_padding = 10
-metadata/_custom_type_script = "uid://db0s3rfk26712"
-
-[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox/UpgradeCard2/VBoxContainer/PanelContainer2/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_2wj67")
-
-[node name="RicherTextLabel3" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox/UpgradeCard2/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer2"]
-clip_contents = false
-custom_minimum_size = Vector2(0, 51)
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
-theme_override_font_sizes/bold_italics_font_size = 12
-theme_override_font_sizes/italics_font_size = 12
-theme_override_font_sizes/mono_font_size = 12
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 12
-bbcode_enabled = true
-fit_content = true
-autowrap_mode = 0
-script = ExtResource("10_soydq")
-bbcode = "Does things and stuff. 
-And also things that. 
-Do stuff and things are all
-"
-effects = 2
-alignment = 1
-color = Color(1, 1, 1, 1)
-emoji_scale = 1.0
-font = ""
-font_auto_setup = true
-font_size = 12
-font_bold_weight = 1.5
-font_italics_slant = 0.25
-font_italics_weight = -0.25
-shadow_enabled = false
-shadow_offset = 0.08
-shadow_alpha = 0.25
-shadow_outline_size = 0.1
-outline_size = 0
-outline_mode = 1
-outline_adjust = 0.8
-outline_hue_adjust = 0.0125
-nicer_quotes_enabled = true
-nicer_quotes_format = "“%s”"
-markdown_enabled = true
-markdown_format_bold = "[b]%s[]"
-markdown_format_italics = "[i]%s[]"
-markdown_format_bold_italics = "[bi]%s[]"
-markdown_format_highlight = "[green;sin]%s[]"
-markdown_format_bold2 = "[b]*%s*[]"
-markdown_format_italics2 = "[i;gray]*%s*[]"
-markdown_format_bold_italics2 = "%s"
-context_enabled = true
-context_path = NodePath("/root/State")
-context_state = {}
-context_rich_objects = true
-context_rich_ints = true
-context_rich_array = true
-autostyle_numbers = true
-autostyle_numbers_tag = "[salmon]%s[]"
-autostyle_numbers_pad_decimals = true
-autostyle_numbers_decimals = 2
-autostyle_emojis = true
-effect_weight = 0.0
-meta_auto_https = true
-meta_cursor = 2
-override_bbcodeEnabled = true
-override_clipContents = false
-override_fitContent = true
-fit_width = false
-fit_width_padding = 10
-metadata/_custom_type_script = "uid://db0s3rfk26712"
-
-[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox/UpgradeCard2/VBoxContainer/PanelContainer2/VBoxContainer"]
-layout_mode = 2
-text = "Get Upgrade"
-
-[node name="UpgradeCard3" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox"]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox/UpgradeCard3"]
-layout_mode = 2
-
-[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox/UpgradeCard3/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ratfy")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox/UpgradeCard3/VBoxContainer/PanelContainer2"]
-layout_mode = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox/UpgradeCard3/VBoxContainer/PanelContainer2/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_2wj67")
-
-[node name="RicherTextLabel2" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox/UpgradeCard3/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer"]
-clip_contents = false
-custom_minimum_size = Vector2(25, 23)
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
-theme_override_font_sizes/bold_italics_font_size = 16
-theme_override_font_sizes/italics_font_size = 16
-theme_override_font_sizes/mono_font_size = 16
-theme_override_font_sizes/normal_font_size = 16
-theme_override_font_sizes/bold_font_size = 16
-bbcode_enabled = true
-fit_content = true
-autowrap_mode = 0
-script = ExtResource("10_soydq")
-bbcode = "test"
-effects = 2
-alignment = 1
-color = Color(1, 1, 1, 1)
-emoji_scale = 1.0
-font = ""
-font_auto_setup = true
-font_size = 16
-font_bold_weight = 1.5
-font_italics_slant = 0.25
-font_italics_weight = -0.25
-shadow_enabled = false
-shadow_offset = 0.08
-shadow_alpha = 0.25
-shadow_outline_size = 0.1
-outline_size = 0
-outline_mode = 1
-outline_adjust = 0.8
-outline_hue_adjust = 0.0125
-nicer_quotes_enabled = true
-nicer_quotes_format = "“%s”"
-markdown_enabled = true
-markdown_format_bold = "[b]%s[]"
-markdown_format_italics = "[i]%s[]"
-markdown_format_bold_italics = "[bi]%s[]"
-markdown_format_highlight = "[green;sin]%s[]"
-markdown_format_bold2 = "[b]*%s*[]"
-markdown_format_italics2 = "[i;gray]*%s*[]"
-markdown_format_bold_italics2 = "%s"
-context_enabled = true
-context_path = NodePath("/root/State")
-context_state = {}
-context_rich_objects = true
-context_rich_ints = true
-context_rich_array = true
-autostyle_numbers = true
-autostyle_numbers_tag = "[salmon]%s[]"
-autostyle_numbers_pad_decimals = true
-autostyle_numbers_decimals = 2
-autostyle_emojis = true
-effect_weight = 0.0
-meta_auto_https = true
-meta_cursor = 2
-override_bbcodeEnabled = true
-override_clipContents = false
-override_fitContent = true
-fit_width = false
-fit_width_padding = 10
-metadata/_custom_type_script = "uid://db0s3rfk26712"
-
-[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox/UpgradeCard3/VBoxContainer/PanelContainer2/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_2wj67")
-
-[node name="RicherTextLabel3" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox/UpgradeCard3/VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer2"]
-clip_contents = false
-custom_minimum_size = Vector2(0, 51)
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
-theme_override_font_sizes/bold_italics_font_size = 12
-theme_override_font_sizes/italics_font_size = 12
-theme_override_font_sizes/mono_font_size = 12
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 12
-bbcode_enabled = true
-fit_content = true
-autowrap_mode = 0
-script = ExtResource("10_soydq")
-bbcode = "Does things and stuff. 
-And also things that. 
-Do stuff and things are all
-"
-effects = 2
-alignment = 1
-color = Color(1, 1, 1, 1)
-emoji_scale = 1.0
-font = ""
-font_auto_setup = true
-font_size = 12
-font_bold_weight = 1.5
-font_italics_slant = 0.25
-font_italics_weight = -0.25
-shadow_enabled = false
-shadow_offset = 0.08
-shadow_alpha = 0.25
-shadow_outline_size = 0.1
-outline_size = 0
-outline_mode = 1
-outline_adjust = 0.8
-outline_hue_adjust = 0.0125
-nicer_quotes_enabled = true
-nicer_quotes_format = "“%s”"
-markdown_enabled = true
-markdown_format_bold = "[b]%s[]"
-markdown_format_italics = "[i]%s[]"
-markdown_format_bold_italics = "[bi]%s[]"
-markdown_format_highlight = "[green;sin]%s[]"
-markdown_format_bold2 = "[b]*%s*[]"
-markdown_format_italics2 = "[i;gray]*%s*[]"
-markdown_format_bold_italics2 = "%s"
-context_enabled = true
-context_path = NodePath("/root/State")
-context_state = {}
-context_rich_objects = true
-context_rich_ints = true
-context_rich_array = true
-autostyle_numbers = true
-autostyle_numbers_tag = "[salmon]%s[]"
-autostyle_numbers_pad_decimals = true
-autostyle_numbers_decimals = 2
-autostyle_emojis = true
-effect_weight = 0.0
-meta_auto_https = true
-meta_cursor = 2
-override_bbcodeEnabled = true
-override_clipContents = false
-override_fitContent = true
-fit_width = false
-fit_width_padding = 10
-metadata/_custom_type_script = "uid://db0s3rfk26712"
-
-[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PanelContainer/UpgradeCardHbox/UpgradeCard3/VBoxContainer/PanelContainer2/VBoxContainer"]
-layout_mode = 2
-text = "Get Upgrade"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -1398,7 +899,7 @@ theme_override_font_sizes/bold_font_size = 48
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_c74tn")]
+custom_effects = [SubResource("RichTextEffect_8axjk")]
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
@@ -1489,7 +990,7 @@ theme_override_font_sizes/bold_font_size = 48
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_milu8")]
+custom_effects = [SubResource("RichTextEffect_c74tn")]
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
@@ -1580,7 +1081,7 @@ theme_override_font_sizes/bold_font_size = 48
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_18trd")]
+custom_effects = [SubResource("RichTextEffect_milu8")]
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
@@ -1658,20 +1159,19 @@ metadata/rand = Array[int]([2800208240, 2057223724, 3097015752, 2954115180])
 metadata/mouse_position = Vector2(1631.66, -97.9069)
 metadata/frame = 406189
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer2"]
+[node name="BoxContainer" type="BoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-
-[node name="VBoxContainer4" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer2/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 10
 size_flags_vertical = 8
 
-[node name="NextRoundButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer4"]
+[node name="NextRoundButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer2/BoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
 theme_override_font_sizes/font_size = 32
 text = "Next Round"
 
 [connection signal="button_up" from="HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/UpgradeStamina" to="." method="_on_upgrade_stamina_button_up"]
 [connection signal="button_up" from="HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/UpgradeSturdiness" to="." method="_on_upgrade_sturdiness_button_up"]
 [connection signal="button_up" from="HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/UpgradeSpinForce" to="." method="_on_upgrade_spin_force_button_up"]
-[connection signal="button_up" from="HBoxContainer/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer4/NextRoundButton" to="." method="_on_next_round_button_button_up"]
+[connection signal="button_up" from="HBoxContainer/VBoxContainer/HBoxContainer2/BoxContainer/NextRoundButton" to="." method="_on_next_round_button_button_up"]

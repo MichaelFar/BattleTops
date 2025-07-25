@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://i2ofnsj83bju"]
+[gd_scene load_steps=3 format=3 uid="uid://i2ofnsj83bju"]
+
+[ext_resource type="Script" uid="uid://bef1w04gc0fyo" path="res://scripts/upgrade_card.gd" id="1_62kwj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80nyk"]
 bg_color = Color(0.4, 0.141176, 0.6, 0.611765)
@@ -10,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_62kwj")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 layout_mode = 1

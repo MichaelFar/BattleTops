@@ -251,6 +251,8 @@ shape = SubResource("BoxShape3D_g8q41")
 transform = Transform3D(-4.17283e-08, 0.297791, -0.954631, 1.30169e-08, 0.954631, 0.297791, 1, 0, -4.37114e-08, 1.6721, 0.39447, -0.111842)
 shape = SubResource("BoxShape3D_g8q41")
 
+[node name="UpgradeManager" type="Node3D" parent="."]
+
 [connection signal="body_entered" from="InnerArenaVolume" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="InnerArenaVolume" to="." method="_on_area_3d_body_exited"]
 [connection signal="body_shape_entered" from="KillPlane" to="." method="_on_kill_plane_body_shape_entered"]
