@@ -110,6 +110,14 @@ var topStats : Dictionary = { #Only checked when score is considered as an oppon
 	"spinForce" : 100.0
 }
 
+@export var upgradeArray : Array[Upgrade] : 
+	
+	set(value):
+		
+		upgradeArray = value
+		
+		
+
 var staminaIsGoingDown : bool = false
 
 var numTopsDefeated : int = 0
@@ -152,7 +160,7 @@ func initialize_values():
 		
 		stamina = maxStamina
 		
-		sturdiness = rand_obj.randf_range(90 + GlobalStats.opponentTopRangeDict["sturdiness"].x, 130 + GlobalStats.opponentTopRangeDict["sturdiness"].y)
+		sturdiness = rand_obj.randf_range(110 + GlobalStats.opponentTopRangeDict["sturdiness"].x, 130 + GlobalStats.opponentTopRangeDict["sturdiness"].y)
 		
 		maxSturdiness = sturdiness
 		
@@ -172,7 +180,9 @@ func initialize_values():
 		
 	minimumLinearVelocity = randf_range(minimumLinearVelocity, minimumLinearVelocity)
 	
-	color = Color(sturdiness / 130,spinForce / 200,stamina / 60)
+	var color_vector = Vector3(sturdiness / 130,spinForce / 200,stamina / 60).normalized()
+	
+	color = Color(color_vector.x, color_vector.y, color_vector.z)
 		
 	topMeshMaterial.albedo_color = color
 	
@@ -219,6 +229,8 @@ func kill_top():
 	sturdiness = 0.0
 	spinForce = 0.0
 	physics_material_override = physicsMaterial
+	
+	upgradeArray = []
 	
 	if(lastHitTop != null):
 		lastHitTop.numTopsDefeated += 1
@@ -313,3 +325,35 @@ func set_temp_sturdiness(new_value : float = 999.0):
 	tempSturdiness = new_value
 	
 	sturdiness = tempSturdiness
+
+func add_upgrade(upgrade : Upgrade):
+	
+	upgradeArray.append(upgrade)
+	
+	for i in upgradeArray:
+		connect_upgrade_signals(i)
+	
+
+func connect_upgrade_signals(upgrade : Upgrade):
+	
+	print("Connecting upgrade signals")
+	
+	for i in upgrade.desiredSignalsList:
+		
+		if (i == upgrade.DESIREDTOPSIGNALS.has_hit_top):
+			
+			upgrade.addSignalToList(has_hit_top)
+			#upgrade.connect_signals()
+		if (i == upgrade.DESIREDTOPSIGNALS.first_hit_occured):
+			
+			upgrade.addSignalToList(first_hit_occured)
+			
+		if (i == upgrade.DESIREDTOPSIGNALS.has_sparked):
+			
+			upgrade.addSignalToList(has_sparked)
+			
+		if (i == upgrade.DESIREDTOPSIGNALS.has_low_stamina):
+			
+			upgrade.addSignalToList(has_low_stamina)
+	
+	upgrade.connect_signals()

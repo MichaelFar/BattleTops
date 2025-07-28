@@ -34,6 +34,10 @@ class_name ArenaLevelManager
 
 @export var playerSafetyBarrier : PlayerSafetyBarrier
 
+@export var testDebugUpgradeForPlayerDeleteThis : Upgrade
+
+@export var spawnRampRotationParent : Node3D
+
 var topChildren : Array[BattleTop]
 
 var hasChosenTop : bool = false
@@ -123,10 +127,9 @@ func next_round():
 	spawn_battle_top()
 	update_player_top_stats()
 	playerTop.set_stamina_is_going_down(true)
-	
+	set_should_be_counting(true)
 	print("Player Stamina after next round is " + str(playerTop.stamina))
 	
-
 func spawn_battle_top():
 	
 	print("spawning battle top")
@@ -150,7 +153,7 @@ func spawn_battle_top():
 			#top_object.first_hit_occured.connect(gameTimerUI.start_timer)
 			top_object.has_hit_top.connect(restart_idle_timer)
 			top_object.first_hit_occured.connect(set_spawn_ramp_collision_disabled.bind(true))
-			
+			top_object.first_hit_occured.connect(randomize_spawn_ramp_rotation)
 			if(i == 0 
 			&& GlobalStats.currentGameMode == GlobalStats.GameMode.CAREER
 			&& playerTop == null):
@@ -171,6 +174,8 @@ func spawn_battle_top():
 			top_object.orientPoint = orientPoint
 			topChildren.append(top_object)
 			top_object.first_hit_occured.connect(set_spawn_ramp_collision_disabled.bind(true))
+			top_object.first_hit_occured.connect(randomize_spawn_ramp_rotation)
+			
 			print("spawned top")
 			top_object.has_hit_top.connect(restart_idle_timer)
 			
@@ -203,7 +208,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if(body is BattleTop):
 		
 		var battle_top : BattleTop = body
-		
+		set_should_be_counting(true)
 		battle_top.insideArena = true
 	
 func _on_area_3d_body_exited(body: Node3D) -> void:
@@ -278,6 +283,8 @@ func _on_prompt_ui_said_yes() -> void:
 	var chosenTop : BattleTop = topChildren[0]
 	
 	playerTop = chosenTop
+	
+	playerTop.add_upgrade(testDebugUpgradeForPlayerDeleteThis)
 	
 	GlobalStats.playerStats["stamina"] = chosenTop.maxStamina
 	GlobalStats.playerStats["sturdiness"] = chosenTop.maxSturdiness
@@ -366,3 +373,14 @@ func set_spawn_ramp_collision_disabled(new_value : bool):
 func quit_game():
 	
 	get_tree().quit()
+
+func randomize_spawn_ramp_rotation():
+	
+	var random_range : float = 8.0
+	
+	var rand_obj = RandomNumberGenerator.new()
+	
+	spawnRampRotationParent.rotation_degrees.y = rand_obj.randf_range(-random_range, random_range)
+	
+	
+	

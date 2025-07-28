@@ -8,6 +8,8 @@ class_name UpgradeCard
 
 @export var bbcString : String
 
+@export var upgrade : Upgrade
+
 var costLabelString : String :
 	
 	set(value):
@@ -16,12 +18,13 @@ var costLabelString : String :
 		costLabel.bbcode = "Cost: " + bbcString +str(value)
 		
 
-signal purchased_upgrade(upgradeCost)
+signal purchased_upgrade(upgradeCost, upgrade)
 
 func _ready():
 	
 	costLabelString = str(upgradeCost)
+	#upgrade.triggerSignal = 
 	
 func purchase_upgrade():
 	
-	purchased_upgrade.emit(upgradeCost)
+	purchased_upgrade.emit(upgradeCost, upgrade)

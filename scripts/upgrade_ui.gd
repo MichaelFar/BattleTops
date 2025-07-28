@@ -45,7 +45,9 @@ class_name StatLabelController
 
 @export var moneyAmountValueLabel : RicherTextLabel
 
-@export var upgradeCardParent : HBoxContainer
+@export var allPossibleUpgrades : Array[PackedScene]
+
+@export var upgradeParent : HBoxContainer
 
 var staminaUpgradeAmount : float
 var sturdinessUpgradeAmount : float
@@ -85,7 +87,9 @@ var moneyAmount : int = 0 :
 		moneyAmount = value
 		GlobalStats.goldAmount = value
 		moneyAmountValueLabel.bbcode = str(moneyAmount)
-		
+
+var numAllowedUpgradesShown : int = 3
+
 signal next_round_button_pressed
 
 signal popped_up
@@ -158,3 +162,6 @@ func set_costs_to_default():
 	staminaCost = GlobalStats.staminaCost
 	sturdinessCost = GlobalStats.sturdinessCost
 	spinForceCost = GlobalStats.spinForceCost
+
+func populate_upgrades():
+	pass

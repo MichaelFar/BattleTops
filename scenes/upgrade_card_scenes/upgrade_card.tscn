@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://etvvup2u64d7"]
+[gd_scene load_steps=7 format=3 uid="uid://etvvup2u64d7"]
 
 [ext_resource type="Script" uid="uid://db0s3rfk26712" path="res://addons/richtext2/richer_text_label.gd" id="1_56tod"]
 [ext_resource type="Script" uid="uid://bef1w04gc0fyo" path="res://scripts/upgrade_card.gd" id="1_miwfn"]
+[ext_resource type="Script" uid="uid://cpsk7niulxglf" path="res://scripts/upgrade_scripts/upgrade_base_script.gd" id="2_cb288"]
+
+[sub_resource type="Resource" id="Resource_lpncl"]
+script = ExtResource("2_cb288")
+metadata/_custom_type_script = "uid://cpsk7niulxglf"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ratfy"]
 bg_color = Color(0.662745, 0.188235, 0.917647, 1)
@@ -27,6 +32,7 @@ corner_radius_bottom_left = 2
 script = ExtResource("1_miwfn")
 costLabel = NodePath("VBoxContainer/PanelContainer2/VBoxContainer/RicherTextLabel2")
 bbcString = "[heart]"
+upgrade = SubResource("Resource_lpncl")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
