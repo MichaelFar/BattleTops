@@ -284,7 +284,7 @@ func _on_prompt_ui_said_yes() -> void:
 	
 	playerTop = chosenTop
 	
-	playerTop.add_upgrade(testDebugUpgradeForPlayerDeleteThis)
+	playerTop.add_upgrade(TestOnHitUpgrade.new())
 	
 	GlobalStats.playerStats["stamina"] = chosenTop.maxStamina
 	GlobalStats.playerStats["sturdiness"] = chosenTop.maxSturdiness

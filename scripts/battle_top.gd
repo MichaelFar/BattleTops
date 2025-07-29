@@ -230,6 +230,7 @@ func kill_top():
 	spinForce = 0.0
 	physics_material_override = physicsMaterial
 	
+	
 	upgradeArray = []
 	
 	if(lastHitTop != null):

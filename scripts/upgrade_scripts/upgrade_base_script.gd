@@ -1,5 +1,9 @@
 extends Resource
 
+#Please note that any and all references to a Resource object must be deleted,
+#Unlike ordinary node objects they do not free themselves upon removal from the tree as they are not a node
+#Manual freeing is forbidden, must free by removing all references to the object, we free this memory in BattleTop.kill_top()
+
 class_name Upgrade
 
 var triggerSignals : Array[Signal]
