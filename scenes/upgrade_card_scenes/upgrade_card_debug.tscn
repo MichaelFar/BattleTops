@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://etvvup2u64d7"]
+[gd_scene load_steps=7 format=3 uid="uid://b6cqe1cid53k"]
 
-[ext_resource type="Script" uid="uid://db0s3rfk26712" path="res://addons/richtext2/richer_text_label.gd" id="1_56tod"]
-[ext_resource type="Script" uid="uid://bef1w04gc0fyo" path="res://scripts/upgrade_card.gd" id="1_miwfn"]
-[ext_resource type="Script" uid="uid://dwt8k80i03a8e" path="res://scripts/upgrade_scripts/test_on_hit_upgrade.gd" id="2_cb288"]
+[ext_resource type="Script" uid="uid://bef1w04gc0fyo" path="res://scripts/upgrade_card.gd" id="1_yikdi"]
+[ext_resource type="Script" uid="uid://dwt8k80i03a8e" path="res://scripts/upgrade_scripts/test_on_hit_upgrade.gd" id="2_biikd"]
+[ext_resource type="Script" uid="uid://db0s3rfk26712" path="res://addons/richtext2/richer_text_label.gd" id="3_n8001"]
 
 [sub_resource type="Resource" id="Resource_lpncl"]
-script = ExtResource("2_cb288")
+script = ExtResource("2_biikd")
 metadata/_custom_type_script = "uid://dwt8k80i03a8e"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ratfy"]
@@ -29,7 +29,7 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [node name="UpgradeCard" type="PanelContainer" node_paths=PackedStringArray("costLabel")]
-script = ExtResource("1_miwfn")
+script = ExtResource("1_yikdi")
 costLabel = NodePath("VBoxContainer/PanelContainer2/VBoxContainer/RicherTextLabel2")
 bbcString = "[heart]"
 upgrade = SubResource("Resource_lpncl")
@@ -58,7 +58,7 @@ theme_override_font_sizes/bold_font_size = 16
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-script = ExtResource("1_56tod")
+script = ExtResource("3_n8001")
 bbcode = "Test"
 effects = 2
 alignment = 1
@@ -126,7 +126,7 @@ theme_override_font_sizes/bold_font_size = 16
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-script = ExtResource("1_56tod")
+script = ExtResource("3_n8001")
 bbcode = "Test"
 effects = 2
 alignment = 1
@@ -194,7 +194,7 @@ theme_override_font_sizes/normal_font_size = 12
 theme_override_font_sizes/bold_font_size = 12
 bbcode_enabled = true
 fit_content = true
-script = ExtResource("1_56tod")
+script = ExtResource("3_n8001")
 bbcode = "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
 effects = 2
 alignment = 1

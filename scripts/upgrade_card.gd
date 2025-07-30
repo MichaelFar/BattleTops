@@ -15,7 +15,8 @@ var costLabelString : String :
 	set(value):
 		
 		costLabelString = value
-		costLabel.bbcode = "Cost: " + bbcString +str(value)
+		if(costLabel != null):
+			costLabel.bbcode = "Cost: " + bbcString +str(value)
 		
 
 signal purchased_upgrade(upgradeCost, upgrade)
@@ -27,4 +28,9 @@ func _ready():
 	
 func purchase_upgrade():
 	
+	upgrade = upgrade.get_script().new()
+	
 	purchased_upgrade.emit(upgradeCost, upgrade)
+	
+	upgrade = null
+	
