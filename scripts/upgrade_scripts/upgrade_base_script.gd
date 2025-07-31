@@ -12,6 +12,8 @@ var desiredSignalsList : Array[DESIREDTOPSIGNALS]
 
 enum DESIREDTOPSIGNALS {has_hit_top, first_hit_occured, has_sparked, has_low_stamina}
 
+
+
 func _init() -> void:
 	
 	initialize()

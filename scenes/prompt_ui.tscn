@@ -93,7 +93,7 @@ custom_effects = [SubResource("RichTextEffect_y7yk3"), SubResource("RichTextEffe
 script = ExtResource("5_nbjdm")
 progress = 1.0
 visible_character = 16
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 41.3917, 65.0192), Transform2D(1, 0, 0, 1, 81.0866, 65.0009), Transform2D(1, 0, 0, 1, 119.788, 65.0056), Transform2D(1, 0, 0, 1, 158.492, 65.0324), Transform2D(1, 0, 0, 1, 190.256, 65.0699), Transform2D(1, 0, 0, 1, 225.999, 65.1273), Transform2D(1, 0, 0, 1, 242.882, 65.1594), Transform2D(1, 0, 0, 1, 278.645, 65.2366), Transform2D(1, 0, 0, 1, 318.399, 65.3345), Transform2D(1, 0, 0, 1, 336.294, 65.3819), Transform2D(1, 0, 0, 1, 367.124, 65.467), Transform2D(1, 0, 0, 1, 384.036, 65.5152), Transform2D(1, 0, 0, 1, 419.862, 65.6196), Transform2D(1, 0, 0, 1, 458.69, 65.7345), Transform2D(1, 0, 0, 1, 498.532, 65.8523)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 38.1711, 66.1721), Transform2D(1, 0, 0, 1, 78.0408, 66.3087), Transform2D(1, 0, 0, 1, 116.931, 66.4346), Transform2D(1, 0, 0, 1, 155.836, 66.5529), Transform2D(1, 0, 0, 1, 187.767, 66.6443), Transform2D(1, 0, 0, 1, 223.699, 66.7414), Transform2D(1, 0, 0, 1, 240.669, 66.7851), Transform2D(1, 0, 0, 1, 276.612, 66.8734), Transform2D(1, 0, 0, 1, 316.556, 66.965), Transform2D(1, 0, 0, 1, 334.533, 67.0042), Transform2D(1, 0, 0, 1, 365.497, 67.0687), Transform2D(1, 0, 0, 1, 382.479, 67.1027), Transform2D(1, 0, 0, 1, 418.443, 67.1712), Transform2D(1, 0, 0, 1, 457.408, 67.2407), Transform2D(1, 0, 0, 1, 497.376, 67.3074)])
 _char_size = Array[Vector2]([Vector2(0, 0), Vector2(33, 50), Vector2(35, 50), Vector2(35, 50), Vector2(28, 50), Vector2(33, 50), Vector2(0, 50), Vector2(38, 50), Vector2(33, 50), Vector2(12, 50), Vector2(28, 50), Vector2(0, 50), Vector2(38, 50), Vector2(35, 50), Vector2(34, 50), Vector2(30, 50)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
@@ -160,8 +160,8 @@ override_fitContent = true
 fit_width = false
 fit_width_padding = 10
 metadata/_custom_type_script = "uid://mkih5spu6eqp"
-metadata/mouse_position = Vector2(92.2827, -452.226)
-metadata/frame = 244709
+metadata/mouse_position = Vector2(-362.363, -334.224)
+metadata/frame = 343671
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2

@@ -88,7 +88,7 @@ var moneyAmount : int = 0 :
 		GlobalStats.goldAmount = value
 		moneyAmountValueLabel.bbcode = str(moneyAmount)
 
-var numAllowedUpgradesShown : int = 3
+
 
 signal next_round_button_pressed
 
@@ -170,24 +170,25 @@ func set_costs_to_default():
 
 func populate_upgrades():
 	
-	var rand_obj := RandomNumberGenerator.new()
-	
-	var upgradeListWithRemoval := allPossibleUpgrades
-	
-	print("Size of upgrade list is " + str(upgradeListWithRemoval))
-	
-	for i in upgradeParent.get_children():
-		
-		i.queue_free()
-	
-	for i in numAllowedUpgradesShown:
-		
-		var rand_index := rand_obj.randi_range(0, upgradeListWithRemoval.size() - 1)
-		
-		var upgrade_card_object := upgradeListWithRemoval[rand_index].instantiate()
-		
-		upgradeParent.call_deferred("add_child", upgrade_card_object)
-		
-		#upgradeListWithRemoval.pop_at(rand_index)
+	pass
+	#var rand_obj := RandomNumberGenerator.new()
+	#
+	#var upgradeListWithRemoval := allPossibleUpgrades
+	#
+	#print("Size of upgrade list is " + str(upgradeListWithRemoval))
+	#
+	#for i in upgradeParent.get_children():
+		#
+		#i.queue_free()
+	#
+	#for i in numAllowedUpgradesShown:
+		#
+		#var rand_index := rand_obj.randi_range(0, upgradeListWithRemoval.size() - 1)
+		#
+		#var upgrade_card_object := upgradeListWithRemoval[rand_index].instantiate()
+		#
+		#upgradeParent.call_deferred("add_child", upgrade_card_object)
+		#
+		##upgradeListWithRemoval.pop_at(rand_index)
 		
 		

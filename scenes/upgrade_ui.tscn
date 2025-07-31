@@ -1,9 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://d1pug181d3iuo"]
+[gd_scene load_steps=27 format=3 uid="uid://d1pug181d3iuo"]
 
 [ext_resource type="Script" uid="uid://dtcbfjrulbrnb" path="res://scripts/upgrade_ui.gd" id="1_6ij7f"]
 [ext_resource type="Script" uid="uid://bl6n6826dgkx7" path="res://addons/richtext2/text_effects/anims/rte_redact.gd" id="1_gbnav"]
 [ext_resource type="Script" uid="uid://c8g7nwoita0i5" path="res://addons/richtext2/text_effects/anims/rte_fader.gd" id="2_6ij7f"]
-[ext_resource type="PackedScene" uid="uid://b6cqe1cid53k" path="res://scenes/upgrade_card_scenes/upgrade_card_debug.tscn" id="3_2wj67"]
 [ext_resource type="Script" uid="uid://dsqu2erlwyv54" path="res://addons/richtext2/text_effects/effects/rte_heart.gd" id="3_fq5lg"]
 [ext_resource type="Script" uid="uid://mkih5spu6eqp" path="res://addons/richtext2/rich_text_animation.gd" id="3_onvvk"]
 [ext_resource type="Script" uid="uid://whtuvsbwrh6h" path="res://addons/richtext2/text_effects/effects/rte_sin.gd" id="6_g3bku"]
@@ -107,7 +106,7 @@ staminaCostLabel = NodePath("HBoxContainer/VBoxContainer/HBoxContainer2/VBoxCont
 sturdinessCostLabel = NodePath("HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer4/SturdinessCost")
 spinForceCostLabel = NodePath("HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer4/SpinForceCost")
 moneyAmountValueLabel = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/StatAmountVbox/MoneyAmountValue")
-allPossibleUpgrades = Array[PackedScene]([ExtResource("3_2wj67"), ExtResource("11_ratfy")])
+allPossibleUpgrades = Array[PackedScene]([ExtResource("11_ratfy")])
 upgradeParent = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox")
 
 [node name="Panel" type="Panel" parent="."]
@@ -343,7 +342,7 @@ animation = "redact"
 _hold = true
 progress = 1.0
 visible_character = 10
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0.114118, 0.993467, 35.6562, 68.9624), Transform2D(1, 0, 0.114118, 0.993467, 60.6562, 68.9624), Transform2D(1, 0, 0.114118, 0.993467, 101.656, 68.9624), Transform2D(1, 0, 0.114118, 0.993467, 129.656, 68.9624), Transform2D(1, 0, 0.114118, 0.993467, 168.656, 68.9624), Transform2D(1, 0, 0.114118, 0.993467, 186.656, 68.9624), Transform2D(1, 0, 0.114118, 0.993467, 227.656, 68.9624), Transform2D(1, 0, 0.114118, 0.993467, 264.656, 68.9624), Transform2D(1, 0, 0.114118, 0.993467, 295.656, 68.9624)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0.238381, 0.971172, 36.3707, 68.8342), Transform2D(1, 0, 0.238381, 0.971172, 61.3707, 68.8342), Transform2D(1, 0, 0.238381, 0.971172, 102.371, 68.8342), Transform2D(1, 0, 0.238381, 0.971172, 130.371, 68.8342), Transform2D(1, 0, 0.238381, 0.971172, 169.371, 68.8342), Transform2D(1, 0, 0.238381, 0.971172, 187.371, 68.8342), Transform2D(1, 0, 0.238381, 0.971172, 228.371, 68.8342), Transform2D(1, 0, 0.238381, 0.971172, 265.371, 68.8342), Transform2D(1, 0, 0.238381, 0.971172, 296.371, 68.8342)])
 _char_size = Array[Vector2]([Vector2(0, 0), Vector2(25, 50), Vector2(34, 50), Vector2(24, 50), Vector2(34, 50), Vector2(12, 50), Vector2(33, 50), Vector2(33, 50), Vector2(28, 50), Vector2(28, 50)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
