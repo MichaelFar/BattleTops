@@ -94,11 +94,12 @@ signal next_round_button_pressed
 
 signal popped_up
 
+signal upgrade_purchased(new_upgrade : Upgrade)
+
 func _ready():
 	
 	update_stats()
 	
-	populate_upgrades()
 	
 	#popped_up.connect(populate_upgrades)
 	
@@ -164,31 +165,16 @@ func _on_next_round_button_button_up() -> void:
 	next_round_button_pressed.emit()
 	
 func set_costs_to_default():
+	
 	staminaCost = GlobalStats.staminaCost
 	sturdinessCost = GlobalStats.sturdinessCost
 	spinForceCost = GlobalStats.spinForceCost
 
-func populate_upgrades():
+func purchase_upgrade(upgrade_cost : float, new_upgrade : Upgrade):
 	
-	pass
-	#var rand_obj := RandomNumberGenerator.new()
-	#
-	#var upgradeListWithRemoval := allPossibleUpgrades
-	#
-	#print("Size of upgrade list is " + str(upgradeListWithRemoval))
-	#
-	#for i in upgradeParent.get_children():
-		#
-		#i.queue_free()
-	#
-	#for i in numAllowedUpgradesShown:
-		#
-		#var rand_index := rand_obj.randi_range(0, upgradeListWithRemoval.size() - 1)
-		#
-		#var upgrade_card_object := upgradeListWithRemoval[rand_index].instantiate()
-		#
-		#upgradeParent.call_deferred("add_child", upgrade_card_object)
-		#
-		##upgradeListWithRemoval.pop_at(rand_index)
+	if(moneyAmount >= upgrade_cost):
 		
+		moneyAmount -= upgrade_cost
+		
+		upgrade_purchased.emit(new_upgrade)
 		

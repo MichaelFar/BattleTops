@@ -10,13 +10,20 @@ var triggerSignals : Array[Signal]
 
 var desiredSignalsList : Array[DESIREDTOPSIGNALS]
 
+@export var cost := 150.0
+
+var costLabelString : String
+
+@export var titleString : String
+
+@export var descriptionString : String
+
 enum DESIREDTOPSIGNALS {has_hit_top, first_hit_occured, has_sparked, has_low_stamina}
-
-
 
 func _init() -> void:
 	
 	initialize()
+	costLabelString = str(cost)
 	print ("Upgrade initialized")
 
 func connect_signals():

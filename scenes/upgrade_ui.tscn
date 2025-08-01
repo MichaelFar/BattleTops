@@ -14,80 +14,80 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_soydq"]
 bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_ratfy"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_soydq"]
 resource_name = "fader"
 script = ExtResource("2_6ij7f")
-metadata/rt = 17049762053883
+metadata/rt = 40851799682662
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_may18"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_2wj67"]
 resource_name = "heart"
 script = ExtResource("3_fq5lg")
-metadata/rt = 17049762053883
+metadata/rt = 40851799682662
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_ratfy"]
+resource_name = "redact"
+script = ExtResource("1_gbnav")
+metadata/rt = 40871328364973
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_may18"]
+resource_name = "sin"
+script = ExtResource("6_g3bku")
+metadata/rt = 40871328364973
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_4pgft"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 17069290634965
+metadata/rt = 40890857095763
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_oec1f"]
-resource_name = "sin"
-script = ExtResource("6_g3bku")
-metadata/rt = 17069290634965
+resource_name = "sway"
+script = ExtResource("7_soydq")
+metadata/rt = 40890857095763
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_srdp0"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 17088819314384
+metadata/rt = 40910385774437
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_w5ndc"]
-resource_name = "sway"
-script = ExtResource("7_soydq")
-metadata/rt = 17088819314384
-
-[sub_resource type="RichTextEffect" id="RichTextEffect_oq6v8"]
-resource_name = "redact"
-script = ExtResource("1_gbnav")
-metadata/rt = 17108348038876
-
-[sub_resource type="RichTextEffect" id="RichTextEffect_mh5b7"]
 resource_name = "jit2"
 script = ExtResource("8_2wj67")
-metadata/rt = 17108348038876
+metadata/rt = 40910385774437
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_oq6v8"]
+resource_name = "growin"
+script = ExtResource("9_soydq")
+metadata/rt = 40929947931766
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_mh5b7"]
+resource_name = "growin"
+script = ExtResource("9_soydq")
+metadata/rt = 40949476628997
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_7j37j"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 17127910227074
+metadata/rt = 40969005284892
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_8axjk"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 17147455725852
+metadata/rt = 40988533976468
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_c74tn"]
-resource_name = "growin"
-script = ExtResource("9_soydq")
-metadata/rt = 17166984412143
+resource_name = "redact"
+script = ExtResource("1_gbnav")
+metadata/rt = 41184760286715
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_milu8"]
-resource_name = "growin"
-script = ExtResource("9_soydq")
-metadata/rt = 17186513043218
+resource_name = "redact"
+script = ExtResource("1_gbnav")
+metadata/rt = 41204288966103
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_18trd"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 17265147940923
-
-[sub_resource type="RichTextEffect" id="RichTextEffect_f8agc"]
-resource_name = "redact"
-script = ExtResource("1_gbnav")
-metadata/rt = 17284676603570
-
-[sub_resource type="RichTextEffect" id="RichTextEffect_ii24h"]
-resource_name = "redact"
-script = ExtResource("1_gbnav")
-metadata/rt = 17304205266633
+metadata/rt = 41223817645570
 
 [node name="Control" type="Control" node_paths=PackedStringArray("staminaLabel", "sturdinessLabel", "spinForceLabel", "staminaCostLabel", "sturdinessCostLabel", "spinForceCostLabel", "moneyAmountValueLabel", "upgradeParent")]
 layout_mode = 3
@@ -156,13 +156,13 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_ratfy"), SubResource("RichTextEffect_may18")]
+custom_effects = [SubResource("RichTextEffect_soydq"), SubResource("RichTextEffect_2wj67")]
 script = ExtResource("3_onvvk")
 _hold = true
 progress = 1.0
 visible_character = 5
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 59, 69), Transform2D(1, 0, 0, 1, 98, 69), Transform2D(1, 0, 0, 1, 139, 69), Transform2D(1, 0, 0, 1, 176, 69)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(35, 50), Vector2(33, 50), Vector2(33, 50), Vector2(37, 50)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0])
 _forced_finish_delay = -0.047867
@@ -245,14 +245,14 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_4pgft"), SubResource("RichTextEffect_oec1f")]
+custom_effects = [SubResource("RichTextEffect_ratfy"), SubResource("RichTextEffect_may18")]
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
 progress = 1.0
 visible_character = 7
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 35, 69), Transform2D(1, 0, 0, 1, 60, 69), Transform2D(1, 0, 0, 1, 97, 69), Transform2D(1, 0, 0, 1, 159, 69), Transform2D(1, 0, 0, 1, 177, 69), Transform2D(1, 0, 0, 1, 217, 69)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(25, 50), Vector2(33, 50), Vector2(54, 50), Vector2(12, 50), Vector2(33, 50), Vector2(33, 50)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _forced_finish_delay = -0.047867
@@ -336,14 +336,14 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_srdp0"), SubResource("RichTextEffect_w5ndc")]
+custom_effects = [SubResource("RichTextEffect_4pgft"), SubResource("RichTextEffect_oec1f")]
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
 progress = 1.0
 visible_character = 10
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0.238381, 0.971172, 36.3707, 68.8342), Transform2D(1, 0, 0.238381, 0.971172, 61.3707, 68.8342), Transform2D(1, 0, 0.238381, 0.971172, 102.371, 68.8342), Transform2D(1, 0, 0.238381, 0.971172, 130.371, 68.8342), Transform2D(1, 0, 0.238381, 0.971172, 169.371, 68.8342), Transform2D(1, 0, 0.238381, 0.971172, 187.371, 68.8342), Transform2D(1, 0, 0.238381, 0.971172, 228.371, 68.8342), Transform2D(1, 0, 0.238381, 0.971172, 265.371, 68.8342), Transform2D(1, 0, 0.238381, 0.971172, 296.371, 68.8342)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(25, 50), Vector2(34, 50), Vector2(24, 50), Vector2(34, 50), Vector2(12, 50), Vector2(33, 50), Vector2(33, 50), Vector2(28, 50), Vector2(28, 50)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _forced_finish_delay = -0.047867
@@ -427,14 +427,14 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_oq6v8"), SubResource("RichTextEffect_mh5b7")]
+custom_effects = [SubResource("RichTextEffect_srdp0"), SubResource("RichTextEffect_w5ndc")]
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
 progress = 1.0
 visible_character = 12
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 40, 69), Transform2D(1, 0, 0, 1, 80, 69), Transform2D(1, 0, 0, 1, 98, 69), Transform2D(1, 0, 0, 1, 139, 69), Transform2D(1, 0, 0, 1, 156, 69), Transform2D(1, 0, 0, 1, 190, 69), Transform2D(1, 0, 0, 1, 229, 69), Transform2D(1, 0, 0, 1, 256, 69), Transform2D(1, 0, 0, 1, 288, 69), Transform2D(1, 0, 0, 1, 325, 69), Transform2D(1, 0, 0, 1, 342, 69)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(34, 50), Vector2(12, 50), Vector2(33, 50), Vector2(0, 50), Vector2(28, 50), Vector2(35, 50), Vector2(24, 50), Vector2(29, 50), Vector2(33, 50), Vector2(0, 50), Vector2(0, 50)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _forced_finish_delay = -0.047867
@@ -521,14 +521,14 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_7j37j")]
+custom_effects = [SubResource("RichTextEffect_oq6v8")]
 script = ExtResource("3_onvvk")
 animation = "growin"
 _hold = true
 progress = 1.0
 visible_character = 3
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 37, 69), Transform2D(1, 0, 0, 1, 73, 69)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(34, 50), Vector2(34, 50)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
 _alpha = Array[float]([1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0])
 _forced_finish_delay = -0.047867
@@ -612,7 +612,7 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_8axjk")]
+custom_effects = [SubResource("RichTextEffect_mh5b7")]
 script = ExtResource("3_onvvk")
 animation = "growin"
 _hold = true
@@ -697,7 +697,7 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_c74tn")]
+custom_effects = [SubResource("RichTextEffect_7j37j")]
 script = ExtResource("3_onvvk")
 animation = "growin"
 _hold = true
@@ -782,7 +782,7 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_milu8")]
+custom_effects = [SubResource("RichTextEffect_8axjk")]
 script = ExtResource("3_onvvk")
 animation = "growin"
 _hold = true
@@ -862,6 +862,15 @@ size_flags_vertical = 4
 layout_mode = 2
 theme_override_constants/separation = 5
 
+[node name="UpgradeCard" parent="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox" instance=ExtResource("11_ratfy")]
+layout_mode = 2
+
+[node name="UpgradeCard2" parent="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox" instance=ExtResource("11_ratfy")]
+layout_mode = 2
+
+[node name="UpgradeCard3" parent="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox" instance=ExtResource("11_ratfy")]
+layout_mode = 2
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -903,14 +912,14 @@ theme_override_font_sizes/bold_font_size = 48
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_18trd")]
+custom_effects = [SubResource("RichTextEffect_c74tn")]
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
 progress = 1.0
 visible_character = 8
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 30, 52), Transform2D(1, 0, 0, 1, 60, 52), Transform2D(1, 0, 0, 1, 83, 52), Transform2D(1, 0, 0, 1, 102, 52), Transform2D(1, 0, 0, 1, 115, 52), Transform2D(1, 0, 0, 1, 127, 52), Transform2D(1, 0, 0, 1, 154, 52)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(27, 37), Vector2(22, 37), Vector2(20, 37), Vector2(10, 37), Vector2(0, 37), Vector2(25, 37), Vector2(26, 37)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _forced_finish_delay = -0.047867
@@ -994,14 +1003,14 @@ theme_override_font_sizes/bold_font_size = 48
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_f8agc")]
+custom_effects = [SubResource("RichTextEffect_milu8")]
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
 progress = 1.0
 visible_character = 8
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 30, 52), Transform2D(1, 0, 0, 1, 60, 52), Transform2D(1, 0, 0, 1, 83, 52), Transform2D(1, 0, 0, 1, 102, 52), Transform2D(1, 0, 0, 1, 115, 52), Transform2D(1, 0, 0, 1, 127, 52), Transform2D(1, 0, 0, 1, 154, 52)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(27, 37), Vector2(22, 37), Vector2(20, 37), Vector2(10, 37), Vector2(0, 37), Vector2(25, 37), Vector2(26, 37)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _forced_finish_delay = -0.047867
@@ -1085,14 +1094,14 @@ theme_override_font_sizes/bold_font_size = 48
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_ii24h")]
+custom_effects = [SubResource("RichTextEffect_18trd")]
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
 progress = 1.0
 visible_character = 8
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 30, 52), Transform2D(1, 0, 0, 1, 60, 52), Transform2D(1, 0, 0, 1, 83, 52), Transform2D(1, 0, 0, 1, 102, 52), Transform2D(1, 0, 0, 1, 115, 52), Transform2D(1, 0, 0, 1, 127, 52), Transform2D(1, 0, 0, 1, 154, 52)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(27, 37), Vector2(22, 37), Vector2(20, 37), Vector2(10, 37), Vector2(0, 37), Vector2(25, 37), Vector2(26, 37)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _forced_finish_delay = -0.047867
@@ -1175,6 +1184,9 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 32
 text = "Next Round"
 
+[connection signal="purchased_upgrade" from="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox/UpgradeCard" to="." method="purchase_upgrade"]
+[connection signal="purchased_upgrade" from="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox/UpgradeCard2" to="." method="purchase_upgrade"]
+[connection signal="purchased_upgrade" from="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox/UpgradeCard3" to="." method="purchase_upgrade"]
 [connection signal="button_up" from="HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/UpgradeStamina" to="." method="_on_upgrade_stamina_button_up"]
 [connection signal="button_up" from="HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/UpgradeSturdiness" to="." method="_on_upgrade_sturdiness_button_up"]
 [connection signal="button_up" from="HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/UpgradeSpinForce" to="." method="_on_upgrade_spin_force_button_up"]

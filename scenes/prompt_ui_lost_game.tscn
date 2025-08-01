@@ -15,77 +15,77 @@ bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 [sub_resource type="RichTextEffect" id="RichTextEffect_3clwl"]
 resource_name = "sin"
 script = ExtResource("2_unyuq")
-metadata/rt = 3013859163891
+metadata/rt = 41243530874334
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_j0kpn"]
 resource_name = "sway"
 script = ExtResource("3_hqumn")
-metadata/rt = 3013859163891
+metadata/rt = 41243530874334
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_j2mkm"]
 resource_name = "wack"
 script = ExtResource("4_unyuq")
-metadata/rt = 3013859163891
+metadata/rt = 41243530874334
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ihhm8"]
 resource_name = "redact"
 script = ExtResource("6_3clwl")
-metadata/rt = 3033421397830
+metadata/rt = 41263093108208
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_03s0s"]
 resource_name = "jit2"
 script = ExtResource("7_j0kpn")
-metadata/rt = 3033421397830
+metadata/rt = 41263093108208
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_6y0t1"]
 resource_name = "redact"
 script = ExtResource("6_3clwl")
-metadata/rt = 3052966854479
+metadata/rt = 41282638564838
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_66uqq"]
 resource_name = "jit2"
 script = ExtResource("7_j0kpn")
-metadata/rt = 3052966854479
+metadata/rt = 41282638564838
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_fuuf8"]
 resource_name = "redact"
 script = ExtResource("6_3clwl")
-metadata/rt = 3072529088346
+metadata/rt = 41302200833778
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_juwka"]
 resource_name = "jit2"
 script = ExtResource("7_j0kpn")
-metadata/rt = 3072529088346
+metadata/rt = 41302200833778
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ou1rx"]
 resource_name = "redact"
 script = ExtResource("6_3clwl")
-metadata/rt = 3092057767779
+metadata/rt = 41321729536937
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_mcs3k"]
 resource_name = "jit2"
 script = ExtResource("7_j0kpn")
-metadata/rt = 3092057767779
+metadata/rt = 41321729536937
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_4hal7"]
 resource_name = "redact"
 script = ExtResource("6_3clwl")
-metadata/rt = 3111620001646
+metadata/rt = 41341291786799
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_b676x"]
 resource_name = "jit2"
 script = ExtResource("7_j0kpn")
-metadata/rt = 3111620001646
+metadata/rt = 41341291786799
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_80i65"]
 resource_name = "redact"
 script = ExtResource("6_3clwl")
-metadata/rt = 3131148681079
+metadata/rt = 41360820454761
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_byp5v"]
 resource_name = "jit2"
 script = ExtResource("7_j0kpn")
-metadata/rt = 3131148681079
+metadata/rt = 41360820454761
 
 [sub_resource type="FontFile" id="FontFile_lpym6"]
 subpixel_positioning = 0
@@ -232,8 +232,8 @@ animation = "redact"
 _hold = true
 progress = 1.0
 visible_character = 10
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 25, 35), Transform2D(1, 0, 0, 1, 45, 35), Transform2D(1, 0, 0, 1, 65, 35), Transform2D(1, 0, 0, 1, 86, 35), Transform2D(1, 0, 0, 1, 106, 35), Transform2D(1, 0, 0, 1, 121, 35), Transform2D(1, 0, 0, 1, 129, 35), Transform2D(1, 0, 0, 1, 160, 35), Transform2D(1, 0, 0, 1, 179, 35)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(19, 25), Vector2(18, 25), Vector2(18, 25), Vector2(19, 25), Vector2(16, 25), Vector2(0, 25), Vector2(33, 25), Vector2(19, 25), Vector2(18, 25)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _forced_finish_delay = -0.047867
@@ -323,8 +323,8 @@ animation = "redact"
 _hold = true
 progress = 1.0
 visible_character = 4
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 18, 35), Transform2D(1, 0, 0, 1, 36, 35), Transform2D(1, 0, 0, 1, 52, 35)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(18, 25), Vector2(16, 25), Vector2(14, 25)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0])
 _forced_finish_delay = -0.047867
@@ -418,8 +418,8 @@ animation = "redact"
 _hold = true
 progress = 1.0
 visible_character = 13
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 23, 35), Transform2D(1, 0, 0, 1, 43, 35), Transform2D(1, 0, 0, 1, 63, 35), Transform2D(1, 0, 0, 1, 78, 35), Transform2D(1, 0, 0, 1, 86, 35), Transform2D(1, 0, 0, 1, 110, 35), Transform2D(1, 0, 0, 1, 128, 35), Transform2D(1, 0, 0, 1, 140, 35), Transform2D(1, 0, 0, 1, 158, 35), Transform2D(1, 0, 0, 1, 177, 35), Transform2D(1, 0, 0, 1, 189, 35), Transform2D(1, 0, 0, 1, 208, 35)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(19, 25), Vector2(19, 25), Vector2(16, 25), Vector2(0, 25), Vector2(21, 25), Vector2(18, 25), Vector2(16, 25), Vector2(18, 25), Vector2(18, 25), Vector2(14, 25), Vector2(18, 25), Vector2(19, 25)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _forced_finish_delay = -0.047867
@@ -509,8 +509,8 @@ animation = "redact"
 _hold = true
 progress = 1.0
 visible_character = 4
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 18, 35), Transform2D(1, 0, 0, 1, 36, 35), Transform2D(1, 0, 0, 1, 52, 35)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(18, 25), Vector2(16, 25), Vector2(14, 25)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0])
 _forced_finish_delay = -0.047867
@@ -604,8 +604,8 @@ animation = "redact"
 _hold = true
 progress = 1.0
 visible_character = 18
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 23, 35), Transform2D(1, 0, 0, 1, 43, 35), Transform2D(1, 0, 0, 1, 55, 35), Transform2D(1, 0, 0, 1, 74, 35), Transform2D(1, 0, 0, 1, 83, 35), Transform2D(1, 0, 0, 1, 91, 35), Transform2D(1, 0, 0, 1, 121, 35), Transform2D(1, 0, 0, 1, 140, 35), Transform2D(1, 0, 0, 1, 161, 35), Transform2D(1, 0, 0, 1, 179, 35), Transform2D(1, 0, 0, 1, 196, 35), Transform2D(1, 0, 0, 1, 204, 35), Transform2D(1, 0, 0, 1, 222, 35), Transform2D(1, 0, 0, 1, 241, 35), Transform2D(1, 0, 0, 1, 255, 35), Transform2D(1, 0, 0, 1, 275, 35), Transform2D(1, 0, 0, 1, 293, 35)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(19, 25), Vector2(14, 25), Vector2(18, 25), Vector2(7, 25), Vector2(0, 25), Vector2(26, 25), Vector2(19, 25), Vector2(18, 25), Vector2(18, 25), Vector2(20, 25), Vector2(0, 25), Vector2(15, 25), Vector2(18, 25), Vector2(14, 25), Vector2(18, 25), Vector2(18, 25), Vector2(19, 25)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _forced_finish_delay = -0.047867

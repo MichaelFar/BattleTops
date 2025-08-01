@@ -6,6 +6,9 @@
 
 [sub_resource type="Resource" id="Resource_lpncl"]
 script = ExtResource("2_cb288")
+cost = 150.0
+titleString = "Debug Upgrade"
+descriptionString = "This upgrade prints a statement when the top hits another"
 metadata/_custom_type_script = "uid://dwt8k80i03a8e"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ratfy"]
@@ -28,9 +31,11 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[node name="UpgradeCard" type="PanelContainer" node_paths=PackedStringArray("costLabel")]
+[node name="UpgradeCard" type="PanelContainer" node_paths=PackedStringArray("costLabel", "cardTitle", "cardDescription")]
 script = ExtResource("1_miwfn")
-costLabel = NodePath("VBoxContainer/PanelContainer2/VBoxContainer/RicherTextLabel2")
+costLabel = NodePath("VBoxContainer/PanelContainer2/VBoxContainer/CostLabel")
+cardTitle = NodePath("VBoxContainer/PanelContainer2/VBoxContainer/CostLabel")
+cardDescription = NodePath("VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer2/CardDescription")
 bbcString = "[heart]"
 upgrade = SubResource("Resource_lpncl")
 
@@ -45,7 +50,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ratfy")
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer2"]
 layout_mode = 2
 
-[node name="RicherTextLabel2" type="RichTextLabel" parent="VBoxContainer/PanelContainer2/VBoxContainer"]
+[node name="CostLabel" type="RichTextLabel" parent="VBoxContainer/PanelContainer2/VBoxContainer"]
 clip_contents = false
 custom_minimum_size = Vector2(25, 23)
 layout_mode = 2
@@ -113,7 +118,7 @@ metadata/_custom_type_script = "uid://db0s3rfk26712"
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2wj67")
 
-[node name="RicherTextLabel2" type="RichTextLabel" parent="VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer"]
+[node name="CardTitle" type="RichTextLabel" parent="VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer"]
 clip_contents = false
 custom_minimum_size = Vector2(25, 23)
 layout_mode = 2
@@ -182,7 +187,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_2wj67")
 
-[node name="RicherTextLabel3" type="RichTextLabel" parent="VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer2"]
+[node name="CardDescription" type="RichTextLabel" parent="VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer2"]
 clip_contents = false
 custom_minimum_size = Vector2(0, 136)
 layout_mode = 2

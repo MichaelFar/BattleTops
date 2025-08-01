@@ -14,7 +14,7 @@ class_name ArenaLevelManager
 
 @export var popupUI : BasicUIController
 
-@export var upgradeUI : Control
+@export var upgradeUI : StatLabelController
 
 @export var restartUI : BasicUIController
 
@@ -164,13 +164,18 @@ func spawn_battle_top():
 			#top_object.global_position = spawnMarkerArray[rand_obj.randi_range(0, spawnMarkerArray.size() - 1)].global_position
 	else:
 		
+		var rand_obj := RandomNumberGenerator.new()
+		
+		var rand_starting_pos_index := rand_obj.randi_range(0, spawnMarkerArray.size() - 1)
+		
 		for i in GlobalStats.numEnemyTops:
 			
 			var top_object : BattleTop = battleTopScene.instantiate()
-			var rand_obj := RandomNumberGenerator.new()
+			
+			var spawn_index := wrapi(rand_starting_pos_index + i, 0, spawnMarkerArray.size() - 1)
 			
 			add_child(top_object)
-			top_object.global_position = spawnMarkerArray[i].global_position
+			top_object.global_position = spawnMarkerArray[rand_obj.randi_range(0, spawnMarkerArray.size() - 1)].global_position
 			top_object.orientPoint = orientPoint
 			topChildren.append(top_object)
 			top_object.first_hit_occured.connect(set_spawn_ramp_collision_disabled.bind(true))
@@ -284,7 +289,9 @@ func _on_prompt_ui_said_yes() -> void:
 	
 	playerTop = chosenTop
 	
-	playerTop.add_upgrade(TestOnHitUpgrade.new())
+	upgradeUI.upgrade_purchased.connect(playerTop.add_upgrade)
+	
+	#playerTop.add_upgrade(TestOnHitUpgrade.new())
 	
 	GlobalStats.playerStats["stamina"] = chosenTop.maxStamina
 	GlobalStats.playerStats["sturdiness"] = chosenTop.maxSturdiness
