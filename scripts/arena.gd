@@ -98,7 +98,8 @@ func _physics_process(delta: float) -> void:
 			
 			print("Applying impulse")
 			i.apply_central_impulse(-topChildren[0].global_position.direction_to(i.global_position) * 10)
-	
+		
+		restart_idle_timer()
 	#if(timeSinceLastHit > 20.0):
 		#safetyBarrierCollider.disabled = false
 	#else:

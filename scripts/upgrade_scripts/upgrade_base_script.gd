@@ -20,6 +20,8 @@ var costLabelString : String
 
 enum DESIREDTOPSIGNALS {has_hit_top, first_hit_occured, has_sparked, has_low_stamina}
 
+signal has_been_purchased
+
 func _init() -> void:
 	
 	initialize()
@@ -41,4 +43,5 @@ func addSignalToList(new_signal : Signal):
 	triggerSignals.append(new_signal)
 
 func initialize():
-	pass
+	titleString = "Debug Upgrade"
+	descriptionString = "This upgrade is the base class for upgrades, nothing will trigger it"

@@ -31,11 +31,12 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[node name="UpgradeCard" type="PanelContainer" node_paths=PackedStringArray("costLabel", "cardTitle", "cardDescription")]
+[node name="UpgradeCard" type="PanelContainer" node_paths=PackedStringArray("costLabel", "cardTitle", "cardDescription", "purchasedPanel")]
 script = ExtResource("1_miwfn")
 costLabel = NodePath("VBoxContainer/PanelContainer2/VBoxContainer/CostLabel")
-cardTitle = NodePath("VBoxContainer/PanelContainer2/VBoxContainer/CostLabel")
+cardTitle = NodePath("VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/CardTitle")
 cardDescription = NodePath("VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer2/CardDescription")
+purchasedPanel = NodePath("Panel")
 bbcString = "[heart]"
 upgrade = SubResource("Resource_lpncl")
 
@@ -253,5 +254,9 @@ metadata/_custom_type_script = "uid://db0s3rfk26712"
 [node name="Button" type="Button" parent="VBoxContainer/PanelContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Get Upgrade"
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 2
 
 [connection signal="button_up" from="VBoxContainer/PanelContainer2/VBoxContainer/Button" to="." method="purchase_upgrade"]

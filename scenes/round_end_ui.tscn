@@ -13,87 +13,87 @@ bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 [sub_resource type="RichTextEffect" id="RichTextEffect_bs3yo"]
 resource_name = "sin"
 script = ExtResource("2_c4gaa")
-metadata/rt = 41380617506563
+metadata/rt = 3509491679398
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ccfeg"]
 resource_name = "heart"
 script = ExtResource("3_aeowc")
-metadata/rt = 41380617506563
+metadata/rt = 3509491679398
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_j8dm1"]
 resource_name = "sin"
 script = ExtResource("2_c4gaa")
-metadata/rt = 41400179739465
+metadata/rt = 3529053913262
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_obqxs"]
 resource_name = "heart"
 script = ExtResource("3_aeowc")
-metadata/rt = 41400179739465
+metadata/rt = 3529053913262
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_1dpxe"]
 resource_name = "redact"
 script = ExtResource("5_bs3yo")
-metadata/rt = 41419708418872
+metadata/rt = 3548582592695
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_g8s8r"]
 resource_name = "sin"
 script = ExtResource("2_c4gaa")
-metadata/rt = 41419708418872
+metadata/rt = 3548582592695
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_3ogjg"]
 resource_name = "heart"
 script = ExtResource("3_aeowc")
-metadata/rt = 41419708418872
+metadata/rt = 3548582592695
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_4iai4"]
 resource_name = "sin"
 script = ExtResource("2_c4gaa")
-metadata/rt = 41439270653766
+metadata/rt = 3568144826562
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_aq1j0"]
 resource_name = "heart"
 script = ExtResource("3_aeowc")
-metadata/rt = 41439270653766
+metadata/rt = 3568144826562
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ldusx"]
 resource_name = "redact"
 script = ExtResource("5_bs3yo")
-metadata/rt = 41458799333180
+metadata/rt = 3587673505995
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ou08c"]
 resource_name = "sin"
 script = ExtResource("2_c4gaa")
-metadata/rt = 41458799333180
+metadata/rt = 3587673505995
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_7sesj"]
 resource_name = "heart"
 script = ExtResource("3_aeowc")
-metadata/rt = 41458799333180
+metadata/rt = 3587673505995
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_gauht"]
 resource_name = "sin"
 script = ExtResource("2_c4gaa")
-metadata/rt = 41478361566972
+metadata/rt = 3607235739862
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_q2bjp"]
 resource_name = "heart"
 script = ExtResource("3_aeowc")
-metadata/rt = 41478361566972
+metadata/rt = 3607235739862
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_pldmj"]
 resource_name = "redact"
 script = ExtResource("5_bs3yo")
-metadata/rt = 41497907023627
+metadata/rt = 3626764419295
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_u5lmw"]
 resource_name = "sin"
 script = ExtResource("2_c4gaa")
-metadata/rt = 41497907023627
+metadata/rt = 3626764419295
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ymvsh"]
 resource_name = "heart"
 script = ExtResource("3_aeowc")
-metadata/rt = 41497907023627
+metadata/rt = 3626764419295
 
 [sub_resource type="FontFile" id="FontFile_lpym6"]
 subpixel_positioning = 0
@@ -311,8 +311,8 @@ script = ExtResource("6_ccfeg")
 animation = "redact"
 _transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0)])
 _char_size = Array[Vector2]([Vector2(0, 0)])
-_alpha = Array[float]([1.0])
-_alpha_goal = Array[float]([1.0])
+_alpha = Array[float]([0.0])
+_alpha_goal = Array[float]([0.0])
 _forced_finish_delay = -0.0265403
 animation = "redact"
 default_wait_time = 1.0

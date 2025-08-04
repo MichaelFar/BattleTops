@@ -12,7 +12,8 @@ class_name StatLabelController
 		
 		staminaLabelText = value
 		
-		staminaLabel.bbcode = staminaLabelText
+		if(staminaLabel != null):
+			staminaLabel.bbcode = staminaLabelText
 		
 	get():
 		return staminaLabelText
@@ -22,8 +23,8 @@ class_name StatLabelController
 	set(value):
 		
 		sturdinessLabelText = value
-		
-		sturdinessLabel.bbcode = sturdinessLabelText
+		if(sturdinessLabel != null):
+			sturdinessLabel.bbcode = sturdinessLabelText
 		
 	get():
 		return sturdinessLabelText
@@ -34,7 +35,8 @@ class_name StatLabelController
 		
 		spinForceLabelText = value
 		
-		spinForceLabel.bbcode = spinForceLabelText
+		if(spinForceLabel != null):
+			spinForceLabel.bbcode = spinForceLabelText
 		
 	get():
 		return spinForceLabelText
@@ -99,10 +101,7 @@ signal upgrade_purchased(new_upgrade : Upgrade)
 func _ready():
 	
 	update_stats()
-	
-	
-	#popped_up.connect(populate_upgrades)
-	
+
 	staminaCost = 50
 	sturdinessCost = 50
 	spinForceCost = 50
@@ -116,10 +115,10 @@ func set_hidden(new_value : bool):
 	
 	update_stats()
 	visible = !new_value
+	
 	if(!new_value):
 		popped_up.emit()
 	
-
 func _on_upgrade_stamina_button_up() -> void:
 	
 	if(moneyAmount >= staminaCost):
@@ -175,6 +174,8 @@ func purchase_upgrade(upgrade_cost : float, new_upgrade : Upgrade):
 	if(moneyAmount >= upgrade_cost):
 		
 		moneyAmount -= upgrade_cost
+		
+		new_upgrade.has_been_purchased.emit()
 		
 		upgrade_purchased.emit(new_upgrade)
 		

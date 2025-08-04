@@ -10,9 +10,13 @@ class_name UpgradeCard
 
 @export var cardDescription : RicherTextLabel
 
+@export var purchasedPanel : Panel
+
 @export var bbcString : String
 
 @export var upgrade : Upgrade
+
+var formerBBCString : String
 
 var upgradeClassDict : Dictionary = {
 	
@@ -35,36 +39,37 @@ var cardTitleString : String :
 		
 		cardTitleString = value
 		if(cardTitle != null):
-			cardTitle.bbcode = bbcString +str(value)
+			cardTitle.bbcode = bbcString + str(value)
 		
-
 var cardDescriptionString : String :
 	
 	set(value):
 		
 		cardDescriptionString = value
 		if(cardTitle != null):
-			cardDescription.bbcode = bbcString +str(value)
-		
-
+			cardDescription.bbcode = bbcString + str(value)
 
 signal purchased_upgrade(upgradeCost, upgrade)
 
 func _ready():
 	
-	shuffle_upgrades()
-	costLabelString = str(upgradeCost)
+	new_upgrade()
+	
+	formerBBCString = bbcString
 	#upgrade.triggerSignal = 
 	
 func purchase_upgrade():
 	
-	upgrade = upgrade.get_script().new()
-	
-	purchased_upgrade.emit(upgradeCost, upgrade)
-	
+	if(upgrade != null):
+		
+		upgrade = upgrade.get_script().new()
+		upgrade.has_been_purchased.connect(set_card_to_purchased)
+		purchased_upgrade.emit(upgradeCost, upgrade)
+		
 	upgrade = null
 	
 func shuffle_upgrades():
+	
 	var rand_obj := RandomNumberGenerator.new()
 	
 	var upgradeListWithRemoval := upgradeClassDict.keys()
@@ -76,6 +81,9 @@ func shuffle_upgrades():
 	var upgrade_object = upgradeClassDict[upgradeListWithRemoval[rand_index]].new()
 	
 	upgrade = upgrade_object
+	
+	upgradeCost = upgrade.cost
+	
 	populate_text_from_upgrade()
 	#
 	#upgradeParent.call_deferred("add_child", upgrade_card_object)
@@ -84,8 +92,23 @@ func shuffle_upgrades():
 
 func populate_text_from_upgrade():
 	
-	costLabelString = upgrade.costLabelString
+	
+	
+	costLabelString = str(upgradeCost)
+	#costLabelString = upgrade.costLabelString
 	cardTitleString = upgrade.titleString
 	cardDescriptionString = upgrade.descriptionString
-	upgradeCost = upgrade.cost
 	
+	
+func set_card_to_purchased():
+	
+	bbcString = ""
+	purchasedPanel.show()
+	
+func new_upgrade():
+	
+	bbcString = formerBBCString
+	
+	purchasedPanel.hide()
+	
+	shuffle_upgrades()
