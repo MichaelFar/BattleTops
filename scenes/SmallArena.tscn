@@ -25,8 +25,8 @@ noise = SubResource("FastNoiseLite_ojxb6")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hdv8l"]
 shader = ExtResource("3_4y73j")
-shader_parameter/ColorParameter = Color(0.152941, 0.203922, 1, 1)
-shader_parameter/ColorParameter2 = Color(0.364706, 0.0156863, 0.447059, 1)
+shader_parameter/ColorParameter = Color(0.686449, 0.198873, 0.25443, 1)
+shader_parameter/ColorParameter2 = Color(0.149892, 0.0258567, 0.149269, 1)
 
 [sub_resource type="Sky" id="Sky_olpmc"]
 sky_material = SubResource("ShaderMaterial_hdv8l")
@@ -34,9 +34,9 @@ sky_material = SubResource("ShaderMaterial_hdv8l")
 [sub_resource type="Environment" id="Environment_545oe"]
 background_mode = 2
 background_color = Color(0.72549, 0.0901961, 0.447059, 1)
+background_energy_multiplier = 0.37
 sky = SubResource("Sky_olpmc")
 ambient_light_source = 3
-ambient_light_color = Color(0.666667, 0.231373, 0.556863, 1)
 tonemap_mode = 2
 glow_map = SubResource("NoiseTexture2D_4y73j")
 
