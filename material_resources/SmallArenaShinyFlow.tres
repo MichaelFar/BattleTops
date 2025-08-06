@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cv0qldr2y5gx0"]
+
+[ext_resource type="Shader" uid="uid://bbfptkdv68e1q" path="res://shaders/ArenaShader.tres" id="1_pa8vc"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_pa8vc")
+shader_parameter/ColorParameter = Color(0.396078, 0.207843, 0.768627, 1)
+shader_parameter/ColorParameter2 = Color(0.870588, 0.2, 0.227451, 1)

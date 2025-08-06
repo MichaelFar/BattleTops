@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bi700wdi4xsdw"]
+
+[ext_resource type="Shader" uid="uid://cebrbefor1y0q" path="res://shaders/ArenaShaderMain.tres" id="1_m2cft"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_m2cft")
+shader_parameter/ColorParameter = Color(0.396078, 0.207843, 0.768627, 1)
+shader_parameter/ColorParameter2 = Color(0.870588, 0.2, 0.227451, 1)
