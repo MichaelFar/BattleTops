@@ -5,7 +5,7 @@ uniform sampler2D texture_normal : hint_roughness_normal, filter_nearest, repeat
 uniform float normal_depth = 0.25;
 uniform float color_compression = 6.0;
 uniform vec3 external_color : source_color;
-
+uniform vec3 external_emission : source_color;
 // Function to convert HSV to RGB
 // Not my creation, but slightly modified
 vec3 hsv2rgb(vec3 hsv) {
@@ -41,7 +41,7 @@ void fragment() {
 	NORMAL_MAP_DEPTH = normal_depth;
     METALLIC = NORMAL_MAP.x;
     ROUGHNESS = 0.0;
-	EMISSION = external_color; // Used for that faint glow
+	EMISSION = external_emission; // Used for that faint glow
 	//ALBEDO =  texture(TEXTURE,TIME / 4.0 +TIME / 4.0);
 	
 	

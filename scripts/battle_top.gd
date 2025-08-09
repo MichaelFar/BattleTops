@@ -178,12 +178,12 @@ func initialize_values():
 		
 	minimumLinearVelocity = randf_range(minimumLinearVelocity, minimumLinearVelocity)
 	
-	var color_vector = Vector3(sturdiness / 130 ,  spinForce / 200 ,stamina / 60)
-	
+	var color_vector = Vector3(randf() ,  randf() , randf())
+	var emission_vector = Vector3(randf() ,  randf() , randf())
 	color = Color(color_vector.x, color_vector.y, color_vector.z)
 		
 	topHeadMesh.mesh.material.set_shader_parameter("external_color", color)
-	
+	topHeadMesh.mesh.material.set_shader_parameter("external_emission", color * .9)
 	#topHeadMesh.material_override = topMeshMaterial
 	
 func _physics_process(delta: float) -> void:
