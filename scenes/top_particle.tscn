@@ -1,4 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://danlbv3qunohf"]
+[gd_scene load_steps=6 format=3 uid="uid://danlbv3qunohf"]
+
+[ext_resource type="Shader" uid="uid://bt6f82gunrha7" path="res://shaders/top_particle_shader.tres" id="1_i5ya1"]
+[ext_resource type="Script" uid="uid://u22imnkpmumf" path="res://scripts/top_particle.gd" id="2_mca35"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8a17o"]
 emission_shape = 1
@@ -10,16 +13,18 @@ scale_max = 1.2
 turbulence_enabled = true
 turbulence_noise_speed_random = 0.64
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5ya1"]
-transparency = 1
-albedo_color = Color(1, 0.913725, 0.117647, 0.513726)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mca35"]
+render_priority = 0
+shader = ExtResource("1_i5ya1")
+shader_parameter/ColorParameter = Color(0.801337, 0.573588, 0.656634, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_8a17o"]
-material = SubResource("StandardMaterial3D_i5ya1")
-size = Vector3(0.05, 0.05, 0.05)
+[sub_resource type="BoxMesh" id="BoxMesh_mca35"]
+material = SubResource("ShaderMaterial_mca35")
+size = Vector3(0.1, 0.1, 0.1)
 
-[node name="GPUParticles3D" type="GPUParticles3D"]
+[node name="top_particle" type="GPUParticles3D"]
 amount = 16
 lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_8a17o")
-draw_pass_1 = SubResource("BoxMesh_8a17o")
+draw_pass_1 = SubResource("BoxMesh_mca35")
+script = ExtResource("2_mca35")

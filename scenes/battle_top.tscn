@@ -36,7 +36,7 @@ shader_parameter/texture_normal = SubResource("NoiseTexture2D_b5blt")
 shader_parameter/normal_depth = 0.25
 shader_parameter/color_compression = 6.0
 shader_parameter/external_color = Color(0.141176, 0.72549, 0.694118, 1)
-shader_parameter/external_emission = Color(0.270588, 0.34902, 0.435294, 1)
+shader_parameter/external_emission = Color(0.541946, 0.636775, 0.741996, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ufdw3"]
 resource_local_to_scene = true
@@ -58,7 +58,7 @@ topHead = NodePath("TopHead")
 topHeadMesh = NodePath("TopHead/TopHeadMesh")
 physicsMaterial = SubResource("PhysicsMaterial_ul6p0")
 headCollision = NodePath("CollisionShape3D")
-particle = NodePath("TopHead/GPUParticles3D")
+particle = NodePath("top_particle")
 hitCheckTimer = NodePath("HitCheckTimer")
 hitParticleScene = ExtResource("2_qrxi8")
 nameTag = NodePath("TopHead/NameTag")
@@ -70,6 +70,9 @@ mesh = SubResource("SphereMesh_ufdw3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_xsedg")
+
+[node name="top_particle" parent="." instance=ExtResource("2_xsedg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0914399)
 
 [node name="TopHead" type="Node3D" parent="."]
 top_level = true
@@ -84,9 +87,6 @@ transform = Transform3D(0.0669603, 0, 0, 0, -2.55157e-09, 0.0558242, 0, -0.05837
 mesh = SubResource("CapsuleMesh_ufdw3")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_akg2w")
-
-[node name="GPUParticles3D" parent="TopHead" instance=ExtResource("2_xsedg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0914399)
 
 [node name="NameTag" type="Label3D" parent="TopHead"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.158)

@@ -183,7 +183,9 @@ func initialize_values():
 	color = Color(color_vector.x, color_vector.y, color_vector.z)
 		
 	topHeadMesh.mesh.material.set_shader_parameter("external_color", color)
-	topHeadMesh.mesh.material.set_shader_parameter("external_emission", color * .9)
+	topHeadMesh.mesh.material.set_shader_parameter("external_emission", color * 1.3)
+	
+	particle.colorParameter = color
 	#topHeadMesh.material_override = topMeshMaterial
 	
 func _physics_process(delta: float) -> void:
