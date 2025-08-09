@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1k0hl6r0jkh0"]
+[gd_scene load_steps=15 format=3 uid="uid://d1k0hl6r0jkh0"]
 
 [ext_resource type="Script" uid="uid://bjho3cl6tlaet" path="res://scripts/battle_top.gd" id="1_ufdw3"]
 [ext_resource type="PackedScene" uid="uid://dvsltihkmox2p" path="res://scenes/hit_particle.tscn" id="2_qrxi8"]
 [ext_resource type="PackedScene" uid="uid://danlbv3qunohf" path="res://scenes/top_particle.tscn" id="2_xsedg"]
+[ext_resource type="Shader" uid="uid://kku708lq2v04" path="res://shaders/battle_top.gdshader" id="3_akg2w"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ufdw3"]
 resource_local_to_scene = true
@@ -17,10 +18,34 @@ friction = 0.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_xsedg"]
 radius = 0.144169
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ywf0b"]
+noise_type = 2
+frequency = 0.0183
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b5blt"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_ywf0b")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_em0n2"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_akg2w")
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_b5blt")
+shader_parameter/normal_depth = 0.25
+shader_parameter/color_compression = 6.0
+shader_parameter/external_color = Color(0.141176, 0.72549, 0.694118, 1)
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_ufdw3"]
 resource_local_to_scene = true
+material = SubResource("ShaderMaterial_em0n2")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ufdw3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_akg2w"]
+metallic = 1.0
+metallic_specular = 0.0
+roughness = 0.0
 
 [node name="BattleTop" type="RigidBody3D" node_paths=PackedStringArray("topHead", "topHeadMesh", "headCollision", "particle", "hitCheckTimer", "nameTag")]
 physics_material_override = SubResource("PhysicsMaterial_ufdw3")
@@ -45,18 +70,18 @@ mesh = SubResource("SphereMesh_ufdw3")
 shape = SubResource("SphereShape3D_xsedg")
 
 [node name="TopHead" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0146482)
 top_level = true
 
 [node name="TopHeadMesh" type="MeshInstance3D" parent="TopHead"]
-transform = Transform3D(0.277926, 0, 0, 0, -2.19858e-09, -0.278078, 0, 0.0502978, -1.21552e-08, 0, 0, -0.00445134)
+transform = Transform3D(0.277926, 0, 0, 0, -2.19859e-09, -0.278078, 0, 0.0502978, -1.21552e-08, 0, 0, 0)
 mesh = SubResource("CylinderMesh_ufdw3")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="TopHead"]
-transform = Transform3D(0.0669603, 0, 0, 0, -2.03533e-09, 0.0558242, 0, -0.0465629, -2.44015e-09, 0, 0, 0.0838561)
+transform = Transform3D(0.0669603, 0, 0, 0, -2.55157e-09, 0.0558242, 0, -0.0583731, -2.44015e-09, 0, 0, 0.0901029)
 mesh = SubResource("CapsuleMesh_ufdw3")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_akg2w")
 
 [node name="GPUParticles3D" parent="TopHead" instance=ExtResource("2_xsedg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0914399)

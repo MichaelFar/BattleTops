@@ -18,8 +18,6 @@ class_name BattleTop
 
 @export var nameTag : Label3D
 
-var tempSturdiness := 999.0
-
 enum TopType {NPC, PLAYER}
 
 var stamina : float = 20 :
@@ -50,7 +48,7 @@ var maxSpinForce : float = 150 :
 		if(isPlayer):
 			print("Set spin force is now " + str(maxSpinForce))
 
-var topMeshMaterial : StandardMaterial3D 
+var topMeshMaterial : ShaderMaterial
 
 var color : Color
 
@@ -147,7 +145,7 @@ func initialize_values():
 	
 	physics_material_override = physicsMaterial
 	
-	topMeshMaterial = StandardMaterial3D.new()
+	topMeshMaterial = topHeadMesh.mesh.material
 	
 	infiniteStaminaMode = GlobalStats.infiniteStaminaMode
 	
@@ -180,13 +178,13 @@ func initialize_values():
 		
 	minimumLinearVelocity = randf_range(minimumLinearVelocity, minimumLinearVelocity)
 	
-	var color_vector = Vector3(sturdiness / 130,spinForce / 200,stamina / 60).normalized()
+	var color_vector = Vector3(sturdiness / 130 ,  spinForce / 200 ,stamina / 60)
 	
 	color = Color(color_vector.x, color_vector.y, color_vector.z)
 		
-	topMeshMaterial.albedo_color = color
+	topHeadMesh.mesh.material.set_shader_parameter("external_color", color)
 	
-	topHeadMesh.material_override = topMeshMaterial
+	#topHeadMesh.material_override = topMeshMaterial
 	
 func _physics_process(delta: float) -> void:
 	
@@ -196,6 +194,8 @@ func _physics_process(delta: float) -> void:
 	if(!isDead):
 		
 		topHead.look_at(orientPoint.global_position)
+		topHeadMesh.rotate(topHeadMesh.basis.y.normalized(), 30 * delta) 
+		#topHeadMesh.transform.basis.z += topHeadMesh.transform.basis.z.rotated(topHeadMesh.transform.basis.z, 30 * delta)
 		
 	topHead.global_position = global_position
 	
@@ -258,8 +258,6 @@ func hit_battle_top(battle_top : BattleTop):
 	print("Stamina coefficient before calculating sturdiness is " + str(stamina / maxStamina))
 	sturdiness = (stamina / maxStamina) * maxSturdiness
 	
-	#if(tempSturdiness > 0.0):
-		#sturdiness = tempSturdiness
 	
 	print("Sturdiness during hit is " + str(sturdiness))
 	#physicsMaterial.absorbent = !hasBeenHit
@@ -292,8 +290,6 @@ func hit_battle_top(battle_top : BattleTop):
 	
 		stamina = maxStamina
 	
-	
-
 func update_stats():
 	
 	hasBeenHit = false
@@ -320,12 +316,6 @@ func spawn_hit_particle(opponent_position : Vector3):
 	particle_instance.one_shot = true
 	
 	particle_instance.global_position = spawn_position
-
-func set_temp_sturdiness(new_value : float = 999.0):
-	
-	tempSturdiness = new_value
-	
-	sturdiness = tempSturdiness
 
 func add_upgrade(upgrade : Upgrade):
 	
