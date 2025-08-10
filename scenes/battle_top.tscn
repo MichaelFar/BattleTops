@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://d1k0hl6r0jkh0"]
+[gd_scene load_steps=19 format=3 uid="uid://d1k0hl6r0jkh0"]
 
 [ext_resource type="Script" uid="uid://bjho3cl6tlaet" path="res://scripts/battle_top.gd" id="1_ufdw3"]
 [ext_resource type="PackedScene" uid="uid://dvsltihkmox2p" path="res://scenes/hit_particle.tscn" id="2_qrxi8"]
 [ext_resource type="PackedScene" uid="uid://danlbv3qunohf" path="res://scenes/top_particle.tscn" id="2_xsedg"]
 [ext_resource type="Shader" uid="uid://kku708lq2v04" path="res://shaders/battle_top.gdshader" id="3_akg2w"]
+[ext_resource type="Shader" uid="uid://bt6f82gunrha7" path="res://shaders/top_particle_shader.tres" id="4_i6kec"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ufdw3"]
 resource_local_to_scene = true
@@ -17,6 +18,28 @@ friction = 0.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xsedg"]
 radius = 0.144169
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ywf0b"]
+resource_local_to_scene = true
+emission_shape = 1
+emission_sphere_radius = 0.2
+gravity = Vector3(0, 9.8, 0)
+linear_accel_min = 4.0
+linear_accel_max = 16.0
+scale_max = 1.2
+turbulence_enabled = true
+turbulence_noise_speed_random = 0.64
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b5blt"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_i6kec")
+shader_parameter/ColorParameter = Color(0.796078, 0.066667, 0.078431, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_em0n2"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_b5blt")
+size = Vector3(0.03, 0.03, 0.03)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ywf0b"]
 noise_type = 2
@@ -73,6 +96,8 @@ shape = SubResource("SphereShape3D_xsedg")
 
 [node name="top_particle" parent="." instance=ExtResource("2_xsedg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0914399)
+process_material = SubResource("ParticleProcessMaterial_ywf0b")
+draw_pass_1 = SubResource("BoxMesh_em0n2")
 
 [node name="TopHead" type="Node3D" parent="."]
 top_level = true

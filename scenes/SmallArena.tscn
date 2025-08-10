@@ -34,7 +34,7 @@ sky_material = SubResource("ShaderMaterial_hdv8l")
 [sub_resource type="Environment" id="Environment_545oe"]
 background_mode = 2
 background_color = Color(0.72549, 0.0901961, 0.447059, 1)
-background_energy_multiplier = 0.37
+background_energy_multiplier = 1.2
 sky = SubResource("Sky_olpmc")
 ambient_light_source = 3
 tonemap_mode = 2
@@ -202,6 +202,26 @@ disabled = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerSafetyBarrier"]
 transform = Transform3D(1, 0, 0, 0, 0.815683, -0.578498, 0, 0.578498, 0.815683, -0.0250549, 0.39447, 1.14834)
+shape = SubResource("BoxShape3D_g8q41")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="PlayerSafetyBarrier"]
+transform = Transform3D(0.67119, -0.428832, -0.604654, 0, 0.815683, -0.578498, 0.741285, 0.388282, 0.547478, -1.29667, 0.573712, 0.951674)
+shape = SubResource("BoxShape3D_g8q41")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="PlayerSafetyBarrier"]
+transform = Transform3D(0.756368, 0.323299, -0.56867, 2.2092e-08, 0.869331, 0.49423, 0.654147, -0.373819, 0.657533, 1.37195, 0.573711, -0.761649)
+shape = SubResource("BoxShape3D_g8q41")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="PlayerSafetyBarrier"]
+transform = Transform3D(0.619272, -0.388058, 0.682578, 6.7175e-08, 0.869331, 0.49423, -0.785177, -0.306063, 0.538352, -1.30983, 0.573712, -0.880462)
+shape = SubResource("BoxShape3D_g8q41")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="PlayerSafetyBarrier"]
+transform = Transform3D(-0.806053, 0.292507, -0.514508, 7.16771e-08, 0.869331, 0.49423, 0.591844, 0.398375, -0.700726, 1.35492, 0.573712, 1.04464)
+shape = SubResource("BoxShape3D_g8q41")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="PlayerSafetyBarrier"]
+transform = Transform3D(-0.997561, -0.0345015, 0.0606869, 8.93154e-08, 0.869331, 0.49423, -0.0698089, 0.493024, -0.86721, 0.0433778, 0.573712, 1.53184)
 shape = SubResource("BoxShape3D_g8q41")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="PlayerSafetyBarrier"]

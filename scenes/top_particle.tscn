@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://u22imnkpmumf" path="res://scripts/top_particle.gd" id="2_mca35"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8a17o"]
+resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 0.2
 gravity = Vector3(0, 9.8, 0)
@@ -14,16 +15,18 @@ turbulence_enabled = true
 turbulence_noise_speed_random = 0.64
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mca35"]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_i5ya1")
-shader_parameter/ColorParameter = Color(0.801337, 0.573588, 0.656634, 1)
+shader_parameter/ColorParameter = Color(0.796078, 0.066667, 0.078431, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_mca35"]
+resource_local_to_scene = true
 material = SubResource("ShaderMaterial_mca35")
-size = Vector3(0.1, 0.1, 0.1)
+size = Vector3(0.03, 0.03, 0.03)
 
 [node name="top_particle" type="GPUParticles3D"]
-amount = 16
+amount = 24
 lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_8a17o")
 draw_pass_1 = SubResource("BoxMesh_mca35")
