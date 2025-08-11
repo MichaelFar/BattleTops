@@ -91,7 +91,6 @@ var moneyAmount : int = 0 :
 		moneyAmountValueLabel.bbcode = str(moneyAmount)
 
 
-
 signal next_round_button_pressed
 
 signal popped_up
@@ -176,6 +175,8 @@ func purchase_upgrade(upgrade_cost : float, new_upgrade : Upgrade):
 		moneyAmount -= upgrade_cost
 		
 		new_upgrade.has_been_purchased.emit()
+		
+		GlobalStats.pop_upgrade_from_array(GlobalStats.get_index_of_upgrade(new_upgrade))
 		
 		upgrade_purchased.emit(new_upgrade)
 		

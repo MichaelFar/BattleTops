@@ -59,7 +59,6 @@ var staminaUpgradeAmount : float = 15
 var sturdinessUpgradeAmount : float = 20
 var spinForceUpgradeAmount : float = 25
 
-
 var numEnemyTops := 1
 
 var roundNum : int = 0 : 
@@ -82,11 +81,49 @@ var opponentTopRangeDict : Dictionary = { #Increases when round num increases
 	"spinForce" : Vector2(1,1)
 }
 
+var upgradeClassDict : Dictionary = {
+	
+	"debugHitUpgrade" : TestOnHitUpgrade,
+	"baseUpgrade" : Upgrade
+	
+}
+
+var availableUpgradeArray : Array[Variant]
+
+func _ready():
+	
+	populate_upgrade_array()
+	
+func populate_upgrade_array():
+	
+	#availableUpgradeArray = upgradeClassDict.keys()
+	for i in upgradeClassDict.keys():
+		
+		availableUpgradeArray.append(i)
+
+func pop_upgrade_from_array(index : int):
+	
+	availableUpgradeArray.pop_at(index)
+
+func reset_upgrade_array():
+	
+	populate_upgrade_array()
+
+func get_index_of_upgrade(checked_upgrade : Upgrade) -> int:
+	
+	for i in availableUpgradeArray:
+		if (upgradeClassDict[i].get_script() == checked_upgrade.get_script()):
+			return availableUpgradeArray.find(i)
+	
+	return -1
+	
 func set_player_stats(new_stamina : float, new_sturdiness : float, new_spin_force : float):
 	
 	playerStats["stamina"] = new_stamina
 	playerStats["sturdiness"] = new_sturdiness
 	playerStats["spinForce"] = new_spin_force
+
+
 
 func update_enemy_tops_and_advance_difficulty():
 	

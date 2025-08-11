@@ -321,6 +321,8 @@ func _on_prompt_ui_restart_round_said_yes() -> void:
 	
 	GlobalStats.totalGoldEarned = 0
 	
+	GlobalStats.reset_upgrade_array()
+	
 	GlobalStats.goldAmount = GlobalStats.defaultGoldAmount
 	GlobalStats.staminaCost = 50
 	GlobalStats.sturdinessCost = 50

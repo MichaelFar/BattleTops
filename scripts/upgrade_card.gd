@@ -18,13 +18,6 @@ class_name UpgradeCard
 
 var formerBBCString : String
 
-var upgradeClassDict : Dictionary = {
-	
-	"debugHitUpgrade" : TestOnHitUpgrade,
-	"baseUpgrade" : Upgrade
-	
-}
-
 var costLabelString : String :
 	
 	set(value):
@@ -72,19 +65,22 @@ func shuffle_upgrades():
 	
 	var rand_obj := RandomNumberGenerator.new()
 	
-	var upgradeListWithRemoval := upgradeClassDict.keys()
+	var upgradeListWithRemoval := GlobalStats.availableUpgradeArray
 	
 	print("Size of upgrade list is " + str(upgradeListWithRemoval))
 	
 	var rand_index := rand_obj.randi_range(0, upgradeListWithRemoval.size() - 1)
 	
-	var upgrade_object = upgradeClassDict[upgradeListWithRemoval[rand_index]].new()
+	if(upgradeListWithRemoval.size() > 0):
+		var upgrade_object = GlobalStats.upgradeClassDict[upgradeListWithRemoval[rand_index]].new()
+		
+		upgrade = upgrade_object
+		
+		upgradeCost = upgrade.cost
 	
-	upgrade = upgrade_object
-	
-	upgradeCost = upgrade.cost
-	
-	populate_text_from_upgrade()
+		populate_text_from_upgrade()
+	else:
+		set_card_to_purchased()
 	#
 	#upgradeParent.call_deferred("add_child", upgrade_card_object)
 	#
@@ -92,13 +88,10 @@ func shuffle_upgrades():
 
 func populate_text_from_upgrade():
 	
-	
-	
 	costLabelString = str(upgradeCost)
 	#costLabelString = upgrade.costLabelString
 	cardTitleString = upgrade.titleString
 	cardDescriptionString = upgrade.descriptionString
-	
 	
 func set_card_to_purchased():
 	
