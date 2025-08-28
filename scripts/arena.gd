@@ -53,11 +53,11 @@ var playerTop : BattleTop :
 		restartUI.playerTop = playerTop
 		
 		if(playerTop != null):
+			
 			playerTop.collision_mask = playerSafetyBarrier.player_collision_mask
 			playerTop.first_hit_occured.connect(gameTimerUI.start_timer)
 			playerTop.first_hit_occured.connect(gameTimerUI.restart_timer)
 			playerTop.first_hit_occured.connect(playerSafetyBarrier.set_disabled_collision.bind(true))
-			
 
 var timeSinceLastHit : float = 0.0
 
@@ -207,6 +207,8 @@ func restart_round_with_random():
 	
 	spawnTimer.stop()
 	
+	GlobalStats.populate_upgrade_array()
+	
 	spawn_battle_top()
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
@@ -263,9 +265,12 @@ func _on_kill_plane_body_shape_entered(body_rid: RID, body: Node3D, body_shape_i
 					nextRoundUI.set_hidden(false)
 					playerTop.set_stamina_is_going_down(false)
 					opponentStatDictionaryArray = []
+					
 				else:
+					
 					print("Defeated player stats: " + str(GlobalStats.playerStats))
 					print("Top stats that defeated the player: " + str(topChildren[0].topStats))
+					
 			if(body == playerTop):
 				
 				print("Player has died")
@@ -391,6 +396,4 @@ func randomize_spawn_ramp_rotation():
 	var rand_obj = RandomNumberGenerator.new()
 	
 	spawnRampRotationParent.rotation_degrees.y = rand_obj.randf_range(-random_range, random_range)
-	
-	
 	

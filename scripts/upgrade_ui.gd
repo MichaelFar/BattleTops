@@ -114,7 +114,7 @@ func set_hidden(new_value : bool):
 	
 	update_stats()
 	visible = !new_value
-	
+	GlobalStats.prePurchaseAvailableUpgradeArray = GlobalStats.postPurchaseAvailableUpgradeArray
 	if(!new_value):
 		popped_up.emit()
 	
@@ -152,11 +152,7 @@ func update_stats():
 	sturdinessLabelText = str(GlobalStats.playerStats["sturdiness"])
 	spinForceLabelText = str(GlobalStats.playerStats["spinForce"]) 
 	moneyAmount = GlobalStats.goldAmount
-	#staminaCost = GlobalStats.staminaCost
-	#sturdinessCost = GlobalStats.sturdinessCost
-	#spinForceCost = GlobalStats.spinForceCost
-
-
+	
 func _on_next_round_button_button_up() -> void:
 	
 	set_hidden(true)
@@ -176,7 +172,7 @@ func purchase_upgrade(upgrade_cost : float, new_upgrade : Upgrade):
 		
 		new_upgrade.has_been_purchased.emit()
 		
-		GlobalStats.pop_upgrade_from_array(GlobalStats.get_index_of_upgrade(new_upgrade))
+		GlobalStats.pop_upgrade_from_post_array(GlobalStats.get_index_of_post_upgrade(new_upgrade))
 		
 		upgrade_purchased.emit(new_upgrade)
 		

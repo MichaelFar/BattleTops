@@ -61,6 +61,7 @@ color_ramp = SubResource("Gradient_phpwk")
 noise = SubResource("FastNoiseLite_0066s")
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_edjc1"]
+output_port_for_preview = 0
 texture = SubResource("NoiseTexture2D_phpwk")
 
 [sub_resource type="VisualShaderNodeUVPolarCoord" id="VisualShaderNodeUVPolarCoord_aqvik"]
@@ -226,6 +227,7 @@ seamless = true
 noise = SubResource("FastNoiseLite_phpwk")
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_aqvik"]
+output_port_for_preview = 0
 texture = SubResource("NoiseTexture2D_edjc1")
 
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_6bug7"]

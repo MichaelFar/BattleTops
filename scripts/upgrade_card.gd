@@ -46,7 +46,7 @@ signal purchased_upgrade(upgradeCost, upgrade)
 
 func _ready():
 	
-	new_upgrade()
+	#new_upgrade()
 	
 	formerBBCString = bbcString
 	#upgrade.triggerSignal = 
@@ -65,21 +65,29 @@ func shuffle_upgrades():
 	
 	var rand_obj := RandomNumberGenerator.new()
 	
-	var upgradeListWithRemoval := GlobalStats.availableUpgradeArray
+	
+	
+	var upgradeListWithRemoval := GlobalStats.prePurchaseAvailableUpgradeArray
 	
 	print("Size of upgrade list is " + str(upgradeListWithRemoval))
 	
 	var rand_index := rand_obj.randi_range(0, upgradeListWithRemoval.size() - 1)
 	
 	if(upgradeListWithRemoval.size() > 0):
+		
 		var upgrade_object = GlobalStats.upgradeClassDict[upgradeListWithRemoval[rand_index]].new()
 		
 		upgrade = upgrade_object
 		
 		upgradeCost = upgrade.cost
-	
+		
+		GlobalStats.pop_upgrade_from_pre_array(GlobalStats.get_index_of_pre_upgrade(upgrade))
+		
 		populate_text_from_upgrade()
+		
+		#await get_tree().physics_frame
 	else:
+		
 		set_card_to_purchased()
 	#
 	#upgradeParent.call_deferred("add_child", upgrade_card_object)

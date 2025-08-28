@@ -88,7 +88,9 @@ var upgradeClassDict : Dictionary = {
 	
 }
 
-var availableUpgradeArray : Array[Variant]
+var prePurchaseAvailableUpgradeArray : Array[Variant]
+
+var postPurchaseAvailableUpgradeArray : Array[Variant]
 
 func _ready():
 	
@@ -97,23 +99,39 @@ func _ready():
 func populate_upgrade_array():
 	
 	#availableUpgradeArray = upgradeClassDict.keys()
+	prePurchaseAvailableUpgradeArray = []
+	postPurchaseAvailableUpgradeArray = []
 	for i in upgradeClassDict.keys():
 		
-		availableUpgradeArray.append(i)
+		prePurchaseAvailableUpgradeArray.append(i)
+		postPurchaseAvailableUpgradeArray.append(i)
 
-func pop_upgrade_from_array(index : int):
+func pop_upgrade_from_post_array(index : int):
 	
-	availableUpgradeArray.pop_at(index)
+	postPurchaseAvailableUpgradeArray.pop_at(index)
+
+func pop_upgrade_from_pre_array(index : int):
+	
+	prePurchaseAvailableUpgradeArray.pop_at(index)
+
 
 func reset_upgrade_array():
 	
 	populate_upgrade_array()
 
-func get_index_of_upgrade(checked_upgrade : Upgrade) -> int:
+func get_index_of_post_upgrade(checked_upgrade : Upgrade) -> int:
 	
-	for i in availableUpgradeArray:
+	for i in postPurchaseAvailableUpgradeArray:
 		if (upgradeClassDict[i].get_script() == checked_upgrade.get_script()):
-			return availableUpgradeArray.find(i)
+			return postPurchaseAvailableUpgradeArray.find(i)
+	
+	return -1
+
+func get_index_of_pre_upgrade(checked_upgrade : Upgrade) -> int:
+	
+	for i in prePurchaseAvailableUpgradeArray:
+		if (upgradeClassDict[i].get_script() == checked_upgrade.get_script()):
+			return prePurchaseAvailableUpgradeArray.find(i)
 	
 	return -1
 	
@@ -122,8 +140,6 @@ func set_player_stats(new_stamina : float, new_sturdiness : float, new_spin_forc
 	playerStats["stamina"] = new_stamina
 	playerStats["sturdiness"] = new_sturdiness
 	playerStats["spinForce"] = new_spin_force
-
-
 
 func update_enemy_tops_and_advance_difficulty():
 	
