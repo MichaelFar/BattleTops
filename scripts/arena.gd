@@ -48,6 +48,8 @@ var playerTop : BattleTop :
 		
 		playerTop = value
 		
+		GlobalStats.playerBattleTop = playerTop
+		
 		print("Set player top to " + str(value))
 		
 		restartUI.playerTop = playerTop
@@ -123,6 +125,8 @@ func _physics_process(delta: float) -> void:
 func next_round():
 	
 	GlobalStats.update_enemy_tops_and_advance_difficulty()
+	GlobalStats.prePurchaseAvailableUpgradeArray = GlobalStats.postPurchaseAvailableUpgradeArray
+	print("Next round pre purchase array is " + str(GlobalStats.prePurchaseAvailableUpgradeArray))
 	playerSafetyBarrier.set_disabled_collision(false)
 	set_spawn_ramp_collision_disabled(false)
 	spawn_battle_top()
@@ -130,6 +134,8 @@ func next_round():
 	playerTop.set_stamina_is_going_down(true)
 	set_should_be_counting(true)
 	print("Player Stamina after next round is " + str(playerTop.stamina))
+	
+	await get_tree().physics_frame
 	
 func spawn_battle_top():
 	
@@ -340,6 +346,8 @@ func update_player_top_stats():
 	playerTop.update_stats()
 
 func _on_round_end_ui_said_yes() -> void:
+	
+	GlobalStats.prePurchaseAvailableUpgradeArray = GlobalStats.postPurchaseAvailableUpgradeArray
 	
 	upgradeUI.set_hidden(false)
 	nextRoundUI.set_hidden(true)

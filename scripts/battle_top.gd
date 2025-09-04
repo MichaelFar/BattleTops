@@ -113,9 +113,8 @@ var topStats : Dictionary = { #Only checked when score is considered as an oppon
 	set(value):
 		
 		upgradeArray = value
+		print("Upgrade array is now " + str(upgradeArray))
 		
-		
-
 var staminaIsGoingDown : bool = false
 
 var numTopsDefeated : int = 0
@@ -252,7 +251,7 @@ func check_colliding_then_apply_spin_force():
 		
 func hit_battle_top(battle_top : BattleTop):
 	
-	print("Hitting top")
+	#print("Hitting top")
 	print("Stamina coefficient before calculating spinforce is " + str(stamina / maxStamina))
 	spinForce = clampf((stamina / maxStamina) * maxSpinForce, maxSpinForce / 3.0, 1000)
 	print("Spin force is " + str(spinForce))
@@ -322,7 +321,7 @@ func spawn_hit_particle(opponent_position : Vector3):
 func add_upgrade(upgrade : Upgrade):
 	
 	upgradeArray.append(upgrade)
-	
+	print("Adding upgrade " + str(upgrade))
 	for i in upgradeArray:
 		connect_upgrade_signals(i)
 	

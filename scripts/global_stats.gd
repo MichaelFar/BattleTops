@@ -46,7 +46,6 @@ var goldAmount : int = 200 :
 		
 		goldAmount = value
 		
-
 var totalGoldEarned : int = 0
 
 var staminaCost : int = 50
@@ -88,9 +87,17 @@ var upgradeClassDict : Dictionary = {
 	
 }
 
-var prePurchaseAvailableUpgradeArray : Array[Variant]
+var prePurchaseAvailableUpgradeArray : Array[String] :
+	set(value):
+		prePurchaseAvailableUpgradeArray = value
+		print("Prepurchase array set")
 
-var postPurchaseAvailableUpgradeArray : Array[Variant]
+var postPurchaseAvailableUpgradeArray : Array[String]:
+	set(value):
+		postPurchaseAvailableUpgradeArray = value
+		print("Postpurchase array set")
+
+var playerBattleTop : BattleTop
 
 func _ready():
 	
@@ -114,10 +121,21 @@ func pop_upgrade_from_pre_array(index : int):
 	
 	prePurchaseAvailableUpgradeArray.pop_at(index)
 
-
 func reset_upgrade_array():
 	
 	populate_upgrade_array()
+
+func get_available_upgrades():
+	
+	#populate_upgrade_array()
+	
+	for i in playerBattleTop.upgradeArray:
+	
+		for j in prePurchaseAvailableUpgradeArray:
+	
+			if i.get_script() == upgradeClassDict[j]:
+	
+				postPurchaseAvailableUpgradeArray.pop_at(postPurchaseAvailableUpgradeArray.find(j))
 
 func get_index_of_post_upgrade(checked_upgrade : Upgrade) -> int:
 	

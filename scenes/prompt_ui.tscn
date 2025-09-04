@@ -12,17 +12,17 @@ bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 [sub_resource type="RichTextEffect" id="RichTextEffect_y7yk3"]
 resource_name = "fader"
 script = ExtResource("2_y7yk3")
-metadata/rt = 2961933680360
+metadata/rt = 2962990644968
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_vprhq"]
 resource_name = "sparkle"
 script = ExtResource("3_vprhq")
-metadata/rt = 2961933680360
+metadata/rt = 2962990644968
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_yhnrb"]
 resource_name = "curspull"
 script = ExtResource("4_yhnrb")
-metadata/rt = 2961933680360
+metadata/rt = 2962990644968
 
 [sub_resource type="FontFile" id="FontFile_lpym6"]
 subpixel_positioning = 0
@@ -91,12 +91,10 @@ bbcode_enabled = true
 fit_content = true
 custom_effects = [SubResource("RichTextEffect_y7yk3"), SubResource("RichTextEffect_vprhq"), SubResource("RichTextEffect_yhnrb")]
 script = ExtResource("5_nbjdm")
-progress = 1.0
-visible_character = 16
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 44.2934, 66.7299), Transform2D(1, 0, 0, 1, 84.2138, 66.6185), Transform2D(1, 0, 0, 1, 123.124, 66.5021), Transform2D(1, 0, 0, 1, 162.021, 66.3778), Transform2D(1, 0, 0, 1, 193.923, 66.2699), Transform2D(1, 0, 0, 1, 229.799, 66.1427), Transform2D(1, 0, 0, 1, 246.734, 66.0805), Transform2D(1, 0, 0, 1, 282.582, 65.9453), Transform2D(1, 0, 0, 1, 322.388, 65.7909), Transform2D(1, 0, 0, 1, 340.291, 65.7207), Transform2D(1, 0, 0, 1, 371.108, 65.6003), Transform2D(1, 0, 0, 1, 387.999, 65.5352), Transform2D(1, 0, 0, 1, 423.748, 65.402), Transform2D(1, 0, 0, 1, 462.443, 65.2695), Transform2D(1, 0, 0, 1, 502.099, 65.1538)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(33, 50), Vector2(35, 50), Vector2(35, 50), Vector2(28, 50), Vector2(33, 50), Vector2(0, 50), Vector2(38, 50), Vector2(33, 50), Vector2(12, 50), Vector2(28, 50), Vector2(0, 50), Vector2(38, 50), Vector2(35, 50), Vector2(34, 50), Vector2(30, 50)])
-_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
-_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
+_alpha = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+_alpha_goal = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _forced_finish_delay = -0.039044
 default_wait_time = 1.0
 play_on_bbcode = true

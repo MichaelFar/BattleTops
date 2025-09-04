@@ -65,7 +65,7 @@ func shuffle_upgrades():
 	
 	var rand_obj := RandomNumberGenerator.new()
 	
-	
+	GlobalStats.get_available_upgrades()
 	
 	var upgradeListWithRemoval := GlobalStats.prePurchaseAvailableUpgradeArray
 	
@@ -81,7 +81,7 @@ func shuffle_upgrades():
 		
 		upgradeCost = upgrade.cost
 		
-		GlobalStats.pop_upgrade_from_pre_array(GlobalStats.get_index_of_pre_upgrade(upgrade))
+		#GlobalStats.pop_upgrade_from_pre_array(GlobalStats.get_index_of_pre_upgrade(upgrade))
 		
 		populate_text_from_upgrade()
 		

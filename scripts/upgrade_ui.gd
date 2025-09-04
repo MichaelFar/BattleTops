@@ -114,8 +114,10 @@ func set_hidden(new_value : bool):
 	
 	update_stats()
 	visible = !new_value
-	GlobalStats.prePurchaseAvailableUpgradeArray = GlobalStats.postPurchaseAvailableUpgradeArray
+	
 	if(!new_value):
+		
+		print("Pre upgrade array " + str(GlobalStats.prePurchaseAvailableUpgradeArray))
 		popped_up.emit()
 	
 func _on_upgrade_stamina_button_up() -> void:
@@ -156,6 +158,8 @@ func update_stats():
 func _on_next_round_button_button_up() -> void:
 	
 	set_hidden(true)
+	print("Post upgrade array after next round button pressed " + str(GlobalStats.postPurchaseAvailableUpgradeArray))
+	print("Pre upgrade array after next round button pressed " + str(GlobalStats.prePurchaseAvailableUpgradeArray))
 	next_round_button_pressed.emit()
 	
 func set_costs_to_default():
@@ -172,7 +176,7 @@ func purchase_upgrade(upgrade_cost : float, new_upgrade : Upgrade):
 		
 		new_upgrade.has_been_purchased.emit()
 		
-		GlobalStats.pop_upgrade_from_post_array(GlobalStats.get_index_of_post_upgrade(new_upgrade))
+		#GlobalStats.pop_upgrade_from_post_array(GlobalStats.get_index_of_post_upgrade(new_upgrade))
 		
 		upgrade_purchased.emit(new_upgrade)
 		
