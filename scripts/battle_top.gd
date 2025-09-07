@@ -202,6 +202,9 @@ func _physics_process(delta: float) -> void:
 	
 	particle.emitting = linear_velocity.length() > 2.5
 	
+	if(particle.emitting):
+		has_sparked.emit()
+	
 	if(linear_velocity.length() < minimumLinearVelocity && !isDead && insideArena):
 		
 		linear_velocity = linear_velocity.normalized() * minimumLinearVelocity

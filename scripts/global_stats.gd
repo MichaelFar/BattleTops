@@ -83,7 +83,9 @@ var opponentTopRangeDict : Dictionary = { #Increases when round num increases
 var upgradeClassDict : Dictionary = {
 	
 	"debugHitUpgrade" : TestOnHitUpgrade,
-	"baseUpgrade" : Upgrade
+	"baseUpgrade" : Upgrade,
+	"sparkUpgrade" : DebugUpgradeThree,
+	"staminaUpgrade" : DebugUpgradeTwo
 	
 }
 

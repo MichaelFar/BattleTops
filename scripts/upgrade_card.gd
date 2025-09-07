@@ -106,14 +106,27 @@ func populate_text_from_upgrade():
 	
 func set_card_to_purchased():
 	
-	bbcString = ""
-	print("Card has been purchased " + str(upgrade))
-	purchasedPanel.show()
+	hide()
+	#bbcString = ""
+	#print("Card has been purchased " + str(upgrade))
+	#purchasedPanel.show()
+	#costLabelString = "Purchased"
+	##costLabelString = upgrade.costLabelString
+	#cardTitleString = "Purchased"
+	#var card_word_count := cardDescriptionString.get_slice_count(" ")
+	#cardDescriptionString = ""
+	#
+	#for i in card_word_count:
+		#
+		#cardDescriptionString += "Purchased"
+	#cardDescriptionString = " Purchased Purchased Purchased Purchased Purchased Purchased "
 	
 func new_upgrade():
 	
 	bbcString = formerBBCString
 	
-	purchasedPanel.hide()
+	#
+	
+	show()
 	
 	shuffle_upgrades()
