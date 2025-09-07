@@ -125,18 +125,25 @@ func reset_upgrade_array():
 	
 	populate_upgrade_array()
 
-func get_available_upgrades():
+func populate_post_purchase_array():
 	
 	#populate_upgrade_array()
 	
+	var post_array_copy = postPurchaseAvailableUpgradeArray.duplicate()
+	
+	
 	for i in playerBattleTop.upgradeArray:
 	
-		for j in prePurchaseAvailableUpgradeArray:
-	
-			if i.get_script() == upgradeClassDict[j]:
-	
+		for j in post_array_copy:
+			
+			var test_object = upgradeClassDict[j].new()
+			
+			if i.get_script() == test_object.get_script():
+				print("Removing " +str(i) + " from postPurchaseArray")
 				postPurchaseAvailableUpgradeArray.pop_at(postPurchaseAvailableUpgradeArray.find(j))
-
+	
+	print("Populate post purchase array is now " + str(postPurchaseAvailableUpgradeArray))
+	
 func get_index_of_post_upgrade(checked_upgrade : Upgrade) -> int:
 	
 	for i in postPurchaseAvailableUpgradeArray:

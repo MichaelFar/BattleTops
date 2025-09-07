@@ -125,7 +125,7 @@ func _physics_process(delta: float) -> void:
 func next_round():
 	
 	GlobalStats.update_enemy_tops_and_advance_difficulty()
-	GlobalStats.prePurchaseAvailableUpgradeArray = GlobalStats.postPurchaseAvailableUpgradeArray
+	#GlobalStats.prePurchaseAvailableUpgradeArray = GlobalStats.postPurchaseAvailableUpgradeArray
 	print("Next round pre purchase array is " + str(GlobalStats.prePurchaseAvailableUpgradeArray))
 	playerSafetyBarrier.set_disabled_collision(false)
 	set_spawn_ramp_collision_disabled(false)
@@ -347,7 +347,7 @@ func update_player_top_stats():
 
 func _on_round_end_ui_said_yes() -> void:
 	
-	GlobalStats.prePurchaseAvailableUpgradeArray = GlobalStats.postPurchaseAvailableUpgradeArray
+	#GlobalStats.prePurchaseAvailableUpgradeArray = GlobalStats.postPurchaseAvailableUpgradeArray
 	
 	upgradeUI.set_hidden(false)
 	nextRoundUI.set_hidden(true)

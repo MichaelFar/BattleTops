@@ -43,6 +43,8 @@ var cardDescriptionString : String :
 			cardDescription.bbcode = bbcString + str(value)
 
 signal purchased_upgrade(upgradeCost, upgrade)
+signal chosen_upgrade
+
 
 func _ready():
 	
@@ -65,15 +67,15 @@ func shuffle_upgrades():
 	
 	var rand_obj := RandomNumberGenerator.new()
 	
-	GlobalStats.get_available_upgrades()
+	#GlobalStats.populate_post_purchase_array()
 	
-	var upgradeListWithRemoval := GlobalStats.prePurchaseAvailableUpgradeArray
+	var upgradeListWithRemoval := GlobalStats.prePurchaseAvailableUpgradeArray.duplicate()
 	
 	print("Size of upgrade list is " + str(upgradeListWithRemoval))
 	
 	var rand_index := rand_obj.randi_range(0, upgradeListWithRemoval.size() - 1)
 	
-	if(upgradeListWithRemoval.size() > 0):
+	if(GlobalStats.prePurchaseAvailableUpgradeArray.size() > 0):
 		
 		var upgrade_object = GlobalStats.upgradeClassDict[upgradeListWithRemoval[rand_index]].new()
 		
@@ -81,19 +83,20 @@ func shuffle_upgrades():
 		
 		upgradeCost = upgrade.cost
 		
-		#GlobalStats.pop_upgrade_from_pre_array(GlobalStats.get_index_of_pre_upgrade(upgrade))
+		GlobalStats.prePurchaseAvailableUpgradeArray.pop_at(rand_index)
 		
 		populate_text_from_upgrade()
+		chosen_upgrade.emit()
 		
 		#await get_tree().physics_frame
 	else:
 		
 		set_card_to_purchased()
 	#
-	#upgradeParent.call_deferred("add_child", upgrade_card_object)
+	#upgradeParent.call_deferred("add_child",upgrade_card_object)
 	#
 	##upgradeListWithRemoval.pop_at(rand_index)
-
+	
 func populate_text_from_upgrade():
 	
 	costLabelString = str(upgradeCost)
@@ -104,6 +107,7 @@ func populate_text_from_upgrade():
 func set_card_to_purchased():
 	
 	bbcString = ""
+	print("Card has been purchased " + str(upgrade))
 	purchasedPanel.show()
 	
 func new_upgrade():

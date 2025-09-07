@@ -110,6 +110,8 @@ func _ready():
 	sturdinessUpgradeAmount = GlobalStats.sturdinessUpgradeAmount
 	spinForceUpgradeAmount = GlobalStats.spinForceUpgradeAmount
 	
+	popped_up.connect(GlobalStats.populate_post_purchase_array)
+	
 func set_hidden(new_value : bool):
 	
 	update_stats()
@@ -180,3 +182,8 @@ func purchase_upgrade(upgrade_cost : float, new_upgrade : Upgrade):
 		
 		upgrade_purchased.emit(new_upgrade)
 		
+
+
+func _on_next_round_button_pressed() -> void:
+	GlobalStats.populate_post_purchase_array()
+	GlobalStats.prePurchaseAvailableUpgradeArray = GlobalStats.postPurchaseAvailableUpgradeArray.duplicate()

@@ -6,7 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_lpncl"]
 script = ExtResource("2_cb288")
-cost = 150.0
+cost = 11.0
 titleString = "Debug Upgrade"
 descriptionString = "This upgrade prints a statement when the top hits another"
 metadata/_custom_type_script = "uid://dwt8k80i03a8e"

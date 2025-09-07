@@ -10,7 +10,7 @@ var triggerSignals : Array[Signal]
 
 var desiredSignalsList : Array[DESIREDTOPSIGNALS]
 
-@export var cost := 150.0
+@export var cost := 11.0
 
 var costLabelString : String
 

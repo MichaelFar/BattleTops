@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://d1pug181d3iuo"]
+[gd_scene load_steps=32 format=3 uid="uid://d1pug181d3iuo"]
 
 [ext_resource type="Script" uid="uid://dtcbfjrulbrnb" path="res://scripts/upgrade_ui.gd" id="1_6ij7f"]
 [ext_resource type="Script" uid="uid://bl6n6826dgkx7" path="res://addons/richtext2/text_effects/anims/rte_redact.gd" id="1_gbnav"]
@@ -10,70 +10,71 @@
 [ext_resource type="Script" uid="uid://c1fb7eyvni4ky" path="res://addons/richtext2/text_effects/effects/rte_jit2.gd" id="8_2wj67"]
 [ext_resource type="Script" uid="uid://oiu4p0qjddwa" path="res://addons/richtext2/text_effects/anims/rte_growin.gd" id="9_soydq"]
 [ext_resource type="Shader" uid="uid://bl2nvtux584hm" path="res://shaders/button_shader.tres" id="11_2wj67"]
+[ext_resource type="Script" uid="uid://258va2md2ewh" path="res://scripts/upgrade_card_container.gd" id="11_may18"]
 [ext_resource type="PackedScene" uid="uid://etvvup2u64d7" path="res://scenes/upgrade_card_scenes/upgrade_card.tscn" id="11_ratfy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_soydq"]
 bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_2wj67"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_ratfy"]
 resource_name = "fader"
 script = ExtResource("2_6ij7f")
-metadata/rt = 14143998476463
-
-[sub_resource type="RichTextEffect" id="RichTextEffect_ratfy"]
-resource_name = "heart"
-script = ExtResource("3_fq5lg")
-metadata/rt = 14143998476463
+metadata/rt = 26818346367398
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_may18"]
-resource_name = "redact"
-script = ExtResource("1_gbnav")
-metadata/rt = 14163661373571
+resource_name = "heart"
+script = ExtResource("3_fq5lg")
+metadata/rt = 26818346367398
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_4pgft"]
-resource_name = "sin"
-script = ExtResource("6_g3bku")
-metadata/rt = 14163661373571
+resource_name = "redact"
+script = ExtResource("1_gbnav")
+metadata/rt = 26838009200477
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_oec1f"]
-resource_name = "redact"
-script = ExtResource("1_gbnav")
-metadata/rt = 14183324270005
+resource_name = "sin"
+script = ExtResource("6_g3bku")
+metadata/rt = 26838009200477
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_srdp0"]
-resource_name = "sway"
-script = ExtResource("7_soydq")
-metadata/rt = 14183324270005
-
-[sub_resource type="RichTextEffect" id="RichTextEffect_w5ndc"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 14202987167776
+metadata/rt = 26857672163545
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_w5ndc"]
+resource_name = "sway"
+script = ExtResource("7_soydq")
+metadata/rt = 26857672163545
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_oq6v8"]
-resource_name = "jit2"
-script = ExtResource("8_2wj67")
-metadata/rt = 14202987167776
+resource_name = "redact"
+script = ExtResource("1_gbnav")
+metadata/rt = 26877334996906
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_mh5b7"]
-resource_name = "growin"
-script = ExtResource("9_soydq")
-metadata/rt = 14222683619809
+resource_name = "jit2"
+script = ExtResource("8_2wj67")
+metadata/rt = 26877334996906
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_7j37j"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 14242363294162
+metadata/rt = 26897031446413
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_8axjk"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 14262026191352
+metadata/rt = 26916694343518
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_c74tn"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 14281689088487
+metadata/rt = 26936357306072
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_milu8"]
+resource_name = "growin"
+script = ExtResource("9_soydq")
+metadata/rt = 26956036915486
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_2wj67"]
 noise_type = 2
@@ -98,20 +99,20 @@ shader_parameter/repeat_y = 4.8
 shader_parameter/row_offset = 1.0
 shader_parameter/texture_to_scroll = SubResource("NoiseTexture2D_ratfy")
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_milu8"]
-resource_name = "redact"
-script = ExtResource("1_gbnav")
-metadata/rt = 14479391803177
-
 [sub_resource type="RichTextEffect" id="RichTextEffect_18trd"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 14499054700351
+metadata/rt = 27153739695846
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_f8agc"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 14518717597614
+metadata/rt = 27173402592993
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_ii24h"]
+resource_name = "redact"
+script = ExtResource("1_gbnav")
+metadata/rt = 27193065490159
 
 [node name="Control" type="Control" node_paths=PackedStringArray("staminaLabel", "sturdinessLabel", "spinForceLabel", "staminaCostLabel", "sturdinessCostLabel", "spinForceCostLabel", "moneyAmountValueLabel", "upgradeParent")]
 layout_mode = 3
@@ -180,7 +181,7 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_2wj67"), SubResource("RichTextEffect_ratfy")]
+custom_effects = [SubResource("RichTextEffect_ratfy"), SubResource("RichTextEffect_may18")]
 script = ExtResource("3_onvvk")
 _hold = true
 progress = 1.0
@@ -269,7 +270,7 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_may18"), SubResource("RichTextEffect_4pgft")]
+custom_effects = [SubResource("RichTextEffect_4pgft"), SubResource("RichTextEffect_oec1f")]
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
@@ -360,13 +361,13 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_oec1f"), SubResource("RichTextEffect_srdp0")]
+custom_effects = [SubResource("RichTextEffect_srdp0"), SubResource("RichTextEffect_w5ndc")]
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
 progress = 1.0
 visible_character = 10
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0.1848, 0.982776, 36.0626, 68.901), Transform2D(1, 0, 0.1848, 0.982776, 61.0626, 68.901), Transform2D(1, 0, 0.1848, 0.982776, 102.063, 68.901), Transform2D(1, 0, 0.1848, 0.982776, 130.063, 68.901), Transform2D(1, 0, 0.1848, 0.982776, 169.063, 68.901), Transform2D(1, 0, 0.1848, 0.982776, 187.063, 68.901), Transform2D(1, 0, 0.1848, 0.982776, 228.063, 68.901), Transform2D(1, 0, 0.1848, 0.982776, 265.063, 68.901), Transform2D(1, 0, 0.1848, 0.982776, 296.063, 68.901)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, -0.00836615, 0.999965, 34.9519, 68.9998), Transform2D(1, 0, -0.00836615, 0.999965, 59.9519, 68.9998), Transform2D(1, 0, -0.00836615, 0.999965, 100.952, 68.9998), Transform2D(1, 0, -0.00836615, 0.999965, 128.952, 68.9998), Transform2D(1, 0, -0.00836615, 0.999965, 167.952, 68.9998), Transform2D(1, 0, -0.00836615, 0.999965, 185.952, 68.9998), Transform2D(1, 0, -0.00836615, 0.999965, 226.952, 68.9998), Transform2D(1, 0, -0.00836615, 0.999965, 263.952, 68.9998), Transform2D(1, 0, -0.00836615, 0.999965, 294.952, 68.9998)])
 _char_size = Array[Vector2]([Vector2(0, 0), Vector2(25, 50), Vector2(34, 50), Vector2(24, 50), Vector2(34, 50), Vector2(12, 50), Vector2(33, 50), Vector2(33, 50), Vector2(28, 50), Vector2(28, 50)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
@@ -451,7 +452,7 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_w5ndc"), SubResource("RichTextEffect_oq6v8")]
+custom_effects = [SubResource("RichTextEffect_oq6v8"), SubResource("RichTextEffect_mh5b7")]
 script = ExtResource("3_onvvk")
 animation = "redact"
 _hold = true
@@ -545,7 +546,7 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_mh5b7")]
+custom_effects = [SubResource("RichTextEffect_7j37j")]
 script = ExtResource("3_onvvk")
 animation = "growin"
 _hold = true
@@ -636,7 +637,7 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_7j37j")]
+custom_effects = [SubResource("RichTextEffect_8axjk")]
 script = ExtResource("3_onvvk")
 animation = "growin"
 _hold = true
@@ -721,7 +722,7 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_8axjk")]
+custom_effects = [SubResource("RichTextEffect_c74tn")]
 script = ExtResource("3_onvvk")
 animation = "growin"
 _hold = true
@@ -806,7 +807,7 @@ theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_c74tn")]
+custom_effects = [SubResource("RichTextEffect_milu8")]
 script = ExtResource("3_onvvk")
 animation = "growin"
 _hold = true
@@ -885,6 +886,7 @@ size_flags_vertical = 4
 [node name="UpgradeCardHbox" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/separation = 5
+script = ExtResource("11_may18")
 
 [node name="UpgradeCard" parent="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox" instance=ExtResource("11_ratfy")]
 layout_mode = 2
@@ -929,97 +931,6 @@ size_flags_vertical = 6
 layout_mode = 2
 
 [node name="StaminaCost" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer4"]
-clip_contents = false
-custom_minimum_size = Vector2(192, 67)
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
-theme_override_font_sizes/bold_italics_font_size = 48
-theme_override_font_sizes/italics_font_size = 48
-theme_override_font_sizes/mono_font_size = 48
-theme_override_font_sizes/normal_font_size = 48
-theme_override_font_sizes/bold_font_size = 48
-bbcode_enabled = true
-fit_content = true
-autowrap_mode = 0
-custom_effects = [SubResource("RichTextEffect_milu8")]
-script = ExtResource("3_onvvk")
-animation = "redact"
-_hold = true
-progress = 1.0
-visible_character = 8
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 30, 52), Transform2D(1, 0, 0, 1, 60, 52), Transform2D(1, 0, 0, 1, 83, 52), Transform2D(1, 0, 0, 1, 102, 52), Transform2D(1, 0, 0, 1, 115, 52), Transform2D(1, 0, 0, 1, 127, 52), Transform2D(1, 0, 0, 1, 154, 52)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(27, 37), Vector2(22, 37), Vector2(20, 37), Vector2(10, 37), Vector2(0, 37), Vector2(25, 37), Vector2(26, 37)])
-_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
-_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
-_forced_finish_delay = -0.047867
-animation = "redact"
-default_wait_time = 1.0
-play_on_bbcode = true
-play_speed = 30.0
-fade_out = false
-fade_in_speed = 10.0
-fade_out_speed = 120.0
-ctc_offset = Vector2(1, -0.5)
-ctc_on_finished = false
-ctc_on_wait = false
-shortcut_expression = true
-shortcut_bookmark = true
-signal_quotes = true
-signal_stars = true
-bbcode = "Cost: 50"
-effects = 2
-alignment = 0
-color = Color(1, 1, 1, 1)
-emoji_scale = 1.0
-font = ""
-font_auto_setup = true
-font_size = 48
-font_bold_weight = 1.5
-font_italics_slant = 0.25
-font_italics_weight = -0.25
-shadow_enabled = false
-shadow_offset = 0.08
-shadow_alpha = 0.25
-shadow_outline_size = 0.1
-outline_size = 0
-outline_mode = 1
-outline_adjust = 0.8
-outline_hue_adjust = 0.0125
-nicer_quotes_enabled = true
-nicer_quotes_format = "“%s”"
-markdown_enabled = true
-markdown_format_bold = "[b]%s[]"
-markdown_format_italics = "[i]%s[]"
-markdown_format_bold_italics = "[bi]%s[]"
-markdown_format_highlight = "[green;sin]%s[]"
-markdown_format_bold2 = "[b]*%s*[]"
-markdown_format_italics2 = "[i;gray]*%s*[]"
-markdown_format_bold_italics2 = "%s"
-context_enabled = true
-context_path = NodePath("/root/State")
-context_state = {}
-context_rich_objects = true
-context_rich_ints = true
-context_rich_array = true
-autostyle_numbers = true
-autostyle_numbers_tag = "[salmon]%s[]"
-autostyle_numbers_pad_decimals = true
-autostyle_numbers_decimals = 2
-autostyle_emojis = true
-effect_weight = 0.0
-meta_auto_https = true
-meta_cursor = 2
-override_bbcodeEnabled = true
-override_clipContents = false
-override_fitContent = true
-fit_width = true
-fit_width_padding = 10
-metadata/_custom_type_script = "uid://mkih5spu6eqp"
-metadata/rand = Array[int]([2800208240, 2057223724, 3097015752, 2954115180])
-metadata/mouse_position = Vector2(1631.66, -97.9069)
-metadata/frame = 406189
-
-[node name="SturdinessCost" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer4"]
 clip_contents = false
 custom_minimum_size = Vector2(192, 67)
 layout_mode = 2
@@ -1110,7 +1021,7 @@ metadata/rand = Array[int]([2800208240, 2057223724, 3097015752, 2954115180])
 metadata/mouse_position = Vector2(1631.66, -97.9069)
 metadata/frame = 406189
 
-[node name="SpinForceCost" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer4"]
+[node name="SturdinessCost" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer4"]
 clip_contents = false
 custom_minimum_size = Vector2(192, 67)
 layout_mode = 2
@@ -1201,6 +1112,97 @@ metadata/rand = Array[int]([2800208240, 2057223724, 3097015752, 2954115180])
 metadata/mouse_position = Vector2(1631.66, -97.9069)
 metadata/frame = 406189
 
+[node name="SpinForceCost" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer4"]
+clip_contents = false
+custom_minimum_size = Vector2(192, 67)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/bold_italics_font_size = 48
+theme_override_font_sizes/italics_font_size = 48
+theme_override_font_sizes/mono_font_size = 48
+theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/bold_font_size = 48
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+custom_effects = [SubResource("RichTextEffect_ii24h")]
+script = ExtResource("3_onvvk")
+animation = "redact"
+_hold = true
+progress = 1.0
+visible_character = 8
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 30, 52), Transform2D(1, 0, 0, 1, 60, 52), Transform2D(1, 0, 0, 1, 83, 52), Transform2D(1, 0, 0, 1, 102, 52), Transform2D(1, 0, 0, 1, 115, 52), Transform2D(1, 0, 0, 1, 127, 52), Transform2D(1, 0, 0, 1, 154, 52)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(27, 37), Vector2(22, 37), Vector2(20, 37), Vector2(10, 37), Vector2(0, 37), Vector2(25, 37), Vector2(26, 37)])
+_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_forced_finish_delay = -0.047867
+animation = "redact"
+default_wait_time = 1.0
+play_on_bbcode = true
+play_speed = 30.0
+fade_out = false
+fade_in_speed = 10.0
+fade_out_speed = 120.0
+ctc_offset = Vector2(1, -0.5)
+ctc_on_finished = false
+ctc_on_wait = false
+shortcut_expression = true
+shortcut_bookmark = true
+signal_quotes = true
+signal_stars = true
+bbcode = "Cost: 50"
+effects = 2
+alignment = 0
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 48
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+fit_width = true
+fit_width_padding = 10
+metadata/_custom_type_script = "uid://mkih5spu6eqp"
+metadata/rand = Array[int]([2800208240, 2057223724, 3097015752, 2954115180])
+metadata/mouse_position = Vector2(1631.66, -97.9069)
+metadata/frame = 406189
+
 [node name="BoxContainer" type="BoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 10
@@ -1213,11 +1215,15 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 32
 text = "Next Round"
 
+[connection signal="next_round_button_pressed" from="." to="." method="_on_next_round_button_pressed"]
 [connection signal="popped_up" from="." to="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox/UpgradeCard" method="new_upgrade"]
 [connection signal="popped_up" from="." to="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox/UpgradeCard2" method="new_upgrade"]
 [connection signal="popped_up" from="." to="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox/UpgradeCard3" method="new_upgrade"]
+[connection signal="chosen_upgrade" from="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox/UpgradeCard" to="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox" method="receive_chosen_signal"]
 [connection signal="purchased_upgrade" from="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox/UpgradeCard" to="." method="purchase_upgrade"]
+[connection signal="chosen_upgrade" from="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox/UpgradeCard2" to="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox" method="receive_chosen_signal"]
 [connection signal="purchased_upgrade" from="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox/UpgradeCard2" to="." method="purchase_upgrade"]
+[connection signal="chosen_upgrade" from="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox/UpgradeCard3" to="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox" method="receive_chosen_signal"]
 [connection signal="purchased_upgrade" from="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox/UpgradeCard3" to="." method="purchase_upgrade"]
 [connection signal="button_up" from="HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/UpgradeStamina" to="." method="_on_upgrade_stamina_button_up"]
 [connection signal="button_up" from="HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/UpgradeSturdiness" to="." method="_on_upgrade_sturdiness_button_up"]
