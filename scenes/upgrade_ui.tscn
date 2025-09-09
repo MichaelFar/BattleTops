@@ -19,62 +19,62 @@ bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 [sub_resource type="RichTextEffect" id="RichTextEffect_ratfy"]
 resource_name = "fader"
 script = ExtResource("2_6ij7f")
-metadata/rt = 46593902521499
+metadata/rt = 5399361175567
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_may18"]
 resource_name = "heart"
 script = ExtResource("3_fq5lg")
-metadata/rt = 46593902521499
+metadata/rt = 5399361175567
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_4pgft"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 46613582229808
+metadata/rt = 5418755637254
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_oec1f"]
 resource_name = "sin"
 script = ExtResource("6_g3bku")
-metadata/rt = 46613582229808
+metadata/rt = 5418755637254
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_srdp0"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 46633245032317
+metadata/rt = 5438150098941
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_w5ndc"]
 resource_name = "sway"
 script = ExtResource("7_soydq")
-metadata/rt = 46633245032317
+metadata/rt = 5438150098941
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_oq6v8"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 46652908046547
+metadata/rt = 5457544560628
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_mh5b7"]
 resource_name = "jit2"
 script = ExtResource("8_2wj67")
-metadata/rt = 46652908046547
+metadata/rt = 5457544560628
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_7j37j"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 46672604498127
+metadata/rt = 5476972576323
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_8axjk"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 46692267395008
+metadata/rt = 5496367038078
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_c74tn"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 46711930292162
+metadata/rt = 5515761499964
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_milu8"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 46731593189175
+metadata/rt = 5535155961709
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_2wj67"]
 noise_type = 2
@@ -102,17 +102,17 @@ shader_parameter/texture_to_scroll = SubResource("NoiseTexture2D_ratfy")
 [sub_resource type="RichTextEffect" id="RichTextEffect_18trd"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 46929396545123
+metadata/rt = 5730274986669
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_f8agc"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 46949059462786
+metadata/rt = 5749669448371
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ii24h"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 46968722359411
+metadata/rt = 5769063910076
 
 [node name="Control" type="Control" node_paths=PackedStringArray("staminaLabel", "sturdinessLabel", "spinForceLabel", "staminaCostLabel", "sturdinessCostLabel", "spinForceCostLabel", "moneyAmountValueLabel", "upgradeParent")]
 layout_mode = 3
@@ -132,7 +132,7 @@ sturdinessCostLabel = NodePath("HBoxContainer/VBoxContainer/HBoxContainer2/VBoxC
 spinForceCostLabel = NodePath("HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer4/SpinForceCost")
 moneyAmountValueLabel = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/StatAmountVbox/MoneyAmountValue")
 allPossibleUpgrades = Array[PackedScene]([ExtResource("11_ratfy")])
-upgradeParent = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox")
+upgradeParent = NodePath("PanelContainer/UpgradeCardHbox")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -145,18 +145,11 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_soydq")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -351.0
-offset_top = -288.5
-offset_right = 351.0
-offset_bottom = 288.5
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_left = 41.0
+offset_top = 37.0
+offset_right = 743.0
+offset_bottom = 614.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -367,7 +360,7 @@ animation = "redact"
 _hold = true
 progress = 1.0
 visible_character = 10
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, -0.138669, 0.990339, 34.2027, 68.9445), Transform2D(1, 0, -0.138669, 0.990339, 59.2027, 68.9445), Transform2D(1, 0, -0.138669, 0.990339, 100.203, 68.9445), Transform2D(1, 0, -0.138669, 0.990339, 128.203, 68.9445), Transform2D(1, 0, -0.138669, 0.990339, 167.203, 68.9445), Transform2D(1, 0, -0.138669, 0.990339, 185.203, 68.9445), Transform2D(1, 0, -0.138669, 0.990339, 226.203, 68.9445), Transform2D(1, 0, -0.138669, 0.990339, 263.203, 68.9445), Transform2D(1, 0, -0.138669, 0.990339, 294.203, 68.9445)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0.20158, 0.979472, 36.1591, 68.882), Transform2D(1, 0, 0.20158, 0.979472, 61.1591, 68.882), Transform2D(1, 0, 0.20158, 0.979472, 102.159, 68.882), Transform2D(1, 0, 0.20158, 0.979472, 130.159, 68.882), Transform2D(1, 0, 0.20158, 0.979472, 169.159, 68.882), Transform2D(1, 0, 0.20158, 0.979472, 187.159, 68.882), Transform2D(1, 0, 0.20158, 0.979472, 228.159, 68.882), Transform2D(1, 0, 0.20158, 0.979472, 265.159, 68.882), Transform2D(1, 0, 0.20158, 0.979472, 296.159, 68.882)])
 _char_size = Array[Vector2]([Vector2(0, 0), Vector2(25, 50), Vector2(34, 50), Vector2(24, 50), Vector2(34, 50), Vector2(12, 50), Vector2(33, 50), Vector2(33, 50), Vector2(28, 50), Vector2(28, 50)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
@@ -879,36 +872,18 @@ metadata/rand = Array[int]([2800208240, 2057223724, 3097015752, 2954115180])
 metadata/mouse_position = Vector2(1631.66, -97.9069)
 metadata/frame = 406189
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-
-[node name="UpgradeCardHbox" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/separation = 5
-script = ExtResource("11_may18")
-
-[node name="UpgradeCard" parent="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox" instance=ExtResource("11_ratfy")]
-layout_mode = 2
-
-[node name="UpgradeCard2" parent="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox" instance=ExtResource("11_ratfy")]
-layout_mode = 2
-
-[node name="UpgradeCard3" parent="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox" instance=ExtResource("11_ratfy")]
-layout_mode = 2
-
 [node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+alignment = 1
 
 [node name="UpgradeStamina" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer3"]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 32
 text = "Upgrade Stamina"
-alignment = 0
 
 [node name="UpgradeSturdiness" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer3"]
 layout_mode = 2
@@ -929,17 +904,18 @@ size_flags_vertical = 6
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+alignment = 1
 
 [node name="StaminaCost" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer4"]
 clip_contents = false
-custom_minimum_size = Vector2(192, 67)
+custom_minimum_size = Vector2(162, 55)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
-theme_override_font_sizes/bold_italics_font_size = 48
-theme_override_font_sizes/italics_font_size = 48
-theme_override_font_sizes/mono_font_size = 48
-theme_override_font_sizes/normal_font_size = 48
-theme_override_font_sizes/bold_font_size = 48
+theme_override_font_sizes/bold_italics_font_size = 40
+theme_override_font_sizes/italics_font_size = 40
+theme_override_font_sizes/mono_font_size = 40
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 40
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
@@ -949,8 +925,8 @@ animation = "redact"
 _hold = true
 progress = 1.0
 visible_character = 8
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 30, 52), Transform2D(1, 0, 0, 1, 60, 52), Transform2D(1, 0, 0, 1, 83, 52), Transform2D(1, 0, 0, 1, 102, 52), Transform2D(1, 0, 0, 1, 115, 52), Transform2D(1, 0, 0, 1, 127, 52), Transform2D(1, 0, 0, 1, 154, 52)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(27, 37), Vector2(22, 37), Vector2(20, 37), Vector2(10, 37), Vector2(0, 37), Vector2(25, 37), Vector2(26, 37)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 30, 43), Transform2D(1, 0, 0, 1, 55, 43), Transform2D(1, 0, 0, 1, 74, 43), Transform2D(1, 0, 0, 1, 90, 43), Transform2D(1, 0, 0, 1, 101, 43), Transform2D(1, 0, 0, 1, 111, 43), Transform2D(1, 0, 0, 1, 134, 43)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(23, 31), Vector2(19, 31), Vector2(17, 31), Vector2(9, 31), Vector2(0, 31), Vector2(21, 31), Vector2(23, 31)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _forced_finish_delay = -0.047867
@@ -970,12 +946,12 @@ signal_quotes = true
 signal_stars = true
 bbcode = "Cost: 50"
 effects = 2
-alignment = 0
+alignment = 1
 color = Color(1, 1, 1, 1)
 emoji_scale = 1.0
 font = ""
 font_auto_setup = true
-font_size = 48
+font_size = 40
 font_bold_weight = 1.5
 font_italics_slant = 0.25
 font_italics_weight = -0.25
@@ -1023,14 +999,14 @@ metadata/frame = 406189
 
 [node name="SturdinessCost" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer4"]
 clip_contents = false
-custom_minimum_size = Vector2(192, 67)
+custom_minimum_size = Vector2(162, 55)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
-theme_override_font_sizes/bold_italics_font_size = 48
-theme_override_font_sizes/italics_font_size = 48
-theme_override_font_sizes/mono_font_size = 48
-theme_override_font_sizes/normal_font_size = 48
-theme_override_font_sizes/bold_font_size = 48
+theme_override_font_sizes/bold_italics_font_size = 40
+theme_override_font_sizes/italics_font_size = 40
+theme_override_font_sizes/mono_font_size = 40
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 40
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
@@ -1040,8 +1016,8 @@ animation = "redact"
 _hold = true
 progress = 1.0
 visible_character = 8
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 30, 52), Transform2D(1, 0, 0, 1, 60, 52), Transform2D(1, 0, 0, 1, 83, 52), Transform2D(1, 0, 0, 1, 102, 52), Transform2D(1, 0, 0, 1, 115, 52), Transform2D(1, 0, 0, 1, 127, 52), Transform2D(1, 0, 0, 1, 154, 52)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(27, 37), Vector2(22, 37), Vector2(20, 37), Vector2(10, 37), Vector2(0, 37), Vector2(25, 37), Vector2(26, 37)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 30, 43), Transform2D(1, 0, 0, 1, 55, 43), Transform2D(1, 0, 0, 1, 74, 43), Transform2D(1, 0, 0, 1, 90, 43), Transform2D(1, 0, 0, 1, 101, 43), Transform2D(1, 0, 0, 1, 111, 43), Transform2D(1, 0, 0, 1, 134, 43)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(23, 31), Vector2(19, 31), Vector2(17, 31), Vector2(9, 31), Vector2(0, 31), Vector2(21, 31), Vector2(23, 31)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _forced_finish_delay = -0.047867
@@ -1061,12 +1037,12 @@ signal_quotes = true
 signal_stars = true
 bbcode = "Cost: 50"
 effects = 2
-alignment = 0
+alignment = 1
 color = Color(1, 1, 1, 1)
 emoji_scale = 1.0
 font = ""
 font_auto_setup = true
-font_size = 48
+font_size = 40
 font_bold_weight = 1.5
 font_italics_slant = 0.25
 font_italics_weight = -0.25
@@ -1114,14 +1090,14 @@ metadata/frame = 406189
 
 [node name="SpinForceCost" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer4"]
 clip_contents = false
-custom_minimum_size = Vector2(192, 67)
+custom_minimum_size = Vector2(162, 55)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
-theme_override_font_sizes/bold_italics_font_size = 48
-theme_override_font_sizes/italics_font_size = 48
-theme_override_font_sizes/mono_font_size = 48
-theme_override_font_sizes/normal_font_size = 48
-theme_override_font_sizes/bold_font_size = 48
+theme_override_font_sizes/bold_italics_font_size = 40
+theme_override_font_sizes/italics_font_size = 40
+theme_override_font_sizes/mono_font_size = 40
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 40
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
@@ -1131,8 +1107,8 @@ animation = "redact"
 _hold = true
 progress = 1.0
 visible_character = 8
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 30, 52), Transform2D(1, 0, 0, 1, 60, 52), Transform2D(1, 0, 0, 1, 83, 52), Transform2D(1, 0, 0, 1, 102, 52), Transform2D(1, 0, 0, 1, 115, 52), Transform2D(1, 0, 0, 1, 127, 52), Transform2D(1, 0, 0, 1, 154, 52)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(27, 37), Vector2(22, 37), Vector2(20, 37), Vector2(10, 37), Vector2(0, 37), Vector2(25, 37), Vector2(26, 37)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 30, 43), Transform2D(1, 0, 0, 1, 55, 43), Transform2D(1, 0, 0, 1, 74, 43), Transform2D(1, 0, 0, 1, 90, 43), Transform2D(1, 0, 0, 1, 101, 43), Transform2D(1, 0, 0, 1, 111, 43), Transform2D(1, 0, 0, 1, 134, 43)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(23, 31), Vector2(19, 31), Vector2(17, 31), Vector2(9, 31), Vector2(0, 31), Vector2(21, 31), Vector2(23, 31)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _forced_finish_delay = -0.047867
@@ -1152,12 +1128,12 @@ signal_quotes = true
 signal_stars = true
 bbcode = "Cost: 50"
 effects = 2
-alignment = 0
+alignment = 1
 color = Color(1, 1, 1, 1)
 emoji_scale = 1.0
 font = ""
 font_auto_setup = true
-font_size = 48
+font_size = 40
 font_bold_weight = 1.5
 font_italics_slant = 0.25
 font_italics_weight = -0.25
@@ -1215,17 +1191,39 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 32
 text = "Next Round"
 
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+offset_left = 646.0
+offset_top = 112.5
+offset_right = 998.0
+offset_bottom = 322.5
+size_flags_vertical = 4
+
+[node name="UpgradeCardHbox" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+script = ExtResource("11_may18")
+
+[node name="UpgradeCard" parent="PanelContainer/UpgradeCardHbox" instance=ExtResource("11_ratfy")]
+layout_mode = 2
+
+[node name="UpgradeCard2" parent="PanelContainer/UpgradeCardHbox" instance=ExtResource("11_ratfy")]
+layout_mode = 2
+
+[node name="UpgradeCard3" parent="PanelContainer/UpgradeCardHbox" instance=ExtResource("11_ratfy")]
+layout_mode = 2
+
 [connection signal="next_round_button_pressed" from="." to="." method="_on_next_round_button_pressed"]
-[connection signal="popped_up" from="." to="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox/UpgradeCard" method="new_upgrade"]
-[connection signal="popped_up" from="." to="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox/UpgradeCard2" method="new_upgrade"]
-[connection signal="popped_up" from="." to="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox/UpgradeCard3" method="new_upgrade"]
-[connection signal="chosen_upgrade" from="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox/UpgradeCard" to="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox" method="receive_chosen_signal"]
-[connection signal="purchased_upgrade" from="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox/UpgradeCard" to="." method="purchase_upgrade"]
-[connection signal="chosen_upgrade" from="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox/UpgradeCard2" to="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox" method="receive_chosen_signal"]
-[connection signal="purchased_upgrade" from="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox/UpgradeCard2" to="." method="purchase_upgrade"]
-[connection signal="chosen_upgrade" from="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox/UpgradeCard3" to="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox" method="receive_chosen_signal"]
-[connection signal="purchased_upgrade" from="HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/UpgradeCardHbox/UpgradeCard3" to="." method="purchase_upgrade"]
+[connection signal="popped_up" from="." to="PanelContainer/UpgradeCardHbox/UpgradeCard" method="new_upgrade"]
+[connection signal="popped_up" from="." to="PanelContainer/UpgradeCardHbox/UpgradeCard2" method="new_upgrade"]
+[connection signal="popped_up" from="." to="PanelContainer/UpgradeCardHbox/UpgradeCard3" method="new_upgrade"]
 [connection signal="button_up" from="HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/UpgradeStamina" to="." method="_on_upgrade_stamina_button_up"]
 [connection signal="button_up" from="HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/UpgradeSturdiness" to="." method="_on_upgrade_sturdiness_button_up"]
 [connection signal="button_up" from="HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer3/UpgradeSpinForce" to="." method="_on_upgrade_spin_force_button_up"]
 [connection signal="button_up" from="HBoxContainer/VBoxContainer/HBoxContainer2/BoxContainer/NextRoundButton" to="." method="_on_next_round_button_button_up"]
+[connection signal="chosen_upgrade" from="PanelContainer/UpgradeCardHbox/UpgradeCard" to="PanelContainer/UpgradeCardHbox" method="receive_chosen_signal"]
+[connection signal="purchased_upgrade" from="PanelContainer/UpgradeCardHbox/UpgradeCard" to="." method="purchase_upgrade"]
+[connection signal="chosen_upgrade" from="PanelContainer/UpgradeCardHbox/UpgradeCard2" to="PanelContainer/UpgradeCardHbox" method="receive_chosen_signal"]
+[connection signal="purchased_upgrade" from="PanelContainer/UpgradeCardHbox/UpgradeCard2" to="." method="purchase_upgrade"]
+[connection signal="chosen_upgrade" from="PanelContainer/UpgradeCardHbox/UpgradeCard3" to="PanelContainer/UpgradeCardHbox" method="receive_chosen_signal"]
+[connection signal="purchased_upgrade" from="PanelContainer/UpgradeCardHbox/UpgradeCard3" to="." method="purchase_upgrade"]
