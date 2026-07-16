@@ -1,0 +1,18 @@
+[gd_resource type="Environment" format=3 uid="uid://cpb1jh8xbeoth"]
+
+[ext_resource type="Shader" uid="uid://bua2qbi613pf8" path="res://SmallArena.tres" id="1_ttttu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g8q41"]
+shader = ExtResource("1_ttttu")
+shader_parameter/ColorParameter = Color(0, 0, 1.5452987, 1)
+shader_parameter/maxNoiseClamp = Vector4(0.3, 0.8, 0.8, 1)
+
+[sub_resource type="Sky" id="Sky_rwb5c"]
+sky_material = SubResource("ShaderMaterial_g8q41")
+radiance_size = 0
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_rwb5c")
+ambient_light_source = 1
+reflected_light_source = 1

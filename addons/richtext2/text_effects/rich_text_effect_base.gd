@@ -54,7 +54,7 @@ func get_text() -> String:
 	return get_label().get_parsed_text()
 
 func get_char(c: CharFXTransform) -> String:
-	return get_text()[c.range.x]
+	return get_text()[c.range.x - 1]
 
 func set_char(c: CharFXTransform, new_char: String):
 	var text_server = TextServerManager.get_primary_interface()

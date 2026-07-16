@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=55 format=3 uid="uid://bua2qbi613pf8"]
+[gd_resource type="VisualShader" format=3 uid="uid://bua2qbi613pf8"]
 
 [sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_vl7jh"]
 function = 0
@@ -34,11 +34,11 @@ frequency = 0.037
 width = 1024
 height = 1024
 generate_mipmaps = false
+noise = SubResource("FastNoiseLite_5palg")
 seamless = true
 as_normal_map = true
-bump_strength = 32.0
 normalize = false
-noise = SubResource("FastNoiseLite_5palg")
+bump_strength = 32.0
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_vaxah"]
 output_port_for_preview = 0
@@ -171,8 +171,8 @@ domain_warp_fractal_type = 2
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vaxah"]
 width = 2048
 height = 2048
-seamless = true
 noise = SubResource("FastNoiseLite_vl7jh")
+seamless = true
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_tb81f"]
 output_port_for_preview = 0
@@ -216,212 +216,6 @@ default_value_enabled = true
 default_value = Color(0.928074, 0.572319, 0.476726, 1)
 
 [resource]
-code = "shader_type sky;
-uniform vec4 ColorParameter : source_color = vec4(0.928074, 0.572319, 0.476726, 1.000000);
-uniform vec4 ColorParameter2 : source_color = vec4(0.133333, 0.050980, 0.156863, 1.000000);
-uniform sampler2D tex_sky_2;
-uniform sampler2D tex_sky_57;
-
-
-
-void sky() {
-// ColorParameter:9
-	vec4 n_out9p0 = ColorParameter;
-
-
-// Input:13
-	float n_out13p0 = TIME;
-
-
-// FloatOp:25
-	float n_in25p1 = 5.00000;
-	float n_out25p0 = n_out13p0 / n_in25p1;
-
-
-// FloatFunc:12
-	float n_out12p0 = sin(n_out25p0);
-
-
-// FloatFunc:21
-	float n_out21p0 = abs(n_out12p0);
-
-
-// VectorOp:14
-	vec4 n_out14p0 = n_out9p0 * vec4(n_out21p0);
-
-
-// ColorParameter:16
-	vec4 n_out16p0 = ColorParameter2;
-
-
-// Input:56
-	float n_out56p0 = TIME;
-
-
-// FloatOp:54
-	float n_in54p1 = 300.00000;
-	float n_out54p0 = n_out56p0 / n_in54p1;
-
-
-// FloatFunc:53
-	float n_out53p0 = sin(n_out54p0);
-
-
-// FloatFunc:51
-	float n_out51p0 = abs(n_out53p0);
-
-
-// FloatOp:52
-	float n_in52p1 = 18.85000;
-	float n_out52p0 = n_out51p0 * n_in52p1;
-
-
-// FloatFunc:47
-	float n_out47p0 = cos(n_out52p0);
-
-
-// FloatOp:50
-	float n_out50p0 = n_out47p0 * n_out52p0;
-
-
-// FloatFunc:48
-	float n_out48p0 = sin(n_out52p0);
-
-
-// FloatOp:49
-	float n_out49p0 = n_out48p0 * n_out52p0;
-
-
-// VectorCompose:55
-	vec2 n_out55p0 = vec2(n_out50p0, n_out49p0);
-
-
-// VectorOp:17
-	vec4 n_out17p0 = n_out16p0 * vec4(n_out55p0, 0.0, 0.0);
-
-
-// VectorOp:20
-	vec4 n_out20p0 = n_out14p0 + n_out17p0;
-
-
-// Input:41
-	float n_out41p0 = TIME;
-
-
-// FloatOp:38
-	float n_in38p1 = 1500.00000;
-	float n_out38p0 = n_out41p0 / n_in38p1;
-
-
-// FloatFunc:37
-	float n_out37p0 = sin(n_out38p0);
-
-
-// FloatFunc:35
-	float n_out35p0 = abs(n_out37p0);
-
-
-// FloatOp:36
-	float n_in36p1 = 18.85000;
-	float n_out36p0 = n_out35p0 * n_in36p1;
-
-
-// FloatFunc:31
-	float n_out31p0 = cos(n_out36p0);
-
-
-// FloatOp:34
-	float n_out34p0 = n_out31p0 * n_out36p0;
-
-
-// FloatFunc:32
-	float n_out32p0 = sin(n_out36p0);
-
-
-// FloatOp:33
-	float n_out33p0 = n_out32p0 * n_out36p0;
-
-
-// VectorCompose:39
-	vec2 n_out39p0 = vec2(n_out34p0, n_out33p0);
-
-
-// Input:4
-	vec2 n_out4p0 = SCREEN_UV;
-
-
-// VectorOp:40
-	vec2 n_out40p0 = n_out39p0 + n_out4p0;
-
-
-// Texture2D:2
-	vec4 n_out2p0 = texture(tex_sky_2, n_out40p0);
-
-
-// VectorOp:60
-	vec2 n_out60p0 = n_out55p0 + n_out4p0;
-
-
-// VectorFunc:63
-	vec2 n_out63p0 = abs(n_out60p0);
-
-
-// Texture2D:57
-	vec4 n_out57p0 = texture(tex_sky_57, n_out63p0);
-
-
-// VectorOp:58
-	vec4 n_out58p0 = n_out2p0 * n_out57p0;
-
-
-// FloatFunc:27
-	float n_out27p0 = cos(n_out40p0.x);
-
-
-// FloatFunc:28
-	float n_out28p0 = abs(n_out27p0);
-
-
-// VectorOp:46
-	vec4 n_out46p0 = n_out58p0 * vec4(n_out28p0);
-
-
-// VectorOp:29
-	vec4 n_out29p0 = n_out46p0 * vec4(n_out28p0);
-
-
-	vec2 n_out30p0;
-// UVPolarCoord:30
-	vec2 n_in30p1 = vec2(0.10000, 0.10000);
-	float n_in30p2 = 1.00000;
-	float n_in30p3 = 9.00000;
-	{
-		vec2 __dir = vec2(n_out29p0.xy) - n_in30p1;
-		float __radius = length(__dir) * 2.0;
-		float __angle = atan(__dir.y, __dir.x) * 1.0 / (PI * 2.0);
-		n_out30p0 = vec2(__radius * n_in30p2, __angle * n_in30p3);
-	}
-
-
-// VectorOp:19
-	vec2 n_out19p0 = vec2(n_out20p0.xy) * n_out30p0;
-
-
-// FloatConstant:67
-	float n_out67p0 = 4.000000;
-
-
-// VectorOp:66
-	vec2 n_out66p0 = n_out19p0 * vec2(n_out67p0);
-
-
-// Output:0
-	COLOR = vec3(n_out66p0, 0.0);
-
-
-}
-"
-graph_offset = Vector2(700.314, -165.99)
 mode = 3
 flags/use_half_res_pass = false
 flags/use_quarter_res_pass = false
