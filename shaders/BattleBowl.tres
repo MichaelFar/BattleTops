@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://088r40whk5sk"]
+
+[ext_resource type="Shader" uid="uid://cebrbefor1y0q" path="res://shaders/ArenaShaderMain.tres" id="1_lfhsk"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_lfhsk")
+shader_parameter/ColorParameter3 = Color(0.733333, 0.878431, 0.823529, 1)
+shader_parameter/ColorParameter4 = Color(0, 0.72549, 1, 1)

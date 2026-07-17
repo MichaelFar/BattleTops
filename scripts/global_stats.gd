@@ -99,6 +99,8 @@ var postPurchaseAvailableUpgradeArray : Array[String]:
 		postPurchaseAvailableUpgradeArray = value
 		print("Postpurchase array set")
 
+var roundArray : Array[Round]
+
 var playerBattleTop : BattleTop
 
 func _ready():
@@ -168,30 +170,59 @@ func set_player_stats(new_stamina : float, new_sturdiness : float, new_spin_forc
 	playerStats["sturdiness"] = new_sturdiness
 	playerStats["spinForce"] = new_spin_force
 
+func set_round_parameters(round : int):
+	
+	var surpassed_highest_round : bool = has_reached_highest_round_difficulty(round)
+	
+	if(surpassed_highest_round):
+		opponentTopRangeDict["stamina"] = opponentTopRangeDict["stamina"] * 1.5;
+		opponentTopRangeDict["sturdiness"] = opponentTopRangeDict["sturdiness"] * 1.5;
+		opponentTopRangeDict["spinForce"] = opponentTopRangeDict["spinForce"] * 1.5;
+	else:
+		
+		for i in roundArray:
+			if(i.round == round):
+				opponentTopRangeDict["stamina"] = i.staminaVector;
+				opponentTopRangeDict["sturdiness"] = i.sturdinessVector;
+				opponentTopRangeDict["spinForce"] = i.spinforceVector;
+				break;
+	for i in opponentTopRangeDict.keys():
+		print("opponent stat: " + i + " is now " + str(opponentTopRangeDict[i]))
+
+func has_reached_highest_round_difficulty(round : int) -> bool:
+	for i in roundArray:
+		
+		if(i.round >= round):
+			
+			return false
+	
+	return true
 func update_enemy_tops_and_advance_difficulty():
 	
 	roundNum += 1
 	
-	match roundNum:
-		
-		0:
-			opponentTopRangeDict["stamina"] = Vector2.ZERO
-			opponentTopRangeDict["sturdiness"] = Vector2.ZERO
-			opponentTopRangeDict["spinForce"] = Vector2.ZERO
-		
-		1:
-			opponentTopRangeDict["stamina"] = Vector2(1, 20)
-			opponentTopRangeDict["sturdiness"] = Vector2(20, 50)
-			opponentTopRangeDict["spinForce"] = Vector2(30, 60)
-		3:
-			opponentTopRangeDict["stamina"] = Vector2(10, 40)
-			opponentTopRangeDict["sturdiness"] = Vector2(50, 90)
-			opponentTopRangeDict["spinForce"] = Vector2(70, 110)
-		5:
-			opponentTopRangeDict["stamina"] = Vector2(30, 60)
-			opponentTopRangeDict["sturdiness"] = Vector2(70, 130)
-			opponentTopRangeDict["spinForce"] = Vector2(100, 150)
-		7:
-			opponentTopRangeDict["stamina"] = Vector2(60, 90)
-			opponentTopRangeDict["sturdiness"] = Vector2(100, 150)
-			opponentTopRangeDict["spinForce"] = Vector2(130, 180)
+	set_round_parameters(roundNum)
+	
+	#match roundNum:
+		#
+		#0:
+			#opponentTopRangeDict["stamina"] = Vector2.ZERO
+			#opponentTopRangeDict["sturdiness"] = Vector2.ZERO
+			#opponentTopRangeDict["spinForce"] = Vector2.ZERO
+		#
+		#1:
+			#opponentTopRangeDict["stamina"] = Vector2(1, 20)
+			#opponentTopRangeDict["sturdiness"] = Vector2(20, 50)
+			#opponentTopRangeDict["spinForce"] = Vector2(30, 60)
+		#3:
+			#opponentTopRangeDict["stamina"] = Vector2(10, 40)
+			#opponentTopRangeDict["sturdiness"] = Vector2(50, 90)
+			#opponentTopRangeDict["spinForce"] = Vector2(70, 110)
+		#5:
+			#opponentTopRangeDict["stamina"] = Vector2(30, 60)
+			#opponentTopRangeDict["sturdiness"] = Vector2(70, 130)
+			#opponentTopRangeDict["spinForce"] = Vector2(100, 150)
+		#7:
+			#opponentTopRangeDict["stamina"] = Vector2(60, 90)
+			#opponentTopRangeDict["sturdiness"] = Vector2(100, 150)
+			#opponentTopRangeDict["spinForce"] = Vector2(130, 180)

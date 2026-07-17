@@ -34,9 +34,9 @@ class_name ArenaLevelManager
 
 @export var playerSafetyBarrier : PlayerSafetyBarrier
 
-@export var testDebugUpgradeForPlayerDeleteThis : Upgrade
-
 @export var spawnRampRotationParent : Node3D
+
+@export var roundArray : Array[Round]
 
 var topChildren : Array[BattleTop]
 
@@ -78,6 +78,9 @@ func _ready() -> void:
 	GlobalStats.currentGameStage = GlobalStats.GameStage.CHOOSINGTOP
 	
 	GlobalStats.currentGameMode = GlobalStats.GameMode.CAREER
+	
+	GlobalStats.roundArray = roundArray
+	
 	
 	popupUI.set_hidden(true)
 	
@@ -256,6 +259,7 @@ func _on_kill_plane_body_shape_entered(body_rid: RID, body: Node3D, body_shape_i
 			if(body != playerTop && playerTop != null):
 				
 				print("Defeated top stats are " + str(body.topStats))
+				
 				
 				opponentStatDictionaryArray.append(body.topStats)
 				nextRoundUI.receivedStatDictionaryArray = opponentStatDictionaryArray

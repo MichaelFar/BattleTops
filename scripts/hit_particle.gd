@@ -3,4 +3,4 @@ extends GPUParticles3D
 
 func _on_finished() -> void:
 	
-	queue_free() # Replace with function body.
+	pass

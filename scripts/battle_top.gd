@@ -14,7 +14,7 @@ class_name BattleTop
 
 @export var hitCheckTimer : Timer
 
-@export var hitParticleScene : PackedScene
+@export var hitParticle : GPUParticles3D
 
 @export var nameTag : Label3D
 
@@ -311,15 +311,12 @@ func set_stamina_is_going_down(new_value : bool):
 
 func spawn_hit_particle(opponent_position : Vector3):
 	
-	var particle_instance : GPUParticles3D = hitParticleScene.instantiate()
 	
 	var spawn_position : Vector3 = Vector3((global_position.x + opponent_position.x) / 2,(global_position.y + opponent_position.y) / 2,(global_position.z + opponent_position.z) / 2)
 	
-	add_child(particle_instance)
+	hitParticle.emitting = true
+	hitParticle.global_position = spawn_position
 	
-	particle_instance.one_shot = true
-	
-	particle_instance.global_position = spawn_position
 
 func add_upgrade(upgrade : Upgrade):
 	

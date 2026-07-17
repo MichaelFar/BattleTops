@@ -4,8 +4,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g8q41"]
 shader = ExtResource("1_ttttu")
-shader_parameter/ColorParameter = Color(0, 0, 1.5452987, 1)
-shader_parameter/maxNoiseClamp = Vector4(0.3, 0.8, 0.8, 1)
+shader_parameter/ColorParameter = Color(0.212145, 0.385929, 0.332924, 1)
+shader_parameter/ColorParameter2 = Color(0.411765, 0.368627, 0.368627, 1)
 
 [sub_resource type="Sky" id="Sky_rwb5c"]
 sky_material = SubResource("ShaderMaterial_g8q41")

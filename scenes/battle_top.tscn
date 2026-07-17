@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d1k0hl6r0jkh0"]
+[gd_scene format=3 uid="uid://d1k0hl6r0jkh0"]
 
 [ext_resource type="Script" uid="uid://bjho3cl6tlaet" path="res://scripts/battle_top.gd" id="1_ufdw3"]
 [ext_resource type="PackedScene" uid="uid://dvsltihkmox2p" path="res://scenes/hit_particle.tscn" id="2_qrxi8"]
@@ -19,7 +19,7 @@ friction = 0.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_xsedg"]
 radius = 0.144169
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ywf0b"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i6kec"]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 0.2
@@ -30,15 +30,15 @@ scale_max = 1.2
 turbulence_enabled = true
 turbulence_noise_speed_random = 0.64
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_b5blt"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ywf0b"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("4_i6kec")
 shader_parameter/ColorParameter = Color(0.796078, 0.066667, 0.078431, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_em0n2"]
+[sub_resource type="BoxMesh" id="BoxMesh_b5blt"]
 resource_local_to_scene = true
-material = SubResource("ShaderMaterial_b5blt")
+material = SubResource("ShaderMaterial_ywf0b")
 size = Vector3(0.03, 0.03, 0.03)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ywf0b"]
@@ -46,10 +46,10 @@ noise_type = 2
 frequency = 0.0267
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b5blt"]
+noise = SubResource("FastNoiseLite_ywf0b")
 seamless = true
 as_normal_map = true
 bump_strength = 32.0
-noise = SubResource("FastNoiseLite_ywf0b")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_em0n2"]
 resource_local_to_scene = true
@@ -72,7 +72,7 @@ metallic = 1.0
 metallic_specular = 0.0
 roughness = 0.0
 
-[node name="BattleTop" type="RigidBody3D" node_paths=PackedStringArray("topHead", "topHeadMesh", "headCollision", "particle", "hitCheckTimer", "nameTag")]
+[node name="BattleTop" type="RigidBody3D" unique_id=319717813 node_paths=PackedStringArray("topHead", "topHeadMesh", "headCollision", "particle", "hitCheckTimer", "hitParticle", "nameTag")]
 physics_material_override = SubResource("PhysicsMaterial_ufdw3")
 contact_monitor = true
 max_contacts_reported = 4
@@ -83,37 +83,37 @@ physicsMaterial = SubResource("PhysicsMaterial_ul6p0")
 headCollision = NodePath("CollisionShape3D")
 particle = NodePath("top_particle")
 hitCheckTimer = NodePath("HitCheckTimer")
-hitParticleScene = ExtResource("2_qrxi8")
+hitParticle = NodePath("HitParticle")
 nameTag = NodePath("TopHead/NameTag")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=628436659]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 visible = false
 mesh = SubResource("SphereMesh_ufdw3")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=919083037]
 shape = SubResource("SphereShape3D_xsedg")
 
-[node name="top_particle" parent="." instance=ExtResource("2_xsedg")]
+[node name="top_particle" parent="." unique_id=1254291442 instance=ExtResource("2_xsedg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0914399)
-process_material = SubResource("ParticleProcessMaterial_ywf0b")
-draw_pass_1 = SubResource("BoxMesh_em0n2")
+process_material = SubResource("ParticleProcessMaterial_i6kec")
+draw_pass_1 = SubResource("BoxMesh_b5blt")
 
-[node name="TopHead" type="Node3D" parent="."]
+[node name="TopHead" type="Node3D" parent="." unique_id=1155321011]
 top_level = true
 
-[node name="TopHeadMesh" type="MeshInstance3D" parent="TopHead"]
+[node name="TopHeadMesh" type="MeshInstance3D" parent="TopHead" unique_id=1959096025]
 transform = Transform3D(0.277926, 0, 0, 0, -2.19859e-09, -0.278078, 0, 0.0502978, -1.21552e-08, 0, 0, 0)
 mesh = SubResource("CylinderMesh_ufdw3")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="TopHead"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="TopHead" unique_id=1157375416]
 transform = Transform3D(0.0669603, 0, 0, 0, -2.55157e-09, 0.0558242, 0, -0.0583731, -2.44015e-09, 0, 0, 0.0757956)
 mesh = SubResource("CapsuleMesh_ufdw3")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_akg2w")
 
-[node name="NameTag" type="Label3D" parent="TopHead"]
+[node name="NameTag" type="Label3D" parent="TopHead" unique_id=1927398255]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.158)
 visible = false
 billboard = 1
@@ -122,9 +122,11 @@ outline_modulate = Color(0, 0, 0, 0.192157)
 text = "You"
 font_size = 16
 
-[node name="StaminaTimer" type="Timer" parent="."]
+[node name="StaminaTimer" type="Timer" parent="." unique_id=1154246513]
 
-[node name="HitCheckTimer" type="Timer" parent="."]
+[node name="HitCheckTimer" type="Timer" parent="." unique_id=1437226276]
 wait_time = 0.3
+
+[node name="HitParticle" parent="." unique_id=1612192251 instance=ExtResource("2_qrxi8")]
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

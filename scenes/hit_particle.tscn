@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvsltihkmox2p"]
+[gd_scene format=3 uid="uid://dvsltihkmox2p"]
 
 [ext_resource type="Script" uid="uid://de3ov5lmhjlci" path="res://scripts/hit_particle.gd" id="1_rk8c0"]
 
@@ -50,9 +50,11 @@ material = SubResource("StandardMaterial3D_mbt80")
 size = Vector2(0.025, 0.025)
 orientation = 2
 
-[node name="HitParticle" type="GPUParticles3D"]
+[node name="HitParticle" type="GPUParticles3D" unique_id=1612192251]
+emitting = false
 amount = 32
 lifetime = 0.2
+one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_si4ve")
 draw_pass_1 = SubResource("PlaneMesh_l506i")
