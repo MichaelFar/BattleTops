@@ -1,6 +1,6 @@
 extends Upgrade
 
-class_name DebugUpgradeTwo
+class_name LowStaminaUpgrade
 
 func initialize():
 	cost = 10.0

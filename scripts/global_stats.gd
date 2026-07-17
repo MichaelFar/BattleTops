@@ -80,21 +80,14 @@ var opponentTopRangeDict : Dictionary = { #Increases when round num increases
 	"spinForce" : Vector2(1,1)
 }
 
-var upgradeClassDict : Dictionary = {
-	
-	"debugHitUpgrade" : TestOnHitUpgrade,
-	"baseUpgrade" : Upgrade,
-	"sparkUpgrade" : DebugUpgradeThree,
-	"staminaUpgrade" : DebugUpgradeTwo
-	
-}
+var upgradeClassDict : Dictionary[int, Resource] 
 
-var prePurchaseAvailableUpgradeArray : Array[String] :
+var prePurchaseAvailableUpgradeArray : Array[int] :
 	set(value):
 		prePurchaseAvailableUpgradeArray = value
 		print("Prepurchase array set")
 
-var postPurchaseAvailableUpgradeArray : Array[String]:
+var postPurchaseAvailableUpgradeArray : Array[int]:
 	set(value):
 		postPurchaseAvailableUpgradeArray = value
 		print("Postpurchase array set")
@@ -105,7 +98,7 @@ var playerBattleTop : BattleTop
 
 func _ready():
 	
-	populate_upgrade_array()
+	pass
 	
 func populate_upgrade_array():
 	
@@ -140,7 +133,7 @@ func populate_post_purchase_array():
 	
 		for j in post_array_copy:
 			
-			var test_object = upgradeClassDict[j].new()
+			var test_object = upgradeClassDict[j].get_script().new()
 			
 			if i.get_script() == test_object.get_script():
 				print("Removing " +str(i) + " from postPurchaseArray")
@@ -203,26 +196,3 @@ func update_enemy_tops_and_advance_difficulty():
 	
 	set_round_parameters(roundNum)
 	
-	#match roundNum:
-		#
-		#0:
-			#opponentTopRangeDict["stamina"] = Vector2.ZERO
-			#opponentTopRangeDict["sturdiness"] = Vector2.ZERO
-			#opponentTopRangeDict["spinForce"] = Vector2.ZERO
-		#
-		#1:
-			#opponentTopRangeDict["stamina"] = Vector2(1, 20)
-			#opponentTopRangeDict["sturdiness"] = Vector2(20, 50)
-			#opponentTopRangeDict["spinForce"] = Vector2(30, 60)
-		#3:
-			#opponentTopRangeDict["stamina"] = Vector2(10, 40)
-			#opponentTopRangeDict["sturdiness"] = Vector2(50, 90)
-			#opponentTopRangeDict["spinForce"] = Vector2(70, 110)
-		#5:
-			#opponentTopRangeDict["stamina"] = Vector2(30, 60)
-			#opponentTopRangeDict["sturdiness"] = Vector2(70, 130)
-			#opponentTopRangeDict["spinForce"] = Vector2(100, 150)
-		#7:
-			#opponentTopRangeDict["stamina"] = Vector2(60, 90)
-			#opponentTopRangeDict["sturdiness"] = Vector2(100, 150)
-			#opponentTopRangeDict["spinForce"] = Vector2(130, 180)

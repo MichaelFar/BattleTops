@@ -14,6 +14,8 @@ var desiredSignalsList : Array[DESIREDTOPSIGNALS]
 
 var costLabelString : String
 
+var ownerTop : BattleTop
+
 @export var titleString : String
 
 @export var descriptionString : String

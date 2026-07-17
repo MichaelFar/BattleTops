@@ -77,7 +77,8 @@ func shuffle_upgrades():
 	
 	if(GlobalStats.prePurchaseAvailableUpgradeArray.size() > 0):
 		
-		var upgrade_object = GlobalStats.upgradeClassDict[upgradeListWithRemoval[rand_index]].new()
+		#GlobalStats.upgradeClassDict[upgradeListWithRemoval[rand_index]].free()
+		var upgrade_object = GlobalStats.upgradeClassDict[upgradeListWithRemoval[rand_index]].get_script().new()
 		
 		upgrade = upgrade_object
 		

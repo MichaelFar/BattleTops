@@ -1,6 +1,6 @@
 extends Upgrade
 
-class_name DebugUpgradeThree
+class_name SparkUpgrade
 
 func initialize():
 	cost = 14.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://etvvup2u64d7"]
+[gd_scene format=3 uid="uid://etvvup2u64d7"]
 
 [ext_resource type="Script" uid="uid://db0s3rfk26712" path="res://addons/richtext2/richer_text_label.gd" id="1_56tod"]
 [ext_resource type="Script" uid="uid://bef1w04gc0fyo" path="res://scripts/upgrade_card.gd" id="1_miwfn"]
@@ -6,7 +6,6 @@
 
 [sub_resource type="Resource" id="Resource_lpncl"]
 script = ExtResource("2_cb288")
-cost = 11.0
 titleString = "Debug Upgrade"
 descriptionString = "This upgrade prints a statement when the top hits another"
 metadata/_custom_type_script = "uid://dwt8k80i03a8e"
@@ -31,7 +30,7 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[node name="UpgradeCard" type="PanelContainer" node_paths=PackedStringArray("costLabel", "cardTitle", "cardDescription", "purchasedPanel")]
+[node name="UpgradeCard" type="PanelContainer" unique_id=2084214719 node_paths=PackedStringArray("costLabel", "cardTitle", "cardDescription", "purchasedPanel")]
 script = ExtResource("1_miwfn")
 costLabel = NodePath("VBoxContainer/PanelContainer2/VBoxContainer/CostLabel")
 cardTitle = NodePath("VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer/CardTitle")
@@ -40,27 +39,27 @@ purchasedPanel = NodePath("Panel")
 bbcString = "[heart]"
 upgrade = SubResource("Resource_lpncl")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=145439589]
 layout_mode = 2
 
-[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer" unique_id=161077974]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_ratfy")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer2" unique_id=1941210010]
 layout_mode = 2
 
-[node name="CostLabel" type="RichTextLabel" parent="VBoxContainer/PanelContainer2/VBoxContainer"]
-clip_contents = false
+[node name="CostLabel" type="RichTextLabel" parent="VBoxContainer/PanelContainer2/VBoxContainer" unique_id=1415459678]
 custom_minimum_size = Vector2(25, 23)
+clip_contents = false
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_colors/font_outline_color = Color(0.19999999, 0.19999999, 0.19999999, 1)
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
 theme_override_font_sizes/bold_italics_font_size = 16
 theme_override_font_sizes/italics_font_size = 16
 theme_override_font_sizes/mono_font_size = 16
-theme_override_font_sizes/normal_font_size = 16
-theme_override_font_sizes/bold_font_size = 16
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
@@ -115,22 +114,21 @@ fit_width = false
 fit_width_padding = 10
 metadata/_custom_type_script = "uid://db0s3rfk26712"
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/PanelContainer2/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/PanelContainer2/VBoxContainer" unique_id=555987115]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2wj67")
 
-[node name="CardTitle" type="RichTextLabel" parent="VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer"]
+[node name="CardTitle" type="RichTextLabel" parent="VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer" unique_id=1059517502]
+custom_minimum_size = Vector2(4, 23)
 clip_contents = false
-custom_minimum_size = Vector2(4, 0)
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_colors/font_outline_color = Color(0.19999999, 0.19999999, 0.19999999, 1)
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
 theme_override_font_sizes/bold_italics_font_size = 16
 theme_override_font_sizes/italics_font_size = 16
 theme_override_font_sizes/mono_font_size = 16
-theme_override_font_sizes/normal_font_size = 16
-theme_override_font_sizes/bold_font_size = 16
 bbcode_enabled = true
-text = "Test Test Test Test Test Test"
 fit_content = true
 horizontal_alignment = 1
 script = ExtResource("1_56tod")
@@ -184,21 +182,21 @@ fit_width = false
 fit_width_padding = 10
 metadata/_custom_type_script = "uid://db0s3rfk26712"
 
-[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/PanelContainer2/VBoxContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/PanelContainer2/VBoxContainer" unique_id=1471079361]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_2wj67")
 
-[node name="CardDescription" type="RichTextLabel" parent="VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer2"]
-clip_contents = false
+[node name="CardDescription" type="RichTextLabel" parent="VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer2" unique_id=1514797448]
 custom_minimum_size = Vector2(0, 136)
+clip_contents = false
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_colors/font_outline_color = Color(0.19999999, 0.19999999, 0.19999999, 1)
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
 theme_override_font_sizes/bold_italics_font_size = 12
 theme_override_font_sizes/italics_font_size = 12
 theme_override_font_sizes/mono_font_size = 12
-theme_override_font_sizes/normal_font_size = 12
-theme_override_font_sizes/bold_font_size = 12
 bbcode_enabled = true
 fit_content = true
 script = ExtResource("1_56tod")
@@ -252,11 +250,11 @@ fit_width = false
 fit_width_padding = 10
 metadata/_custom_type_script = "uid://db0s3rfk26712"
 
-[node name="Button" type="Button" parent="VBoxContainer/PanelContainer2/VBoxContainer"]
+[node name="Button" type="Button" parent="VBoxContainer/PanelContainer2/VBoxContainer" unique_id=1186494139]
 layout_mode = 2
 text = "Get Upgrade"
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=1837154833]
 visible = false
 layout_mode = 2
 

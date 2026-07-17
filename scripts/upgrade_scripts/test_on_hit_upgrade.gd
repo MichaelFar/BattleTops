@@ -1,6 +1,6 @@
 extends Upgrade
 
-class_name TestOnHitUpgrade
+class_name OnHitUpgrade
 
 func initialize():
 	cost = 10.0
@@ -11,4 +11,4 @@ func initialize():
 func triggerEffect():
 	
 	print("hit enemy top from upgrade")
-	
+		
