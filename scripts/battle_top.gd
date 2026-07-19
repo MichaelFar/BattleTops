@@ -23,8 +23,11 @@ enum TopType {NPC, PLAYER}
 var stamina : float = 20 :
 	set(value):
 		stamina = value
-		if(stamina <= maxStamina / 3.0):
+		if((stamina <= maxStamina / 3.0) && !emittedStaminaSignal):
 			has_low_stamina.emit()
+			emittedStaminaSignal = true
+		elif(!(stamina <= maxStamina / 3.0)):
+			emittedStaminaSignal = false
 
 var maxStamina : float = 40 :
 	set(value):
@@ -121,10 +124,16 @@ var numTopsDefeated : int = 0
 
 var lastHitTop : BattleTop
 
+var emittedSparkedSignal : bool = false
+var emittedStaminaSignal : bool = false
+
 signal has_hit_top
 signal first_hit_occured
 signal has_sparked
 signal has_low_stamina
+
+signal hit_begun
+signal hit_end
 
 func _ready():
 	
@@ -202,8 +211,11 @@ func _physics_process(delta: float) -> void:
 	
 	particle.emitting = linear_velocity.length() > 2.5
 	
-	if(particle.emitting):
+	if(particle.emitting && !emittedSparkedSignal):
 		has_sparked.emit()
+		emittedSparkedSignal = true
+	elif(!particle.emitting):
+		emittedSparkedSignal = false
 	
 	if(linear_velocity.length() < minimumLinearVelocity && !isDead && insideArena):
 		
@@ -254,6 +266,7 @@ func check_colliding_then_apply_spin_force():
 		
 func hit_battle_top(battle_top : BattleTop):
 	
+	hit_begun.emit()
 	#print("Hitting top")
 	print("Stamina coefficient before calculating spinforce is " + str(stamina / maxStamina))
 	spinForce = clampf((stamina / maxStamina) * maxSpinForce, maxSpinForce / 3.0, 1000)
@@ -293,6 +306,8 @@ func hit_battle_top(battle_top : BattleTop):
 	if(battle_top.isDead):
 	
 		stamina = maxStamina
+	
+	hit_end.emit()
 	
 func update_stats():
 	
