@@ -47,3 +47,7 @@ func addSignalToList(new_signal : Signal):
 func initialize():
 	titleString = "Debug Upgrade"
 	descriptionString = "This upgrade is the base class for upgrades, nothing will trigger it"
+
+class TriggerPackage:
+	var signalEnum : DESIREDTOPSIGNALS
+	var callable : Callable
