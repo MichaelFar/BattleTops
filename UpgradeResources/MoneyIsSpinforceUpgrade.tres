@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SpinforceIsCurrentMoneyUpgrade" format=3 uid="uid://c10r1oxwhy8dv"]
+
+[ext_resource type="Script" uid="uid://dtavt3h3ueddg" path="res://scripts/upgrade_scripts/UP_SpinforceIsCurrentMoneyUpgrade.gd" id="1_yktnb"]
+
+[resource]
+script = ExtResource("1_yktnb")
+desiredSignalsList = Array[int]([6])
+cost = 100.0
+titleString = "Greedy Spinforce"
+descriptionString = "When the round begins, your Spinforce is now your current money"
+metadata/_custom_type_script = "uid://dtavt3h3ueddg"

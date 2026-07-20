@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StaminaGainFromHitUpgrade" format=3 uid="uid://emmgiu5hiksg"]
+
+[ext_resource type="Script" uid="uid://bmduoed266775" path="res://scripts/upgrade_scripts/UP_HigherStaminaMomentumGain.gd" id="1_gp10n"]
+
+[resource]
+script = ExtResource("1_gp10n")
+desiredSignalsList = Array[int]([3])
+cost = 35.0
+titleString = "Energy Efficiency"
+descriptionString = "Gain more Stamina from colliding with top"
+metadata/_custom_type_script = "uid://bmduoed266775"

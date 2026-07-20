@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GainMoneyUpgrade" format=3 uid="uid://dt5dq04fyj24m"]
+
+[ext_resource type="Script" uid="uid://bb7vy7mvac747" path="res://scripts/upgrade_scripts/UP_GainMoney.gd" id="1_8ee2u"]
+
+[resource]
+script = ExtResource("1_8ee2u")
+desiredSignalsList = Array[int]([0])
+cost = 35.0
+titleString = "Pirate"
+descriptionString = "Gain a small amount of Money when you hit the enemy"
+metadata/_custom_type_script = "uid://bb7vy7mvac747"

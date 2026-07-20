@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SturdinessIsCurrentMoneyUpgrade" format=3 uid="uid://bkqturxmbg2ve"]
+
+[ext_resource type="Script" uid="uid://cj22km75ll11o" path="res://scripts/upgrade_scripts/UP_SturdinessIsCurrentMoneyUpgrade.gd" id="1_2hj85"]
+
+[resource]
+script = ExtResource("1_2hj85")
+desiredSignalsList = Array[int]([6])
+cost = 100.0
+titleString = "Greedy Sturdiness"
+descriptionString = "When the round begins, your Sturdiness is now your current money"
+metadata/_custom_type_script = "uid://cj22km75ll11o"

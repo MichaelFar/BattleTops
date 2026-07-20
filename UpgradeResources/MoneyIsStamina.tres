@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StaminaIsCurrentMoneyUpgrade" format=3 uid="uid://dcxu1xddragj"]
+
+[ext_resource type="Script" uid="uid://ddxsj56th4kwf" path="res://scripts/upgrade_scripts/UP_StaminaIsCurrentMoneyUpgrade.gd" id="1_1dpxl"]
+
+[resource]
+script = ExtResource("1_1dpxl")
+desiredSignalsList = Array[int]([6])
+cost = 100.0
+titleString = "Greedy Stamina"
+descriptionString = "When the round begins, your Stamina is now your current money"
+metadata/_custom_type_script = "uid://ddxsj56th4kwf"

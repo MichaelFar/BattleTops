@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GainStaminaUpgrade" format=3 uid="uid://cr83ek6p6i1hp"]
+
+[ext_resource type="Script" uid="uid://cayhm804b51jr" path="res://scripts/upgrade_scripts/UP_GainStamina.gd" id="1_3vj6a"]
+
+[resource]
+script = ExtResource("1_3vj6a")
+desiredSignalsList = Array[int]([4])
+cost = 50.0
+titleString = "Stamina Kindling"
+descriptionString = "Whenever your top Sparks, heal 10% of your max stamina"
+metadata/_custom_type_script = "uid://cayhm804b51jr"

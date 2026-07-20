@@ -23,6 +23,7 @@ enum TopType {NPC, PLAYER}
 var stamina : float = 20 :
 	set(value):
 		stamina = value
+		stamina = clampf(stamina, 0.0, maxStamina)
 		if((stamina <= maxStamina / 3.0) && !emittedStaminaSignal):
 			has_low_stamina.emit()
 			emittedStaminaSignal = true
@@ -142,6 +143,7 @@ signal hit_begun
 signal hit_end
 signal has_completed_sf_sturdiness_calc
 signal has_calculated_stamina_after_hit
+signal new_round_has_begun
 
 
 func _ready():
@@ -192,6 +194,7 @@ func initialize_values():
 		
 		#physicsMaterial.bounce = rand_obj.randf_range(0.0, .75)
 		print("Generated random stats")
+		new_round_has_begun.emit()
 		
 	minimumLinearVelocity = randf_range(minimumLinearVelocity / 1.1, minimumLinearVelocity)
 	
@@ -321,7 +324,7 @@ func hit_calc_end_of_frame(battle_top : BattleTop):
 	print("Force magnitude applied to top is " + str(force_magnitude))
 	stamina += (battle_top.spinForce + spinForce) * staminaGainMult
 	
-	stamina = clampf(stamina, 0.0, maxStamina)
+	#stamina = clampf(stamina, 0.0, maxStamina)
 	
 	has_calculated_stamina_after_hit.emit()
 	
@@ -340,7 +343,7 @@ func update_stats():
 	maxSturdiness = GlobalStats.playerStats["sturdiness"]
 	maxSpinForce = GlobalStats.playerStats["spinForce"]
 	stamina = maxStamina
-	
+	new_round_has_begun.emit()
 func set_stamina_is_going_down(new_value : bool):
 	
 	staminaIsGoingDown = new_value

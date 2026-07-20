@@ -20,7 +20,7 @@ var ownerTop : BattleTop
 
 @export var descriptionString : String
 
-enum DESIREDTOPSIGNALS {has_hit_top, hit_begun, hit_end, first_hit_occured, has_sparked, has_low_stamina}
+enum DESIREDTOPSIGNALS {has_hit_top, hit_begun, hit_end, first_hit_occured, has_sparked, has_low_stamina, new_round_has_begun}
 
 signal has_been_purchased
 
@@ -84,3 +84,7 @@ func connect_upgrade_signals():
 		if (i == DESIREDTOPSIGNALS.hit_end):
 			
 			addSignalToList(ownerTop.hit_end)
+		
+		if(i == DESIREDTOPSIGNALS.new_round_has_begun):
+			
+			addSignalToList(ownerTop.new_round_has_begun)

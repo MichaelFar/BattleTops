@@ -7,5 +7,5 @@ script = ExtResource("1_ds084")
 desiredSignalsList = Array[int]([5])
 cost = 40.0
 titleString = "Dead Weight"
-descriptionString = "Become 50% more sturdy at low stamina"
+descriptionString = "Become 50% more Sturdy at low stamina"
 metadata/_custom_type_script = "uid://cphyp3ntuxc1g"

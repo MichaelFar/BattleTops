@@ -8,13 +8,19 @@
 [ext_resource type="Script" uid="uid://coy7htmpbskh6" path="res://scripts/camera_effects.gd" id="5_n4wb1"]
 [ext_resource type="Script" uid="uid://cpsk7niulxglf" path="res://scripts/upgrade_scripts/upgrade_base_script.gd" id="5_xd1wj"]
 [ext_resource type="PackedScene" uid="uid://d1pug181d3iuo" path="res://scenes/upgrade_ui.tscn" id="6_48bq8"]
+[ext_resource type="Resource" uid="uid://emmgiu5hiksg" path="res://UpgradeResources/GainStaminaMomentumUpgrade.tres" id="7_q82og"]
 [ext_resource type="PackedScene" uid="uid://dhgnj5ocj82ee" path="res://scenes/prompt_ui_lost_game.tscn" id="7_v7pxh"]
 [ext_resource type="PackedScene" uid="uid://dvqat4t6weo8b" path="res://scenes/round_end_ui.tscn" id="8_c3lje"]
+[ext_resource type="Resource" uid="uid://cr83ek6p6i1hp" path="res://UpgradeResources/GainStaminaOnSpark.tres" id="8_x2edm"]
+[ext_resource type="Resource" uid="uid://dt5dq04fyj24m" path="res://UpgradeResources/GainMoneyOnHit.tres" id="9_ns6mm"]
 [ext_resource type="Resource" uid="uid://ctrjkg3r2y2pw" path="res://UpgradeResources/TempStabilityUpgrade.tres" id="9_xd1wj"]
 [ext_resource type="PackedScene" uid="uid://taq5glodwni3" path="res://scenes/OopsUI.tscn" id="10_f34ng"]
+[ext_resource type="Resource" uid="uid://c10r1oxwhy8dv" path="res://UpgradeResources/MoneyIsSpinforceUpgrade.tres" id="10_l8m5i"]
 [ext_resource type="Resource" uid="uid://rd3r4towodu5" path="res://UpgradeResources/TempSturdinessFirstHitUpgrade.tres" id="10_qe0pf"]
+[ext_resource type="Resource" uid="uid://bkqturxmbg2ve" path="res://UpgradeResources/MoneyIsSturdinessUpgrade.tres" id="11_1p1ys"]
 [ext_resource type="PackedScene" uid="uid://dl6e2w84ab2xt" path="res://scenes/timer_ui.tscn" id="11_u623t"]
 [ext_resource type="PackedScene" uid="uid://d4n0i32qlhr0r" path="res://scenes/player_safety_barrier.tscn" id="12_g0gnx"]
+[ext_resource type="Resource" uid="uid://dcxu1xddragj" path="res://UpgradeResources/MoneyIsStamina.tres" id="12_m6hg2"]
 
 [sub_resource type="Resource" id="Resource_u623t"]
 script = ExtResource("3_g0gnx")
@@ -97,7 +103,7 @@ safetyBarrierCollider = NodePath("WinScreenSafetyBarrier/CollisionShape3D")
 playerSafetyBarrier = NodePath("PlayerSafetyBarrier")
 spawnRampRotationParent = NodePath("SpawnRampRotationParent")
 roundArray = Array[ExtResource("3_g0gnx")]([SubResource("Resource_u623t"), SubResource("Resource_g0gnx"), SubResource("Resource_g8q41"), SubResource("Resource_rwb5c"), SubResource("Resource_awqgd")])
-possibleUpgradesArray = Array[ExtResource("5_xd1wj")]([ExtResource("9_xd1wj"), ExtResource("10_qe0pf")])
+possibleUpgradesArray = Array[ExtResource("5_xd1wj")]([ExtResource("9_xd1wj"), ExtResource("10_qe0pf"), ExtResource("7_q82og"), ExtResource("8_x2edm"), ExtResource("9_ns6mm"), ExtResource("10_l8m5i"), ExtResource("11_1p1ys"), ExtResource("12_m6hg2")])
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=821248887]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, -0.0366803, 0.553671, 0.831927, -0.498656, 0.711299, -0.495375, 0, 0, 0)
