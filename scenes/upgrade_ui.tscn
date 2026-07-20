@@ -19,62 +19,62 @@ bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 [sub_resource type="RichTextEffect" id="RichTextEffect_ratfy"]
 resource_name = "fader"
 script = ExtResource("2_6ij7f")
-metadata/rt = 29171149534504
+metadata/rt = 3590575954891
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_may18"]
 resource_name = "heart"
 script = ExtResource("3_fq5lg")
-metadata/rt = 29171149534504
+metadata/rt = 3590575954891
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_4pgft"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 29224517858732
+metadata/rt = 3645018020818
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_oec1f"]
 resource_name = "sin"
 script = ExtResource("6_g3bku")
-metadata/rt = 29224517858732
+metadata/rt = 3645018020818
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_srdp0"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 29277886163673
+metadata/rt = 3699460086748
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_w5ndc"]
 resource_name = "sway"
 script = ExtResource("7_soydq")
-metadata/rt = 29277886163673
+metadata/rt = 3699460086748
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_oq6v8"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 29331254487814
+metadata/rt = 3753902152678
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_mh5b7"]
 resource_name = "jit2"
 script = ExtResource("8_2wj67")
-metadata/rt = 29331254487814
+metadata/rt = 3753902152678
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_7j37j"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 29384723475556
+metadata/rt = 3808377773042
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_8axjk"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 29438091818754
+metadata/rt = 3862819838972
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_c74tn"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 29491460146323
+metadata/rt = 3917261904902
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_milu8"]
 resource_name = "growin"
 script = ExtResource("9_soydq")
-metadata/rt = 29544828470642
+metadata/rt = 3971703970832
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_2wj67"]
 noise_type = 2
@@ -102,17 +102,17 @@ shader_parameter/texture_to_scroll = SubResource("NoiseTexture2D_ratfy")
 [sub_resource type="RichTextEffect" id="RichTextEffect_18trd"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 29598482007429
+metadata/rt = 4026431249454
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_f8agc"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 29651850328531
+metadata/rt = 4080873315381
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ii24h"]
 resource_name = "redact"
 script = ExtResource("1_gbnav")
-metadata/rt = 29705218656277
+metadata/rt = 4135315381311
 
 [node name="Control" type="Control" unique_id=1661133422 node_paths=PackedStringArray("staminaLabel", "sturdinessLabel", "spinForceLabel", "staminaCostLabel", "sturdinessCostLabel", "spinForceCostLabel", "moneyAmountValueLabel", "upgradeParent")]
 layout_mode = 3
@@ -176,6 +176,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(220, 88)
 clip_contents = false
 layout_mode = 2
+tooltip_text = "test"
 theme_override_colors/font_outline_color = Color(0.19999999, 0.19999999, 0.19999999, 1)
 theme_override_font_sizes/normal_font_size = 64
 theme_override_font_sizes/bold_font_size = 64
@@ -246,7 +247,7 @@ context_rich_array = true
 autostyle_numbers = true
 autostyle_numbers_tag = "[salmon]%s[]"
 autostyle_numbers_pad_decimals = true
-autostyle_numbers_decimals = 2
+autostyle_numbers_decimals = 0
 autostyle_emojis = true
 effect_weight = 0.0
 meta_auto_https = true
@@ -255,7 +256,7 @@ override_bbcodeEnabled = true
 override_clipContents = false
 override_fitContent = true
 fit_width = true
-fit_width_padding = 10
+fit_width_padding = 158
 metadata/_custom_type_script = "uid://mkih5spu6eqp"
 metadata/rand = Array[int]([2800208240, 2057223724, 3097015752, 2954115180])
 metadata/mouse_position = Vector2(1631.66, -97.9069)
@@ -371,7 +372,7 @@ animation = "redact"
 _hold = true
 progress = 1.0
 visible_character = 10
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0.19079606, 0.98162967, 36.097076, 68.89437), Transform2D(1, 0, 0.19079606, 0.98162967, 62.097076, 68.89437), Transform2D(1, 0, 0.19079606, 0.98162967, 102.09708, 68.89437), Transform2D(1, 0, 0.19079606, 0.98162967, 130.09708, 68.89437), Transform2D(1, 0, 0.19079606, 0.98162967, 170.09708, 68.89437), Transform2D(1, 0, 0.19079606, 0.98162967, 187.09708, 68.89437), Transform2D(1, 0, 0.19079606, 0.98162967, 228.09708, 68.89437), Transform2D(1, 0, 0.19079606, 0.98162967, 265.09708, 68.89437), Transform2D(1, 0, 0.19079606, 0.98162967, 327.09708, 68.89437)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0.22239283, 0.97495717, 36.27876, 68.856), Transform2D(1, 0, 0.22239283, 0.97495717, 62.27876, 68.856), Transform2D(1, 0, 0.22239283, 0.97495717, 102.27876, 68.856), Transform2D(1, 0, 0.22239283, 0.97495717, 130.27876, 68.856), Transform2D(1, 0, 0.22239283, 0.97495717, 170.27876, 68.856), Transform2D(1, 0, 0.22239283, 0.97495717, 187.27876, 68.856), Transform2D(1, 0, 0.22239283, 0.97495717, 228.27876, 68.856), Transform2D(1, 0, 0.22239283, 0.97495717, 265.27875, 68.856), Transform2D(1, 0, 0.22239283, 0.97495717, 327.27875, 68.856)])
 _char_size = Array[Vector2]([Vector2(0, 0), Vector2(25, 50), Vector2(34, 50), Vector2(24, 50), Vector2(34, 50), Vector2(12, 50), Vector2(33, 50), Vector2(33, 50), Vector2(28, 50), Vector2(0, 50)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
@@ -714,7 +715,7 @@ metadata/mouse_position = Vector2(1631.66, -97.9069)
 metadata/frame = 406189
 
 [node name="SturdinessValue" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer/StatAmountVbox" unique_id=1896231404]
-custom_minimum_size = Vector2(230, 88)
+custom_minimum_size = Vector2(240, 88)
 clip_contents = false
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.19999999, 0.19999999, 0.19999999, 1)
@@ -799,7 +800,7 @@ metadata/mouse_position = Vector2(1631.66, -97.9069)
 metadata/frame = 406189
 
 [node name="SpinForceValue" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/HBoxContainer/StatAmountVbox" unique_id=1481012663]
-custom_minimum_size = Vector2(230, 88)
+custom_minimum_size = Vector2(240, 88)
 clip_contents = false
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.19999999, 0.19999999, 0.19999999, 1)

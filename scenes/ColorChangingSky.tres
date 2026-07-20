@@ -1,0 +1,93 @@
+[gd_resource type="VisualShader" format=3 uid="uid://b1ng4ewpncm7n"]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_37bpl"]
+output_port_for_preview = 0
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_ns16b"]
+output_port_for_preview = 0
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+operator = 2
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_g44yp"]
+parameter_name = "Color_3"
+default_value_enabled = true
+default_value = Color(0.46666667, 0, 1, 1)
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_gtdih"]
+output_port_for_preview = 0
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+operator = 6
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_ubn08"]
+default_input_values = [0, 0.0, 1, 4.0]
+operator = 3
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_37bpl"]
+parameter_name = "Speed"
+hint = 1
+min = 1.0
+max = 20.0
+default_value_enabled = true
+default_value = 4.0
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_rdas7"]
+parameter_name = "Color_1"
+default_value_enabled = true
+default_value = Color(1, 0.10980392, 1, 1)
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_4w3v6"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_luojb"]
+function = 1
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_r8t6j"]
+output_port_for_preview = 0
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_lfmxv"]
+function = 0
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_bseyn"]
+parameter_name = "Color_2"
+default_value_enabled = true
+default_value = Color(7.70092e-06, 0.6759285, 0.9578343, 1)
+
+[resource]
+mode = 3
+flags/use_half_res_pass = false
+flags/use_quarter_res_pass = false
+flags/disable_fog = false
+flags/use_debanding = false
+nodes/sky/0/position = Vector2(760, 248)
+nodes/sky/2/node = SubResource("VisualShaderNodeColorParameter_rdas7")
+nodes/sky/2/position = Vector2(-672, -32)
+nodes/sky/3/node = SubResource("VisualShaderNodeInput_4w3v6")
+nodes/sky/3/position = Vector2(-2264, 544)
+nodes/sky/4/node = SubResource("VisualShaderNodeFloatFunc_luojb")
+nodes/sky/4/position = Vector2(-1192, 624)
+nodes/sky/7/node = SubResource("VisualShaderNodeVectorOp_r8t6j")
+nodes/sky/7/position = Vector2(200, 184)
+nodes/sky/8/node = SubResource("VisualShaderNodeFloatFunc_lfmxv")
+nodes/sky/8/position = Vector2(-1200, 384)
+nodes/sky/9/node = SubResource("VisualShaderNodeColorParameter_bseyn")
+nodes/sky/9/position = Vector2(-1192, 32)
+nodes/sky/11/node = SubResource("VisualShaderNodeVectorOp_37bpl")
+nodes/sky/11/position = Vector2(-528, 224)
+nodes/sky/12/node = SubResource("VisualShaderNodeVectorOp_ns16b")
+nodes/sky/12/position = Vector2(-232, 552)
+nodes/sky/13/node = SubResource("VisualShaderNodeColorParameter_g44yp")
+nodes/sky/13/position = Vector2(128, 608)
+nodes/sky/14/node = SubResource("VisualShaderNodeVectorOp_gtdih")
+nodes/sky/14/position = Vector2(488, 216)
+nodes/sky/15/node = SubResource("VisualShaderNodeFloatOp_ubn08")
+nodes/sky/15/position = Vector2(-1800, 520)
+nodes/sky/16/node = SubResource("VisualShaderNodeFloatParameter_37bpl")
+nodes/sky/16/position = Vector2(-2216, 688)
+nodes/sky/connections = PackedInt32Array(9, 0, 11, 1, 11, 0, 7, 1, 2, 0, 12, 0, 12, 0, 7, 0, 8, 0, 11, 0, 4, 0, 12, 1, 7, 0, 14, 0, 13, 0, 14, 1, 14, 0, 0, 0, 3, 0, 15, 0, 15, 0, 8, 0, 15, 0, 4, 0, 16, 0, 15, 1)

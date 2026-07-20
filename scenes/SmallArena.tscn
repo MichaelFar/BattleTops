@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dl6e2w84ab2xt" path="res://scenes/timer_ui.tscn" id="11_u623t"]
 [ext_resource type="PackedScene" uid="uid://d4n0i32qlhr0r" path="res://scenes/player_safety_barrier.tscn" id="12_g0gnx"]
 [ext_resource type="Resource" uid="uid://dcxu1xddragj" path="res://UpgradeResources/MoneyIsStamina.tres" id="12_m6hg2"]
-[ext_resource type="Environment" uid="uid://cpb1jh8xbeoth" path="res://shaders/WorldEnvironment.tres" id="13_1p1ys"]
+[ext_resource type="Environment" uid="uid://3r2qhboxwgvw" path="res://shaders/ThreeToneSkySimple.tres" id="13_1p1ys"]
 [ext_resource type="Material" uid="uid://bi700wdi4xsdw" path="res://material_resources/SmallArenaMain.tres" id="15_m6hg2"]
 
 [sub_resource type="Resource" id="Resource_u623t"]
