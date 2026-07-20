@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cv0qldr2y5gx0"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cv0qldr2y5gx0"]
 
 [ext_resource type="Shader" uid="uid://bbfptkdv68e1q" path="res://shaders/ArenaShader.tres" id="1_pa8vc"]
 

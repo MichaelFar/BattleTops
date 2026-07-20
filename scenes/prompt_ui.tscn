@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://j8m5jtfetlre"]
+[gd_scene format=3 uid="uid://j8m5jtfetlre"]
 
 [ext_resource type="Script" uid="uid://c7eg87712vl1x" path="res://scripts/prompt_ui.gd" id="1_hw2eb"]
 [ext_resource type="Script" uid="uid://c8g7nwoita0i5" path="res://addons/richtext2/text_effects/anims/rte_fader.gd" id="2_y7yk3"]
@@ -12,22 +12,31 @@ bg_color = Color(0.65098, 0.141176, 0.6, 0.611765)
 [sub_resource type="RichTextEffect" id="RichTextEffect_y7yk3"]
 resource_name = "fader"
 script = ExtResource("2_y7yk3")
-metadata/rt = 2960339844839
+metadata/rt = 4842240154726
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_vprhq"]
 resource_name = "sparkle"
 script = ExtResource("3_vprhq")
-metadata/rt = 2960339844839
+metadata/rt = 4842240154726
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_yhnrb"]
 resource_name = "curspull"
 script = ExtResource("4_yhnrb")
-metadata/rt = 2960339844839
+metadata/rt = 4842240154726
 
 [sub_resource type="FontFile" id="FontFile_lpym6"]
 subpixel_positioning = 0
 msdf_pixel_range = 14
 msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -44,7 +53,7 @@ cache/0/64/0/underline_position = 0.0
 cache/0/64/0/underline_thickness = 0.0
 cache/0/64/0/scale = 1.0
 
-[node name="PromptUI" type="Control"]
+[node name="PromptUI" type="Control" unique_id=652926817]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,7 +62,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hw2eb")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=387806744]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -63,7 +72,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_hw2eb")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1035602591]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -77,24 +86,26 @@ offset_bottom = 93.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="RichTextLabel" parent="Panel/VBoxContainer"]
+[node name="Label" type="RichTextLabel" parent="Panel/VBoxContainer" unique_id=1790027230]
+custom_minimum_size = Vector2(0, 176)
 clip_contents = false
-custom_minimum_size = Vector2(0, 88)
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_colors/font_outline_color = Color(0.19999999, 0.19999999, 0.19999999, 1)
+theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/bold_font_size = 64
 theme_override_font_sizes/bold_italics_font_size = 64
 theme_override_font_sizes/italics_font_size = 64
 theme_override_font_sizes/mono_font_size = 64
-theme_override_font_sizes/normal_font_size = 64
-theme_override_font_sizes/bold_font_size = 64
 bbcode_enabled = true
 fit_content = true
 custom_effects = [SubResource("RichTextEffect_y7yk3"), SubResource("RichTextEffect_vprhq"), SubResource("RichTextEffect_yhnrb")]
 script = ExtResource("5_nbjdm")
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
-_alpha = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
-_alpha_goal = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+progress = 1.0
+visible_character = 19
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 125.96047, 69.56097), Transform2D(1, 0, 0, 1, 156.95728, 69.58311), Transform2D(1, 0, 0, 1, 173.95535, 69.596), Transform2D(1, 0, 0, 1, 209.95084, 69.62525), Transform2D(1, 0, 0, 1, 249.94496, 69.66127), Transform2D(1, 0, 0, 1, 267.942, 69.67885), Transform2D(1, 0, 0, 1, 298.93625, 69.71137), Transform2D(1, 0, 0, 1, 315.9327, 69.73055), Transform2D(1, 0, 0, 1, 351.92426, 69.774704), Transform2D(1, 0, 0, 1, 390.91318, 69.828835), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 140.99792, 157.12889), Transform2D(1, 0, 0, 1, 200.99756, 157.13954), Transform2D(1, 0, 0, 1, 239.99728, 157.14746), Transform2D(1, 0, 0, 1, 267.99704, 157.15373), Transform2D(1, 0, 0, 1, 292.9968, 157.15979), Transform2D(1, 0, 0, 1, 333.99634, 157.17084), Transform2D(1, 0, 0, 1, 396.99542, 157.19115)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(28, 50), Vector2(0, 50), Vector2(38, 50), Vector2(33, 50), Vector2(12, 50), Vector2(28, 50), Vector2(0, 50), Vector2(38, 50), Vector2(35, 50), Vector2(34, 50), Vector2(0, 0), Vector2(63, 50), Vector2(35, 50), Vector2(24, 50), Vector2(25, 50), Vector2(33, 50), Vector2(37, 50), Vector2(0, 50)])
+_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _forced_finish_delay = -0.039044
 default_wait_time = 1.0
 play_on_bbcode = true
@@ -109,7 +120,7 @@ shortcut_expression = true
 shortcut_bookmark = true
 signal_quotes = true
 signal_stars = true
-bbcode = "[sparkle][curspull]Choose This Top?"
+bbcode = "[sparkle][curspull]Is This Top Worthy?"
 effects = 2
 alignment = 1
 color = Color(1, 1, 1, 1)
@@ -158,20 +169,20 @@ override_fitContent = true
 fit_width = false
 fit_width_padding = 10
 metadata/_custom_type_script = "uid://mkih5spu6eqp"
-metadata/mouse_position = Vector2(613.757, -325.789)
-metadata/frame = 260365
+metadata/mouse_position = Vector2(921.9502, 182.30548)
+metadata/frame = 690291
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1094796812]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+[node name="Button" type="Button" parent="Panel/VBoxContainer/HBoxContainer" unique_id=456083756]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = SubResource("FontFile_lpym6")
 theme_override_font_sizes/font_size = 64
 text = " Yes "
 
-[node name="Button2" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+[node name="Button2" type="Button" parent="Panel/VBoxContainer/HBoxContainer" unique_id=1694279964]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = SubResource("FontFile_lpym6")

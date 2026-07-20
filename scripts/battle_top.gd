@@ -23,7 +23,7 @@ enum TopType {NPC, PLAYER}
 var stamina : float = 20 :
 	set(value):
 		stamina = value
-		stamina = clampf(stamina, 0.0, maxStamina)
+		stamina = clampf(stamina, 1.0, maxStamina)
 		if((stamina <= maxStamina / 3.0) && !emittedStaminaSignal):
 			has_low_stamina.emit()
 			emittedStaminaSignal = true
@@ -173,7 +173,7 @@ func initialize_values():
 		
 		var rand_obj = RandomNumberGenerator.new()
 		
-		maxStamina = rand_obj.randf_range(50 + GlobalStats.opponentTopRangeDict["stamina"].x, 60+ GlobalStats.opponentTopRangeDict["sturdiness"].y)
+		maxStamina = rand_obj.randf_range(50 + GlobalStats.opponentTopRangeDict["stamina"].x, 60+ GlobalStats.opponentTopRangeDict["stamina"].y)
 		
 		stamina = maxStamina
 		
@@ -212,7 +212,7 @@ func _physics_process(delta: float) -> void:
 	
 	if(staminaIsGoingDown):
 		stamina -= delta
-		stamina = clampf(stamina, 0.0, maxStamina)
+		stamina = clampf(stamina, 1, maxStamina)
 	if(!isDead):
 		
 		topHead.look_at(orientPoint.global_position)
@@ -318,7 +318,7 @@ func hit_battle_top(battle_top : BattleTop):
 	
 
 func hit_calc_end_of_frame(battle_top : BattleTop):
-	var force_magnitude := clampf(spinForce - (battle_top.sturdiness / 2.0), 0.0, 1000)
+	var force_magnitude := clampf(spinForce - (battle_top.sturdiness / 2.0), 1.0, 1000)
 	battle_top.apply_central_force(global_position.direction_to(battle_top.global_position) * force_magnitude)
 	print("Force vector applied to top is " + str(global_position.direction_to(battle_top.global_position) * force_magnitude))
 	print("Force magnitude applied to top is " + str(force_magnitude))

@@ -21,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://dl6e2w84ab2xt" path="res://scenes/timer_ui.tscn" id="11_u623t"]
 [ext_resource type="PackedScene" uid="uid://d4n0i32qlhr0r" path="res://scenes/player_safety_barrier.tscn" id="12_g0gnx"]
 [ext_resource type="Resource" uid="uid://dcxu1xddragj" path="res://UpgradeResources/MoneyIsStamina.tres" id="12_m6hg2"]
+[ext_resource type="Environment" uid="uid://cpb1jh8xbeoth" path="res://shaders/WorldEnvironment.tres" id="13_1p1ys"]
+[ext_resource type="Material" uid="uid://bi700wdi4xsdw" path="res://material_resources/SmallArenaMain.tres" id="15_m6hg2"]
 
 [sub_resource type="Resource" id="Resource_u623t"]
 script = ExtResource("3_g0gnx")
@@ -31,17 +33,17 @@ metadata/_custom_type_script = "uid://btdbnyuq1rnip"
 
 [sub_resource type="Resource" id="Resource_g0gnx"]
 script = ExtResource("3_g0gnx")
-staminaVector = Vector2(1, 20)
-sturdinessVector = Vector2(20, 50)
-spinforceVector = Vector2(30, 60)
+staminaVector = Vector2(1, 10)
+sturdinessVector = Vector2(20, 35)
+spinforceVector = Vector2(15, 30)
 round = 1
 metadata/_custom_type_script = "uid://btdbnyuq1rnip"
 
 [sub_resource type="Resource" id="Resource_g8q41"]
 script = ExtResource("3_g0gnx")
-staminaVector = Vector2(10, 40)
-sturdinessVector = Vector2(50, 90)
-spinforceVector = Vector2(70, 110)
+staminaVector = Vector2(10, 20)
+sturdinessVector = Vector2(30, 60)
+spinforceVector = Vector2(45, 90)
 round = 3
 metadata/_custom_type_script = "uid://btdbnyuq1rnip"
 
@@ -110,10 +112,12 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, -0.0366803, 0.553671, 0.
 directional_shadow_max_distance = 1943.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=645342341]
+environment = ExtResource("13_1p1ys")
 
 [node name="BattleBowl" type="MeshInstance3D" parent="." unique_id=588585252]
 transform = Transform3D(0.602395, 0, 0, 0, 0.575896, 0, 0, 0, 0.438901, 0, -0.545717, 0)
 mesh = ExtResource("3_g8q41")
+surface_material_override/0 = ExtResource("15_m6hg2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BattleBowl" unique_id=66722255]
 
