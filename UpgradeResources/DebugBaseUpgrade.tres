@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://bkyfu3mvamtht"]
+
+[ext_resource type="Script" uid="uid://cpsk7niulxglf" path="res://scripts/upgrade_scripts/upgrade_base_script.gd" id="1_qk87f"]
+
+[resource]
+script = ExtResource("1_qk87f")
+titleString = "Debug Upgrade"
+descriptionString = "This upgrade is the base upgrade and nothing will trigger it"
+metadata/_custom_type_script = "uid://cpsk7niulxglf"

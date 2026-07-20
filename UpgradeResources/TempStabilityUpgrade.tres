@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TempStabilityIncreaseUpgrade" format=3 uid="uid://ctrjkg3r2y2pw"]
+
+[ext_resource type="Script" uid="uid://cphyp3ntuxc1g" path="res://scripts/upgrade_scripts/UP_TempStabOnHit.gd" id="1_ds084"]
+
+[resource]
+script = ExtResource("1_ds084")
+desiredSignalsList = Array[int]([5])
+cost = 40.0
+titleString = "Dead Weight"
+descriptionString = "Become 50% more sturdy at low stamina"
+metadata/_custom_type_script = "uid://cphyp3ntuxc1g"

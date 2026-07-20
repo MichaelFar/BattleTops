@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LowStaminaUpgrade" format=3 uid="uid://cetniyhtxrlep"]
+
+[ext_resource type="Script" uid="uid://ckv6y5ot1x50o" path="res://scripts/upgrade_scripts/debug_upgrade_2.gd" id="1_rxqnh"]
+
+[resource]
+script = ExtResource("1_rxqnh")
+desiredSignalsList = Array[int]([5])
+titleString = "Debug Low Stamina Upgrade"
+descriptionString = "This Upgrade triggers when the top has low stamina"
+metadata/_custom_type_script = "uid://ckv6y5ot1x50o"

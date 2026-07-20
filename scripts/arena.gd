@@ -38,7 +38,7 @@ class_name ArenaLevelManager
 
 @export var roundArray : Array[Round]
 
-@export var possibleUpgradesArray : Array[UpgradeListElement]
+@export var possibleUpgradesArray : Array[Upgrade]
 
 var topChildren : Array[BattleTop]
 
@@ -84,7 +84,7 @@ func _ready() -> void:
 	GlobalStats.roundArray = roundArray
 	
 	for i in possibleUpgradesArray.size():
-		GlobalStats.upgradeClassDict.get_or_add(i, possibleUpgradesArray[i].upgradeResource)
+		GlobalStats.upgradeClassDict.get_or_add(i, possibleUpgradesArray[i])
 	
 	GlobalStats.populate_upgrade_array()
 	popupUI.set_hidden(true)

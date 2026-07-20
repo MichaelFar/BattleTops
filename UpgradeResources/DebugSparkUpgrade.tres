@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SparkUpgrade" format=3 uid="uid://p6afldpl5tqh"]
+
+[ext_resource type="Script" uid="uid://btcw4040x6qux" path="res://scripts/upgrade_scripts/DebugUpgrade3.gd" id="1_m7hct"]
+
+[resource]
+script = ExtResource("1_m7hct")
+desiredSignalsList = Array[int]([4])
+titleString = "DebugSparkUpgrade"
+descriptionString = "This upgrade triggers when the top sparks"
+metadata/_custom_type_script = "uid://btcw4040x6qux"

@@ -57,7 +57,7 @@ func purchase_upgrade():
 	
 	if(upgrade != null):
 		
-		upgrade = upgrade.get_script().new()
+		upgrade = upgrade.duplicate(true)# get_script().new()
 		upgrade.has_been_purchased.connect(set_card_to_purchased)
 		purchased_upgrade.emit(upgradeCost, upgrade)
 		
@@ -78,7 +78,7 @@ func shuffle_upgrades():
 	if(GlobalStats.prePurchaseAvailableUpgradeArray.size() > 0):
 		
 		#GlobalStats.upgradeClassDict[upgradeListWithRemoval[rand_index]].free()
-		var upgrade_object = GlobalStats.upgradeClassDict[upgradeListWithRemoval[rand_index]].get_script().new()
+		var upgrade_object = GlobalStats.upgradeClassDict[upgradeListWithRemoval[rand_index]].duplicate(true)
 		
 		upgrade = upgrade_object
 		

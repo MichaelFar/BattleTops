@@ -8,7 +8,7 @@ class_name Upgrade
 
 var triggerSignals : Array[Signal]
 
-var desiredSignalsList : Array[DESIREDTOPSIGNALS]
+@export var desiredSignalsList : Array[DESIREDTOPSIGNALS]
 
 @export var cost := 11.0
 
@@ -20,9 +20,11 @@ var ownerTop : BattleTop
 
 @export var descriptionString : String
 
-enum DESIREDTOPSIGNALS {has_hit_top, first_hit_occured, has_sparked, has_low_stamina}
+enum DESIREDTOPSIGNALS {has_hit_top, hit_begun, hit_end, first_hit_occured, has_sparked, has_low_stamina}
 
 signal has_been_purchased
+
+signal end_of_initialization
 
 func _init() -> void:
 	
@@ -30,12 +32,17 @@ func _init() -> void:
 	costLabelString = str(cost)
 	print ("Upgrade initialized")
 
-func connect_signals():
+func initialize_signals():
 	
+	connect_upgrade_signals()
+
 	for i in triggerSignals:
 		
 		if(!i.is_connected(triggerEffect)):
 			i.connect(triggerEffect)
+	
+	end_of_initialization.emit()
+
 
 func triggerEffect():
 	print("triggered effect")
@@ -48,6 +55,32 @@ func initialize():
 	titleString = "Debug Upgrade"
 	descriptionString = "This upgrade is the base class for upgrades, nothing will trigger it"
 
-class TriggerPackage:
-	var signalEnum : DESIREDTOPSIGNALS
-	var callable : Callable
+func connect_upgrade_signals():
+	
+	print("Connecting upgrade signals")
+	
+	for i in desiredSignalsList:
+		
+		if (i == DESIREDTOPSIGNALS.has_hit_top):
+			
+			addSignalToList(ownerTop.has_hit_top)
+			#upgrade.connect_signals()
+		if (i == DESIREDTOPSIGNALS.first_hit_occured):
+			
+			addSignalToList(ownerTop.first_hit_occured)
+			
+		if (i == DESIREDTOPSIGNALS.has_sparked):
+			
+			addSignalToList(ownerTop.has_sparked)
+			
+		if (i == DESIREDTOPSIGNALS.has_low_stamina):
+			
+			addSignalToList(ownerTop.has_low_stamina)
+
+		if (i == DESIREDTOPSIGNALS.hit_begun):
+			
+			addSignalToList(ownerTop.hit_begun)
+
+		if (i == DESIREDTOPSIGNALS.hit_end):
+			
+			addSignalToList(ownerTop.hit_end)

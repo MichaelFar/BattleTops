@@ -1,4 +1,3 @@
-@tool
 extends Control
 
 class_name StatLabelController
@@ -178,12 +177,8 @@ func purchase_upgrade(upgrade_cost : float, new_upgrade : Upgrade):
 		
 		new_upgrade.has_been_purchased.emit()
 		
-		#GlobalStats.pop_upgrade_from_post_array(GlobalStats.get_index_of_post_upgrade(new_upgrade))
-		
 		upgrade_purchased.emit(new_upgrade)
 		
-
-
 func _on_next_round_button_pressed() -> void:
 	GlobalStats.populate_post_purchase_array()
 	GlobalStats.prePurchaseAvailableUpgradeArray = GlobalStats.postPurchaseAvailableUpgradeArray.duplicate()

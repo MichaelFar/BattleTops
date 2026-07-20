@@ -35,7 +35,11 @@ var maxStamina : float = 40 :
 		if(isPlayer):
 			print("Set stamina is now " + str(maxStamina))
 
+var staminaGainMult : float = 1.0
+
 var sturdiness : float = 40 
+
+var sturdinessMult : float = 1.0
 
 var maxSturdiness : float = 80 :
 	set(value):
@@ -44,6 +48,8 @@ var maxSturdiness : float = 80 :
 			print("Set sturdiness is now " + str(maxSturdiness))
 
 var spinForce : float = 100
+
+
 
 var maxSpinForce : float = 150 :
 	set(value):
@@ -134,6 +140,9 @@ signal has_low_stamina
 
 signal hit_begun
 signal hit_end
+signal has_completed_sf_sturdiness_calc
+signal has_calculated_stamina_after_hit
+
 
 func _ready():
 	
@@ -184,7 +193,7 @@ func initialize_values():
 		#physicsMaterial.bounce = rand_obj.randf_range(0.0, .75)
 		print("Generated random stats")
 		
-	minimumLinearVelocity = randf_range(minimumLinearVelocity, minimumLinearVelocity)
+	minimumLinearVelocity = randf_range(minimumLinearVelocity / 1.1, minimumLinearVelocity)
 	
 	var color_vector = Vector3(randf() ,  randf() , randf())
 	var emission_vector = Vector3(randf() ,  randf() , randf())
@@ -266,6 +275,18 @@ func check_colliding_then_apply_spin_force():
 		
 func hit_battle_top(battle_top : BattleTop):
 	
+	if(!hasBeenHit):
+		
+		first_hit_occured.emit()
+		
+		print("First hit occurred")
+		
+		hasBeenHit = true
+		
+	else:
+		physicsMaterial.absorbent = false
+	
+		physics_material_override = physicsMaterial
 	hit_begun.emit()
 	#print("Hitting top")
 	print("Stamina coefficient before calculating spinforce is " + str(stamina / maxStamina))
@@ -273,8 +294,9 @@ func hit_battle_top(battle_top : BattleTop):
 	print("Spin force is " + str(spinForce))
 	
 	print("Stamina coefficient before calculating sturdiness is " + str(stamina / maxStamina))
-	sturdiness = (stamina / maxStamina) * maxSturdiness
+	sturdiness = (stamina / maxStamina) * maxSturdiness * sturdinessMult
 	
+	has_completed_sf_sturdiness_calc.emit()
 	
 	print("Sturdiness during hit is " + str(sturdiness))
 	#physicsMaterial.absorbent = !hasBeenHit
@@ -284,31 +306,32 @@ func hit_battle_top(battle_top : BattleTop):
 	
 	spawn_hit_particle(battle_top.global_position)
 	lastHitTop = battle_top
-	if(!hasBeenHit):
-		
-		first_hit_occured.emit()
-		
-		hasBeenHit = true
-		
-	else:
-		physicsMaterial.absorbent = false
 	
-		physics_material_override = physicsMaterial
 	
 	has_hit_top.emit()
 	
-	battle_top.apply_central_force(global_position.direction_to(battle_top.global_position) * clampf(spinForce - (battle_top.sturdiness / 2.0), 0.0, 1000))
-	print("Force applied to top is " + str(global_position.direction_to(battle_top.global_position) * clampf(spinForce -battle_top.sturdiness , 0.0, 1000)))
-	stamina += battle_top.spinForce + spinForce
+	
+	call_deferred("hit_calc_end_of_frame", battle_top)
+	
+
+func hit_calc_end_of_frame(battle_top : BattleTop):
+	var force_magnitude := clampf(spinForce - (battle_top.sturdiness / 2.0), 0.0, 1000)
+	battle_top.apply_central_force(global_position.direction_to(battle_top.global_position) * force_magnitude)
+	print("Force vector applied to top is " + str(global_position.direction_to(battle_top.global_position) * force_magnitude))
+	print("Force magnitude applied to top is " + str(force_magnitude))
+	stamina += (battle_top.spinForce + spinForce) * staminaGainMult
 	
 	stamina = clampf(stamina, 0.0, maxStamina)
+	
+	has_calculated_stamina_after_hit.emit()
 	
 	if(battle_top.isDead):
 	
 		stamina = maxStamina
 	
 	hit_end.emit()
-	
+
+
 func update_stats():
 	
 	hasBeenHit = false
@@ -337,30 +360,11 @@ func add_upgrade(upgrade : Upgrade):
 	
 	upgradeArray.append(upgrade)
 	print("Adding upgrade " + str(upgrade))
-	for i in upgradeArray:
-		connect_upgrade_signals(i)
-	
+	upgrade.ownerTop = self
 
-func connect_upgrade_signals(upgrade : Upgrade):
+	upgrade.initialize_signals()
 	
-	print("Connecting upgrade signals")
+	#connect_upgrade_signals(upgrade)
 	
-	for i in upgrade.desiredSignalsList:
-		
-		if (i == upgrade.DESIREDTOPSIGNALS.has_hit_top):
-			
-			upgrade.addSignalToList(has_hit_top)
-			#upgrade.connect_signals()
-		if (i == upgrade.DESIREDTOPSIGNALS.first_hit_occured):
-			
-			upgrade.addSignalToList(first_hit_occured)
-			
-		if (i == upgrade.DESIREDTOPSIGNALS.has_sparked):
-			
-			upgrade.addSignalToList(has_sparked)
-			
-		if (i == upgrade.DESIREDTOPSIGNALS.has_low_stamina):
-			
-			upgrade.addSignalToList(has_low_stamina)
-	
-	upgrade.connect_signals()
+#I hate this function!
+#Crimes of the past haunt the present

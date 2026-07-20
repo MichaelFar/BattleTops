@@ -3,10 +3,11 @@ extends Upgrade
 class_name LowStaminaUpgrade
 
 func initialize():
-	cost = 10.0
-	titleString = "Debug Upgrade Stamina"
-	descriptionString = "This upgrade prints a statement when the top has low stamina"
-	desiredSignalsList.append(DESIREDTOPSIGNALS.has_low_stamina)
+	pass
+	#cost = 10.0
+	#titleString = "Debug Upgrade Stamina"
+	#descriptionString = "This upgrade prints a statement when the top has low stamina"
+	#desiredSignalsList.append(DESIREDTOPSIGNALS.has_low_stamina)
 
 func triggerEffect():
 	

@@ -80,7 +80,7 @@ var opponentTopRangeDict : Dictionary = { #Increases when round num increases
 	"spinForce" : Vector2(1,1)
 }
 
-var upgradeClassDict : Dictionary[int, Resource] 
+var upgradeClassDict : Dictionary[int, Upgrade] 
 
 var prePurchaseAvailableUpgradeArray : Array[int] :
 	set(value):
@@ -131,13 +131,15 @@ func populate_post_purchase_array():
 	
 	for i in playerBattleTop.upgradeArray:
 	
+		
 		for j in post_array_copy:
 			
-			var test_object = upgradeClassDict[j].get_script().new()
-			
-			if i.get_script() == test_object.get_script():
+			if(upgradeClassDict[j].titleString == i.titleString):
 				print("Removing " +str(i) + " from postPurchaseArray")
 				postPurchaseAvailableUpgradeArray.pop_at(postPurchaseAvailableUpgradeArray.find(j))
+			#if i.get_script() == test_object.get_script():
+				#print("Removing " +str(i) + " from postPurchaseArray")
+				#postPurchaseAvailableUpgradeArray.pop_at(postPurchaseAvailableUpgradeArray.find(j))
 	
 	print("Populate post purchase array is now " + str(postPurchaseAvailableUpgradeArray))
 	
