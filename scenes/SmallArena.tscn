@@ -75,6 +75,8 @@ data = PackedVector3Array(-0.0675, 0.03, 1, 0.0675, 0.03, 1, -0.0675, -0.03, 1, 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hdv8l"]
 data = PackedVector3Array(-0.0675, 0.03, 1, 0.0675, 0.03, 1, -0.0675, -0.03, 1, 0.0675, 0.03, 1, 0.0675, -0.03, 1, -0.0675, -0.03, 1, 0.0675, 0.03, -1, -0.0675, 0.03, -1, 0.0675, -0.03, -1, -0.0675, 0.03, -1, -0.0675, -0.03, -1, 0.0675, -0.03, -1, 0.0675, 0.03, 1, 0.0675, 0.03, -1, 0.0675, -0.03, 1, 0.0675, 0.03, -1, 0.0675, -0.03, -1, 0.0675, -0.03, 1, -0.0675, 0.03, -1, -0.0675, 0.03, 1, -0.0675, -0.03, -1, -0.0675, 0.03, 1, -0.0675, -0.03, 1, -0.0675, -0.03, -1, 0.0675, 0.03, 1, -0.0675, 0.03, 1, 0.0675, 0.03, -1, -0.0675, 0.03, 1, -0.0675, 0.03, -1, 0.0675, 0.03, -1, -0.0675, -0.03, 1, 0.0675, -0.03, 1, -0.0675, -0.03, -1, 0.0675, -0.03, 1, 0.0675, -0.03, -1, -0.0675, -0.03, -1)
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ywf0b"]
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_uwlbn"]
 height = 1.75
 radius = 0.626465
@@ -83,7 +85,7 @@ radius = 0.626465
 size = Vector3(200.253, 1, 180.82)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g8q41"]
-size = Vector3(2.35699, 1.78894, 1)
+size = Vector3(2.35699, 1.3311155, 1)
 
 [node name="SmallArena" type="Node3D" unique_id=395183087 node_paths=PackedStringArray("orientPoint", "spawnMarkerArray", "spawnTimer", "popupUI", "upgradeUI", "restartUI", "nextRoundUI", "oopsUI", "camera", "gameTimerUI", "popUpUIArray", "rampColliderArray", "safetyBarrierCollider", "playerSafetyBarrier", "spawnRampRotationParent")]
 script = ExtResource("1_uwlbn")
@@ -148,7 +150,7 @@ mesh = SubResource("BoxMesh_ojxb6")
 skeleton = NodePath("../../..")
 
 [node name="SpawnPoint2" type="Marker3D" parent="SpawnRampRotationParent/MeshInstance3D5/MeshInstance3D2" unique_id=533511322]
-transform = Transform3D(0.743288, 0.552849, -0.376671, -0.668307, 0.638741, -0.381281, 0.0298043, 0.535133, 0.844241, 0.0415041, 0.0566934, 0.862415)
+transform = Transform3D(0.74328804, 0.55284905, -0.37667102, -0.668307, 0.6387411, -0.381281, 0.02980429, 0.53513294, 0.84424096, 0.09352553, 0.12843141, 0.872246)
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="SpawnRampRotationParent" unique_id=1025605268]
 transform = Transform3D(-0.464343, -0.183876, -0.866357, -0.586684, 0.796661, 0.145363, 0.663465, 0.575776, -0.477804, -1.59468, 1.64582, 0.0328038)
@@ -156,6 +158,7 @@ mesh = SubResource("BoxMesh_ojxb6")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="SpawnRampRotationParent/MeshInstance3D6" unique_id=250038050]
+physics_material_override = SubResource("PhysicsMaterial_ywf0b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnRampRotationParent/MeshInstance3D6/StaticBody3D2" unique_id=1527593867]
 shape = SubResource("ConcavePolygonShape3D_4y73j")
@@ -170,7 +173,7 @@ mesh = SubResource("BoxMesh_ojxb6")
 skeleton = NodePath("../../..")
 
 [node name="SpawnPoint2" type="Marker3D" parent="SpawnRampRotationParent/MeshInstance3D6/MeshInstance3D2" unique_id=521123853]
-transform = Transform3D(0.743288, 0.552849, -0.376671, -0.668307, 0.638741, -0.381281, 0.0298043, 0.535133, 0.844241, 0.0415041, 0.0566934, 0.862415)
+transform = Transform3D(0.74328804, 0.55284894, -0.37667096, -0.668307, 0.638741, -0.38128096, 0.02980432, 0.535133, 0.8442411, 0.10106814, 0.1217577, 0.8753753)
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=1372236036]
 one_shot = true
@@ -180,7 +183,7 @@ autostart = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22403, 0)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=830478862]
-transform = Transform3D(1, 0, 0, 0, 0.865702, 0.500559, 0, -0.500559, 0.865702, -0.00660191, 1.36584, 1.21275)
+transform = Transform3D(1, 0, 0, 0, 0.86570233, 0.5005592, 0, -0.5005592, 0.86570233, -0.00660191, 1.3659303, 1.2129064)
 script = ExtResource("5_n4wb1")
 
 [node name="InnerArenaVolume" type="Area3D" parent="." unique_id=692215895]
@@ -220,6 +223,7 @@ visible = false
 transform = Transform3D(-1, -1.50996e-07, 0, 1.50996e-07, -1, 0, 0, 0, 1, 0, 2.41841, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WinScreenSafetyBarrier" unique_id=614271395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15041468, 0.11505675, 0.07707164)
 shape = SubResource("ConcavePolygonShape3D_ojxb6")
 disabled = true
 
@@ -238,7 +242,7 @@ transform = Transform3D(0.756368, 0.323299, -0.56867, 2.2092e-08, 0.869331, 0.49
 shape = SubResource("BoxShape3D_g8q41")
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="PlayerSafetyBarrier" unique_id=1341248605]
-transform = Transform3D(0.619272, -0.388058, 0.682578, 6.7175e-08, 0.869331, 0.49423, -0.785177, -0.306063, 0.538352, -1.30983, 0.573712, -0.880462)
+transform = Transform3D(0.619272, -0.388058, 0.682578, 6.7175e-08, 0.869331, 0.49423, -0.785177, -0.306063, 0.538352, -1.2209988, 0.37471148, -0.8104004)
 shape = SubResource("BoxShape3D_g8q41")
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="PlayerSafetyBarrier" unique_id=1763810888]

@@ -134,6 +134,8 @@ var lastHitTop : BattleTop
 var emittedSparkedSignal : bool = false
 var emittedStaminaSignal : bool = false
 
+var new_global_position : Vector3 = Vector3.ZERO
+
 signal has_hit_top
 signal first_hit_occured
 signal has_sparked
@@ -156,6 +158,8 @@ func _ready():
 	
 	initialize_values()
 	
+	GlobalStats.round_ended.connect(set_stamina_is_going_down.bind(false))
+	GlobalStats.round_ended.connect(set_stamina_to_max)
 	first_hit_occured.connect(set_stamina_is_going_down.bind(true))
 	
 func initialize_values():
@@ -181,7 +185,7 @@ func initialize_values():
 		
 		maxSturdiness = sturdiness
 		
-		spinForce = rand_obj.randf_range(150 + GlobalStats.opponentTopRangeDict["spinForce"].x, 200 + GlobalStats.opponentTopRangeDict["spinForce"].x)
+		spinForce = rand_obj.randf_range(180 + GlobalStats.opponentTopRangeDict["spinForce"].x, 230 + GlobalStats.opponentTopRangeDict["spinForce"].x)
 		
 		maxSpinForce = spinForce
 		
@@ -322,7 +326,7 @@ func hit_calc_end_of_frame(battle_top : BattleTop):
 	battle_top.apply_central_force(global_position.direction_to(battle_top.global_position) * force_magnitude)
 	print("Force vector applied to top is " + str(global_position.direction_to(battle_top.global_position) * force_magnitude))
 	print("Force magnitude applied to top is " + str(force_magnitude))
-	stamina += (battle_top.spinForce + spinForce) * staminaGainMult
+	stamina += ((spinForce - battle_top.spinForce) * 0.01) * staminaGainMult
 	
 	#stamina = clampf(stamina, 0.0, maxStamina)
 	
@@ -347,8 +351,7 @@ func update_stats():
 func set_stamina_is_going_down(new_value : bool):
 	
 	staminaIsGoingDown = new_value
-	if(!new_value):
-		stamina = maxStamina
+	
 
 func spawn_hit_particle(opponent_position : Vector3):
 	
@@ -368,6 +371,16 @@ func add_upgrade(upgrade : Upgrade):
 	upgrade.initialize_signals()
 	
 	#connect_upgrade_signals(upgrade)
-	
-#I hate this function!
-#Crimes of the past haunt the present
+
+func set_stamina_to_max():
+	stamina = maxStamina
+
+func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
+	if(new_global_position != Vector3.ZERO):
+		set_position_from_IF(new_global_position, state)
+		new_global_position = Vector3.ZERO
+		
+
+func set_position_from_IF(new_position : Vector3,state: PhysicsDirectBodyState3D):
+	state.transform.origin = new_position
+	linear_velocity = Vector3.ZERO

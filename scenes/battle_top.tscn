@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://danlbv3qunohf" path="res://scenes/top_particle.tscn" id="2_xsedg"]
 [ext_resource type="Shader" uid="uid://kku708lq2v04" path="res://shaders/battle_top.gdshader" id="3_akg2w"]
 [ext_resource type="Shader" uid="uid://bt6f82gunrha7" path="res://shaders/top_particle_shader.tres" id="4_i6kec"]
+[ext_resource type="Script" uid="uid://b6risrjvodkf0" path="res://scripts/billboard_progress_bar.gd" id="6_ywf0b"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ufdw3"]
 resource_local_to_scene = true
@@ -19,7 +20,7 @@ friction = 0.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_xsedg"]
 radius = 0.144169
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i6kec"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b5blt"]
 resource_local_to_scene = true
 emission_shape = 1
 emission_sphere_radius = 0.2
@@ -30,15 +31,15 @@ scale_max = 1.2
 turbulence_enabled = true
 turbulence_noise_speed_random = 0.64
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ywf0b"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a1ux0"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("4_i6kec")
 shader_parameter/ColorParameter = Color(0.796078, 0.066667, 0.078431, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_b5blt"]
+[sub_resource type="BoxMesh" id="BoxMesh_o8xmp"]
 resource_local_to_scene = true
-material = SubResource("ShaderMaterial_ywf0b")
+material = SubResource("ShaderMaterial_a1ux0")
 size = Vector3(0.03, 0.03, 0.03)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ywf0b"]
@@ -72,6 +73,12 @@ metallic = 1.0
 metallic_specular = 0.0
 roughness = 0.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al6tu"]
+bg_color = Color(1, 0.34106445, 0.29582155, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3uhrl"]
+bg_color = Color(0.47715992, 0.6747195, 0, 1)
+
 [node name="BattleTop" type="RigidBody3D" unique_id=319717813 node_paths=PackedStringArray("topHead", "topHeadMesh", "headCollision", "particle", "hitCheckTimer", "hitParticle", "nameTag")]
 physics_material_override = SubResource("PhysicsMaterial_ufdw3")
 contact_monitor = true
@@ -96,8 +103,8 @@ shape = SubResource("SphereShape3D_xsedg")
 
 [node name="top_particle" parent="." unique_id=1254291442 instance=ExtResource("2_xsedg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0914399)
-process_material = SubResource("ParticleProcessMaterial_i6kec")
-draw_pass_1 = SubResource("BoxMesh_b5blt")
+process_material = SubResource("ParticleProcessMaterial_b5blt")
+draw_pass_1 = SubResource("BoxMesh_o8xmp")
 
 [node name="TopHead" type="Node3D" parent="." unique_id=1155321011]
 top_level = true
@@ -114,7 +121,7 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_akg2w")
 
 [node name="NameTag" type="Label3D" parent="TopHead" unique_id=1927398255]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.158)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.32325932)
 visible = false
 billboard = 1
 modulate = Color(1, 1, 1, 0.0862745)
@@ -129,4 +136,18 @@ wait_time = 0.3
 
 [node name="HitParticle" parent="." unique_id=1612192251 instance=ExtResource("2_qrxi8")]
 
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=781522432 node_paths=PackedStringArray("topObject")]
+z_index = -14
+offset_right = 58.0
+offset_bottom = 11.0
+theme_override_styles/background = SubResource("StyleBoxFlat_al6tu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3uhrl")
+max_value = 1.0
+value = 1.0
+show_percentage = false
+script = ExtResource("6_ywf0b")
+topObject = NodePath("..")
+
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="ready" from="." to="ProgressBar" method="initialize"]
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

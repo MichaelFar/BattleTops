@@ -1,0 +1,19 @@
+[gd_resource type="Theme" format=3 uid="uid://xk0e8xwj188"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ratfy"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 0.5)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[resource]
+TooltipLabel/font_sizes/font_size = 48
+TooltipPanel/constants/resize_margin = 15
+TooltipPanel/font_sizes/title_font_size = 32
+TooltipPanel/styles/panel = SubResource("StyleBoxFlat_ratfy")

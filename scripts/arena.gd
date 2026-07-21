@@ -10,6 +10,7 @@ class_name ArenaLevelManager
 
 @export var battleTopScene : PackedScene
 
+#used for screensaver mode, probably will remove
 @export var numRounds : int = -1
 
 @export var popupUI : BasicUIController
@@ -135,11 +136,12 @@ func next_round():
 	GlobalStats.update_enemy_tops_and_advance_difficulty()
 	#GlobalStats.prePurchaseAvailableUpgradeArray = GlobalStats.postPurchaseAvailableUpgradeArray
 	print("Next round pre purchase array is " + str(GlobalStats.prePurchaseAvailableUpgradeArray))
-	playerSafetyBarrier.set_disabled_collision(false)
+	#playerSafetyBarrier.set_disabled_collision(false)
 	set_spawn_ramp_collision_disabled(false)
+	playerSafetyBarrier.set_disabled_collision(true)
 	spawn_battle_top()
 	update_player_top_stats()
-	playerTop.set_stamina_is_going_down(true)
+	#playerTop.set_stamina_is_going_down(true)
 	set_should_be_counting(true)
 	print("Player Stamina after next round is " + str(playerTop.stamina))
 	
@@ -187,10 +189,22 @@ func spawn_battle_top():
 			
 			var top_object : BattleTop = battleTopScene.instantiate()
 			
-			var spawn_index := wrapi(rand_starting_pos_index + i, 0, spawnMarkerArray.size() - 1)
-			
+			var spawn_index := rand_starting_pos_index
+			var player_new_position_index := rand_starting_pos_index - 1
+			#if(spawn_index == spawnMarkerArray.size() - 1):
+				#player_new_position_index = 0
+			#else:
+				#player_new_position_index = 1
 			add_child(top_object)
-			top_object.global_position = spawnMarkerArray[rand_obj.randi_range(0, spawnMarkerArray.size() - 1)].global_position
+			
+			playerTop.new_global_position = spawnMarkerArray[player_new_position_index].global_position
+			
+			
+			
+			top_object.global_position = spawnMarkerArray[spawn_index].global_position#spawnMarkerArray[rand_obj.randi_range(0, spawnMarkerArray.size() - 1)].global_position
+			#playerTop.new_global_position = spawnMarkerArray[player_new_position_index].global_position
+			print("Setting player position " + str(playerTop) + " to " + str(spawnMarkerArray[player_new_position_index].global_position))
+			print("And enemy position is " + str(spawnMarkerArray[spawn_index].global_position))
 			top_object.orientPoint = orientPoint
 			topChildren.append(top_object)
 			top_object.first_hit_occured.connect(set_spawn_ramp_collision_disabled.bind(true))
@@ -244,6 +258,7 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 func _on_kill_plane_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
 	
 	if(body is BattleTop):
+		GlobalStats.round_ended.emit()
 		print("Top hit death plane")
 		topChildren.pop_at(topChildren.find(body))
 		

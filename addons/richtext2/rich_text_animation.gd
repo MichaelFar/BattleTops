@@ -128,6 +128,11 @@ const FORCED_FINISH_DELAY := 0.1
 @export_storage var _forced_finish := false
 @export_storage var _forced_finish_delay := FORCED_FINISH_DELAY
 
+@export var tool_tip_text : String = "Tooltip"
+func _make_custom_tooltip(for_text):
+	var label = Label.new()
+	label.text = for_text
+	return label
 func _set_bbcode():
 	_triggers.clear()
 	_skip = false

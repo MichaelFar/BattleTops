@@ -96,6 +96,8 @@ var roundArray : Array[Round]
 
 var playerBattleTop : BattleTop
 
+signal round_ended
+
 func _ready():
 	
 	pass
