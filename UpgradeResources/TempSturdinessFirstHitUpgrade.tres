@@ -9,4 +9,5 @@ desiredSignalsList = Array[int]([3])
 cost = 40.0
 titleString = "Defensive Opening"
 descriptionString = "Become extremely Sturdy for the first hit of each round"
+upgradeRarity = 1
 metadata/_custom_type_script = "uid://cphyp3ntuxc1g"

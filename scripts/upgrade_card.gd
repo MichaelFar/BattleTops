@@ -16,6 +16,14 @@ class_name UpgradeCard
 
 @export var upgrade : Upgrade
 
+@export var colorPanel : PanelContainer
+@export var colorPanelStylebox : StyleBoxFlat
+
+@export var commonColor : Color
+@export var uncommonColor : Color
+@export var rareColor : Color
+
+
 var formerBBCString : String
 
 var costLabelString : String :
@@ -104,23 +112,24 @@ func populate_text_from_upgrade():
 	#costLabelString = upgrade.costLabelString
 	cardTitleString = upgrade.titleString
 	cardDescriptionString = upgrade.descriptionString
-	
+	if(upgrade.upgradeRarity == upgrade.RARITY.Common):
+		
+		#colorPanel["theme_override_styles/panel/bg_color"] = commonColor
+		#colorPanel.add_theme_color_override("bg_color", commonColor)
+		colorPanelStylebox.set("bg_color", commonColor)
+	if(upgrade.upgradeRarity == upgrade.RARITY.Uncommon):
+		
+		#colorPanel["theme_override_styles/panel/bg_color"] = uncommonColor
+		colorPanelStylebox.set("bg_color", uncommonColor)
+	if(upgrade.upgradeRarity == upgrade.RARITY.Rare):
+		
+		#colorPanel["theme_override_styles/panel/bg_color"] = rareColor
+		colorPanelStylebox.set("bg_color", rareColor)
+
 func set_card_to_purchased():
 	
 	hide()
-	#bbcString = ""
-	#print("Card has been purchased " + str(upgrade))
-	#purchasedPanel.show()
-	#costLabelString = "Purchased"
-	##costLabelString = upgrade.costLabelString
-	#cardTitleString = "Purchased"
-	#var card_word_count := cardDescriptionString.get_slice_count(" ")
-	#cardDescriptionString = ""
-	#
-	#for i in card_word_count:
-		#
-		#cardDescriptionString += "Purchased"
-	#cardDescriptionString = " Purchased Purchased Purchased Purchased Purchased Purchased "
+	
 	
 func new_upgrade():
 	

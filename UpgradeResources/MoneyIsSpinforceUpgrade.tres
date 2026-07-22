@@ -8,4 +8,5 @@ desiredSignalsList = Array[int]([6])
 cost = 100.0
 titleString = "Greedy Spinforce"
 descriptionString = "When the round begins, your Spinforce is now your current money"
+upgradeRarity = 2
 metadata/_custom_type_script = "uid://dtavt3h3ueddg"

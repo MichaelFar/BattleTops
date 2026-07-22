@@ -97,6 +97,10 @@ var roundArray : Array[Round]
 var playerBattleTop : BattleTop
 
 signal round_ended
+signal loop_failsafe_triggered
+signal round_restarted_with_random
+signal next_round_started
+signal player_died
 
 func _ready():
 	

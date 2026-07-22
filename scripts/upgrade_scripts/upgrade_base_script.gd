@@ -1,8 +1,7 @@
 extends Resource
 
 #Please note that any and all references to a Resource object must be deleted,
-#Unlike ordinary node objects they do not free themselves upon removal from the tree as they are not a node
-#Manual freeing is forbidden, must free by removing all references to the object, we free this memory in BattleTop.kill_top()
+#Godot now frees the memory on tree exit, this is not the case for Refcounted, but we don't use refcounted so who cares?
 
 class_name Upgrade
 
@@ -20,7 +19,15 @@ var ownerTop : BattleTop
 
 @export var descriptionString : String
 
-enum DESIREDTOPSIGNALS {has_hit_top, hit_begun, hit_end, first_hit_occured, has_sparked, has_low_stamina, new_round_has_begun}
+enum DESIREDTOPSIGNALS 
+{has_hit_top, hit_begun, hit_end, 
+first_hit_occured, has_sparked, 
+has_low_stamina, new_round_has_begun,
+loop_failsafe_triggered}
+
+enum RARITY {Common, Uncommon, Rare}
+
+@export var upgradeRarity : RARITY = RARITY.Common
 
 signal has_been_purchased
 
@@ -88,3 +95,6 @@ func connect_upgrade_signals():
 		if(i == DESIREDTOPSIGNALS.new_round_has_begun):
 			
 			addSignalToList(ownerTop.new_round_has_begun)
+		if(i == DESIREDTOPSIGNALS.loop_failsafe_triggered):
+			
+			addSignalToList(GlobalStats.loop_failsafe_triggered)

@@ -23,6 +23,7 @@
 [ext_resource type="Resource" uid="uid://dcxu1xddragj" path="res://UpgradeResources/MoneyIsStamina.tres" id="12_m6hg2"]
 [ext_resource type="Environment" uid="uid://3r2qhboxwgvw" path="res://shaders/ThreeToneSkySimple.tres" id="13_1p1ys"]
 [ext_resource type="Material" uid="uid://bi700wdi4xsdw" path="res://material_resources/SmallArenaMain.tres" id="15_m6hg2"]
+[ext_resource type="PackedScene" uid="uid://camy75gve3lnc" path="res://scenes/music_manager.tscn" id="24_m6hg2"]
 
 [sub_resource type="Resource" id="Resource_u623t"]
 script = ExtResource("3_g0gnx")
@@ -41,25 +42,25 @@ metadata/_custom_type_script = "uid://btdbnyuq1rnip"
 
 [sub_resource type="Resource" id="Resource_g8q41"]
 script = ExtResource("3_g0gnx")
-staminaVector = Vector2(10, 20)
-sturdinessVector = Vector2(30, 60)
-spinforceVector = Vector2(45, 90)
+staminaVector = Vector2(20, 40)
+sturdinessVector = Vector2(60, 120)
+spinforceVector = Vector2(90, 180)
 round = 3
 metadata/_custom_type_script = "uid://btdbnyuq1rnip"
 
 [sub_resource type="Resource" id="Resource_rwb5c"]
 script = ExtResource("3_g0gnx")
-staminaVector = Vector2(30, 60)
-sturdinessVector = Vector2(70, 130)
-spinforceVector = Vector2(100, 150)
+staminaVector = Vector2(60, 120)
+sturdinessVector = Vector2(140, 260)
+spinforceVector = Vector2(200, 300)
 round = 5
 metadata/_custom_type_script = "uid://btdbnyuq1rnip"
 
 [sub_resource type="Resource" id="Resource_awqgd"]
 script = ExtResource("3_g0gnx")
-staminaVector = Vector2(60, 90)
-sturdinessVector = Vector2(100, 150)
-spinforceVector = Vector2(130, 180)
+staminaVector = Vector2(120, 180)
+sturdinessVector = Vector2(200, 300)
+spinforceVector = Vector2(260, 360)
 round = 7
 metadata/_custom_type_script = "uid://btdbnyuq1rnip"
 
@@ -87,7 +88,7 @@ size = Vector3(200.253, 1, 180.82)
 [sub_resource type="BoxShape3D" id="BoxShape3D_g8q41"]
 size = Vector3(2.35699, 1.3311155, 1)
 
-[node name="SmallArena" type="Node3D" unique_id=395183087 node_paths=PackedStringArray("orientPoint", "spawnMarkerArray", "spawnTimer", "popupUI", "upgradeUI", "restartUI", "nextRoundUI", "oopsUI", "camera", "gameTimerUI", "popUpUIArray", "rampColliderArray", "safetyBarrierCollider", "playerSafetyBarrier", "spawnRampRotationParent")]
+[node name="SmallArena" type="Node3D" unique_id=395183087 node_paths=PackedStringArray("orientPoint", "spawnMarkerArray", "spawnTimer", "popupUI", "upgradeUI", "restartUI", "nextRoundUI", "oopsUI", "camera", "gameTimerUI", "popUpUIArray", "rampColliderArray", "safetyBarrierCollider", "playerSafetyBarrier", "spawnRampRotationParent", "musicManager")]
 script = ExtResource("1_uwlbn")
 orientPoint = NodePath("TopOrientPoint")
 spawnMarkerArray = [NodePath("SpawnRampRotationParent/MeshInstance3D5/MeshInstance3D2/SpawnPoint2"), NodePath("SpawnRampRotationParent/MeshInstance3D6/MeshInstance3D2/SpawnPoint2")]
@@ -108,6 +109,7 @@ playerSafetyBarrier = NodePath("PlayerSafetyBarrier")
 spawnRampRotationParent = NodePath("SpawnRampRotationParent")
 roundArray = Array[ExtResource("3_g0gnx")]([SubResource("Resource_u623t"), SubResource("Resource_g0gnx"), SubResource("Resource_g8q41"), SubResource("Resource_rwb5c"), SubResource("Resource_awqgd")])
 possibleUpgradesArray = Array[ExtResource("5_xd1wj")]([ExtResource("9_xd1wj"), ExtResource("10_qe0pf"), ExtResource("7_q82og"), ExtResource("8_x2edm"), ExtResource("9_ns6mm"), ExtResource("10_l8m5i"), ExtResource("11_1p1ys"), ExtResource("12_m6hg2")])
+musicManager = NodePath("MusicManager")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=821248887]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, -0.0366803, 0.553671, 0.831927, -0.498656, 0.711299, -0.495375, 0, 0, 0)
@@ -275,6 +277,8 @@ light_energy = 5.178
 light_indirect_energy = 5.689
 spot_range = 3.56325
 spot_angle = 35.115
+
+[node name="MusicManager" parent="." unique_id=500011350 instance=ExtResource("24_m6hg2")]
 
 [connection signal="body_entered" from="InnerArenaVolume" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="InnerArenaVolume" to="." method="_on_area_3d_body_exited"]

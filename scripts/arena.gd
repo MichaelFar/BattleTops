@@ -41,6 +41,8 @@ class_name ArenaLevelManager
 
 @export var possibleUpgradesArray : Array[Upgrade]
 
+@export var musicManager : MusicManager
+
 var topChildren : Array[BattleTop]
 
 var hasChosenTop : bool = false
@@ -63,7 +65,7 @@ var playerTop : BattleTop :
 			playerTop.first_hit_occured.connect(gameTimerUI.start_timer)
 			playerTop.first_hit_occured.connect(gameTimerUI.restart_timer)
 			playerTop.first_hit_occured.connect(playerSafetyBarrier.set_disabled_collision.bind(true))
-
+			
 var timeSinceLastHit : float = 0.0
 
 var shouldBeCounting : bool = true :
@@ -101,10 +103,10 @@ func _physics_process(delta: float) -> void:
 	
 	timeSinceLastHit += delta
 	
-	if(timeSinceLastHit > 20.0 && shouldBeCounting):
+	if(timeSinceLastHit > 15.0 && shouldBeCounting):
 		
 		shouldBeCounting = false
-		
+		GlobalStats.loop_failsafe_triggered.emit()
 		for i in topChildren:
 			
 			print("Applying impulse")
@@ -133,6 +135,8 @@ func _physics_process(delta: float) -> void:
 
 func next_round():
 	
+	GlobalStats.next_round_started.emit()
+	
 	GlobalStats.update_enemy_tops_and_advance_difficulty()
 	#GlobalStats.prePurchaseAvailableUpgradeArray = GlobalStats.postPurchaseAvailableUpgradeArray
 	print("Next round pre purchase array is " + str(GlobalStats.prePurchaseAvailableUpgradeArray))
@@ -159,7 +163,8 @@ func spawn_battle_top():
 			
 			var top_object : BattleTop = battleTopScene.instantiate()
 			var rand_obj := RandomNumberGenerator.new()
-			
+			if(i==0):
+				top_object.first_hit_occured.connect(musicManager.play_chorus_intro)
 			add_child(top_object)
 			top_object.global_position = spawnMarkerArray[i].global_position
 			top_object.orientPoint = orientPoint
@@ -225,6 +230,8 @@ func restart_round_with_random():
 	
 	set_spawn_ramp_collision_disabled(false)
 	
+	
+	GlobalStats.round_restarted_with_random.emit()
 	for i in topChildren:
 		
 		if(i != null):
@@ -275,7 +282,7 @@ func _on_kill_plane_body_shape_entered(body_rid: RID, body: Node3D, body_shape_i
 				if(playerTop == null):
 			
 					oopsUI.set_hidden(false)
-			
+					GlobalStats.player_died.emit()
 			if(body != playerTop && playerTop != null):
 				
 				print("Defeated top stats are " + str(body.topStats))
@@ -304,7 +311,7 @@ func _on_kill_plane_body_shape_entered(body_rid: RID, body: Node3D, body_shape_i
 			if(body == playerTop):
 				
 				print("Player has died")
-				
+				GlobalStats.player_died.emit()
 				restartUI.set_hidden(false)
 				restartUI.get_player_top_information(playerTop)
 				playerTop = null

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ckly1d5o7852e"
+path="res://.godot/imported/DowntimeLoop_ Malpractice.wav-34ede3d99f6b098c94d3d38c5b369320.sample"
+
+[deps]
+
+source_file="res://Audio/Malpractice/DowntimeLoop_ Malpractice.wav"
+dest_files=["res://.godot/imported/DowntimeLoop_ Malpractice.wav-34ede3d99f6b098c94d3d38c5b369320.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

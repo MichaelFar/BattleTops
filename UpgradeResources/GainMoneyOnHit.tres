@@ -8,4 +8,5 @@ desiredSignalsList = Array[int]([0])
 cost = 35.0
 titleString = "Pirate"
 descriptionString = "Gain a small amount of Money when you hit the enemy"
+upgradeRarity = 1
 metadata/_custom_type_script = "uid://bb7vy7mvac747"

@@ -5,7 +5,8 @@
 [resource]
 script = ExtResource("1_1dpxl")
 desiredSignalsList = Array[int]([6])
-cost = 100.0
+cost = 125.0
 titleString = "Greedy Stamina"
 descriptionString = "When the round begins, your Stamina is now your current money"
+upgradeRarity = 2
 metadata/_custom_type_script = "uid://ddxsj56th4kwf"

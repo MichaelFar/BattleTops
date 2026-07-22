@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://camy75gve3lnc"]
+
+[ext_resource type="Script" uid="uid://c6hog6nioo0g1" path="res://scripts/music_manager.gd" id="1_tn5dr"]
+[ext_resource type="AudioStream" uid="uid://c4jvqw25qyq6u" path="res://Audio/Malpractice/Transition_ Malpractice.wav" id="2_yodp2"]
+[ext_resource type="AudioStream" uid="uid://ckly1d5o7852e" path="res://Audio/Malpractice/DowntimeLoop_ Malpractice.wav" id="3_xcw26"]
+[ext_resource type="AudioStream" uid="uid://s6uooqencc7c" path="res://Audio/Malpractice/Chorus1_ Malpractice.wav" id="4_xcw26"]
+[ext_resource type="AudioStream" uid="uid://b2yl38ecm1xn" path="res://Audio/Malpractice/Chorus2_ Malpractice.wav" id="5_jbem4"]
+[ext_resource type="AudioStream" uid="uid://r6rsxbgbt02m" path="res://Audio/Malpractice/ChorusIntro_ Malpractice.wav" id="6_jbem4"]
+
+[sub_resource type="Animation" id="Animation_yodp2"]
+resource_name = "play_chorus"
+
+[sub_resource type="Animation" id="Animation_xcw26"]
+resource_name = "play_downtime"
+
+[sub_resource type="Animation" id="Animation_jbem4"]
+resource_name = "play_transition"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hu6vc"]
+_data = {
+&"play_chorus": SubResource("Animation_yodp2"),
+&"play_downtime": SubResource("Animation_xcw26"),
+&"play_transition": SubResource("Animation_jbem4")
+}
+
+[node name="MusicManager" type="Node3D" unique_id=500011350 node_paths=PackedStringArray("audioPlayer")]
+script = ExtResource("1_tn5dr")
+transitionStream = ExtResource("2_yodp2")
+downtimeLoopStream = ExtResource("3_xcw26")
+chorusPartOne = ExtResource("4_xcw26")
+chorusPartTwo = ExtResource("5_jbem4")
+chorusIntro = ExtResource("6_jbem4")
+audioPlayer = NodePath("AudioPlayer")
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="." unique_id=1757885281]
+stream = ExtResource("3_xcw26")
+volume_db = 2.0
+bus = &"Music Bus"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=268858667]
+libraries/ = SubResource("AnimationLibrary_hu6vc")
+
+[connection signal="finished_loop" from="." to="." method="_on_finished_loop"]

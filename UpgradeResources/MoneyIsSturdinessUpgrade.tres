@@ -8,4 +8,5 @@ desiredSignalsList = Array[int]([6])
 cost = 100.0
 titleString = "Greedy Sturdiness"
 descriptionString = "When the round begins, your Sturdiness is now your current money"
+upgradeRarity = 2
 metadata/_custom_type_script = "uid://cj22km75ll11o"

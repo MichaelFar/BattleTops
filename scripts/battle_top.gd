@@ -134,6 +134,9 @@ var lastHitTop : BattleTop
 var emittedSparkedSignal : bool = false
 var emittedStaminaSignal : bool = false
 
+var flatSpinForceBonus : float = 0.0
+var flatSturdinessBonus : float = 0.0
+
 var new_global_position : Vector3 = Vector3.ZERO
 
 signal has_hit_top
@@ -297,11 +300,11 @@ func hit_battle_top(battle_top : BattleTop):
 	hit_begun.emit()
 	#print("Hitting top")
 	print("Stamina coefficient before calculating spinforce is " + str(stamina / maxStamina))
-	spinForce = clampf((stamina / maxStamina) * maxSpinForce, maxSpinForce / 3.0, 1000)
+	spinForce = clampf((stamina / maxStamina) * maxSpinForce + flatSpinForceBonus, maxSpinForce / 4.0, 1000)
 	print("Spin force is " + str(spinForce))
 	
 	print("Stamina coefficient before calculating sturdiness is " + str(stamina / maxStamina))
-	sturdiness = (stamina / maxStamina) * maxSturdiness * sturdinessMult
+	sturdiness = ((stamina / maxStamina) * maxSturdiness * sturdinessMult) + flatSturdinessBonus
 	
 	has_completed_sf_sturdiness_calc.emit()
 	
@@ -322,7 +325,7 @@ func hit_battle_top(battle_top : BattleTop):
 	
 
 func hit_calc_end_of_frame(battle_top : BattleTop):
-	var force_magnitude := clampf(spinForce - (battle_top.sturdiness / 2.0), 1.0, 1000)
+	var force_magnitude := clampf(spinForce - (battle_top.sturdiness / 2.0), maxSpinForce / 12, maxSpinForce * 1000)
 	battle_top.apply_central_force(global_position.direction_to(battle_top.global_position) * force_magnitude)
 	print("Force vector applied to top is " + str(global_position.direction_to(battle_top.global_position) * force_magnitude))
 	print("Force magnitude applied to top is " + str(force_magnitude))
