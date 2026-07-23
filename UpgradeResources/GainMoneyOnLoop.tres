@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="GainMoneyUpgrade" format=3 uid="uid://bdcdolfsdhvab"]
+
+[ext_resource type="Script" uid="uid://bb7vy7mvac747" path="res://scripts/upgrade_scripts/UP_GainMoney.gd" id="1_6870i"]
+
+[resource]
+script = ExtResource("1_6870i")
+moneyToGain = 100
+desiredSignalsList = Array[int]([7])
+cost = 50.0
+titleString = "Compensation"
+descriptionString = "When your top hasn't hit the opponent for 15 seconds, gain 100 Money"
+upgradeRarity = 1
+metadata/_custom_type_script = "uid://bb7vy7mvac747"

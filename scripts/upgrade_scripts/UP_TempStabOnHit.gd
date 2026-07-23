@@ -1,6 +1,6 @@
 extends Upgrade
 
-class_name TempStabilityIncreaseUpgrade
+class_name TempSturdinessIncreaseUpgrade
 
 @export var sturdinessMult : float = 1.5
 

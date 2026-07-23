@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TempSpinForceFlatGainUpgrade" format=3 uid="uid://c8bbf6fto5a0t"]
+
+[ext_resource type="Script" uid="uid://djbxb2e3nycib" path="res://scripts/upgrade_scripts/UP_TemporarySpinforceGain.gd" id="1_y2t8y"]
+
+[resource]
+script = ExtResource("1_y2t8y")
+desiredSignalsList = Array[int]([1])
+cost = 45.0
+titleString = "Opposite Reaction"
+descriptionString = "Gain a small amount of temporary Spinforce on Hit, resets to normal levels at the end of the round"
+upgradeRarity = 1
+metadata/_custom_type_script = "uid://djbxb2e3nycib"
