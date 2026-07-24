@@ -198,6 +198,8 @@ func initialize_values():
 		topStats["sturdiness"] = maxSturdiness
 		topStats["spinForce"] = maxSpinForce
 		
+		for i in GlobalStats.currentEnemyUpgrades:
+			GlobalStats.connect_upgrade_to_enemy_top(i, self)
 		
 		#physicsMaterial.bounce = rand_obj.randf_range(0.0, .75)
 		print("Generated random stats")

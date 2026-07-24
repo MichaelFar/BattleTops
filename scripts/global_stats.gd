@@ -94,6 +94,10 @@ var postPurchaseAvailableUpgradeArray : Array[int]:
 
 var roundArray : Array[Round]
 
+var currentEnemyUpgradePoolArray : Array[Upgrade]
+
+var currentEnemyUpgrades : Array[Upgrade]
+
 var playerBattleTop : BattleTop
 
 signal round_ended
@@ -111,6 +115,8 @@ func populate_upgrade_array():
 	#availableUpgradeArray = upgradeClassDict.keys()
 	prePurchaseAvailableUpgradeArray = []
 	postPurchaseAvailableUpgradeArray = []
+	currentEnemyUpgradePoolArray = []
+	currentEnemyUpgrades = []
 	for i in upgradeClassDict.keys():
 		
 		prePurchaseAvailableUpgradeArray.append(i)
@@ -171,9 +177,9 @@ func set_player_stats(new_stamina : float, new_sturdiness : float, new_spin_forc
 	playerStats["sturdiness"] = new_sturdiness
 	playerStats["spinForce"] = new_spin_force
 
-func set_round_parameters(round : int):
+func set_round_parameters(round_num : int):
 	
-	var surpassed_highest_round : bool = has_reached_highest_round_difficulty(round)
+	var surpassed_highest_round : bool = has_reached_highest_round_difficulty(round_num)
 	
 	if(surpassed_highest_round):
 		opponentTopRangeDict["stamina"] = opponentTopRangeDict["stamina"] * 1.5;
@@ -182,22 +188,56 @@ func set_round_parameters(round : int):
 	else:
 		
 		for i in roundArray:
-			if(i.round == round):
+			
+			if(i.roundNum == round_num):
 				opponentTopRangeDict["stamina"] = i.staminaVector;
 				opponentTopRangeDict["sturdiness"] = i.sturdinessVector;
 				opponentTopRangeDict["spinForce"] = i.spinforceVector;
+				currentEnemyUpgrades = get_array_of_enemy_upgrades(i)
 				break;
 	for i in opponentTopRangeDict.keys():
+		
 		print("opponent stat: " + i + " is now " + str(opponentTopRangeDict[i]))
 
-func has_reached_highest_round_difficulty(round : int) -> bool:
+func get_array_of_enemy_upgrades(this_round : Round) -> Array[Upgrade]:
+	
+	var num_upgrades = this_round.numUpgradesPerEnemy
+
+	var index_array : Array[int]
+	for i in this_round.enemyUpgradePoolArray.size() - 1:
+			index_array.append(i)
+	var upgrade_array_copy := this_round.enemyUpgradePoolArray
+	var rand_obj = RandomNumberGenerator.new()
+	var array_to_return : Array[Upgrade]
+
+	for i in num_upgrades:
+
+		var rand_index = rand_obj.randi_range(0, index_array.size() - 1)
+		var rand_chosen_index = index_array[rand_index]
+		array_to_return.append(upgrade_array_copy[rand_chosen_index])
+		index_array.pop_at(rand_index)
+		
+
+	return array_to_return
+
+
+
+func connect_upgrade_to_enemy_top(new_upgrade : Upgrade, enemy_top : BattleTop):
+	
+	enemy_top.add_upgrade(new_upgrade.duplicate())
+	new_upgrade.ownerTop = enemy_top
+	new_upgrade.connect_upgrade_signals()
+
+func has_reached_highest_round_difficulty(round_num : int) -> bool:
+	
 	for i in roundArray:
 		
-		if(i.round >= round):
+		if(i.roundNum >= round_num):
 			
 			return false
 	
 	return true
+
 func update_enemy_tops_and_advance_difficulty():
 	
 	roundNum += 1

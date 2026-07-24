@@ -82,8 +82,11 @@ func calculate_score():
 	
 	for i in receivedStatDictionaryArray:
 		print(i)
-		op_dif_bonus += i["stamina"] + i["sturdiness"] + i["spinForce"]
-	
+		print("Dif bonus before adding upgrade mod is " + str(i["stamina"] + i["sturdiness"] + i["spinForce"]))
+		op_dif_bonus += i["stamina"] + i["sturdiness"] + i["spinForce"] + (GlobalStats.currentEnemyUpgrades.size() * 150.0)
+		print("Dif bonus after adding upgrade mod is " + str(op_dif_bonus))
+	print("Dif bonus from upgrades is " + str((GlobalStats.currentEnemyUpgrades.size() * 150.0)))
+
 	op_dif_bonus = op_dif_bonus / 3.0
 	
 	GlobalStats.goldAmount += (time_bonus + op_dif_bonus)
